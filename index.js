@@ -28,15 +28,18 @@ const loginContainer = document.querySelector(".loginContainer");
 const loginUsername = document.getElementById("loginUsername");
 const loginPassword = document.getElementById("loginPassword");
 const loginButton = document.getElementById("loginButton");
-const actionButtons = document.getElementById("actionButtons");
-const logoutButton = document.getElementById("logoutButton");
 const loginError = document.getElementById("loginError");
 
 const nextButton = document.getElementById("nextButton");
-const retryButton = document.getElementById("retryButton");
-const viewScoresButton = document.getElementById("viewScoresButton");
 const backButton = document.getElementById("backButton");
 const pastScoresEl = document.getElementById("pastScores");
+const retryButton = document.getElementById("retryButton");
+
+
+const actionButtons = document.getElementById("actionButtons");
+const logoutButton = document.getElementById("logoutButton");
+const viewScoresButton = document.getElementById("viewScoresButton");
+const resetScoresButton = document.getElementById("resetScoresButton");
 
 // Cookie Helpers 
 function setCookie(name, value, days) {
@@ -191,8 +194,10 @@ function loadQuiz() {
             sessionStorage.setItem("hasLoggedInBefore", true); // Set flag for future logins
         }
 
+        // Show the action buttons
         loginContainer.style.display = "none";
         actionButtons.style.display = "flex";
+        resetScoresButton.style.display = "block";
         viewScoresButton.style.display = "block";
         logoutButton.style.display = "block";
 
@@ -293,6 +298,14 @@ viewScoresButton.addEventListener("click", () => {
         return `<li>You scored ${scoreObj.score} out of ${scoreObj.total}</li>`;
     }).join('');
 
+});
+
+resetScoresButton.addEventListener("click", () => {
+    localStorage.removeItem("quizScores");
+
+    alert("All past scores have been reset.");
+
+    resetScoresButton.style.display = "none"; // Hide the reset button after action
 });
 
 // Back to quiz
