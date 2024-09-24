@@ -112,9 +112,13 @@ registerButton.addEventListener("click", () => {
         registerError.textContent = "Username already exists.";
         registerError.style.display = "block";
     } else {
-        // Register the new user
+        // Register the new user and store the first name
         users.push({ firstName: userFirstName, lastName: userLastName, email: userEmail, username, password });
         localStorage.setItem("users", JSON.stringify(users));
+
+        // Store first name in localStorage for welcome message
+        localStorage.setItem("firstName", userFirstName);
+
         registerError.style.display = "none";
         registerSection.style.display = "none";
         loginSection.style.display = "block"; // Go to login after registration
@@ -133,7 +137,10 @@ loginButton.addEventListener("click", () => {
         // Set login cookie
         setCookie("username", username, 1);
         loginError.style.display = "none";
-        loadQuiz();
+
+        // Store first name in localStorage for future reference
+        localStorage.setItem("firstName", validUser.firstName);
+        loadQuiz(); // Proceed to quiz section
     } else {
         loginError.textContent = "Incorrect username or password.";
         loginError.style.display = "block";
@@ -144,7 +151,20 @@ loginButton.addEventListener("click", () => {
 function loadQuiz() {
     const username = getCookie("username");
     if (username) {
-        document.getElementById("welcomeMessage").textContent = `Welcome, ${username}!`;
+        const firstName = localStorage.getItem("firstName");
+
+        // Check if user is returning or logging in for the first time
+        const hasLoggedInBefore = sessionStorage.getItem("hasLoggedInBefore");
+
+        if (hasLoggedInBefore) {
+            // Show "Welcome back" message for returning users
+            document.getElementById("welcomeMessage").textContent = `Welcome back, ${firstName}!`;
+        } else {
+            // Show a simple "Welcome" message for first-time login
+            document.getElementById("welcomeMessage").textContent = `Welcome, ${firstName}!`;
+            sessionStorage.setItem("hasLoggedInBefore", true); // Set flag for future logins
+        }
+
         registerSection.style.display = "none";
         loginSection.style.display = "none";
         quizSection.style.display = "block";
