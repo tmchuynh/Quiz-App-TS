@@ -43,16 +43,17 @@ label {
 #loginSection,
 #registerSection {
     min-width: 50%;
+    margin: 4rem;
 }
 
-#loginSection,
-#registerSection,
+
 #quizSection,
-#pastScoresSection {
+#pastScoresSection,
+#scoreSection {
     min-width: 70%;
     margin: 0 auto;
-    text-align: center;
     padding: 20px;
+    justify-content: space-between;
 }
 
 #pastScores {
@@ -71,7 +72,7 @@ label {
 
 .nes-btn {
     width: 100%;
-    margin: .5rem auto;
+    margin: 1rem auto;
     float: right;
     font-size: 14px;
     padding: 10px;
