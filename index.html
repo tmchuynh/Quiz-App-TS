@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NES Quiz App</title>
+    <!-- NES.css framework -->
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="nes-text is-primary">NES Quiz App</h1>
+            <p id="welcomeMessage"></p>
+        </header>
+
+        <!-- Registration Form -->
+        <div id="registerSection" class="nes-container is-rounded">
+            <h2 class="nes-text">Register</h2>
+
+            <label for="firstName" class="nes-text">First Name:</label>
+            <input type="text" id="firstName" class="nes-input" placeholder="Enter first name" />
+
+            <label for="lastName" class="nes-text">Last Name:</label>
+            <input type="text" id="lastName" class="nes-input" placeholder="Enter last name" />
+
+            <label for="email" class="nes-text">Email:</label>
+            <input type="email" id="email" class="nes-input" placeholder="Enter email" />
+
+            <label for="registerUsername" class="nes-text">Username:</label>
+            <input type="text" id="registerUsername" class="nes-input" placeholder="Enter username" />
+
+            <label for="registerPassword" class="nes-text">Password:</label>
+            <input type="password" id="registerPassword" class="nes-input" placeholder="Enter password" />
+
+            <label for="confirmPassword" class="nes-text">Retype Password:</label>
+            <input type="password" id="confirmPassword" class="nes-input" placeholder="Retype password" />
+
+            <button id="registerButton" class="nes-btn is-success">Register</button>
+            <p id="registerError" class="nes-text is-error" style="display:none;"></p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginSection" class="nes-container is-rounded" style="display:none;">
+            <h2 class="nes-text">Login</h2>
+            <label for="loginUsername" class="nes-text">Username:</label>
+            <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
+            <label for="loginPassword" class="nes-text">Password:</label>
+            <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
+            <button id="loginButton" class="nes-btn is-primary">Login</button>
+            <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection" style="display: none;">
+            <p id="welcomeMessage"></p>
+            <p id="question"></p>
+            <div id="answers"></div>
+            <button id="nextButton" class="nes-btn" style="display: none;">Next Question</button>
+            <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        </div>
+
+        <!-- Score Section -->
+        <div id="scoreSection" class="nes-container is-rounded" style="display:none;">
+            <h2 class="nes-text">Quiz Completed!</h2>
+            <p id="scoreMessage"></p>
+            <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
+            <button id="viewScoresButton" class="nes-btn is-info">View Past Scores</button>
+        </div>
+
+        <!-- Past Scores -->
+        <div id="pastScoresSection" class="nes-container is-rounded" style="display:none;">
+            <h2 class="nes-text">Past Scores</h2>
+            <ul id="pastScores"></ul>
+            <button id="backButton" class="nes-btn">Back to Quiz</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
