@@ -55,6 +55,7 @@ logoutButton.addEventListener("click", () => {
     // Redirect to the login page
     loginContainer.style.display = "flex";
     loginSection.style.display = "block";
+    pastScoresSection.style.display = "none";
     quizSection.style.display = "none";
     actionButtons.style.display = "none";
     document.getElementById("welcomeMessage").textContent = ""; // Clear welcome message
@@ -254,23 +255,19 @@ function checkAnswer(selected) {
 
 // Show Score
 function showScore() {
-    viewScoresButton.style.display = "none";
+    viewScoresButton.style.display = "block";
     quizSection.style.display = "none";
     scoreSection.style.display = "flex";
-    scoreSection.style.flexDirection = "column";
     scoreSection.style.flexWrap = "wrap";
 
-    // Show score after quiz completion
     document.getElementById("scoreMessage").textContent = `You scored ${score} out of ${quizData.length}!`;
 
-    // Store the score and total in localStorage
     const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    pastScores.push({ score: score, total: quizData.length }); // Store as an object
-    localStorage.setItem("quizScores", JSON.stringify(pastScores)); // Update localStorage
-
-    viewScoresButton.style.display = "block";
+    const timestamp = new Date().toLocaleString(); // Get the current date and time
+    pastScores.push({ score: score, total: quizData.length, date: timestamp });
     localStorage.setItem("quizScores", JSON.stringify(pastScores));
 }
+
 
 // Retry quiz
 retryButton.addEventListener("click", () => {
@@ -292,13 +289,13 @@ viewScoresButton.addEventListener("click", () => {
     viewScoresButton.style.display = "none";
     pastScoresSection.style.display = "flex";
     pastScoresSection.style.flexDirection = "column";
+
     const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-
-    pastScoresEl.innerHTML = pastScores.map(scoreObj => {
-        return `<li>You scored ${scoreObj.score} out of ${scoreObj.total}</li>`;
+    pastScoresEl.innerHTML = pastScores.map(({ score, total, date }) => {
+        return `<li>${score} / ${total} - ${date}</li>`;
     }).join('');
-
 });
+
 
 resetScoresButton.addEventListener("click", () => {
     localStorage.removeItem("quizScores");
