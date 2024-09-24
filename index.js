@@ -24,9 +24,11 @@ const confirmPassword = document.getElementById("confirmPassword");
 const registerButton = document.getElementById("registerButton");
 const registerError = document.getElementById("registerError");
 
+const loginContainer = document.querySelector(".loginContainer");
 const loginUsername = document.getElementById("loginUsername");
 const loginPassword = document.getElementById("loginPassword");
 const loginButton = document.getElementById("loginButton");
+const actionButtons = document.getElementById("actionButtons");
 const logoutButton = document.getElementById("logoutButton");
 const loginError = document.getElementById("loginError");
 
@@ -48,8 +50,10 @@ logoutButton.addEventListener("click", () => {
     setCookie("username", "", -1); // Setting the cookie expiration in the past to remove it
     sessionStorage.removeItem("quizProgress"); // Remove any quiz progress
     // Redirect to the login page
+    loginContainer.style.display = "flex";
     loginSection.style.display = "block";
     quizSection.style.display = "none";
+    actionButtons.style.display = "none";
     document.getElementById("welcomeMessage").textContent = ""; // Clear welcome message
 });
 
@@ -70,8 +74,16 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Handle Registration with Validation
-registerButton.addEventListener("click", () => {
+// Handle Registration with Validation and Enter Key
+registerButton.addEventListener("click", validateRegistrationForm);
+document.getElementById("registerSection").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        validateRegistrationForm();
+    }
+});
+
+// Validate registration form
+function validateRegistrationForm() {
     const userFirstName = firstName.value.trim();
     const userLastName = lastName.value.trim();
     const userEmail = email.value.trim();
@@ -123,12 +135,26 @@ registerButton.addEventListener("click", () => {
         registerSection.style.display = "none";
         loginSection.style.display = "block"; // Go to login after registration
     }
+}
+
+// Handle Login with Enter Key and Validation
+loginButton.addEventListener("click", validateLoginForm);
+document.getElementById("loginSection").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        validateLoginForm();
+    }
 });
 
-// Handle Login
-loginButton.addEventListener("click", () => {
+// Validate login form
+function validateLoginForm() {
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
+
+    if (!username || !password) {
+        loginError.textContent = "Please enter both username and password.";
+        loginError.style.display = "block";
+        return;
+    }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const validUser = users.find(user => user.username === username && user.password === password);
@@ -145,7 +171,7 @@ loginButton.addEventListener("click", () => {
         loginError.textContent = "Incorrect username or password.";
         loginError.style.display = "block";
     }
-});
+}
 
 // Load Quiz
 function loadQuiz() {
@@ -165,14 +191,19 @@ function loadQuiz() {
             sessionStorage.setItem("hasLoggedInBefore", true); // Set flag for future logins
         }
 
-        registerSection.style.display = "none";
-        loginSection.style.display = "none";
-        quizSection.style.display = "block";
+        loginContainer.style.display = "none";
+        actionButtons.style.display = "flex";
+        viewScoresButton.style.display = "block";
+        logoutButton.style.display = "block";
+
+        quizSection.style.display = "flex";
+        quizSection.style.flexDirection = "column";
 
         currentQuestion = parseInt(sessionStorage.getItem("quizProgress")) || 0;
         score = 0;
         displayQuestion();
     } else {
+        actionButtons.style.display = "none";
         loginSection.style.display = "block";
         quizSection.style.display = "none";
     }
@@ -180,6 +211,9 @@ function loadQuiz() {
 
 // Display Question
 function displayQuestion() {
+    actionButtons.style.display = "flex";
+    viewScoresButton.style.display = "block";
+    logoutButton.style.display = "block";
     const currentQuizData = quizData[currentQuestion];
     document.getElementById("question").textContent = currentQuizData.question;
     const answersEl = document.getElementById("answers");
@@ -215,13 +249,21 @@ function checkAnswer(selected) {
 
 // Show Score
 function showScore() {
+    viewScoresButton.style.display = "none";
     quizSection.style.display = "none";
-    scoreSection.style.display = "block";
+    scoreSection.style.display = "flex";
+    scoreSection.style.flexDirection = "column";
+    scoreSection.style.flexWrap = "wrap";
 
+    // Show score after quiz completion
     document.getElementById("scoreMessage").textContent = `You scored ${score} out of ${quizData.length}!`;
 
+    // Store the score and total in localStorage
     const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    pastScores.push(score);
+    pastScores.push({ score: score, total: quizData.length }); // Store as an object
+    localStorage.setItem("quizScores", JSON.stringify(pastScores)); // Update localStorage
+
+    viewScoresButton.style.display = "block";
     localStorage.setItem("quizScores", JSON.stringify(pastScores));
 }
 
@@ -230,7 +272,9 @@ retryButton.addEventListener("click", () => {
     sessionStorage.removeItem("quizProgress");
     currentQuestion = 0;
     score = 0;
-    quizSection.style.display = "block";
+    viewScoresButton.style.display = "none";
+    quizSection.style.display = "flex";
+    quizSection.style.flexDirection = "column";
     scoreSection.style.display = "none";
     displayQuestion();
 });
@@ -238,15 +282,24 @@ retryButton.addEventListener("click", () => {
 // View past scores
 viewScoresButton.addEventListener("click", () => {
     scoreSection.style.display = "none";
-    pastScoresSection.style.display = "block";
+    quizSection.style.display = "none";
+
+    viewScoresButton.style.display = "none";
+    pastScoresSection.style.display = "flex";
+    pastScoresSection.style.flexDirection = "column";
     const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    pastScoresEl.innerHTML = pastScores.map(score => `<li>${score}</li>`).join('');
+
+    pastScoresEl.innerHTML = pastScores.map(scoreObj => {
+        return `<li>You scored ${scoreObj.score} out of ${scoreObj.total}</li>`;
+    }).join('');
+
 });
 
 // Back to quiz
 backButton.addEventListener("click", () => {
     pastScoresSection.style.display = "none";
-    scoreSection.style.display = "block";
+    scoreSection.style.display = "flex";
+    scoreSection.style.flexDirection = "column";
 });
 
 // Initial load

@@ -1,28 +1,93 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
 body {
     font-family: 'Press Start 2P', cursive;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
+    position: relative;
+    line-height: 1.5;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin: 1rem;
 }
 
-#registerSection,
+label {
+    padding-top: 1rem;
+}
+
+.loginContainer {
+    display: flex;
+    gap: 3rem;
+    max-width: 80%;
+    flex-wrap: auto;
+    margin: auto;
+    justify-content: center;
+}
+
+.container {
+    max-width: 50%;
+    margin: auto;
+    min-height: 10rem;
+}
+
 #loginSection,
-#quizSection,
-#scoreSection,
-#pastScoresSection {
-    margin-bottom: 20px;
+#registerSection {
+    min-width: 50%;
+}
+
+#quizSection {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+    #quizSection {
+        max-width: 90%;
+        padding: 10px;
+    }
 }
 
 .nes-btn {
-    margin-top: 1rem;
+    width: 100%;
+    margin: .5rem auto;
+    float: right;
+    font-size: 14px;
+    padding: 10px;
+}
+
+#logoutButton,
+#registerButton,
+#loginButton,
+#viewScoresButton {
+    width: fit-content;
+}
+
+#actionButtons {
+    max-width: 80%;
+    margin: 3rem;
+    padding-bottom: 1rem;
+    margin: auto;
+    height: fit-content;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.nes-text.is-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
 }
