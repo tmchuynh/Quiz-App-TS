@@ -153,6 +153,11 @@ logoutButton.addEventListener("click", () => {
     quizSection.style.display = "none";
     actionButtons.style.display = "none";
     document.getElementById("welcomeMessage").textContent = ""; // Clear welcome message
+    const current = localStorage.getItem("currentUserId");
+    const quiz = "quizScores_" + current
+    localStorage.removeItem("currentUserId");
+    localStorage.removeItem(quiz)
+    localStorage.removeItem("firstName");
 });
 
 function getCookie(name) {
@@ -336,8 +341,6 @@ function validateLoginForm() {
         // Proceed to the main application
     } else {
         // Handle login failure
-        registerError.textContent = "Invalid username or password.";
-        registerError.style.display = "block";
         loginError.textContent = "Incorrect username or password.";
         loginError.style.display = "block";
 
@@ -369,8 +372,9 @@ function clearLoginErrorStyles() {
 function loadQuiz() {
     const currentUserId = localStorage.getItem("currentUserId");
     if (currentUserId) {
-        const firstName = localStorage.getItem("firstName");
-
+        const users = localStorage.getItem("users");
+        const foundUser = Object.keys(users).find(user => user.id === currentUserId);
+        const firstName = foundUser ? foundUser.firstName : null;
         // Check if user is returning or logging in for the first time
         const hasLoggedInBefore = sessionStorage.getItem("hasLoggedInBefore");
 
@@ -396,6 +400,8 @@ function loadQuiz() {
         currentQuestion = parseInt(sessionStorage.getItem("quizProgress")) || 0;
         score = 0;
         displayQuestion();
+        loadProgress();
+        updateProgressBar();
     } else {
         actionButtons.style.display = "none";
         loginSection.style.display = "block";
@@ -572,10 +578,11 @@ backButton.addEventListener("click", () => {
 });
 
 function checkHistory() {
-    const pastScores = localStorage.getItem("quizScores");
+    const currentUserId = localStorage.getItem("currentUserId");
+    const quizScores = localStorage.getItem(`currentUserId_${currentUserId}`);
 
     // Display buttons based on the presence of past scores
-    const hasScores = pastScores !== null; // Check if there are any past scores
+    const hasScores = quizScores !== null; // Check if there are any past scores
     viewScoresButton.style.display = hasScores ? "block" : "none";
     resetScoresButton.style.display = hasScores ? "block" : "none";
 }
@@ -583,5 +590,3 @@ function checkHistory() {
 
 // Initial load
 window.onload = loadQuiz;
-loadProgress();
-updateProgressBar();
