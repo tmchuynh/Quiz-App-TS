@@ -372,9 +372,15 @@ function clearLoginErrorStyles() {
 function loadQuiz() {
     const currentUserId = localStorage.getItem("currentUserId");
     if (currentUserId) {
-        const users = localStorage.getItem("users");
-        const foundUser = Object.keys(users).find(user => user.id === currentUserId);
-        const firstName = foundUser ? foundUser.firstName : null;
+        const users = JSON.parse(localStorage.getItem("users"));
+        let foundUser = "";
+        users.forEach(user => {
+            if (user.id === currentUserId) {
+                foundUser = user;
+            }
+        })
+
+        const firstName = foundUser ? foundUser.firstName : "";
         // Check if user is returning or logging in for the first time
         const hasLoggedInBefore = sessionStorage.getItem("hasLoggedInBefore");
 
@@ -390,18 +396,13 @@ function loadQuiz() {
         // Show the action buttons
         loginContainer.style.display = "none";
         actionButtons.style.display = "flex";
-        resetScoresButton.style.display = "block";
-        viewScoresButton.style.display = "block";
         logoutButton.style.display = "block";
 
         quizSection.style.display = "flex";
         quizSection.style.flexDirection = "column";
 
-        currentQuestion = parseInt(sessionStorage.getItem("quizProgress")) || 0;
-        score = 0;
-        displayQuestion();
+
         loadProgress();
-        updateProgressBar();
     } else {
         actionButtons.style.display = "none";
         loginSection.style.display = "block";
@@ -409,17 +410,34 @@ function loadQuiz() {
     }
 }
 
+const shuffley = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
+
+const shufflex = (array) => {
+    return array.map((a) => ({ sort: Math.random(), value: a }))
+        .sort((a, b) => a.sort - b.sort)
+        .map((a) => a.value);
+};
+
 // Display Question
 function displayQuestion() {
-    checkHistory();
     actionButtons.style.display = "flex";
+    checkHistory();
     logoutButton.style.display = "block";
     const currentQuizData = quizData[currentQuestion];
     document.getElementById("question").textContent = currentQuizData.question;
     const answersEl = document.getElementById("answers");
     answersEl.innerHTML = "";
 
-    currentQuizData.answers.forEach((answer, index) => {
+    const answers = shufflex(currentQuizData.answers);
+    const answer = shufflex(answers);
+
+    answer.forEach((answer, index) => {
         const button = document.createElement("button");
         button.classList.add("nes-btn");
         button.textContent = answer;
@@ -457,6 +475,7 @@ function loadProgress() {
         currentQuestion = 0; // Start from the beginning if no progress is saved
         score = 0;
     }
+    displayQuestion();
 }
 
 // Check Answer
@@ -499,25 +518,24 @@ function showScore() {
 
 
 // Retry quiz
-retryButton.addEventListener("click", () => {
-    // Reset user progress in session storage
-    const currentUserId = localStorage.getItem("currentUserId");
-    const userProgressKey = `quizProgress_${currentUserId}`;
-    sessionStorage.removeItem(userProgressKey); // Clear previous progress
+retryButton.addEventListener("click", returnToBeginning);
 
+function returnToBeginning() {
     // Reset quiz variables
     currentQuestion = 0;
     score = 0;
+    const currentUserId = localStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    sessionStorage.setItem(userProgressKey, JSON.stringify({ currentQuestion, score }))
 
     // Update the UI
-    viewScoresButton.style.display = "none";
     quizSection.style.display = "flex";
     quizSection.style.flexDirection = "column";
     scoreSection.style.display = "none";
 
     // Display the first question
-    displayQuestion();
-});
+    loadQuiz();
+}
 
 function renderScores(pastScores) {
     pastScoresEl.innerHTML = pastScores.map(({ score, total, date }) => {
@@ -562,9 +580,10 @@ resetScoresButton.addEventListener("click", () => {
 });
 
 // Handle the confirmation action in the dialog
-document.querySelector('#dialog-default .dialog-menu .is-primary').addEventListener("click", () => {
-    localStorage.removeItem("quizScores"); // Clear the quiz scores
-    location.reload()
+document.querySelector('#resetConfirm').addEventListener("click", () => {
+    const currentUserId = localStorage.getItem("currentUserId");
+    localStorage.removeItem(`quizScores_${currentUserId}`); // Clear the quiz scores
+    returnToBeginning();
 });
 
 // Back to quiz
@@ -579,12 +598,10 @@ backButton.addEventListener("click", () => {
 
 function checkHistory() {
     const currentUserId = localStorage.getItem("currentUserId");
-    const quizScores = localStorage.getItem(`currentUserId_${currentUserId}`);
+    const quizScores = localStorage.getItem(`quizScores_${currentUserId}`);
 
-    // Display buttons based on the presence of past scores
-    const hasScores = quizScores !== null; // Check if there are any past scores
-    viewScoresButton.style.display = hasScores ? "block" : "none";
-    resetScoresButton.style.display = hasScores ? "block" : "none";
+    viewScoresButton.style.display = quizScores ? "block" : "none";
+    resetScoresButton.style.display = quizScores ? "block" : "none";
 }
 
 
