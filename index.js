@@ -35,11 +35,12 @@ const backButton = document.getElementById("backButton");
 const pastScoresEl = document.getElementById("pastScores");
 const retryButton = document.getElementById("retryButton");
 
-
 const actionButtons = document.getElementById("actionButtons");
 const logoutButton = document.getElementById("logoutButton");
 const viewScoresButton = document.getElementById("viewScoresButton");
 const resetScoresButton = document.getElementById("resetScoresButton");
+const sortByDateButton = document.getElementById("sortByDateButton");
+const sortByScoreButton = document.getElementById("sortByScoreButton");
 
 // Cookie Helpers 
 function setCookie(name, value, days) {
@@ -56,6 +57,7 @@ logoutButton.addEventListener("click", () => {
     loginContainer.style.display = "flex";
     loginSection.style.display = "block";
     pastScoresSection.style.display = "none";
+    scoreSection.style.display = "none";
     quizSection.style.display = "none";
     actionButtons.style.display = "none";
     document.getElementById("welcomeMessage").textContent = ""; // Clear welcome message
@@ -95,28 +97,50 @@ function validateRegistrationForm() {
     const password = registerPassword.value.trim();
     const confirmPwd = confirmPassword.value.trim();
 
+    // Reset any previous error styling
+    firstName.classList.remove("is-error");
+    lastName.classList.remove("is-error");
+    email.classList.remove("is-error");
+    registerUsername.classList.remove("is-error");
+    registerPassword.classList.remove("is-error");
+    confirmPassword.classList.remove("is-error");
+    registerError.style.display = "none";
+
     // Basic validation
     if (!userFirstName || !userLastName || !username || !password || !confirmPwd || !userEmail) {
         registerError.textContent = "All fields are required.";
         registerError.style.display = "block";
+
+        // Add 'is-error' class to empty fields
+        if (!userFirstName) firstName.classList.add("is-error");
+        if (!userLastName) lastName.classList.add("is-error");
+        if (!userEmail) email.classList.add("is-error");
+        if (!username) registerUsername.classList.add("is-error");
+        if (!password) registerPassword.classList.add("is-error");
+        if (!confirmPwd) confirmPassword.classList.add("is-error");
+
         return;
     }
 
     if (!validateEmail(userEmail)) {
         registerError.textContent = "Please enter a valid email address.";
         registerError.style.display = "block";
+        email.classList.add("is-error");
         return;
     }
 
     if (password.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
         registerError.textContent = "Password must be at least 8 characters long and contain at least one symbol.";
         registerError.style.display = "block";
+        registerPassword.classList.add("is-error");
         return;
     }
 
     if (password !== confirmPwd) {
         registerError.textContent = "Passwords do not match.";
         registerError.style.display = "block";
+        registerPassword.classList.add("is-error");
+        confirmPassword.classList.add("is-error");
         return;
     }
 
@@ -127,6 +151,7 @@ function validateRegistrationForm() {
     if (userExists) {
         registerError.textContent = "Username already exists.";
         registerError.style.display = "block";
+        registerUsername.classList.add("is-error");
     } else {
         // Register the new user and store the first name
         users.push({ firstName: userFirstName, lastName: userLastName, email: userEmail, username, password });
@@ -141,6 +166,23 @@ function validateRegistrationForm() {
     }
 }
 
+// Function to remove error classes and hide the error message
+function clearErrorStyles() {
+    firstName.classList.remove("is-error");
+    lastName.classList.remove("is-error");
+    email.classList.remove("is-error");
+    registerUsername.classList.remove("is-error");
+    registerPassword.classList.remove("is-error");
+    confirmPassword.classList.remove("is-error");
+    registerError.style.display = "none";
+}
+
+// Attach the same event listener to all relevant input fields
+[firstName, lastName, email, registerUsername, registerPassword, confirmPassword].forEach(field => {
+    field.addEventListener("input", clearErrorStyles);
+});
+
+
 // Handle Login with Enter Key and Validation
 loginButton.addEventListener("click", validateLoginForm);
 document.getElementById("loginSection").addEventListener("keydown", (event) => {
@@ -154,9 +196,19 @@ function validateLoginForm() {
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
 
+    // Reset any previous error styling
+    loginUsername.classList.remove("is-error");
+    loginPassword.classList.remove("is-error");
+
+    // Check if either field is blank
     if (!username || !password) {
         loginError.textContent = "Please enter both username and password.";
         loginError.style.display = "block";
+
+        // Add 'is-error' class to empty fields
+        if (!username) loginUsername.classList.add("is-error");
+        if (!password) loginPassword.classList.add("is-error");
+
         return;
     }
 
@@ -174,8 +226,24 @@ function validateLoginForm() {
     } else {
         loginError.textContent = "Incorrect username or password.";
         loginError.style.display = "block";
+
+        // Add 'is-error' class to both fields if credentials are wrong
+        loginUsername.classList.add("is-error");
+        loginPassword.classList.add("is-error");
     }
 }
+
+// Function to remove error styles and hide the error message
+function clearLoginErrorStyles() {
+    loginUsername.classList.remove("is-error");
+    loginPassword.classList.remove("is-error");
+    loginError.style.display = "none";
+}
+
+// Attach the same event listener to both login input fields
+[loginUsername, loginPassword].forEach(field => {
+    field.addEventListener("input", clearLoginErrorStyles);
+});
 
 // Load Quiz
 function loadQuiz() {
@@ -281,19 +349,37 @@ retryButton.addEventListener("click", () => {
     displayQuestion();
 });
 
-// View past scores
+function renderScores(pastScores) {
+    pastScoresEl.innerHTML = pastScores.map(({ score, total, date }) => {
+        return `<li>${score}/${total} - ${date}</li>`;
+    }).join('');
+}
+
+// View past scores and enable sorting
 viewScoresButton.addEventListener("click", () => {
     scoreSection.style.display = "none";
     quizSection.style.display = "none";
 
     viewScoresButton.style.display = "none";
+    sortByDateButton.style.display = "block";
+    sortByScoreButton.style.display = "block";
     pastScoresSection.style.display = "flex";
     pastScoresSection.style.flexDirection = "column";
 
     const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    pastScoresEl.innerHTML = pastScores.map(({ score, total, date }) => {
-        return `<li>${score} / ${total} - ${date}</li>`;
-    }).join('');
+    renderScores(pastScores);
+
+    // Sort by Date (newest to oldest)
+    sortByDateButton.addEventListener("click", () => {
+        const sortedByDate = [...pastScores].sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderScores(sortedByDate);
+    });
+
+    // Sort by Score (highest to lowest)
+    sortByScoreButton.addEventListener("click", () => {
+        const sortedByScore = [...pastScores].sort((a, b) => b.score - a.score);
+        renderScores(sortedByScore);
+    });
 });
 
 
