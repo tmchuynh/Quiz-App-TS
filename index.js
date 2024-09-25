@@ -182,80 +182,100 @@ document.getElementById("registerSection").addEventListener("keydown", (event) =
 
 // Validate registration form
 function validateRegistrationForm() {
-    const userFirstName = firstName.value.trim();
-    const userLastName = lastName.value.trim();
-    const userEmail = email.value.trim();
-    const username = registerUsername.value.trim();
-    const password = registerPassword.value.trim();
-    const confirmPwd = confirmPassword.value.trim();
+    const fields = [
+        { element: firstName, name: 'First Name' },
+        { element: lastName, name: 'Last Name' },
+        { element: email, name: 'Email' },
+        { element: registerUsername, name: 'Username' },
+        { element: registerPassword, name: 'Password' },
+        { element: confirmPassword, name: 'Confirm Password' }
+    ];
 
-    // Reset any previous error styling
-    firstName.classList.remove("is-error");
-    lastName.classList.remove("is-error");
-    email.classList.remove("is-error");
-    registerUsername.classList.remove("is-error");
-    registerPassword.classList.remove("is-error");
-    confirmPassword.classList.remove("is-error");
+    // Reset previous error styles
+    resetErrorStyles(fields);
     registerError.style.display = "none";
 
     // Basic validation
-    if (!userFirstName || !userLastName || !username || !password || !confirmPwd || !userEmail) {
-        registerError.textContent = "All fields are required.";
-        registerError.style.display = "block";
-
-        // Add 'is-error' class to empty fields
-        if (!userFirstName) firstName.classList.add("is-error");
-        if (!userLastName) lastName.classList.add("is-error");
-        if (!userEmail) email.classList.add("is-error");
-        if (!username) registerUsername.classList.add("is-error");
-        if (!password) registerPassword.classList.add("is-error");
-        if (!confirmPwd) confirmPassword.classList.add("is-error");
-
-        return;
+    for (const field of fields) {
+        if (!field.element.value.trim()) {
+            showError(`${field.name} is required.`, field.element);
+            return;
+        }
     }
 
+    const userEmail = email.value.trim();
     if (!validateEmail(userEmail)) {
-        registerError.textContent = "Please enter a valid email address.";
-        registerError.style.display = "block";
-        email.classList.add("is-error");
+        showError("Please enter a valid email address.", email);
         return;
     }
 
-    if (password.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-        registerError.textContent = "Password must be at least 8 characters long and contain at least one symbol.";
-        registerError.style.display = "block";
-        registerPassword.classList.add("is-error");
+    const password = registerPassword.value.trim();
+    if (!isValidPassword(password)) {
+        showError("Password must be at least 8 characters long and contain at least one symbol.", registerPassword);
         return;
     }
 
+    const confirmPwd = confirmPassword.value.trim();
     if (password !== confirmPwd) {
-        registerError.textContent = "Passwords do not match.";
-        registerError.style.display = "block";
-        registerPassword.classList.add("is-error");
-        confirmPassword.classList.add("is-error");
+        showError("Passwords do not match.", registerPassword);
+        showError("Passwords do not match.", confirmPassword);
         return;
     }
 
     // Check if user already exists
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const userExists = users.some(user => user.username === username);
-
-    if (userExists) {
-        registerError.textContent = "Username already exists.";
-        registerError.style.display = "block";
-        registerUsername.classList.add("is-error");
-    } else {
-        // Register the new user and store the first name
-        users.push({ firstName: userFirstName, lastName: userLastName, email: userEmail, username, password });
-        localStorage.setItem("users", JSON.stringify(users));
-
-        // Store first name in localStorage for welcome message
-        localStorage.setItem("firstName", userFirstName);
-
-        registerError.style.display = "none";
-        registerSection.style.display = "none";
-        loginSection.style.display = "block"; // Go to login after registration
+    if (isUsernameTaken(registerUsername.value.trim())) {
+        showError("Username already exists.", registerUsername);
+        return;
     }
+
+    // Register the new user
+    registerUser(fields);
+}
+
+function resetErrorStyles(fields) {
+    fields.forEach(field => {
+        field.element.classList.remove("is-error");
+    });
+}
+
+function showError(message, field) {
+    registerError.textContent = message;
+    registerError.style.display = "block";
+    field.classList.add("is-error");
+}
+
+function isValidPassword(password) {
+    return password.length >= 8 && /[!@#$%^&*(),.?":{}|<>]/.test(password);
+}
+
+function isUsernameTaken(username) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    return users.some(user => user.username === username);
+}
+
+function registerUser(fields) {
+    const newUser = {
+        id: generateUniqueId(),
+        firstName: fields[0].element.value.trim(),
+        lastName: fields[1].element.value.trim(),
+        username: fields[3].element.value.trim(),
+        password: fields[4].element.value.trim(),
+        scores: [],
+        progress: { level: 0, achievements: [] }
+    };
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("firstName", newUser.firstName);
+
+    registerSection.style.display = "none";
+    loginSection.style.display = "block"; // Go to login after registration
+}
+
+// Function to generate a unique ID
+function generateUniqueId() {
+    return 'user_' + Math.floor(Math.random() * 1650) + 256; // Simple unique ID
 }
 
 // Function to remove error classes and hide the error message
@@ -305,17 +325,19 @@ function validateLoginForm() {
     }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const validUser = users.find(user => user.username === username && user.password === password);
+    const user = users.find(user => user.username === username && user.password === password); // Ensure passwords are hashed in real applications
 
-    if (validUser) {
-        // Set login cookie
-        setCookie("username", username, 1);
+    if (user) {
+        // Set current session user
+        localStorage.setItem("currentUserId", user.id);
         loginError.style.display = "none";
-
-        // Store first name in localStorage for future reference
-        localStorage.setItem("firstName", validUser.firstName);
         loadQuiz(); // Proceed to quiz section
+        loadUserData(user);
+        // Proceed to the main application
     } else {
+        // Handle login failure
+        registerError.textContent = "Invalid username or password.";
+        registerError.style.display = "block";
         loginError.textContent = "Incorrect username or password.";
         loginError.style.display = "block";
 
@@ -323,6 +345,12 @@ function validateLoginForm() {
         loginUsername.classList.add("is-error");
         loginPassword.classList.add("is-error");
     }
+}
+
+function loadUserData(user) {
+    // Load user-specific data into the application
+    console.log("User Data Loaded:", user);
+    // You can access user.scores, user.progress, etc.
 }
 
 // Function to remove error styles and hide the error message
@@ -429,12 +457,16 @@ function showScore() {
     scoreSection.style.display = "flex";
     scoreSection.style.flexWrap = "wrap";
 
+    // Get the current user ID
+    const currentUserId = localStorage.getItem("currentUserId");
     document.getElementById("scoreMessage").textContent = `You scored ${score} out of ${quizData.length}!`;
 
-    const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
+    // Retrieve past scores for the current user
+    const userScoresKey = `quizScores_${currentUserId}`;
+    const pastScores = JSON.parse(localStorage.getItem(userScoresKey)) || [];
     const timestamp = new Date().toLocaleString(); // Get the current date and time
     pastScores.push({ score: score, total: quizData.length, date: timestamp });
-    localStorage.setItem("quizScores", JSON.stringify(pastScores));
+    localStorage.setItem(userScoresKey, JSON.stringify(pastScores));
 }
 
 
@@ -467,7 +499,11 @@ viewScoresButton.addEventListener("click", () => {
     pastScoresSection.style.display = "flex";
     pastScoresSection.style.flexDirection = "column";
 
-    const pastScores = JSON.parse(localStorage.getItem("quizScores")) || [];
+    // Get the current user ID
+    const currentUserId = localStorage.getItem("currentUserId");
+    const userScoresKey = `quizScores_${currentUserId}`;
+    const pastScores = JSON.parse(localStorage.getItem(userScoresKey)) || [];
+
     renderScores(pastScores);
 
     // Sort by Date (newest to oldest)
