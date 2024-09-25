@@ -97,8 +97,8 @@ const quizData = [
     }
 ];
 
-
 let currentQuestion = 0;
+const totalQuestions = quizData.length; // Total number of questions
 let score = 0;
 
 // DOM Elements
@@ -123,7 +123,6 @@ const loginPassword = document.getElementById("loginPassword");
 const loginButton = document.getElementById("loginButton");
 const loginError = document.getElementById("loginError");
 
-const nextButton = document.getElementById("nextButton");
 const backButton = document.getElementById("backButton");
 const pastScoresEl = document.getElementById("pastScores");
 const retryButton = document.getElementById("retryButton");
@@ -394,7 +393,14 @@ function displayQuestion() {
         answersEl.appendChild(button);
     });
 
-    document.getElementById("nextButton").style.display = "none";
+    // Update the progress bar
+    updateProgressBar();
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('quizProgressBar');
+    const progressValue = ((currentQuestion + 1) / totalQuestions) * 100; // Calculate percentage
+    progressBar.value = progressValue; // Update the value of the progress bar
 }
 
 // Check Answer
@@ -476,7 +482,6 @@ viewScoresButton.addEventListener("click", () => {
         renderScores(sortedByScore);
     });
 });
-
 
 resetScoresButton.addEventListener("click", () => {
     // Show the confirmation dialog

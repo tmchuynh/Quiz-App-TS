@@ -50,7 +50,6 @@ label {
     margin: 4rem;
 }
 
-
 #quizSection,
 #pastScoresSection,
 #scoreSection {
@@ -66,7 +65,6 @@ label {
     padding: 0;
 }
 
-
 @media (max-width: 768px) {
     #quizSection {
         max-width: 90%;
@@ -81,7 +79,6 @@ label {
     font-size: 14px;
     padding: 10px;
 }
-
 
 #actionButtons {
     min-width: 30%;
@@ -102,4 +99,8 @@ label {
     font-size: 12px;
     margin-top: 5px;
     display: block;
+}
+
+.nes-progress {
+    margin-bottom: 1rem;
 }
