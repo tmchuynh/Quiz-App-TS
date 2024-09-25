@@ -1,9 +1,102 @@
 // Quiz Data
 const quizData = [
-    { question: "What is the capital of France?", answers: ["Paris", "Rome", "London", "Berlin"], correct: 0 },
-    { question: "Who wrote 'Harry Potter'?", answers: ["J.K. Rowling", "J.R.R. Tolkien", "Stephen King", "George R.R. Martin"], correct: 0 },
-    { question: "What is 2 + 2?", answers: ["3", "4", "5", "6"], correct: 1 }
+    {
+        question: "What does IDE stand for in web development?",
+        answers: ["Integrated Development Environment", "Internet Development Editor", "Interactive Design Environment", "Integrated Debugging Engine"],
+        correct: 0
+    },
+    {
+        question: "What does HTML stand for?",
+        answers: ["Hypertext Markup Language", "High-Level Text Markup Language", "Hyperlink and Text Markup Language", "Hypertext Multi Language"],
+        correct: 0
+    },
+    {
+        question: "What is the purpose of semantic HTML?",
+        answers: ["To create visually appealing websites", "To enhance SEO and accessibility", "To speed up website loading times", "To allow users to input data"],
+        correct: 1
+    },
+    {
+        question: "What is the DRY principle in programming?",
+        answers: ["Don't Repeat Yourself", "Don't Render Your code", "Do Run Your tests", "Don't Run Your scripts"],
+        correct: 0
+    },
+    {
+        question: "Which of the following is a version control system?",
+        answers: ["Git", "npm", "HTML", "CSS"],
+        correct: 0
+    },
+    {
+        question: "What is Markdown primarily used for?",
+        answers: ["Styling websites", "Writing formatted text", "Creating interactive web apps", "Managing packages"],
+        correct: 1
+    },
+    {
+        question: "What command is used to install a package using npm?",
+        answers: ["npm install [package_name]", "npm get [package_name]", "npm download [package_name]", "npm setup [package_name]"],
+        correct: 0
+    },
+    {
+        question: "What is wireframing in web design?",
+        answers: ["Creating a visual representation of a webpage", "Writing the code for a website", "Deploying a website to a server", "Designing graphics for a website"],
+        correct: 0
+    },
+    {
+        question: "What is the purpose of ARIA labels in HTML?",
+        answers: ["To improve aesthetics", "To provide accessibility information", "To structure the HTML document", "To enhance loading times"],
+        correct: 1
+    },
+    {
+        question: "Which of the following is a void element in HTML?",
+        answers: ["<div>", "<img>", "<p>", "<span>"],
+        correct: 1
+    },
+    {
+        question: "What does CSS stand for?",
+        answers: ["Cascading Style Sheets", "Colorful Style Sheets", "Creative Style System", "Cascading Sheet Styles"],
+        correct: 0
+    },
+    {
+        question: "Which CSS rule is used to select an element with a specific class?",
+        answers: [".classname", "#classname", "classname", "*classname"],
+        correct: 0
+    },
+    {
+        question: "What are pseudo-classes in CSS?",
+        answers: ["Classes that cannot be reused", "Classes that are defined in a style block", "Special states of elements", "Classes that require JavaScript"],
+        correct: 2
+    },
+    {
+        question: "What is the DOM?",
+        answers: ["Document Object Model", "Data Object Model", "Dynamic Object Model", "Document Outline Model"],
+        correct: 0
+    },
+    {
+        question: "What is an object literal in JavaScript?",
+        answers: ["A way to define objects using curly braces", "A built-in object in JavaScript", "A function that returns an object", "An object created with the Object constructor"],
+        correct: 0
+    },
+    {
+        question: "Which CSS framework is known for its utility-first approach?",
+        answers: ["Bootstrap", "Tailwind CSS", "Foundation", "Materialize"],
+        correct: 1
+    },
+    {
+        question: "What is a key feature of Bootstrap?",
+        answers: ["Custom animations", "Responsive design grid system", "Markdown support", "JavaScript libraries"],
+        correct: 1
+    },
+    {
+        question: "What are @rules in CSS?",
+        answers: ["Commands for compiling CSS", "CSS syntax rules", "Special directives like @import and @media", "Rules for styling pseudo-elements"],
+        correct: 2
+    },
+    {
+        question: "What is element hierarchy in HTML?",
+        answers: ["The order of elements based on CSS styles", "The nested structure of HTML elements", "The relationship between different HTML documents", "The hierarchy of JavaScript objects"],
+        correct: 1
+    }
 ];
+
 
 let currentQuestion = 0;
 let score = 0;
