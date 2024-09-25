@@ -378,8 +378,8 @@ function loadQuiz() {
 
 // Display Question
 function displayQuestion() {
+    checkHistory();
     actionButtons.style.display = "flex";
-    viewScoresButton.style.display = "block";
     logoutButton.style.display = "block";
     const currentQuizData = quizData[currentQuestion];
     document.getElementById("question").textContent = currentQuizData.question;
@@ -416,8 +416,10 @@ function checkAnswer(selected) {
 
 // Show Score
 function showScore() {
-    viewScoresButton.style.display = "block";
+    checkHistory();
     quizSection.style.display = "none";
+    sortByDateButton.style.display = "none";
+    sortByScoreButton.style.display = "none";
     scoreSection.style.display = "flex";
     scoreSection.style.flexWrap = "wrap";
 
@@ -477,19 +479,35 @@ viewScoresButton.addEventListener("click", () => {
 
 
 resetScoresButton.addEventListener("click", () => {
-    localStorage.removeItem("quizScores");
+    // Show the confirmation dialog
+    document.getElementById('dialog-default').showModal();
+});
 
-    alert("All past scores have been reset.");
-
-    resetScoresButton.style.display = "none"; // Hide the reset button after action
+// Handle the confirmation action in the dialog
+document.querySelector('#dialog-default .dialog-menu .is-primary').addEventListener("click", () => {
+    localStorage.removeItem("quizScores"); // Clear the quiz scores
+    location.reload()
 });
 
 // Back to quiz
 backButton.addEventListener("click", () => {
+    checkHistory();
     pastScoresSection.style.display = "none";
+    sortByDateButton.style.display = "none";
+    sortByScoreButton.style.display = "none";
     scoreSection.style.display = "flex";
     scoreSection.style.flexDirection = "column";
 });
+
+function checkHistory() {
+    const pastScores = localStorage.getItem("quizScores");
+
+    // Display buttons based on the presence of past scores
+    const hasScores = pastScores !== null; // Check if there are any past scores
+    viewScoresButton.style.display = hasScores ? "block" : "none";
+    resetScoresButton.style.display = hasScores ? "block" : "none";
+}
+
 
 // Initial load
 window.onload = loadQuiz;

@@ -40,6 +40,10 @@ label {
     display: flex;
 }
 
+.nes-dialog {
+    margin: auto;
+}
+
 #loginSection,
 #registerSection {
     min-width: 50%;
@@ -81,6 +85,7 @@ label {
 
 #actionButtons {
     min-width: 30%;
+    justify-content: flex-end;
     max-width: fit-content;
     margin: 3rem;
     margin: auto;
