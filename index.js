@@ -331,8 +331,8 @@ function validateLoginForm() {
         // Set current session user
         localStorage.setItem("currentUserId", user.id);
         loginError.style.display = "none";
-        loadQuiz(); // Proceed to quiz section
         loadUserData(user);
+        loadQuiz(); // Proceed to quiz section
         // Proceed to the main application
     } else {
         // Handle login failure
@@ -367,8 +367,8 @@ function clearLoginErrorStyles() {
 
 // Load Quiz
 function loadQuiz() {
-    const username = getCookie("username");
-    if (username) {
+    const currentUserId = localStorage.getItem("currentUserId");
+    if (currentUserId) {
         const firstName = localStorage.getItem("firstName");
 
         // Check if user is returning or logging in for the first time
@@ -425,10 +425,32 @@ function displayQuestion() {
     updateProgressBar();
 }
 
+// Function to update the progress bar
 function updateProgressBar() {
     const progressBar = document.getElementById('quizProgressBar');
     const progressValue = ((currentQuestion + 1) / totalQuestions) * 100; // Calculate percentage
     progressBar.value = progressValue; // Update the value of the progress bar
+
+    // Save current progress in session storage
+    const currentUserId = localStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    sessionStorage.setItem(userProgressKey, JSON.stringify({ currentQuestion, score })); // Store progress
+}
+
+// Function to load progress on quiz start
+function loadProgress() {
+    const currentUserId = localStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    const progressData = sessionStorage.getItem(userProgressKey);
+
+    if (progressData) {
+        const { currentQuestion: savedQuestion, score: savedScore } = JSON.parse(progressData);
+        currentQuestion = savedQuestion;
+        score = savedScore;
+    } else {
+        currentQuestion = 0; // Start from the beginning if no progress is saved
+        score = 0;
+    }
 }
 
 // Check Answer
@@ -472,13 +494,22 @@ function showScore() {
 
 // Retry quiz
 retryButton.addEventListener("click", () => {
-    sessionStorage.removeItem("quizProgress");
+    // Reset user progress in session storage
+    const currentUserId = localStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    sessionStorage.removeItem(userProgressKey); // Clear previous progress
+
+    // Reset quiz variables
     currentQuestion = 0;
     score = 0;
+
+    // Update the UI
     viewScoresButton.style.display = "none";
     quizSection.style.display = "flex";
     quizSection.style.flexDirection = "column";
     scoreSection.style.display = "none";
+
+    // Display the first question
     displayQuestion();
 });
 
@@ -552,3 +583,5 @@ function checkHistory() {
 
 // Initial load
 window.onload = loadQuiz;
+loadProgress();
+updateProgressBar();
