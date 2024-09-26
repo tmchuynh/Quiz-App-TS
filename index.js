@@ -173,7 +173,7 @@ function getCookie(name) {
 
 // Validate email format
 function validateEmail(email) {
-    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     return re.test(email);
 }
 
@@ -350,12 +350,6 @@ function validateLoginForm() {
     }
 }
 
-function loadUserData(user) {
-    // Load user-specific data into the application
-    console.log("User Data Loaded:", user);
-    // You can access user.scores, user.progress, etc.
-}
-
 // Function to remove error styles and hide the error message
 function clearLoginErrorStyles() {
     loginUsername.classList.remove("is-error");
@@ -400,7 +394,6 @@ function loadQuiz() {
 
         quizSection.style.display = "flex";
         quizSection.style.flexDirection = "column";
-
 
         loadProgress();
     } else {
