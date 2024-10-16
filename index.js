@@ -579,25 +579,35 @@ function createScoresButtons () {
 
 // Function to create the dialog section dynamically
 function createDialog () {
+
     const dialog = document.createElement( "dialog" );
     dialog.classList.add( "nes-dialog", "nes-container", "is-rounded" );
     dialog.id = "dialog-default";
+
     dialog.innerHTML = `
-        <form method="dialog">
-            <p class="title">Confirmation</p>
-            <p>Are you sure you want to reset all past scores?</p>
-            <menu class="dialog-menu">
-                <button class="nes-btn">Cancel</button>
-                <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-            </menu>
-        </form>
+        <p class="title">Confirmation</p>
+        <p>Are you sure you want to reset all past scores?</p>
+        <menu class="dialog-menu">
+            <button class="nes-btn" id="cancelButton">Cancel</button>
+            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
+        </menu>
     `;
     document.body.appendChild( dialog );
+
+    // Handle the confirm button click
     document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
         const currentUserId = localStorage.getItem( "currentUserId" );
-        localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
-        sessionStorage.removeItem( `quizScores_${ currentUserId }` );
-        returnToBeginning();
+        if ( currentUserId ) {
+            localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear quiz scores in localStorage
+            sessionStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear session data
+            returnToBeginning(); // Call function to reset the quiz
+        }
+        dialog.close(); // Close the dialog after confirming
+    } );
+
+    // Handle the cancel button click
+    document.querySelector( "#cancelButton" ).addEventListener( "click", () => {
+        dialog.close(); // Just close the dialog when cancel is clicked
     } );
 }
 
@@ -1031,10 +1041,6 @@ function checkAnswer ( selected ) {
 
 // Show Score
 function showScore () {
-    // Display the score section
-    // createScoresButtons();
-    // createScoreSection();
-
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
 
@@ -1042,12 +1048,19 @@ function showScore () {
     const userScoresKey = `quizScores_${ currentUserId }`;
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
 
-    // Add the new score with the current timestamp
-    const timestamp = new Date().toLocaleString();
-    pastScores.push( { score: score, total: quizData.length, date: timestamp } );
+    // Retrieve current process for the current user
+    const userProgressKey = `quizProgress_${ currentUserId }`;
+    const quizProgress = JSON.parse( sessionStorage.getItem( userProgressKey ) ) || []
 
-    // Update localStorage with the new scores
-    localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+    console.log( quizProgress.currentQuestion );
+    if ( quizProgress.currentQuestion == totalQuestions ) {
+        // Add the new score with the current timestamp
+        const timestamp = new Date().toLocaleString();
+        pastScores.push( { score: score, total: quizData.length, date: timestamp } );
+
+        // Update localStorage with the new scores
+        localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+    }
 
     // Sort the past scores by date (most recent first)
     pastScores.sort( ( a, b ) => Date.parse( b.date ) - Date.parse( a.date ) );
