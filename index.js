@@ -336,19 +336,9 @@ const quizSection = document.getElementById( "quizSection" );
 const scoreSection = document.getElementById( "scoreSection" );
 const pastScoresSection = document.getElementById( "pastScoresSection" );
 
-const firstName = document.getElementById( "firstName" );
-const lastName = document.getElementById( "lastName" );
-const email = document.getElementById( "email" );
-const registerUsername = document.getElementById( "registerUsername" );
-const registerPassword = document.getElementById( "registerPassword" );
-const confirmPassword = document.getElementById( "confirmPassword" );
 const registerButton = document.getElementById( "registerButton" );
-const registerError = document.getElementById( "registerError" );
 
-const loginUsername = document.getElementById( "loginUsername" );
-const loginPassword = document.getElementById( "loginPassword" );
 const loginButton = document.getElementById( "loginButton" );
-const loginError = document.getElementById( "loginError" );
 
 const backButton = document.getElementById( "backButton" );
 const pastScoresEl = document.getElementById( "pastScores" );
@@ -384,6 +374,32 @@ function createRegisterSection () {
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
     loginContainer.appendChild( registerSection );
+    document.querySelector( "#registerButton" ).addEventListener( "click", validateRegistrationForm );
+    registerSection.addEventListener( "keydown", ( event ) => {
+        if ( event.key === "Enter" ) {
+            validateRegistrationForm();
+        }
+    } );
+
+    // Retrieve input elements by their IDs and attach event listeners to them
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+
+    // Attach the same event listener to all relevant input fields
+    [
+        firstName,
+        lastName,
+        email,
+        registerUsername,
+        registerPassword,
+        confirmPassword,
+    ].forEach( ( field ) => {
+        field.addEventListener( "input", clearErrorStyles );
+    } );
 }
 
 // Function to create and append the login form dynamically
@@ -401,6 +417,20 @@ function createLoginSection () {
         <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
     `;
     loginContainer.appendChild( loginSection );
+    document.querySelector( "#loginButton" ).addEventListener( "click", validateLoginForm );
+    loginSection.addEventListener( "keydown", ( event ) => {
+        if ( event.key === "Enter" ) {
+            validateLoginForm();
+        }
+    } );
+
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
+
+    // Attach the same event listener to both login input fields
+    [ loginUsername, loginPassword ].forEach( ( field ) => {
+        field.addEventListener( "input", clearLoginErrorStyles );
+    } );
 }
 
 // Function to create and append the quiz section dynamically
@@ -427,6 +457,7 @@ function createScoreSection () {
         <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
     `;
     displayContainer.appendChild( scoreSection );
+    document.querySelector( "#retryButton" ).addEventListener( "click", returnToBeginning );
 }
 
 // Function to create the past scores section dynamically
@@ -440,6 +471,14 @@ function createPastScoresSection () {
         <button id="backButton" class="nes-btn">Back to Quiz</button>
     `;
     displayContainer.appendChild( pastScoresSection );
+    document.querySelector( "#backButton" ).addEventListener( "click", () => {
+        checkHistory();
+        pastScoresSection.style.display = "none";
+        sortByDateButton.style.display = "none";
+        sortByScoreButton.style.display = "none";
+        scoreSection.style.display = "flex";
+        scoreSection.style.flexDirection = "column";
+    } );
 }
 
 // Function to create the action buttons dynamically
@@ -449,7 +488,29 @@ function createActionButtons () {
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
+    logoutEventListener();
     displayContainer.appendChild( actionButtons );
+}
+
+function logoutEventListener () {
+    logoutButton.addEventListener( "click", () => {
+        // Clear the login cookie
+        setCookie( "username", "", -1 ); // Setting the cookie expiration in the past to remove it
+        sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
+        // Redirect to the login page
+        loginContainer.style.display = "flex";
+        loginSection.style.display = "block";
+        pastScoresSection.style.display = "none";
+        scoreSection.style.display = "none";
+        quizSection.style.display = "none";
+        actionButtons.style.display = "none";
+        document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
+        const current = localStorage.getItem( "currentUserId" );
+        const quiz = "quizScores_" + current;
+        localStorage.removeItem( "currentUserId" );
+        localStorage.removeItem( quiz );
+        localStorage.removeItem( "firstName" );
+    } );
 }
 
 function createScoresButtons () {
@@ -459,6 +520,42 @@ function createScoresButtons () {
         <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
     `
+    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
+        scoreSection.style.display = "none";
+        quizSection.style.display = "none";
+
+        viewScoresButton.style.display = "none";
+        sortByDateButton.style.display = "block";
+        sortByScoreButton.style.display = "block";
+        pastScoresSection.style.display = "flex";
+        pastScoresSection.style.flexDirection = "column";
+
+        // Get the current user ID
+        const currentUserId = localStorage.getItem( "currentUserId" );
+        const userScoresKey = `quizScores_${ currentUserId }`;
+        const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
+
+        renderScores( pastScores );
+
+        // Sort by Date (newest to oldest)
+        sortByDateButton.addEventListener( "click", () => {
+            const sortedByDate = [ ...pastScores ].sort(
+                ( a, b ) => new Date( b.date ) - new Date( a.date )
+            );
+            renderScores( sortedByDate );
+        } );
+
+        // Sort by Score (highest to lowest)
+        sortByScoreButton.addEventListener( "click", () => {
+            const sortedByScore = [ ...pastScores ].sort( ( a, b ) => b.score - a.score );
+            renderScores( sortedByScore );
+        } );
+    } );
+
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        document.getElementById( "dialog-default" ).showModal();
+    } );
 }
 
 function createSortButtons () {
@@ -488,6 +585,19 @@ function createDialog () {
         </form>
     `;
     displayContainer.appendChild( dialog );
+    document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
+        const currentUserId = localStorage.getItem( "currentUserId" );
+        localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
+        returnToBeginning();
+    } );
+}
+
+// Function to remove an element by its ID
+function removeElementById ( elementId ) {
+    const element = document.getElementById( elementId );
+    if ( element ) {
+        element.remove(); // Remove the element from the DOM
+    }
 }
 
 // Cookie Helpers
@@ -496,25 +606,6 @@ function setCookie ( name, value, days ) {
     date.setTime( date.getTime() + days * 24 * 60 * 60 * 1000 );
     document.cookie = `${ name }=${ value };expires=${ date.toUTCString() };path=/`;
 }
-
-logoutButton.addEventListener( "click", () => {
-    // Clear the login cookie
-    setCookie( "username", "", -1 ); // Setting the cookie expiration in the past to remove it
-    sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
-    // Redirect to the login page
-    loginContainer.style.display = "flex";
-    loginSection.style.display = "block";
-    pastScoresSection.style.display = "none";
-    scoreSection.style.display = "none";
-    quizSection.style.display = "none";
-    actionButtons.style.display = "none";
-    document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
-    const current = localStorage.getItem( "currentUserId" );
-    const quiz = "quizScores_" + current;
-    localStorage.removeItem( "currentUserId" );
-    localStorage.removeItem( quiz );
-    localStorage.removeItem( "firstName" );
-} );
 
 function getCookie ( name ) {
     const cookies = document.cookie.split( ";" );
@@ -533,16 +624,6 @@ function validateEmail ( email ) {
     return re.test( email );
 }
 
-// Handle Registration with Validation and Enter Key
-registerButton.addEventListener( "click", validateRegistrationForm );
-document
-    .getElementById( "registerSection" )
-    .addEventListener( "keydown", ( event ) => {
-        if ( event.key === "Enter" ) {
-            validateRegistrationForm();
-        }
-    } );
-
 // Validate registration form
 function validateRegistrationForm () {
     const fields = [
@@ -556,6 +637,8 @@ function validateRegistrationForm () {
 
     // Reset previous error styles
     resetErrorStyles( fields );
+    const registerError = document.getElementById( "registerError" );
+
     registerError.style.display = "none";
 
     // Basic validation
@@ -685,26 +768,6 @@ function clearErrorStyles () {
     registerError.style.display = "none"; // Hide error message
 }
 
-// Attach the same event listener to all relevant input fields
-[
-    firstName,
-    lastName,
-    email,
-    registerUsername,
-    registerPassword,
-    confirmPassword,
-].forEach( ( field ) => {
-    field.addEventListener( "input", clearErrorStyles );
-} );
-
-// Handle Login with Enter Key and Validation
-loginButton.addEventListener( "click", validateLoginForm );
-document.getElementById( "loginSection" ).addEventListener( "keydown", ( event ) => {
-    if ( event.key === "Enter" ) {
-        validateLoginForm();
-    }
-} );
-
 // Validate login form
 async function validateLoginForm () {
     const username = loginUsername.value.trim();
@@ -713,6 +776,7 @@ async function validateLoginForm () {
     // Reset error styles for both fields
     const fields = [ loginUsername, loginPassword ];
     fields.forEach( ( field ) => field.classList.remove( "is-error" ) );
+    const loginError = document.getElementById( "loginError" );
 
     loginError.style.display = "none";
 
@@ -780,20 +844,14 @@ function clearLoginErrorStyles () {
     loginError.style.display = "none";
 }
 
-// Attach the same event listener to both login input fields
-[ loginUsername, loginPassword ].forEach( ( field ) => {
-    field.addEventListener( "input", clearLoginErrorStyles );
-} );
-
 // Load Quiz
 function loadQuiz () {
     const currentUserId = localStorage.getItem( "currentUserId" );
 
     if ( !currentUserId ) {
         // If no user is logged in, show the login section
-        actionButtons.style.display = "none";
-        loginSection.style.display = "block";
-        quizSection.style.display = "none";
+        createRegisterSection();
+        createLoginSection();
         return;
     }
 
@@ -979,9 +1037,6 @@ function showScore () {
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
 }
 
-// Retry quiz
-retryButton.addEventListener( "click", returnToBeginning );
-
 function returnToBeginning () {
     // Reset quiz variables
     currentQuestion = 0;
@@ -1010,60 +1065,6 @@ function renderScores ( pastScores ) {
         .join( "" );
 }
 
-// View past scores and enable sorting
-viewScoresButton.addEventListener( "click", () => {
-    scoreSection.style.display = "none";
-    quizSection.style.display = "none";
-
-    viewScoresButton.style.display = "none";
-    sortByDateButton.style.display = "block";
-    sortByScoreButton.style.display = "block";
-    pastScoresSection.style.display = "flex";
-    pastScoresSection.style.flexDirection = "column";
-
-    // Get the current user ID
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    const userScoresKey = `quizScores_${ currentUserId }`;
-    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
-
-    renderScores( pastScores );
-
-    // Sort by Date (newest to oldest)
-    sortByDateButton.addEventListener( "click", () => {
-        const sortedByDate = [ ...pastScores ].sort(
-            ( a, b ) => new Date( b.date ) - new Date( a.date )
-        );
-        renderScores( sortedByDate );
-    } );
-
-    // Sort by Score (highest to lowest)
-    sortByScoreButton.addEventListener( "click", () => {
-        const sortedByScore = [ ...pastScores ].sort( ( a, b ) => b.score - a.score );
-        renderScores( sortedByScore );
-    } );
-} );
-
-resetScoresButton.addEventListener( "click", () => {
-    // Show the confirmation dialog
-    document.getElementById( "dialog-default" ).showModal();
-} );
-
-// Handle the confirmation action in the dialog
-document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
-    returnToBeginning();
-} );
-
-// Back to quiz
-backButton.addEventListener( "click", () => {
-    checkHistory();
-    pastScoresSection.style.display = "none";
-    sortByDateButton.style.display = "none";
-    sortByScoreButton.style.display = "none";
-    scoreSection.style.display = "flex";
-    scoreSection.style.flexDirection = "column";
-} );
 
 function checkHistory () {
     const currentUserId = localStorage.getItem( "currentUserId" );
