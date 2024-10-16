@@ -330,34 +330,34 @@ let score = 0;
 const loginContainer = document.querySelector( ".loginContainer" );
 const displayContainer = document.querySelector( ".displayContainer" );
 
-const registerSection = document.getElementById( "registerSection" );
-const loginSection = document.getElementById( "loginSection" );
-const quizSection = document.getElementById( "quizSection" );
-const scoreSection = document.getElementById( "scoreSection" );
-const pastScoresSection = document.getElementById( "pastScoresSection" );
-const registerError = document.getElementById( "registerError" );
+// const registerSection = document.getElementById( "registerSection" );
+// const loginSection = document.getElementById( "loginSection" );
+// const quizSection = document.getElementById( "quizSection" );
+// const scoreSection = document.getElementById( "scoreSection" );
+// const pastScoresSection = document.getElementById( "pastScoresSection" );
+// const registerError = document.getElementById( "registerError" );
 
-const firstName = document.getElementById( "firstName" );
-const lastName = document.getElementById( "lastName" );
-const email = document.getElementById( "email" );
-const registerUsername = document.getElementById( "registerUsername" );
-const registerPassword = document.getElementById( "registerPassword" );
-const confirmPassword = document.getElementById( "confirmPassword" );
-const registerButton = document.getElementById( "registerButton" );
-const loginUsername = document.getElementById( "loginUsername" );
-const loginPassword = document.getElementById( "loginPassword" );
-const loginButton = document.getElementById( "loginButton" );
+// const firstName = document.getElementById( "firstName" );
+// const lastName = document.getElementById( "lastName" );
+// const email = document.getElementById( "email" );
+// const registerUsername = document.getElementById( "registerUsername" );
+// const registerPassword = document.getElementById( "registerPassword" );
+// const confirmPassword = document.getElementById( "confirmPassword" );
+// const registerButton = document.getElementById( "registerButton" );
+// const loginUsername = document.getElementById( "loginUsername" );
+// const loginPassword = document.getElementById( "loginPassword" );
+// const loginButton = document.getElementById( "loginButton" );
 
-const backButton = document.getElementById( "backButton" );
-const pastScoresEl = document.getElementById( "pastScores" );
-const retryButton = document.getElementById( "retryButton" );
+// const backButton = document.getElementById( "backButton" );
+// const pastScoresEl = document.getElementById( "pastScores" );
+// const retryButton = document.getElementById( "retryButton" );
 
-const actionButtons = document.getElementById( "actionButtons" );
-const logoutButton = document.getElementById( "logoutButton" );
-const viewScoresButton = document.getElementById( "viewScoresButton" );
-const resetScoresButton = document.getElementById( "resetScoresButton" );
-const sortByDateButton = document.getElementById( "sortByDateButton" );
-const sortByScoreButton = document.getElementById( "sortByScoreButton" );
+// const actionButtons = document.getElementById( "actionButtons" );
+// const logoutButton = document.getElementById( "logoutButton" );
+// const viewScoresButton = document.getElementById( "viewScoresButton" );
+// const resetScoresButton = document.getElementById( "resetScoresButton" );
+// const sortByDateButton = document.getElementById( "sortByDateButton" );
+// const sortByScoreButton = document.getElementById( "sortByScoreButton" );
 
 // Function to create and append the registration form dynamically
 function createRegisterSection () {
@@ -406,7 +406,9 @@ function createRegisterSection () {
         registerPassword,
         confirmPassword,
     ].forEach( ( field ) => {
-        field.addEventListener( "input", clearErrorStyles );
+        field.addEventListener( "input", () => {
+            clearErrorStyles( field )
+        } );
     } );
 }
 
@@ -466,6 +468,7 @@ function createScoreSection () {
     `;
     displayContainer.appendChild( scoreSection );
     document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
+    showScore();
 }
 
 // Function to create the past scores section dynamically
@@ -481,6 +484,7 @@ function createPastScoresSection () {
     displayContainer.appendChild( pastScoresSection );
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
         removeElementById( "pastScoresSection" )
+        createScoresButtons();
         createScoreSection();
     } );
 }
@@ -498,12 +502,18 @@ function createActionButtons () {
 }
 
 function createSortButtons ( actionButtons ) {
-    actionButtons.innerHTML += `
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
         <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
         <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
     `
     displayContainer.appendChild( actionButtons );
     logoutEventListener();
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
+    } );
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userScoresKey = `quizScores_${ currentUserId }`;
@@ -536,6 +546,7 @@ function logoutEventListener () {
         removeElementById( "scoreSection" )
         removeElementById( "quizSection" )
         removeElementById( "actionButtons" )
+        createRegisterSection();
         createLoginSection();
         document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
         const current = localStorage.getItem( "currentUserId" );
@@ -624,6 +635,14 @@ function validateEmail ( email ) {
 
 // Validate registration form
 function validateRegistrationForm () {
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+
+
     const fields = [
         { element: firstName, name: "First Name" },
         { element: lastName, name: "Last Name" },
@@ -634,10 +653,12 @@ function validateRegistrationForm () {
     ];
 
     // Reset previous error styles
-    resetErrorStyles( fields );
     const registerError = document.getElementById( "registerError" );
 
-    registerError.style.display = "none";
+    if ( registerError ) {
+        console.log( registerError )
+        resetErrorStyles( fields );
+    }
 
     // Basic validation
     for ( const field of fields ) {
@@ -682,12 +703,15 @@ function validateRegistrationForm () {
 }
 
 function resetErrorStyles ( fields ) {
+    document.getElementById( "registerError" ).style.display = "none";
     fields.forEach( ( field ) => {
+        console.log( field )
         field.element.classList.remove( "is-error" );
     } );
 }
 
 function showError ( message, field ) {
+    let registerError = document.getElementById( "registerError" );
     registerError.textContent = message;
     registerError.style.display = "block";
     field.classList.add( "is-error" );
@@ -727,8 +751,7 @@ async function registerUser ( fields ) {
     localStorage.setItem( "firstName", newUser.firstName );
 
     // Update the UI to transition from registration to login
-    registerSection.style.display = "none";
-    loginSection.style.display = "block"; // Go to login after registration
+    removeElementById( "registerSection" )
 }
 
 // Helper function to hash the password (SHA-256 example)
@@ -750,17 +773,9 @@ function generateUniqueId () {
 
 // Function to remove error classes and hide the error message
 // Function to remove error classes and hide the error message
-function clearErrorStyles () {
-    const fields = [
-        firstName,
-        lastName,
-        email,
-        registerUsername,
-        registerPassword,
-        confirmPassword,
-    ];
-
-    fields.forEach( ( field ) => field.classList.remove( "is-error" ) ); // Remove error class from all fields
+function clearErrorStyles ( field ) {
+    let registerError = document.getElementById( "registerError" );
+    field.classList.remove( "is-error" ) // Remove error class from all fields
     registerError.style.display = "none"; // Hide error message
 }
 
@@ -1016,20 +1031,12 @@ function checkAnswer ( selected ) {
 
 // Show Score
 function showScore () {
-    // Hide unnecessary UI elements
-    removeElementById( "quizSection" );
-
     // Display the score section
-    createScoreSection();
-    createScoresButtons();
-
+    // createScoresButtons();
+    // createScoreSection();
 
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
-
-    // Display the user's score
-    const scoreMessageEl = document.getElementById( "scoreMessage" );
-    scoreMessageEl.textContent = `You scored ${ score } out of ${ quizData.length }!`;
 
     // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${ currentUserId }`;
@@ -1041,6 +1048,17 @@ function showScore () {
 
     // Update localStorage with the new scores
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+
+    // Sort the past scores by date (most recent first)
+    pastScores.sort( ( a, b ) => Date.parse( b.date ) - Date.parse( a.date ) );
+
+    // Get the most recent score (which will be the first after sorting)
+    const mostRecentScore = pastScores[ 0 ];
+
+    // Display the user's score
+    // Update the score message with the most recent score
+    const scoreMessageEl = document.getElementById( "scoreMessage" );
+    scoreMessageEl.textContent = `Most Recent Score: ${ mostRecentScore.score } out of ${ mostRecentScore.total } on ${ mostRecentScore.date }`;
 }
 
 function returnToBeginning () {
@@ -1057,6 +1075,7 @@ function returnToBeginning () {
 
     // Update the UI
     removeElementById( "scoreSection" )
+    removeElementById( "pastScoresSection" )
     removeElementById( "dialog-default" )
     createActionButtons()
 
