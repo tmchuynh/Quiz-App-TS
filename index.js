@@ -258,24 +258,45 @@ function isUsernameTaken ( username ) {
     return users.some( user => user.username === username );
 }
 
-function registerUser ( fields ) {
+async function registerUser ( fields ) {
+    // Hash the password before storing it
+    const hashedPassword = await hashPassword( fields[ 4 ].element.value.trim() );
+
     const newUser = {
         id: generateUniqueId(),
         firstName: fields[ 0 ].element.value.trim(),
         lastName: fields[ 1 ].element.value.trim(),
         username: fields[ 3 ].element.value.trim(),
-        password: fields[ 4 ].element.value.trim(),
+        password: hashedPassword, // Store the hashed password
         scores: [],
         progress: { level: 0, achievements: [] }
     };
 
+    // Retrieve existing users from localStorage or initialize an empty array
     const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
+
+    // Add the new user to the users array
     users.push( newUser );
+
+    // Save the updated users array in localStorage
     localStorage.setItem( "users", JSON.stringify( users ) );
+
+    // Optionally, store the first name separately if needed
     localStorage.setItem( "firstName", newUser.firstName );
 
+    // Update the UI to transition from registration to login
     registerSection.style.display = "none";
     loginSection.style.display = "block"; // Go to login after registration
+}
+
+// Helper function to hash the password using SHA-256
+async function hashPassword ( password ) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode( password );
+    const hashBuffer = await crypto.subtle.digest( 'SHA-256', data );
+    const hashArray = Array.from( new Uint8Array( hashBuffer ) ); // Convert buffer to byte array
+    const hashHex = hashArray.map( b => b.toString( 16 ).padStart( 2, '0' ) ).join( '' ); // Convert bytes to hex string
+    return hashHex;
 }
 
 // Function to generate a unique ID
