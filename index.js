@@ -202,7 +202,8 @@ function validateRegistrationForm () {
 
     // Basic validation
     for ( const field of fields ) {
-        if ( !field.element.value.trim() ) {
+        const value = field.element.value.trim();
+        if ( !value ) {
             showError( `${ field.name } is required.`, field.element );
             return;
         }
@@ -215,12 +216,12 @@ function validateRegistrationForm () {
     }
 
     const password = registerPassword.value.trim();
+    const confirmPwd = confirmPassword.value.trim();
     if ( !isValidPassword( password ) ) {
         showError( "Password must be at least 8 characters long and contain at least one symbol.", registerPassword );
         return;
     }
 
-    const confirmPwd = confirmPassword.value.trim();
     if ( password !== confirmPwd ) {
         showError( "Passwords do not match.", registerPassword );
         showError( "Passwords do not match.", confirmPassword );
@@ -228,7 +229,8 @@ function validateRegistrationForm () {
     }
 
     // Check if user already exists
-    if ( isUsernameTaken( registerUsername.value.trim() ) ) {
+    const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
+    if ( isUsernameTaken( registerUsername.value.trim(), users ) ) {
         showError( "Username already exists.", registerUsername );
         return;
     }
@@ -250,11 +252,11 @@ function showError ( message, field ) {
 }
 
 function isValidPassword ( password ) {
-    return password.length >= 8 && /[!@#$%^&*(),.?":{}|<>]/.test( password );
+    const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+    return passwordRegex.test( password );
 }
 
-function isUsernameTaken ( username ) {
-    const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
+function isUsernameTaken ( username, users ) {
     return users.some( user => user.username === username );
 }
 
@@ -289,13 +291,13 @@ async function registerUser ( fields ) {
     loginSection.style.display = "block"; // Go to login after registration
 }
 
-// Helper function to hash the password using SHA-256
+// Helper function to hash the password (SHA-256 example)
 async function hashPassword ( password ) {
     const encoder = new TextEncoder();
     const data = encoder.encode( password );
     const hashBuffer = await crypto.subtle.digest( 'SHA-256', data );
-    const hashArray = Array.from( new Uint8Array( hashBuffer ) ); // Convert buffer to byte array
-    const hashHex = hashArray.map( b => b.toString( 16 ).padStart( 2, '0' ) ).join( '' ); // Convert bytes to hex string
+    const hashArray = Array.from( new Uint8Array( hashBuffer ) );
+    const hashHex = hashArray.map( b => b.toString( 16 ).padStart( 2, '0' ) ).join( '' );
     return hashHex;
 }
 
@@ -305,21 +307,18 @@ function generateUniqueId () {
 }
 
 // Function to remove error classes and hide the error message
+// Function to remove error classes and hide the error message
 function clearErrorStyles () {
-    firstName.classList.remove( "is-error" );
-    lastName.classList.remove( "is-error" );
-    email.classList.remove( "is-error" );
-    registerUsername.classList.remove( "is-error" );
-    registerPassword.classList.remove( "is-error" );
-    confirmPassword.classList.remove( "is-error" );
-    registerError.style.display = "none";
+    const fields = [ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ];
+
+    fields.forEach( field => field.classList.remove( "is-error" ) ); // Remove error class from all fields
+    registerError.style.display = "none"; // Hide error message
 }
 
 // Attach the same event listener to all relevant input fields
 [ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ].forEach( field => {
     field.addEventListener( "input", clearErrorStyles );
 } );
-
 
 // Handle Login with Enter Key and Validation
 loginButton.addEventListener( "click", validateLoginForm );
@@ -330,13 +329,15 @@ document.getElementById( "loginSection" ).addEventListener( "keydown", ( event )
 } );
 
 // Validate login form
-function validateLoginForm () {
+async function validateLoginForm () {
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
 
-    // Reset any previous error styling
-    loginUsername.classList.remove( "is-error" );
-    loginPassword.classList.remove( "is-error" );
+    // Reset error styles for both fields
+    const fields = [ loginUsername, loginPassword ];
+    fields.forEach( field => field.classList.remove( "is-error" ) );
+
+    loginError.style.display = "none";
 
     // Check if either field is blank
     if ( !username || !password ) {
@@ -344,37 +345,57 @@ function validateLoginForm () {
         loginError.style.display = "block";
 
         // Add 'is-error' class to empty fields
-        if ( !username ) loginUsername.classList.add( "is-error" );
-        if ( !password ) loginPassword.classList.add( "is-error" );
+        fields.forEach( field => {
+            if ( !field.value.trim() ) {
+                field.classList.add( "is-error" );
+            }
+        } );
 
         return;
     }
 
+    // Retrieve users from localStorage
     const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
-    const user = users.find( user => user.username === username && user.password === password ); // Ensure passwords are hashed in real applications
 
+    // Hash the entered password for comparison
+    const hashedPassword = await hashPassword( password );
+
+    // Find the user with matching username and hashed password
+    const user = users.find( user => user.username === username && user.password === hashedPassword );
+
+    // Login logic
     if ( user ) {
-        // Set current session user
-        localStorage.setItem( "currentUserId", user.id );
-        loginError.style.display = "none";
-        loadUserData( user );
-        loadQuiz(); // Proceed to quiz section
-        // Proceed to the main application
+        handleLoginSuccess( user ); // On successful login
     } else {
-        // Handle login failure
-        loginError.textContent = "Incorrect username or password.";
-        loginError.style.display = "block";
-
-        // Add 'is-error' class to both fields if credentials are wrong
-        loginUsername.classList.add( "is-error" );
-        loginPassword.classList.add( "is-error" );
+        handleLoginError( "Incorrect username or password." ); // On login failure
     }
 }
 
-// Function to remove error styles and hide the error message
+// Helper function to handle login errors
+function handleLoginError ( message ) {
+    loginError.textContent = message;
+    loginError.style.display = "block";
+    [ loginUsername, loginPassword ].forEach( field => field.classList.add( "is-error" ) );
+}
+
+// Helper function to handle successful login
+function handleLoginSuccess ( user ) {
+    // Set current session user
+    localStorage.setItem( "currentUserId", user.id );
+    loginError.style.display = "none"; // Hide any previous error
+
+    // Load user data and proceed to the quiz
+    loadQuiz(); // Proceed to quiz section
+}
+
+// Function to remove error classes and hide the login error message
 function clearLoginErrorStyles () {
-    loginUsername.classList.remove( "is-error" );
-    loginPassword.classList.remove( "is-error" );
+    const fields = [ loginUsername, loginPassword ];
+
+    // Remove error class from both fields
+    fields.forEach( field => field.classList.remove( "is-error" ) );
+
+    // Hide error message
     loginError.style.display = "none";
 }
 
@@ -383,45 +404,51 @@ function clearLoginErrorStyles () {
     field.addEventListener( "input", clearLoginErrorStyles );
 } );
 
+
 // Load Quiz
 function loadQuiz () {
     const currentUserId = localStorage.getItem( "currentUserId" );
-    if ( currentUserId ) {
-        const users = JSON.parse( localStorage.getItem( "users" ) );
-        let foundUser = "";
-        users.forEach( user => {
-            if ( user.id === currentUserId ) {
-                foundUser = user;
-            }
-        } )
 
-        const firstName = foundUser ? foundUser.firstName : "";
-        // Check if user is returning or logging in for the first time
-        const hasLoggedInBefore = sessionStorage.getItem( "hasLoggedInBefore" );
-
-        if ( hasLoggedInBefore ) {
-            // Show "Welcome back" message for returning users
-            document.getElementById( "welcomeMessage" ).textContent = `Welcome back, ${ firstName }!`;
-        } else {
-            // Show a simple "Welcome" message for first-time login
-            document.getElementById( "welcomeMessage" ).textContent = `Welcome, ${ firstName }!`;
-            sessionStorage.setItem( "hasLoggedInBefore", true ); // Set flag for future logins
-        }
-
-        // Show the action buttons
-        loginContainer.style.display = "none";
-        actionButtons.style.display = "flex";
-        logoutButton.style.display = "block";
-
-        quizSection.style.display = "flex";
-        quizSection.style.flexDirection = "column";
-
-        loadProgress();
-    } else {
+    if ( !currentUserId ) {
+        // If no user is logged in, show the login section
         actionButtons.style.display = "none";
         loginSection.style.display = "block";
         quizSection.style.display = "none";
+        return;
     }
+
+    // Retrieve users and find the current user
+    const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
+    const foundUser = users.find( user => user.id === currentUserId );
+
+    if ( !foundUser ) {
+        console.error( "User not found!" );
+        return;
+    }
+
+    const { firstName } = foundUser;
+
+    // Check if the user has logged in before
+    const hasLoggedInBefore = sessionStorage.getItem( "hasLoggedInBefore" );
+
+    // Display a welcome message based on the user's login history
+    const welcomeMessage = document.getElementById( "welcomeMessage" );
+    if ( hasLoggedInBefore ) {
+        welcomeMessage.textContent = `Welcome back, ${ firstName }!`;
+    } else {
+        welcomeMessage.textContent = `Welcome, ${ firstName }!`;
+        sessionStorage.setItem( "hasLoggedInBefore", true ); // Mark user as logged in for future
+    }
+
+    // Show the action buttons and quiz section
+    loginContainer.style.display = "none";
+    actionButtons.style.display = "flex";
+    logoutButton.style.display = "block";
+    quizSection.style.display = "flex";
+    quizSection.style.flexDirection = "column";
+
+    // Load user progress in the quiz
+    loadProgress();
 }
 
 const shuffley = ( array ) => {
