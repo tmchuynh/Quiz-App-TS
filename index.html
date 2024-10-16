@@ -18,86 +18,10 @@
         <p id="welcomeMessage"></p>
     </header>
     <section class="loginContainer">
-        <!-- Registration Form -->
-        <div id="registerSection" class="nes-container is-rounded">
-            <h2 class="nes-text">Register</h2>
 
-            <label for="firstName" class="nes-text">First Name:</label>
-            <input type="text" id="firstName" class="nes-input" placeholder="Enter first name" />
-
-            <label for="lastName" class="nes-text">Last Name:</label>
-            <input type="text" id="lastName" class="nes-input" placeholder="Enter last name" />
-
-            <label for="email" class="nes-text">Email:</label>
-            <input type="email" id="email" class="nes-input" placeholder="Enter email" />
-
-            <label for="registerUsername" class="nes-text">Username:</label>
-            <input type="text" id="registerUsername" class="nes-input" placeholder="Enter username" />
-
-            <label for="registerPassword" class="nes-text">Password:</label>
-            <input type="password" id="registerPassword" class="nes-input" placeholder="Enter password" />
-
-            <label for="confirmPassword" class="nes-text">Retype Password:</label>
-            <input type="password" id="confirmPassword" class="nes-input" placeholder="Retype password" />
-
-            <button id="registerButton" class="nes-btn is-success">Register</button>
-            <p id="registerError" class="nes-text is-error" style="display:none;"></p>
-        </div>
-
-        <!-- Login Form -->
-        <div id="loginSection" class="nes-container is-rounded" style="display:none;">
-            <h2 class="nes-text">Login</h2>
-            <label for="loginUsername" class="nes-text">Username:</label>
-            <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
-            <label for="loginPassword" class="nes-text">Password:</label>
-            <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
-            <button id="loginButton" class="nes-btn is-primary">Login</button>
-            <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
-        </div>
     </section>
-    <section class="container">
-        <!-- Quiz Section -->
-        <div id="quizSection" class="nes-container is-rounded" style="display: none;">
-            <p id="question"></p>
-            <div id="answers"></div>
-            <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
-        </div>
+    <section class="displayContainer container">
 
-        <!-- Score Section -->
-        <div id="scoreSection" class="nes-container is-rounded" style="display:none;">
-            <div>
-                <h2 class="nes-text">Quiz Completed!</h2>
-                <p id="scoreMessage"></p>
-            </div>
-            <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
-        </div>
-
-        <!-- Past Scores -->
-        <div id="pastScoresSection" class="nes-container is-rounded" style="display:none;">
-            <h2 class="nes-text">Past Scores</h2>
-            <ul id="pastScores"></ul>
-            <button id="backButton" class="nes-btn">Back to Quiz</button>
-        </div>
-
-        <!-- Dialog -->
-        <dialog class="nes-dialog" id="dialog-default">
-            <form method="dialog">
-                <p class="title">Confirmation</p>
-                <p>Are you sure you want to reset all past scores?</p>
-                <menu class="dialog-menu">
-                    <button class="nes-btn">Cancel</button>
-                    <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-                </menu>
-            </form>
-        </dialog>
-
-        <section id="actionButtons" style="display: none;">
-            <button id="viewScoresButton" class="nes-btn is-success" style="display: none;">View Past Scores</button>
-            <button id="logoutButton" class="nes-btn is-warning" style="display: none;">Logout</button>
-            <button id="sortByDateButton" class="nes-btn is-primary" style="display: none;">Sort by Date</button>
-            <button id="sortByScoreButton" class="nes-btn is-primary" style="display: none;">Sort by Score</button>
-            <button id="resetScoresButton" class="nes-btn is-error" style="display: none;">Reset All Scores</button>
-        </section>
     </section>
 
     <script src="index.js"></script>
