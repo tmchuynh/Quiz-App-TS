@@ -327,6 +327,9 @@ const totalQuestions = quizData.length; // Total number of questions
 let score = 0;
 
 // DOM Elements
+const loginContainer = document.querySelector( ".loginContainer" );
+const displayContainer = document.querySelector( ".displayContainer" );
+
 const registerSection = document.getElementById( "registerSection" );
 const loginSection = document.getElementById( "loginSection" );
 const quizSection = document.getElementById( "quizSection" );
@@ -342,7 +345,6 @@ const confirmPassword = document.getElementById( "confirmPassword" );
 const registerButton = document.getElementById( "registerButton" );
 const registerError = document.getElementById( "registerError" );
 
-const loginContainer = document.querySelector( ".loginContainer" );
 const loginUsername = document.getElementById( "loginUsername" );
 const loginPassword = document.getElementById( "loginPassword" );
 const loginButton = document.getElementById( "loginButton" );
@@ -363,6 +365,7 @@ const sortByScoreButton = document.getElementById( "sortByScoreButton" );
 function createRegisterSection () {
     const registerSection = document.createElement( "div" );
     registerSection.classList.add( "nes-container", "is-rounded" );
+    registerSection.id = "registerSection";
     registerSection.innerHTML = `
         <h2 class="nes-text">Register</h2>
         <label for="firstName" class="nes-text">First Name:</label>
@@ -380,13 +383,14 @@ function createRegisterSection () {
         <button id="registerButton" class="nes-btn is-success">Register</button>
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
-    document.body.appendChild( registerSection );
+    loginContainer.appendChild( registerSection );
 }
 
 // Function to create and append the login form dynamically
 function createLoginSection () {
     const loginSection = document.createElement( "div" );
     loginSection.classList.add( "nes-container", "is-rounded" );
+    loginSection.id = "loginSection";
     loginSection.innerHTML = `
         <h2 class="nes-text">Login</h2>
         <label for="loginUsername" class="nes-text">Username:</label>
@@ -396,43 +400,46 @@ function createLoginSection () {
         <button id="loginButton" class="nes-btn is-primary">Login</button>
         <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
     `;
-    document.body.appendChild( loginSection );
+    loginContainer.appendChild( loginSection );
 }
 
 // Function to create and append the quiz section dynamically
 function createQuizSection () {
     const quizSection = document.createElement( "div" );
     quizSection.classList.add( "nes-container", "is-rounded" );
+    quizSection.id = "quizSection";
     quizSection.innerHTML = `
         <p id="question"></p>
         <div id="answers"></div>
         <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
     `;
-    document.body.appendChild( quizSection );
+    displayContainer.appendChild( quizSection );
 }
 
 // Function to create and append the score section dynamically
 function createScoreSection () {
     const scoreSection = document.createElement( "div" );
     scoreSection.classList.add( "nes-container", "is-rounded" );
+    scoreSection.id = "scoreSection";
     scoreSection.innerHTML = `
         <h2 class="nes-text">Quiz Completed!</h2>
         <p id="scoreMessage"></p>
         <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
     `;
-    document.body.appendChild( scoreSection );
+    displayContainer.appendChild( scoreSection );
 }
 
 // Function to create the past scores section dynamically
 function createPastScoresSection () {
     const pastScoresSection = document.createElement( "div" );
     pastScoresSection.classList.add( "nes-container", "is-rounded" );
+    pastScoresSection.id = "pastScoresSection";
     pastScoresSection.innerHTML = `
         <h2 class="nes-text">Past Scores</h2>
         <ul id="pastScores"></ul>
         <button id="backButton" class="nes-btn">Back to Quiz</button>
     `;
-    document.body.appendChild( pastScoresSection );
+    displayContainer.appendChild( pastScoresSection );
 }
 
 // Function to create the action buttons dynamically
@@ -440,13 +447,29 @@ function createActionButtons () {
     const actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
     actionButtons.innerHTML = `
-        <button id="viewScoresButton" class="nes-btn is-success" style="display: none;">View Past Scores</button>
-        <button id="logoutButton" class="nes-btn is-warning" style="display: none;">Logout</button>
-        <button id="sortByDateButton" class="nes-btn is-primary" style="display: none;">Sort by Date</button>
-        <button id="sortByScoreButton" class="nes-btn is-primary" style="display: none;">Sort by Score</button>
-        <button id="resetScoresButton" class="nes-btn is-error" style="display: none;">Reset All Scores</button>
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
-    document.body.appendChild( actionButtons );
+    displayContainer.appendChild( actionButtons );
+}
+
+function createScoresButtons () {
+    const actionButtons = document.getElementById( "actionButtons" );
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+    `
+}
+
+function createSortButtons () {
+    const actionButtons = document.getElementById( "actionButtons" );
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
+        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
+    `
 }
 
 // Function to create the dialog section dynamically
@@ -464,23 +487,8 @@ function createDialog () {
             </menu>
         </form>
     `;
-    document.body.appendChild( dialog );
+    displayContainer.appendChild( dialog );
 }
-
-// Example of creating all sections dynamically on page load
-function createAllSections () {
-    createRegisterSection();
-    createLoginSection();
-    createQuizSection();
-    createScoreSection();
-    createPastScoresSection();
-    createActionButtons();
-    createDialog();
-}
-
-// Call this function to create all the sections
-createAllSections();
-
 
 // Cookie Helpers
 function setCookie ( name, value, days ) {
