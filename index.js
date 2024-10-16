@@ -1,100 +1,325 @@
 // Quiz Data
 const quizData = [
     {
-        question: "What does IDE stand for in web development?",
-        answers: [ "Integrated Development Environment", "Internet Development Editor", "Interactive Design Environment", "Integrated Debugging Engine" ],
-        correct: 0
+        question: "What is the largest planet in our Solar System?",
+        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+        correct: 2,
     },
     {
-        question: "What does HTML stand for?",
-        answers: [ "Hypertext Markup Language", "High-Level Text Markup Language", "Hyperlink and Text Markup Language", "Hypertext Multi Language" ],
-        correct: 0
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+        correct: 1,
     },
     {
-        question: "What is the purpose of semantic HTML?",
-        answers: [ "To create visually appealing websites", "To enhance SEO and accessibility", "To speed up website loading times", "To allow users to input data" ],
-        correct: 1
+        question: "What is the chemical symbol for water?",
+        answers: [ "O2", "H2O", "CO2", "NaCl" ],
+        correct: 1,
     },
     {
-        question: "What is the DRY principle in programming?",
-        answers: [ "Don't Repeat Yourself", "Don't Render Your code", "Do Run Your tests", "Don't Run Your scripts" ],
-        correct: 0
-    },
-    {
-        question: "Which of the following is a version control system?",
-        answers: [ "Git", "npm", "HTML", "CSS" ],
-        correct: 0
-    },
-    {
-        question: "What is Markdown primarily used for?",
-        answers: [ "Styling websites", "Writing formatted text", "Creating interactive web apps", "Managing packages" ],
-        correct: 1
-    },
-    {
-        question: "What command is used to install a package using npm?",
-        answers: [ "npm install [package_name]", "npm get [package_name]", "npm download [package_name]", "npm setup [package_name]" ],
-        correct: 0
-    },
-    {
-        question: "What is wireframing in web design?",
-        answers: [ "Creating a visual representation of a webpage", "Writing the code for a website", "Deploying a website to a server", "Designing graphics for a website" ],
-        correct: 0
-    },
-    {
-        question: "What is the purpose of ARIA labels in HTML?",
-        answers: [ "To improve aesthetics", "To provide accessibility information", "To structure the HTML document", "To enhance loading times" ],
-        correct: 1
-    },
-    {
-        question: "Which of the following is a void element in HTML?",
-        answers: [ "<div>", "<img>", "<p>", "<span>" ],
-        correct: 1
-    },
-    {
-        question: "What does CSS stand for?",
-        answers: [ "Cascading Style Sheets", "Colorful Style Sheets", "Creative Style System", "Cascading Sheet Styles" ],
-        correct: 0
-    },
-    {
-        question: "Which CSS rule is used to select an element with a specific class?",
-        answers: [ ".classname", "#classname", "classname", "*classname" ],
-        correct: 0
-    },
-    {
-        question: "What are pseudo-classes in CSS?",
-        answers: [ "Classes that cannot be reused", "Classes that are defined in a style block", "Special states of elements", "Classes that require JavaScript" ],
+        question: "What natural satellite orbits the Earth?",
+        answers: [ "Mars", "Sun", "Moon", "Venus" ],
         correct: 2
     },
     {
-        question: "What is the DOM?",
-        answers: [ "Document Object Model", "Data Object Model", "Dynamic Object Model", "Document Outline Model" ],
-        correct: 0
-    },
-    {
-        question: "What is an object literal in JavaScript?",
-        answers: [ "A way to define objects using curly braces", "A built-in object in JavaScript", "A function that returns an object", "An object created with the Object constructor" ],
-        correct: 0
-    },
-    {
-        question: "Which CSS framework is known for its utility-first approach?",
-        answers: [ "Bootstrap", "Tailwind CSS", "Foundation", "Materialize" ],
+        question: "What phenomenon causes the seasons on Earth?",
+        answers: [ "Earth's distance from the Sun", "Earth's axial tilt", "Solar flares", "Lunar phases" ],
         correct: 1
     },
     {
-        question: "What is a key feature of Bootstrap?",
-        answers: [ "Custom animations", "Responsive design grid system", "Markdown support", "JavaScript libraries" ],
-        correct: 1
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3
     },
     {
-        question: "What are @rules in CSS?",
-        answers: [ "Commands for compiling CSS", "CSS syntax rules", "Special directives like @import and @media", "Rules for styling pseudo-elements" ],
+        question: "What type of energy is stored in a stretched rubber band?",
+        answers: [ "Kinetic Energy", "Thermal Energy", "Elastic Potential Energy", "Chemical Energy" ],
         correct: 2
     },
     {
-        question: "What is element hierarchy in HTML?",
-        answers: [ "The order of elements based on CSS styles", "The nested structure of HTML elements", "The relationship between different HTML documents", "The hierarchy of JavaScript objects" ],
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
         correct: 1
-    }
+    },
+    {
+        question: "Which organelle is known as the powerhouse of the cell?",
+        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+        correct: 2
+    },
+    {
+        question: "What is the study of the weather called?",
+        answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
+        correct: 1
+    },
+    {
+        question: "What kind of animal is a dolphin?",
+        answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
+        correct: 3
+    },
+    {
+        question: "What is the basic unit of life?",
+        answers: [ "Atom", "Molecule", "Cell", "Organ" ],
+        correct: 2
+    },
+    {
+        question: "Which part of the cell contains genetic material?",
+        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+        correct: 0,
+    },
+    {
+        question: "What force keeps us on the ground?",
+        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+        correct: 2,
+    },
+    {
+        question: "What planet is known as the Red Planet?",
+        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+        correct: 1,
+    },
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+        correct: 2,
+    },
+    {
+        question: "What is the process by which plants make their own food?",
+        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+        correct: 1,
+    },
+    {
+        question: "What is the boiling point of water at sea level in Celsius?",
+        answers: [ "50°C", "75°C", "100°C", "125°C" ],
+        correct: 2,
+    },
+    {
+        question: "Which gas is most abundant in Earth's atmosphere?",
+        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+        correct: 1,
+    },
+    {
+        question: "What is the center of an atom called?",
+        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+        correct: 2,
+    },
+    {
+        question: "Which part of the cell contains genetic material?",
+        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+        correct: 0,
+    },
+    {
+        question: "What is the process by which plants make their own food?",
+        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+        correct: 1,
+    },
+    {
+        question: "What is the boiling point of water at sea level in Celsius?",
+        answers: [ "50°C", "75°C", "100°C", "125°C" ],
+        correct: 2,
+    },
+    {
+        question: "Which gas is most abundant in Earth's atmosphere?",
+        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+        correct: 1,
+    },
+    {
+        question: "Which country hosted the first modern Olympic Games?",
+        answers: [ "France", "Greece", "USA", "Germany" ],
+        correct: 1,
+    },
+    {
+        question: "Which country hosted the 2016 Summer Olympics?",
+        answers: [ "China", "Brazil", "UK", "Russia" ],
+        correct: 1,
+    },
+    {
+        question: "Which language is primarily spoken in Brazil?",
+        answers: [ "Spanish", "Portuguese", "French", "English" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical formula for table salt?",
+        answers: [ "NaCl", "KCl", "CaCO3", "MgSO4" ],
+        correct: 0,
+    },
+    {
+        question: "Which country is known as the Land of the Rising Sun?",
+        answers: [ "China", "Japan", "Thailand", "South Korea" ],
+        correct: 1,
+    },
+    {
+        question: "What is the capital of France?",
+        answers: [ "Berlin", "London", "Paris", "Rome" ],
+        correct: 2,
+    },
+    {
+        question: "In which year did the World War II end?",
+        answers: [ "1945", "1939", "1918", "1963" ],
+        correct: 0,
+    },
+    {
+        question: "What is the largest desert in the world?",
+        answers: [ "Sahara", "Gobi", "Kalahari", "Arctic Desert" ],
+        correct: 0,
+    },
+    {
+        question: "Who was the first person to walk on the Moon?",
+        answers: [ "Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins" ],
+        correct: 1,
+    },
+    {
+        question: "What is the currency of the United Kingdom?",
+        answers: [ "Euro", "Dollar", "Pound Sterling", "Yen" ],
+        correct: 2,
+    },
+    {
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3,
+    },
+    {
+        question: "Which metal is liquid at room temperature?",
+        answers: [ "Iron", "Mercury", "Gold", "Silver" ],
+        correct: 1,
+    },
+    {
+        question: "Which planet has the most moons?",
+        answers: [ "Earth", "Saturn", "Jupiter", "Mars" ],
+        correct: 2,
+    },
+    {
+        question: "What is the primary language spoken in Canada?",
+        answers: [ "English and French", "English and Spanish", "French and German", "Spanish and Portuguese" ],
+        correct: 0,
+    },
+    {
+        question: "Which country gifted the Statue of Liberty to the USA?",
+        answers: [ "Germany", "France", "Italy", "Spain" ],
+        correct: 1,
+    },
+    {
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Carbon", "Hydrogen", "Nitrogen" ],
+        correct: 2,
+    },
+    {
+        question: "What is the largest bone in the human body?",
+        answers: [ "Femur", "Tibia", "Humerus", "Fibula" ],
+        correct: 0,
+    },
+    {
+        question: "Which ocean is the Bermuda Triangle located in?",
+        answers: [ "Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean" ],
+        correct: 0,
+    },
+    {
+        question: "What is the main ingredient in guacamole?",
+        answers: [ "Tomato", "Avocado", "Onion", "Pepper" ],
+        correct: 1,
+    },
+    {
+        question: "What is the center of an atom called?",
+        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+        correct: 2,
+    },
+    {
+        question: "Which vitamin is essential for blood clotting?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K" ],
+        correct: 3,
+    },
+    {
+        question: "What is the largest land animal?",
+        answers: [ "Elephant", "Giraffe", "Hippopotamus", "Rhinoceros" ],
+        correct: 0,
+    },
+    {
+        question: "Who wrote 'The Odyssey'?",
+        answers: [ "Homer", "Virgil", "Sophocles", "Aristotle" ],
+        correct: 0,
+    },
+    {
+        question: "What force keeps us on the ground?",
+        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+        correct: 2,
+    },
+    {
+        question: "What planet is known as the Red Planet?",
+        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+        correct: 1,
+    },
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+        correct: 2,
+    },
+    {
+        question: "What natural satellite orbits the Earth?",
+        answers: [ "Mars", "Sun", "Moon", "Venus" ],
+        correct: 2,
+    },
+    {
+        question: "What is the largest planet in our Solar System?",
+        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+        correct: 2,
+    },
+    {
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answers: [ "O2", "H2O", "CO2", "NaCl" ],
+        correct: 1,
+    },
+    {
+        question: "What phenomenon causes the seasons on Earth?",
+        answers: [
+            "Earth's distance from the Sun",
+            "Earth's axial tilt",
+            "Solar flares",
+            "Lunar phases",
+        ],
+        correct: 1,
+    },
+    {
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3,
+    },
+    {
+        question: "What type of energy is stored in a stretched rubber band?",
+        answers: [
+            "Kinetic Energy",
+            "Thermal Energy",
+            "Elastic Potential Energy",
+            "Chemical Energy",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
+        correct: 1,
+    },
+    {
+        question: "Which organelle is known as the powerhouse of the cell?",
+        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+        correct: 2,
+    },
+    {
+        question: "What is the study of the weather called?",
+        answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
+        correct: 1,
+    },
+    {
+        question: "What kind of animal is a dolphin?",
+        answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
+        correct: 3,
+    },
+    {
+        question: "What is the basic unit of life?",
+        answers: [ "Atom", "Molecule", "Cell", "Organ" ],
+        correct: 2,
+    },
 ];
 
 let currentQuestion = 0;
@@ -134,10 +359,10 @@ const resetScoresButton = document.getElementById( "resetScoresButton" );
 const sortByDateButton = document.getElementById( "sortByDateButton" );
 const sortByScoreButton = document.getElementById( "sortByScoreButton" );
 
-// Cookie Helpers 
+// Cookie Helpers
 function setCookie ( name, value, days ) {
     const date = new Date();
-    date.setTime( date.getTime() + ( days * 24 * 60 * 60 * 1000 ) );
+    date.setTime( date.getTime() + days * 24 * 60 * 60 * 1000 );
     document.cookie = `${ name }=${ value };expires=${ date.toUTCString() };path=/`;
 }
 
@@ -154,14 +379,14 @@ logoutButton.addEventListener( "click", () => {
     actionButtons.style.display = "none";
     document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
     const current = localStorage.getItem( "currentUserId" );
-    const quiz = "quizScores_" + current
+    const quiz = "quizScores_" + current;
     localStorage.removeItem( "currentUserId" );
-    localStorage.removeItem( quiz )
+    localStorage.removeItem( quiz );
     localStorage.removeItem( "firstName" );
 } );
 
 function getCookie ( name ) {
-    const cookies = document.cookie.split( ';' );
+    const cookies = document.cookie.split( ";" );
     for ( let cookie of cookies ) {
         cookie = cookie.trim();
         if ( cookie.startsWith( `${ name }=` ) ) {
@@ -179,21 +404,23 @@ function validateEmail ( email ) {
 
 // Handle Registration with Validation and Enter Key
 registerButton.addEventListener( "click", validateRegistrationForm );
-document.getElementById( "registerSection" ).addEventListener( "keydown", ( event ) => {
-    if ( event.key === "Enter" ) {
-        validateRegistrationForm();
-    }
-} );
+document
+    .getElementById( "registerSection" )
+    .addEventListener( "keydown", ( event ) => {
+        if ( event.key === "Enter" ) {
+            validateRegistrationForm();
+        }
+    } );
 
 // Validate registration form
 function validateRegistrationForm () {
     const fields = [
-        { element: firstName, name: 'First Name' },
-        { element: lastName, name: 'Last Name' },
-        { element: email, name: 'Email' },
-        { element: registerUsername, name: 'Username' },
-        { element: registerPassword, name: 'Password' },
-        { element: confirmPassword, name: 'Confirm Password' }
+        { element: firstName, name: "First Name" },
+        { element: lastName, name: "Last Name" },
+        { element: email, name: "Email" },
+        { element: registerUsername, name: "Username" },
+        { element: registerPassword, name: "Password" },
+        { element: confirmPassword, name: "Confirm Password" },
     ];
 
     // Reset previous error styles
@@ -218,7 +445,10 @@ function validateRegistrationForm () {
     const password = registerPassword.value.trim();
     const confirmPwd = confirmPassword.value.trim();
     if ( !isValidPassword( password ) ) {
-        showError( "Password must be at least 8 characters long and contain at least one symbol.", registerPassword );
+        showError(
+            "Password must be at least 8 characters long and contain at least one symbol.",
+            registerPassword
+        );
         return;
     }
 
@@ -240,7 +470,7 @@ function validateRegistrationForm () {
 }
 
 function resetErrorStyles ( fields ) {
-    fields.forEach( field => {
+    fields.forEach( ( field ) => {
         field.element.classList.remove( "is-error" );
     } );
 }
@@ -257,7 +487,7 @@ function isValidPassword ( password ) {
 }
 
 function isUsernameTaken ( username, users ) {
-    return users.some( user => user.username === username );
+    return users.some( ( user ) => user.username === username );
 }
 
 async function registerUser ( fields ) {
@@ -271,7 +501,7 @@ async function registerUser ( fields ) {
         username: fields[ 3 ].element.value.trim(),
         password: hashedPassword, // Store the hashed password
         scores: [],
-        progress: { level: 0, achievements: [] }
+        progress: { level: 0, achievements: [] },
     };
 
     // Retrieve existing users from localStorage or initialize an empty array
@@ -295,28 +525,44 @@ async function registerUser ( fields ) {
 async function hashPassword ( password ) {
     const encoder = new TextEncoder();
     const data = encoder.encode( password );
-    const hashBuffer = await crypto.subtle.digest( 'SHA-256', data );
+    const hashBuffer = await crypto.subtle.digest( "SHA-256", data );
     const hashArray = Array.from( new Uint8Array( hashBuffer ) );
-    const hashHex = hashArray.map( b => b.toString( 16 ).padStart( 2, '0' ) ).join( '' );
+    const hashHex = hashArray
+        .map( ( b ) => b.toString( 16 ).padStart( 2, "0" ) )
+        .join( "" );
     return hashHex;
 }
 
 // Function to generate a unique ID
 function generateUniqueId () {
-    return 'user_' + Math.floor( Math.random() * 1650 ) + 256; // Simple unique ID
+    return "user_" + Math.floor( Math.random() * 1650 ) + 256; // Simple unique ID
 }
 
 // Function to remove error classes and hide the error message
 // Function to remove error classes and hide the error message
 function clearErrorStyles () {
-    const fields = [ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ];
+    const fields = [
+        firstName,
+        lastName,
+        email,
+        registerUsername,
+        registerPassword,
+        confirmPassword,
+    ];
 
-    fields.forEach( field => field.classList.remove( "is-error" ) ); // Remove error class from all fields
+    fields.forEach( ( field ) => field.classList.remove( "is-error" ) ); // Remove error class from all fields
     registerError.style.display = "none"; // Hide error message
 }
 
 // Attach the same event listener to all relevant input fields
-[ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ].forEach( field => {
+[
+    firstName,
+    lastName,
+    email,
+    registerUsername,
+    registerPassword,
+    confirmPassword,
+].forEach( ( field ) => {
     field.addEventListener( "input", clearErrorStyles );
 } );
 
@@ -335,7 +581,7 @@ async function validateLoginForm () {
 
     // Reset error styles for both fields
     const fields = [ loginUsername, loginPassword ];
-    fields.forEach( field => field.classList.remove( "is-error" ) );
+    fields.forEach( ( field ) => field.classList.remove( "is-error" ) );
 
     loginError.style.display = "none";
 
@@ -345,7 +591,7 @@ async function validateLoginForm () {
         loginError.style.display = "block";
 
         // Add 'is-error' class to empty fields
-        fields.forEach( field => {
+        fields.forEach( ( field ) => {
             if ( !field.value.trim() ) {
                 field.classList.add( "is-error" );
             }
@@ -361,7 +607,9 @@ async function validateLoginForm () {
     const hashedPassword = await hashPassword( password );
 
     // Find the user with matching username and hashed password
-    const user = users.find( user => user.username === username && user.password === hashedPassword );
+    const user = users.find(
+        ( user ) => user.username === username && user.password === hashedPassword
+    );
 
     // Login logic
     if ( user ) {
@@ -375,7 +623,9 @@ async function validateLoginForm () {
 function handleLoginError ( message ) {
     loginError.textContent = message;
     loginError.style.display = "block";
-    [ loginUsername, loginPassword ].forEach( field => field.classList.add( "is-error" ) );
+    [ loginUsername, loginPassword ].forEach( ( field ) =>
+        field.classList.add( "is-error" )
+    );
 }
 
 // Helper function to handle successful login
@@ -393,17 +643,16 @@ function clearLoginErrorStyles () {
     const fields = [ loginUsername, loginPassword ];
 
     // Remove error class from both fields
-    fields.forEach( field => field.classList.remove( "is-error" ) );
+    fields.forEach( ( field ) => field.classList.remove( "is-error" ) );
 
     // Hide error message
     loginError.style.display = "none";
 }
 
 // Attach the same event listener to both login input fields
-[ loginUsername, loginPassword ].forEach( field => {
+[ loginUsername, loginPassword ].forEach( ( field ) => {
     field.addEventListener( "input", clearLoginErrorStyles );
 } );
-
 
 // Load Quiz
 function loadQuiz () {
@@ -419,7 +668,7 @@ function loadQuiz () {
 
     // Retrieve users and find the current user
     const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
-    const foundUser = users.find( user => user.id === currentUserId );
+    const foundUser = users.find( ( user ) => user.id === currentUserId );
 
     if ( !foundUser ) {
         console.error( "User not found!" );
@@ -464,7 +713,6 @@ const shuffle = ( array ) => {
         .sort( ( a, b ) => a.sort - b.sort )
         .map( ( a ) => a.value );
 };
-
 
 // Display Question
 function displayQuestion () {
@@ -515,17 +763,19 @@ function displayQuestion () {
     updateProgressBar();
 }
 
-
 // Function to update the progress bar
 function updateProgressBar () {
-    const progressBar = document.getElementById( 'quizProgressBar' );
+    const progressBar = document.getElementById( "quizProgressBar" );
     const progressValue = ( ( currentQuestion + 1 ) / totalQuestions ) * 100; // Calculate percentage
     progressBar.value = progressValue; // Update the value of the progress bar
 
     // Save current progress in session storage
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userProgressKey = `quizProgress_${ currentUserId }`;
-    sessionStorage.setItem( userProgressKey, JSON.stringify( { currentQuestion, score } ) ); // Store progress
+    sessionStorage.setItem(
+        userProgressKey,
+        JSON.stringify( { currentQuestion, score } )
+    ); // Store progress
 }
 
 // Function to load progress on quiz start
@@ -535,7 +785,8 @@ function loadProgress () {
     const progressData = sessionStorage.getItem( userProgressKey );
 
     if ( progressData ) {
-        const { currentQuestion: savedQuestion, score: savedScore } = JSON.parse( progressData );
+        const { currentQuestion: savedQuestion, score: savedScore } =
+            JSON.parse( progressData );
         currentQuestion = savedQuestion;
         score = savedScore;
     } else {
@@ -547,42 +798,55 @@ function loadProgress () {
 
 // Check Answer
 function checkAnswer ( selected ) {
-    const correct = quizData[ currentQuestion ].correct;
-    if ( selected === correct ) {
+    const currentQuiz = quizData[ currentQuestion ];
+
+    // Increment score if the selected answer is correct
+    if ( selected === currentQuiz.correct ) {
         score++;
     }
 
+    // Update the current question index
     currentQuestion++;
-    sessionStorage.setItem( "quizProgress", currentQuestion );
 
+    // Store progress only at the end of the quiz
     if ( currentQuestion < quizData.length ) {
-        displayQuestion(); // Call displayQuestion again to show the next question
+        displayQuestion(); // Show the next question
     } else {
-        showScore();
+        sessionStorage.setItem( "quizProgress", currentQuestion ); // Store the progress
+        showScore(); // Display final score
     }
 }
 
 // Show Score
 function showScore () {
+    // Hide unnecessary UI elements
     checkHistory();
     quizSection.style.display = "none";
     sortByDateButton.style.display = "none";
     sortByScoreButton.style.display = "none";
+
+    // Display the score section
     scoreSection.style.display = "flex";
     scoreSection.style.flexWrap = "wrap";
 
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
-    document.getElementById( "scoreMessage" ).textContent = `You scored ${ score } out of ${ quizData.length }!`;
 
-    // Retrieve past scores for the current user
+    // Display the user's score
+    const scoreMessageEl = document.getElementById( "scoreMessage" );
+    scoreMessageEl.textContent = `You scored ${ score } out of ${ quizData.length }!`;
+
+    // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${ currentUserId }`;
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
-    const timestamp = new Date().toLocaleString(); // Get the current date and time
+
+    // Add the new score with the current timestamp
+    const timestamp = new Date().toLocaleString();
     pastScores.push( { score: score, total: quizData.length, date: timestamp } );
+
+    // Update localStorage with the new scores
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
 }
-
 
 // Retry quiz
 retryButton.addEventListener( "click", returnToBeginning );
@@ -593,7 +857,10 @@ function returnToBeginning () {
     score = 0;
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userProgressKey = `quizProgress_${ currentUserId }`;
-    sessionStorage.setItem( userProgressKey, JSON.stringify( { currentQuestion, score } ) )
+    sessionStorage.setItem(
+        userProgressKey,
+        JSON.stringify( { currentQuestion, score } )
+    );
 
     // Update the UI
     quizSection.style.display = "flex";
@@ -605,9 +872,11 @@ function returnToBeginning () {
 }
 
 function renderScores ( pastScores ) {
-    pastScoresEl.innerHTML = pastScores.map( ( { score, total, date } ) => {
-        return `<li>${ score }/${ total } - ${ date }</li>`;
-    } ).join( '' );
+    pastScoresEl.innerHTML = pastScores
+        .map( ( { score, total, date } ) => {
+            return `<li>${ score }/${ total } - ${ date }</li>`;
+        } )
+        .join( "" );
 }
 
 // View past scores and enable sorting
@@ -630,7 +899,9 @@ viewScoresButton.addEventListener( "click", () => {
 
     // Sort by Date (newest to oldest)
     sortByDateButton.addEventListener( "click", () => {
-        const sortedByDate = [ ...pastScores ].sort( ( a, b ) => new Date( b.date ) - new Date( a.date ) );
+        const sortedByDate = [ ...pastScores ].sort(
+            ( a, b ) => new Date( b.date ) - new Date( a.date )
+        );
         renderScores( sortedByDate );
     } );
 
@@ -643,11 +914,11 @@ viewScoresButton.addEventListener( "click", () => {
 
 resetScoresButton.addEventListener( "click", () => {
     // Show the confirmation dialog
-    document.getElementById( 'dialog-default' ).showModal();
+    document.getElementById( "dialog-default" ).showModal();
 } );
 
 // Handle the confirmation action in the dialog
-document.querySelector( '#resetConfirm' ).addEventListener( "click", () => {
+document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
     const currentUserId = localStorage.getItem( "currentUserId" );
     localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
     returnToBeginning();
@@ -670,7 +941,6 @@ function checkHistory () {
     viewScoresButton.style.display = quizScores ? "block" : "none";
     resetScoresButton.style.display = quizScores ? "block" : "none";
 }
-
 
 // Initial load
 window.onload = loadQuiz;
