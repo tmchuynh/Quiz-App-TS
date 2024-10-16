@@ -451,44 +451,70 @@ function loadQuiz () {
     loadProgress();
 }
 
-const shuffley = ( array ) => {
+const shuffle = ( array ) => {
+    // Step 1: Fisher-Yates Shuffle
     for ( let i = array.length - 1; i > 0; i-- ) {
         const j = Math.floor( Math.random() * ( i + 1 ) );
         [ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ];
     }
-    return array;
-};
 
-const shufflex = ( array ) => {
-    return array.map( ( a ) => ( { sort: Math.random(), value: a } ) )
+    // Step 2: Random sort shuffle
+    return array
+        .map( ( a ) => ( { sort: Math.random(), value: a } ) )
         .sort( ( a, b ) => a.sort - b.sort )
         .map( ( a ) => a.value );
 };
 
+
 // Display Question
 function displayQuestion () {
+    // Display the action buttons and show the logout button
     actionButtons.style.display = "flex";
     checkHistory();
     logoutButton.style.display = "block";
+
     const currentQuizData = quizData[ currentQuestion ];
-    document.getElementById( "question" ).textContent = currentQuizData.question;
+    const questionEl = document.getElementById( "question" );
     const answersEl = document.getElementById( "answers" );
-    answersEl.innerHTML = "";
 
-    const answers = shufflex( currentQuizData.answers );
-    const answer = shufflex( answers );
+    // Set the question text
+    questionEl.textContent = currentQuizData.question;
 
-    answer.forEach( ( answer, index ) => {
-        const button = document.createElement( "button" );
-        button.classList.add( "nes-btn" );
+    // Efficient shuffling using Fisher-Yates
+    const shuffledAnswers = shuffle( currentQuizData.answers );
+
+    // If there are more buttons than answers, remove the excess ones
+    while ( answersEl.children.length > shuffledAnswers.length ) {
+        answersEl.removeChild( answersEl.lastChild );
+    }
+
+    // Add or update buttons
+    shuffledAnswers.forEach( ( answer, index ) => {
+        let button;
+
+        if ( answersEl.children[ index ] ) {
+            // Reuse existing button
+            button = answersEl.children[ index ];
+        } else {
+            // Create new button if necessary
+            button = document.createElement( "button" );
+            button.classList.add( "nes-btn" );
+            answersEl.appendChild( button );
+        }
+
+        // Update the button text
         button.textContent = answer;
-        button.addEventListener( "click", () => checkAnswer( index ) );
-        answersEl.appendChild( button );
+
+        // Remove any previous event listeners and add a new one
+        button.replaceWith( button.cloneNode( true ) ); // Clean up old event listeners
+        const newButton = answersEl.children[ index ]; // Get the clean clone
+        newButton.addEventListener( "click", () => checkAnswer( index ) );
     } );
 
     // Update the progress bar
     updateProgressBar();
 }
+
 
 // Function to update the progress bar
 function updateProgressBar () {
