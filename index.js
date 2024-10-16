@@ -465,7 +465,7 @@ function createScoreSection () {
         <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
     `;
     displayContainer.appendChild( scoreSection );
-    document.querySelector( "#retryButton" ).addEventListener( "click", returnToBeginning );
+    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
 }
 
 // Function to create the past scores section dynamically
@@ -504,11 +504,6 @@ function createSortButtons ( actionButtons ) {
     `
     displayContainer.appendChild( actionButtons );
     logoutEventListener();
-    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
-        // Show the confirmation dialog
-        createDialog();
-    } );
-
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userScoresKey = `quizScores_${ currentUserId }`;
@@ -562,7 +557,13 @@ function createScoresButtons () {
     `
     displayContainer.appendChild( actionButtons );
     logoutEventListener();
-    document.querySelector( "#viewScoresButton" ).addEventListener( "click", createSortButtons( actionButtons ) );
+    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
+        createSortButtons( actionButtons );
+    } );
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
+    } );
 }
 
 // Function to create the dialog section dynamically
@@ -584,6 +585,7 @@ function createDialog () {
     document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
         const currentUserId = localStorage.getItem( "currentUserId" );
         localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
+        sessionStorage.removeItem( `quizScores_${ currentUserId }` );
         returnToBeginning();
     } );
 }
@@ -710,8 +712,6 @@ async function registerUser ( fields ) {
         lastName: fields[ 1 ].element.value.trim(),
         username: fields[ 3 ].element.value.trim(),
         password: hashedPassword, // Store the hashed password
-        scores: [],
-        progress: { level: 0, achievements: [] },
     };
 
     // Retrieve existing users from localStorage or initialize an empty array
@@ -882,16 +882,19 @@ function loadQuiz () {
 
     removeElementById( "registerSection" );
     removeElementById( "loginSection" );
-    createQuizSection();
 
-    const userProgressKey = `quizProgress_${ currentUserId }`;
-    const progressData = sessionStorage.getItem( userProgressKey );
-    if ( progressData ) {
+    const userProgressKey = `quizScores_${ currentUserId }`;
+    const scoreData = localStorage.getItem( userProgressKey );
+    if ( scoreData ) {
         createScoresButtons();
     } else {
         createActionButtons();
     }
 
+
+    if ( !document.querySelector( "#quizSection" ) ) {
+        createQuizSection();
+    }
 
 
     // Load user progress in the quiz
@@ -1038,14 +1041,13 @@ function showScore () {
 
     // Update localStorage with the new scores
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
-
-
 }
 
 function returnToBeginning () {
     // Reset quiz variables
     currentQuestion = 0;
     score = 0;
+
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userProgressKey = `quizProgress_${ currentUserId }`;
     sessionStorage.setItem(
@@ -1054,8 +1056,8 @@ function returnToBeginning () {
     );
 
     // Update the UI
-    createQuizSection();
     removeElementById( "scoreSection" )
+    removeElementById( "dialog-default" )
     createActionButtons()
 
     // Display the first question
@@ -1063,6 +1065,8 @@ function returnToBeginning () {
 }
 
 function renderScores ( pastScores ) {
+    removeElementById( "quizSection" )
+    removeElementById( "scoreSection" )
     removeElementById( "pastScoresSection" )
     createPastScoresSection();
     document.querySelector( "#pastScores" ).innerHTML = pastScores
