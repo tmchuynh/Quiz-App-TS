@@ -335,9 +335,17 @@ const loginSection = document.getElementById( "loginSection" );
 const quizSection = document.getElementById( "quizSection" );
 const scoreSection = document.getElementById( "scoreSection" );
 const pastScoresSection = document.getElementById( "pastScoresSection" );
+const registerError = document.getElementById( "registerError" );
 
+const firstName = document.getElementById( "firstName" );
+const lastName = document.getElementById( "lastName" );
+const email = document.getElementById( "email" );
+const registerUsername = document.getElementById( "registerUsername" );
+const registerPassword = document.getElementById( "registerPassword" );
+const confirmPassword = document.getElementById( "confirmPassword" );
 const registerButton = document.getElementById( "registerButton" );
-
+const loginUsername = document.getElementById( "loginUsername" );
+const loginPassword = document.getElementById( "loginPassword" );
 const loginButton = document.getElementById( "loginButton" );
 
 const backButton = document.getElementById( "backButton" );
@@ -472,38 +480,68 @@ function createPastScoresSection () {
     `;
     displayContainer.appendChild( pastScoresSection );
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
-        checkHistory();
-        pastScoresSection.style.display = "none";
-        sortByDateButton.style.display = "none";
-        sortByScoreButton.style.display = "none";
-        scoreSection.style.display = "flex";
-        scoreSection.style.flexDirection = "column";
+        removeElementById( "pastScoresSection" )
+        createScoreSection();
     } );
 }
 
 // Function to create the action buttons dynamically
 function createActionButtons () {
+    removeElementById( "actionButtons" )
     const actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
-    logoutEventListener();
     displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+}
+
+function createSortButtons ( actionButtons ) {
+    actionButtons.innerHTML += `
+        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
+        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
+    `
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
+    } );
+
+    // Get the current user ID
+    const currentUserId = localStorage.getItem( "currentUserId" );
+    const userScoresKey = `quizScores_${ currentUserId }`;
+    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
+
+    renderScores( pastScores );
+
+    // Sort by Date (newest to oldest)
+    document.querySelector( "#sortByDateButton" ).addEventListener( "click", () => {
+        const sortedByDate = [ ...pastScores ].sort(
+            ( a, b ) => new Date( b.date ) - new Date( a.date )
+        );
+        renderScores( sortedByDate );
+    } );
+
+    // Sort by Score (highest to lowest)
+    document.querySelector( "#sortByScoreButton" ).addEventListener( "click", () => {
+        const sortedByScore = [ ...pastScores ].sort( ( a, b ) => b.score - a.score );
+        renderScores( sortedByScore );
+    } );
 }
 
 function logoutEventListener () {
-    logoutButton.addEventListener( "click", () => {
+    document.querySelector( "#logoutButton" ).addEventListener( "click", () => {
         // Clear the login cookie
         setCookie( "username", "", -1 ); // Setting the cookie expiration in the past to remove it
         sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
         // Redirect to the login page
-        loginContainer.style.display = "flex";
-        loginSection.style.display = "block";
-        pastScoresSection.style.display = "none";
-        scoreSection.style.display = "none";
-        quizSection.style.display = "none";
-        actionButtons.style.display = "none";
+        removeElementById( "pastScoresSection" )
+        removeElementById( "scoreSection" )
+        removeElementById( "quizSection" )
+        removeElementById( "actionButtons" )
+        createLoginSection();
         document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
         const current = localStorage.getItem( "currentUserId" );
         const quiz = "quizScores_" + current;
@@ -514,65 +552,23 @@ function logoutEventListener () {
 }
 
 function createScoresButtons () {
-    const actionButtons = document.getElementById( "actionButtons" );
+    removeElementById( "actionButtons" );
+    const actionButtons = document.createElement( "section" );
+    actionButtons.id = "actionButtons";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
         <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
     `
-    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
-        scoreSection.style.display = "none";
-        quizSection.style.display = "none";
-
-        viewScoresButton.style.display = "none";
-        sortByDateButton.style.display = "block";
-        sortByScoreButton.style.display = "block";
-        pastScoresSection.style.display = "flex";
-        pastScoresSection.style.flexDirection = "column";
-
-        // Get the current user ID
-        const currentUserId = localStorage.getItem( "currentUserId" );
-        const userScoresKey = `quizScores_${ currentUserId }`;
-        const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
-
-        renderScores( pastScores );
-
-        // Sort by Date (newest to oldest)
-        sortByDateButton.addEventListener( "click", () => {
-            const sortedByDate = [ ...pastScores ].sort(
-                ( a, b ) => new Date( b.date ) - new Date( a.date )
-            );
-            renderScores( sortedByDate );
-        } );
-
-        // Sort by Score (highest to lowest)
-        sortByScoreButton.addEventListener( "click", () => {
-            const sortedByScore = [ ...pastScores ].sort( ( a, b ) => b.score - a.score );
-            renderScores( sortedByScore );
-        } );
-    } );
-
-    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
-        // Show the confirmation dialog
-        document.getElementById( "dialog-default" ).showModal();
-    } );
-}
-
-function createSortButtons () {
-    const actionButtons = document.getElementById( "actionButtons" );
-    actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
-        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
-        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
-    `
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+    document.querySelector( "#viewScoresButton" ).addEventListener( "click", createSortButtons( actionButtons ) );
 }
 
 // Function to create the dialog section dynamically
 function createDialog () {
     const dialog = document.createElement( "dialog" );
-    dialog.classList.add( "nes-dialog" );
+    dialog.classList.add( "nes-dialog", "nes-container", "is-rounded" );
     dialog.id = "dialog-default";
     dialog.innerHTML = `
         <form method="dialog">
@@ -584,7 +580,7 @@ function createDialog () {
             </menu>
         </form>
     `;
-    displayContainer.appendChild( dialog );
+    document.body.appendChild( dialog );
     document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
         const currentUserId = localStorage.getItem( "currentUserId" );
         localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
@@ -770,6 +766,8 @@ function clearErrorStyles () {
 
 // Validate login form
 async function validateLoginForm () {
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
 
@@ -818,6 +816,8 @@ async function validateLoginForm () {
 function handleLoginError ( message ) {
     loginError.textContent = message;
     loginError.style.display = "block";
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
     [ loginUsername, loginPassword ].forEach( ( field ) =>
         field.classList.add( "is-error" )
     );
@@ -835,6 +835,8 @@ function handleLoginSuccess ( user ) {
 
 // Function to remove error classes and hide the login error message
 function clearLoginErrorStyles () {
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
     const fields = [ loginUsername, loginPassword ];
 
     // Remove error class from both fields
@@ -878,12 +880,19 @@ function loadQuiz () {
         sessionStorage.setItem( "hasLoggedInBefore", true ); // Mark user as logged in for future
     }
 
-    // Show the action buttons and quiz section
-    loginContainer.style.display = "none";
-    actionButtons.style.display = "flex";
-    logoutButton.style.display = "block";
-    quizSection.style.display = "flex";
-    quizSection.style.flexDirection = "column";
+    removeElementById( "registerSection" );
+    removeElementById( "loginSection" );
+    createQuizSection();
+
+    const userProgressKey = `quizProgress_${ currentUserId }`;
+    const progressData = sessionStorage.getItem( userProgressKey );
+    if ( progressData ) {
+        createScoresButtons();
+    } else {
+        createActionButtons();
+    }
+
+
 
     // Load user progress in the quiz
     loadProgress();
@@ -906,10 +915,6 @@ const shuffle = ( array ) => {
 // Display Question
 function displayQuestion () {
     // Display the action buttons and show the logout button
-    actionButtons.style.display = "flex";
-    checkHistory();
-    logoutButton.style.display = "block";
-
     const currentQuizData = quizData[ currentQuestion ];
     const questionEl = document.getElementById( "question" );
     const answersEl = document.getElementById( "answers" );
@@ -1009,14 +1014,12 @@ function checkAnswer ( selected ) {
 // Show Score
 function showScore () {
     // Hide unnecessary UI elements
-    checkHistory();
-    quizSection.style.display = "none";
-    sortByDateButton.style.display = "none";
-    sortByScoreButton.style.display = "none";
+    removeElementById( "quizSection" );
 
     // Display the score section
-    scoreSection.style.display = "flex";
-    scoreSection.style.flexWrap = "wrap";
+    createScoreSection();
+    createScoresButtons();
+
 
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
@@ -1035,6 +1038,8 @@ function showScore () {
 
     // Update localStorage with the new scores
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+
+
 }
 
 function returnToBeginning () {
@@ -1049,30 +1054,24 @@ function returnToBeginning () {
     );
 
     // Update the UI
-    quizSection.style.display = "flex";
-    quizSection.style.flexDirection = "column";
-    scoreSection.style.display = "none";
+    createQuizSection();
+    removeElementById( "scoreSection" )
+    createActionButtons()
 
     // Display the first question
     loadQuiz();
 }
 
 function renderScores ( pastScores ) {
-    pastScoresEl.innerHTML = pastScores
+    removeElementById( "pastScoresSection" )
+    createPastScoresSection();
+    document.querySelector( "#pastScores" ).innerHTML = pastScores
         .map( ( { score, total, date } ) => {
             return `<li>${ score }/${ total } - ${ date }</li>`;
         } )
         .join( "" );
 }
 
-
-function checkHistory () {
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    const quizScores = localStorage.getItem( `quizScores_${ currentUserId }` );
-
-    viewScoresButton.style.display = quizScores ? "block" : "none";
-    resetScoresButton.style.display = quizScores ? "block" : "none";
-}
 
 // Initial load
 window.onload = loadQuiz;

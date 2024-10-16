@@ -42,6 +42,10 @@ label {
 
 .nes-dialog {
     margin: auto;
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    display: flex;
 }
 
 #loginSection,
