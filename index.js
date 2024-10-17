@@ -377,7 +377,7 @@ function removeAllSections () {
 // Function to create and append the registration form dynamically
 function createRegisterSection () {
     const registerSection = document.createElement( "div" );
-    registerSection.classList.add( "nes-container", "is-rounded" );
+    registerSection.classList.add( "nes-container", "is-rounded", "registeration-section" );
     registerSection.id = "registerSection";
     registerSection.innerHTML = `
         <h2 class="nes-text">Register</h2>
@@ -418,196 +418,6 @@ function createRegisterSection () {
         field.addEventListener( "input", clearErrorStyles );
     } );
 }
-
-
-function getRegisterFormFields () {
-    const firstName = document.getElementById( "firstName" );
-    const lastName = document.getElementById( "lastName" );
-    const email = document.getElementById( "email" );
-    const registerUsername = document.getElementById( "registerUsername" );
-    const registerPassword = document.getElementById( "registerPassword" );
-    const confirmPassword = document.getElementById( "confirmPassword" );
-    return { firstName, lastName, email, registerUsername, registerPassword, confirmPassword };
-}
-
-// Function to create and append the login form dynamically
-function createLoginSection () {
-    const loginSection = document.createElement( "div" );
-    loginSection.classList.add( "nes-container", "is-rounded" );
-    loginSection.id = "loginSection";
-    loginSection.innerHTML = `
-        <h2 class="nes-text">Login</h2>
-        <label for="loginUsername" class="nes-text">Username:</label>
-        <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
-        <label for="loginPassword" class="nes-text">Password:</label>
-        <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
-        <button id="loginButton" class="nes-btn is-primary">Login</button>
-        <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
-    `;
-    loginContainer.appendChild( loginSection );
-    document.querySelector( "#loginButton" ).addEventListener( "click", validateLoginForm );
-    loginSection.addEventListener( "keydown", ( event ) => {
-        if ( event.key === "Enter" ) {
-            validateLoginForm();
-        }
-    } );
-
-    const loginUsername = document.getElementById( "loginUsername" );
-    const loginPassword = document.getElementById( "loginPassword" );
-
-    // Attach the same event listener to both login input fields
-    [ loginUsername, loginPassword ].forEach( ( field ) => {
-        field.addEventListener( "input", clearLoginErrorStyles );
-    } );
-}
-
-// Function to create and append the quiz section dynamically
-function createQuizSection () {
-    const quizSection = document.createElement( "div" );
-    quizSection.classList.add( "nes-container", "is-rounded" );
-    quizSection.id = "quizSection";
-    quizSection.innerHTML = `
-        <p id="question"></p>
-        <div id="answers"></div>
-        <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
-    `;
-    displayContainer.appendChild( quizSection );
-}
-
-// Function to create and append the score section dynamically
-function createScoreSection () {
-    const scoreSection = document.createElement( "div" );
-    scoreSection.classList.add( "nes-container", "is-rounded" );
-    scoreSection.id = "scoreSection";
-    scoreSection.innerHTML = `
-        <h2 class="nes-text">Quiz Completed!</h2>
-        <p id="scoreMessage"></p>
-        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
-    `;
-    displayContainer.appendChild( scoreSection );
-    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
-}
-
-// Function to create the past scores section dynamically
-function createPastScoresSection () {
-    const pastScoresSection = document.createElement( "div" );
-    pastScoresSection.classList.add( "nes-container", "is-rounded" );
-    pastScoresSection.id = "pastScoresSection";
-    pastScoresSection.innerHTML = `
-        <h2 class="nes-text">Past Scores</h2>
-        <ul id="pastScores"></ul>
-        <button id="backButton" class="nes-btn">Back to Quiz</button>
-    `;
-    displayContainer.appendChild( pastScoresSection );
-    document.querySelector( "#backButton" ).addEventListener( "click", () => {
-        removeElementById( "pastScoresSection" )
-        showScore();
-    } );
-}
-
-// Function to create the action buttons dynamically
-function createActionButtons () {
-    removeElementById( "actionButtons" )
-    const actionButtons = document.createElement( "section" );
-    actionButtons.id = "actionButtons";
-    actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-    `;
-    displayContainer.appendChild( actionButtons );
-    logoutEventListener();
-}
-
-function createSortButtons ( actionButtons ) {
-    actionButtons.innerHTML += `
-        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
-        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
-    `
-    displayContainer.appendChild( actionButtons );
-    logoutEventListener();
-    // Get the current user ID
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    const userScoresKey = `quizScores_${ currentUserId }`;
-    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
-
-    renderScores( pastScores );
-
-    // Sort by Date (newest to oldest)
-    document.querySelector( "#sortByDateButton" ).addEventListener( "click", () => {
-        const sortedByDate = [ ...pastScores ].sort(
-            ( a, b ) => new Date( b.date ) - new Date( a.date )
-        );
-        renderScores( sortedByDate );
-    } );
-
-    // Sort by Score (highest to lowest)
-    document.querySelector( "#sortByScoreButton" ).addEventListener( "click", () => {
-        const sortedByPercentage = [ ...pastScores ].sort( ( a, b ) => {
-            const percentageA = ( a.score / a.total ) * 100;
-            const percentageB = ( b.score / b.total ) * 100;
-            return percentageB - percentageA; // Sort by percentage (highest first)
-        } );
-        renderScores( sortedByPercentage );
-    } );
-}
-
-function logoutEventListener () {
-    document.querySelector( "#logoutButton" ).addEventListener( "click", () => {
-        sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
-        // Redirect to the login page
-        removeAllSections();
-        createRegisterSection();
-        createLoginSection();
-        document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
-        localStorage.clear();
-    } );
-}
-
-function createScoresButtons () {
-    removeElementById( "actionButtons" );
-    const actionButtons = document.createElement( "section" );
-    actionButtons.id = "actionButtons";
-    actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
-    `
-    displayContainer.appendChild( actionButtons );
-    logoutEventListener();
-    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
-        createSortButtons( actionButtons );
-    } );
-    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
-        // Show the confirmation dialog
-        createDialog();
-    } );
-}
-
-// Function to create the dialog section dynamically
-function createDialog () {
-    const dialog = document.createElement( "dialog" );
-    dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
-    dialog.id = "dialog-dark-rounded";
-    dialog.innerHTML = `
-    <form method ="dialog">
-        <p class="title">Confirmation</p>
-        <p>Are you sure you want to reset all past scores?</p>
-        <menu class="dialog-menu">
-            <button class="nes-btn">Cancel</button>
-            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-        </menu>
-    </form>
-    `;
-    document.body.appendChild( dialog );
-    document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
-        const currentUserId = localStorage.getItem( "currentUserId" );
-        localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
-        sessionStorage.removeItem( `quizScores_${ currentUserId }` );
-        removeElementById( "dialog-dark-rounded" );
-        returnToBeginning();
-    } );
-}
-
-
 
 // Validate email format
 function validateEmail ( email ) {
@@ -700,6 +510,17 @@ function isUsernameTaken ( username, users ) {
     return users.some( ( user ) => user.username === username );
 }
 
+function getRegisterFormFields () {
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+    return { firstName, lastName, email, registerUsername, registerPassword, confirmPassword };
+}
+
+
 async function registerUser ( fields ) {
     // Hash the password before storing it
     const hashedPassword = await hashPassword( fields[ 4 ].element.value.trim() );
@@ -751,7 +572,6 @@ function generateUniqueId () {
 function clearErrorStyles () {
     const { firstName, lastName, email, registerUsername, registerPassword, confirmPassword } = getRegisterFormFields();
 
-
     const fields = [
         firstName,
         lastName,
@@ -765,6 +585,38 @@ function clearErrorStyles () {
     const registerError = document.getElementById( "registerError" );
     registerError.style.display = "none"; // Hide error message
 }
+
+// Function to create and append the login form dynamically
+function createLoginSection () {
+    const loginSection = document.createElement( "div" );
+    loginSection.classList.add( "nes-container", "is-rounded", "login-section" );
+    loginSection.id = "loginSection";
+    loginSection.innerHTML = `
+        <h2 class="nes-text">Login</h2>
+        <label for="loginUsername" class="nes-text">Username:</label>
+        <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
+        <label for="loginPassword" class="nes-text">Password:</label>
+        <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
+        <button id="loginButton" class="nes-btn is-primary">Login</button>
+        <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
+    `;
+    loginContainer.appendChild( loginSection );
+    document.querySelector( "#loginButton" ).addEventListener( "click", validateLoginForm );
+    loginSection.addEventListener( "keydown", ( event ) => {
+        if ( event.key === "Enter" ) {
+            validateLoginForm();
+        }
+    } );
+
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
+
+    // Attach the same event listener to both login input fields
+    [ loginUsername, loginPassword ].forEach( ( field ) => {
+        field.addEventListener( "input", clearLoginErrorStyles );
+    } );
+}
+
 
 // Validate login form
 async function validateLoginForm () {
@@ -849,6 +701,158 @@ function clearLoginErrorStyles () {
 
     // Hide error message
     loginError.style.display = "none";
+}
+
+function logoutEventListener () {
+    document.querySelector( "#logoutButton" ).addEventListener( "click", () => {
+        sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
+        // Redirect to the login page
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+        document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
+        localStorage.clear();
+    } );
+}
+
+
+// Function to create and append the quiz section dynamically
+function createQuizSection () {
+    const quizSection = document.createElement( "div" );
+    quizSection.classList.add( "nes-container", "is-rounded", "quiz-section" );
+    quizSection.id = "quizSection";
+    quizSection.innerHTML = `
+        <p id="question"></p>
+        <div id="answers"></div>
+        <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
+    `;
+    displayContainer.appendChild( quizSection );
+}
+
+// Function to create and append the score section dynamically
+function createScoreSection () {
+    const scoreSection = document.createElement( "div" );
+    scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
+    scoreSection.id = "scoreSection";
+    scoreSection.innerHTML = `
+        <h2 class="nes-text">Quiz Completed!</h2>
+        <p id="scoreMessage"></p>
+        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
+    `;
+    displayContainer.appendChild( scoreSection );
+    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
+}
+
+// Function to create the past scores section dynamically
+function createPastScoresSection () {
+    const pastScoresSection = document.createElement( "div" );
+    pastScoresSection.classList.add( "nes-container", "nes-table-responsive", "is-rounded", "view-score-history" );
+    pastScoresSection.id = "pastScoresSection";
+    pastScoresSection.innerHTML = `
+        <h2 class="nes-text">Past Scores</h2>
+        <table id="pastScores" class="scores-table" style="width: 100%; border-collapse: collapse;"></table>
+        <button id="backButton" class="nes-btn">Back to Quiz</button>
+    `;
+    displayContainer.appendChild( pastScoresSection );
+    document.querySelector( "#backButton" ).addEventListener( "click", () => {
+        removeElementById( "pastScoresSection" )
+        showScore();
+    } );
+}
+
+// Function to create the action buttons dynamically
+function createActionButtons () {
+    removeElementById( "actionButtons" )
+    const actionButtons = document.createElement( "section" );
+    actionButtons.id = "actionButtons";
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+    `;
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+}
+
+function createSortButtons ( actionButtons ) {
+    removeElementById( "actionButtons" )
+    const actionButtons = document.createElement( "section" );
+    actionButtons.innerHTML += `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
+        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
+    `
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+    // Get the current user ID
+    const currentUserId = localStorage.getItem( "currentUserId" );
+    const userScoresKey = `quizScores_${ currentUserId }`;
+    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
+
+    renderScores( pastScores );
+
+    // Sort by Date (newest to oldest)
+    document.querySelector( "#sortByDateButton" ).addEventListener( "click", () => {
+        const sortedByDate = [ ...pastScores ].sort(
+            ( a, b ) => new Date( b.date ) - new Date( a.date )
+        );
+        renderScores( sortedByDate );
+    } );
+
+    // Sort by Score (highest to lowest)
+    document.querySelector( "#sortByScoreButton" ).addEventListener( "click", () => {
+        const sortedByPercentage = [ ...pastScores ].sort( ( a, b ) => {
+            const percentageA = ( a.score / a.total ) * 100;
+            const percentageB = ( b.score / b.total ) * 100;
+            return percentageB - percentageA; // Sort by percentage (highest first)
+        } );
+        renderScores( sortedByPercentage );
+    } );
+}
+
+
+function createScoresButtons () {
+    removeElementById( "actionButtons" );
+    const actionButtons = document.createElement( "section" );
+    actionButtons.id = "actionButtons";
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+    `
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
+        createSortButtons( actionButtons );
+    } );
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
+    } );
+}
+
+// Function to create the dialog section dynamically
+function createDialog () {
+    const dialog = document.createElement( "dialog" );
+    dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
+    dialog.id = "dialog-dark-rounded";
+    dialog.innerHTML = `
+    <form method ="dialog">
+        <p class="title">Confirmation</p>
+        <p>Are you sure you want to reset all past scores?</p>
+        <menu class="dialog-menu">
+            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
+        </menu>
+    </form>
+    `;
+    document.body.appendChild( dialog );
+    document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
+        const currentUserId = localStorage.getItem( "currentUserId" );
+        localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
+        sessionStorage.removeItem( `quizScores_${ currentUserId }` );
+        removeElementById( "dialog-dark-rounded" );
+        returnToBeginning();
+    } );
 }
 
 // Load Quiz
@@ -1083,24 +1087,6 @@ function returnToBeginning () {
     loadQuiz();
 }
 
-// function renderScores ( pastScores ) {
-//     removeElementById( "quizSection" );
-//     removeElementById( "scoreSection" );
-//     removeElementById( "pastScoresSection" );
-
-//     // Create the past scores section dynamically
-//     createPastScoresSection();
-
-//     // Display the sorted scores with percentage
-//     document.querySelector( "#pastScores" ).innerHTML = pastScores
-//         .map( ( { score, total, date } ) => {
-//             const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate and format percentage
-//             return `<li>${ score }/${ total } - ${ percentage }% - ${ date }</li>`;
-//         } )
-//         .join( "" );
-// }
-
-
 function renderScores ( pastScores ) {
     // Remove existing sections
     removeElementById( "quizSection" );
@@ -1135,10 +1121,9 @@ function renderScores ( pastScores ) {
 
     // Insert the table into the #pastScores element
     document.querySelector( "#pastScores" ).innerHTML = `
-        <table style="width: 100%; border-collapse: collapse;">
-            ${ tableHeaders }
-            ${ tableRows }
-        </table>`;
+        ${ tableHeaders }
+        ${ tableRows }
+    `;
 }
 
 // Helper function to format date to mm/dd/yy
