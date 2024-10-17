@@ -605,13 +605,6 @@ function createDialog () {
     } );
 }
 
-// Function to remove an element by its ID
-function removeElementById ( elementId ) {
-    const element = document.getElementById( elementId );
-    if ( element ) {
-        element.remove(); // Remove the element from the DOM
-    }
-}
 
 // Cookie Helpers
 function setCookie ( name, value, days ) {
@@ -1031,20 +1024,18 @@ function checkAnswer ( selected ) {
 
 // Show Score
 function showScore () {
-    // Hide unnecessary UI elements
-    removeElementById( "quizSection" );
+    removeAllSections();
 
     // Display the score section
-    createScoreSection();
     createScoresButtons();
-
+    createScoreSection();
 
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
-
-    // Display the user's score
-    const scoreMessageEl = document.getElementById( "scoreMessage" );
-    scoreMessageEl.textContent = `You scored ${ score } out of ${ quizData.length }!`;
+    if ( !currentUserId ) {
+        console.error( "No current user ID found." );
+        return;
+    }
 
     // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${ currentUserId }`;
@@ -1056,6 +1047,18 @@ function showScore () {
 
     // Update localStorage with the new scores
     localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+
+    // Sort the past scores by date (most recent first)
+    pastScores.sort( ( a, b ) => Date.parse( b.date ) - Date.parse( a.date ) );
+
+    // Get the most recent score (which will be the first after sorting)
+    const mostRecentScore = pastScores[ 0 ];
+
+    // Update the score message with the most recent score
+    const scoreMessageEl = document.getElementById( "scoreMessage" );
+    if ( scoreMessageEl ) {
+        scoreMessageEl.textContent = `Most Recent Score: ${ mostRecentScore.score } out of ${ mostRecentScore.total } on ${ mostRecentScore.date }`;
+    }
 }
 
 function returnToBeginning () {
