@@ -599,6 +599,7 @@ function createDialog () {
         const currentUserId = localStorage.getItem( "currentUserId" );
         localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
         sessionStorage.removeItem( `quizScores_${ currentUserId }` );
+        removeElementById( "dialog-dark-rounded" );
         returnToBeginning();
     } );
 }
@@ -1095,7 +1096,6 @@ function returnToBeginning () {
 
     // Update the UI
     removeElementById( "scoreSection" )
-    removeElementById( "dialog-default" )
     createActionButtons()
 
     // Display the first question
