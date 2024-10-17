@@ -548,19 +548,13 @@ function createSortButtons ( actionButtons ) {
 
 function logoutEventListener () {
     document.querySelector( "#logoutButton" ).addEventListener( "click", () => {
-        // Clear the login cookie
-        setCookie( "username", "", -1 ); // Setting the cookie expiration in the past to remove it
         sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
         // Redirect to the login page
         removeAllSections();
         createRegisterSection();
         createLoginSection();
         document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
-        const current = localStorage.getItem( "currentUserId" );
-        const quiz = "quizScores_" + current;
-        localStorage.removeItem( "currentUserId" );
-        localStorage.removeItem( quiz );
-        localStorage.removeItem( "firstName" );
+        localStorage.clear();
     } );
 }
 
@@ -610,23 +604,6 @@ function createDialog () {
 }
 
 
-// Cookie Helpers
-function setCookie ( name, value, days ) {
-    const date = new Date();
-    date.setTime( date.getTime() + days * 24 * 60 * 60 * 1000 );
-    document.cookie = `${ name }=${ value };expires=${ date.toUTCString() };path=/`;
-}
-
-function getCookie ( name ) {
-    const cookies = document.cookie.split( ";" );
-    for ( let cookie of cookies ) {
-        cookie = cookie.trim();
-        if ( cookie.startsWith( `${ name }=` ) ) {
-            return cookie.substring( name.length + 1 );
-        }
-    }
-    return "";
-}
 
 // Validate email format
 function validateEmail ( email ) {
