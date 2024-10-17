@@ -1,310 +1,310 @@
 // Quiz Data
 const quizData = [
-    {
-        question: "What is the largest planet in our Solar System?",
-        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
-        correct: 2,
-    },
-    {
-        question: "What gas do plants absorb from the atmosphere?",
-        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
-        correct: 1,
-    },
-    {
-        question: "What is the chemical symbol for water?",
-        answers: [ "O2", "H2O", "CO2", "NaCl" ],
-        correct: 1,
-    },
-    {
-        question: "What natural satellite orbits the Earth?",
-        answers: [ "Mars", "Sun", "Moon", "Venus" ],
-        correct: 2
-    },
-    {
-        question: "What phenomenon causes the seasons on Earth?",
-        answers: [ "Earth's distance from the Sun", "Earth's axial tilt", "Solar flares", "Lunar phases" ],
-        correct: 1
-    },
-    {
-        question: "Which vitamin is produced when a person is exposed to sunlight?",
-        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-        correct: 3
-    },
-    {
-        question: "What type of energy is stored in a stretched rubber band?",
-        answers: [ "Kinetic Energy", "Thermal Energy", "Elastic Potential Energy", "Chemical Energy" ],
-        correct: 2
-    },
-    {
-        question: "What is the most abundant element in the universe?",
-        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
-        correct: 1
-    },
-    {
-        question: "Which organelle is known as the powerhouse of the cell?",
-        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
-        correct: 2
-    },
-    {
-        question: "What is the study of the weather called?",
-        answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
-        correct: 1
-    },
-    {
-        question: "What kind of animal is a dolphin?",
-        answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
-        correct: 3
-    },
-    {
-        question: "What is the basic unit of life?",
-        answers: [ "Atom", "Molecule", "Cell", "Organ" ],
-        correct: 2
-    },
-    {
-        question: "Which part of the cell contains genetic material?",
-        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
-        correct: 0,
-    },
-    {
-        question: "What force keeps us on the ground?",
-        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
-        correct: 2,
-    },
-    {
-        question: "What planet is known as the Red Planet?",
-        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
-        correct: 1,
-    },
-    {
-        question: "Which organ pumps blood throughout the human body?",
-        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
-        correct: 2,
-    },
-    {
-        question: "What is the process by which plants make their own food?",
-        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
-        correct: 1,
-    },
-    {
-        question: "What is the boiling point of water at sea level in Celsius?",
-        answers: [ "50°C", "75°C", "100°C", "125°C" ],
-        correct: 2,
-    },
-    {
-        question: "Which gas is most abundant in Earth's atmosphere?",
-        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
-        correct: 1,
-    },
-    {
-        question: "What is the center of an atom called?",
-        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
-        correct: 2,
-    },
-    {
-        question: "Which part of the cell contains genetic material?",
-        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
-        correct: 0,
-    },
-    {
-        question: "What is the process by which plants make their own food?",
-        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
-        correct: 1,
-    },
-    {
-        question: "What is the boiling point of water at sea level in Celsius?",
-        answers: [ "50°C", "75°C", "100°C", "125°C" ],
-        correct: 2,
-    },
-    {
-        question: "Which gas is most abundant in Earth's atmosphere?",
-        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
-        correct: 1,
-    },
-    {
-        question: "Which country hosted the first modern Olympic Games?",
-        answers: [ "France", "Greece", "USA", "Germany" ],
-        correct: 1,
-    },
-    {
-        question: "Which country hosted the 2016 Summer Olympics?",
-        answers: [ "China", "Brazil", "UK", "Russia" ],
-        correct: 1,
-    },
-    {
-        question: "Which language is primarily spoken in Brazil?",
-        answers: [ "Spanish", "Portuguese", "French", "English" ],
-        correct: 1,
-    },
-    {
-        question: "What is the chemical formula for table salt?",
-        answers: [ "NaCl", "KCl", "CaCO3", "MgSO4" ],
-        correct: 0,
-    },
-    {
-        question: "Which country is known as the Land of the Rising Sun?",
-        answers: [ "China", "Japan", "Thailand", "South Korea" ],
-        correct: 1,
-    },
-    {
-        question: "What is the capital of France?",
-        answers: [ "Berlin", "London", "Paris", "Rome" ],
-        correct: 2,
-    },
-    {
-        question: "In which year did the World War II end?",
-        answers: [ "1945", "1939", "1918", "1963" ],
-        correct: 0,
-    },
-    {
-        question: "What is the largest desert in the world?",
-        answers: [ "Sahara", "Gobi", "Kalahari", "Arctic Desert" ],
-        correct: 0,
-    },
-    {
-        question: "Who was the first person to walk on the Moon?",
-        answers: [ "Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins" ],
-        correct: 1,
-    },
-    {
-        question: "What is the currency of the United Kingdom?",
-        answers: [ "Euro", "Dollar", "Pound Sterling", "Yen" ],
-        correct: 2,
-    },
-    {
-        question: "Which vitamin is produced when a person is exposed to sunlight?",
-        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-        correct: 3,
-    },
-    {
-        question: "Which metal is liquid at room temperature?",
-        answers: [ "Iron", "Mercury", "Gold", "Silver" ],
-        correct: 1,
-    },
-    {
-        question: "Which planet has the most moons?",
-        answers: [ "Earth", "Saturn", "Jupiter", "Mars" ],
-        correct: 2,
-    },
-    {
-        question: "What is the primary language spoken in Canada?",
-        answers: [ "English and French", "English and Spanish", "French and German", "Spanish and Portuguese" ],
-        correct: 0,
-    },
-    {
-        question: "Which country gifted the Statue of Liberty to the USA?",
-        answers: [ "Germany", "France", "Italy", "Spain" ],
-        correct: 1,
-    },
-    {
-        question: "What is the most abundant element in the universe?",
-        answers: [ "Oxygen", "Carbon", "Hydrogen", "Nitrogen" ],
-        correct: 2,
-    },
-    {
-        question: "What is the largest bone in the human body?",
-        answers: [ "Femur", "Tibia", "Humerus", "Fibula" ],
-        correct: 0,
-    },
-    {
-        question: "Which ocean is the Bermuda Triangle located in?",
-        answers: [ "Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean" ],
-        correct: 0,
-    },
-    {
-        question: "What is the main ingredient in guacamole?",
-        answers: [ "Tomato", "Avocado", "Onion", "Pepper" ],
-        correct: 1,
-    },
-    {
-        question: "What is the center of an atom called?",
-        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
-        correct: 2,
-    },
-    {
-        question: "Which vitamin is essential for blood clotting?",
-        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K" ],
-        correct: 3,
-    },
-    {
-        question: "What is the largest land animal?",
-        answers: [ "Elephant", "Giraffe", "Hippopotamus", "Rhinoceros" ],
-        correct: 0,
-    },
-    {
-        question: "Who wrote 'The Odyssey'?",
-        answers: [ "Homer", "Virgil", "Sophocles", "Aristotle" ],
-        correct: 0,
-    },
-    {
-        question: "What force keeps us on the ground?",
-        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
-        correct: 2,
-    },
-    {
-        question: "What planet is known as the Red Planet?",
-        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
-        correct: 1,
-    },
-    {
-        question: "Which organ pumps blood throughout the human body?",
-        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
-        correct: 2,
-    },
-    {
-        question: "What natural satellite orbits the Earth?",
-        answers: [ "Mars", "Sun", "Moon", "Venus" ],
-        correct: 2,
-    },
-    {
-        question: "What is the largest planet in our Solar System?",
-        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
-        correct: 2,
-    },
-    {
-        question: "What gas do plants absorb from the atmosphere?",
-        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
-        correct: 1,
-    },
-    {
-        question: "What is the chemical symbol for water?",
-        answers: [ "O2", "H2O", "CO2", "NaCl" ],
-        correct: 1,
-    },
-    {
-        question: "What phenomenon causes the seasons on Earth?",
-        answers: [
-            "Earth's distance from the Sun",
-            "Earth's axial tilt",
-            "Solar flares",
-            "Lunar phases",
-        ],
-        correct: 1,
-    },
-    {
-        question: "Which vitamin is produced when a person is exposed to sunlight?",
-        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-        correct: 3,
-    },
-    {
-        question: "What type of energy is stored in a stretched rubber band?",
-        answers: [
-            "Kinetic Energy",
-            "Thermal Energy",
-            "Elastic Potential Energy",
-            "Chemical Energy",
-        ],
-        correct: 2,
-    },
-    {
-        question: "What is the most abundant element in the universe?",
-        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
-        correct: 1,
-    },
-    {
-        question: "Which organelle is known as the powerhouse of the cell?",
-        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
-        correct: 2,
-    },
+    // {
+    //     question: "What is the largest planet in our Solar System?",
+    //     answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What gas do plants absorb from the atmosphere?",
+    //     answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the chemical symbol for water?",
+    //     answers: [ "O2", "H2O", "CO2", "NaCl" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What natural satellite orbits the Earth?",
+    //     answers: [ "Mars", "Sun", "Moon", "Venus" ],
+    //     correct: 2
+    // },
+    // {
+    //     question: "What phenomenon causes the seasons on Earth?",
+    //     answers: [ "Earth's distance from the Sun", "Earth's axial tilt", "Solar flares", "Lunar phases" ],
+    //     correct: 1
+    // },
+    // {
+    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
+    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+    //     correct: 3
+    // },
+    // {
+    //     question: "What type of energy is stored in a stretched rubber band?",
+    //     answers: [ "Kinetic Energy", "Thermal Energy", "Elastic Potential Energy", "Chemical Energy" ],
+    //     correct: 2
+    // },
+    // {
+    //     question: "What is the most abundant element in the universe?",
+    //     answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
+    //     correct: 1
+    // },
+    // {
+    //     question: "Which organelle is known as the powerhouse of the cell?",
+    //     answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+    //     correct: 2
+    // },
+    // {
+    //     question: "What is the study of the weather called?",
+    //     answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
+    //     correct: 1
+    // },
+    // {
+    //     question: "What kind of animal is a dolphin?",
+    //     answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
+    //     correct: 3
+    // },
+    // {
+    //     question: "What is the basic unit of life?",
+    //     answers: [ "Atom", "Molecule", "Cell", "Organ" ],
+    //     correct: 2
+    // },
+    // {
+    //     question: "Which part of the cell contains genetic material?",
+    //     answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "What force keeps us on the ground?",
+    //     answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What planet is known as the Red Planet?",
+    //     answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which organ pumps blood throughout the human body?",
+    //     answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What is the process by which plants make their own food?",
+    //     answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the boiling point of water at sea level in Celsius?",
+    //     answers: [ "50°C", "75°C", "100°C", "125°C" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "Which gas is most abundant in Earth's atmosphere?",
+    //     answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the center of an atom called?",
+    //     answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "Which part of the cell contains genetic material?",
+    //     answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "What is the process by which plants make their own food?",
+    //     answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the boiling point of water at sea level in Celsius?",
+    //     answers: [ "50°C", "75°C", "100°C", "125°C" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "Which gas is most abundant in Earth's atmosphere?",
+    //     answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which country hosted the first modern Olympic Games?",
+    //     answers: [ "France", "Greece", "USA", "Germany" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which country hosted the 2016 Summer Olympics?",
+    //     answers: [ "China", "Brazil", "UK", "Russia" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which language is primarily spoken in Brazil?",
+    //     answers: [ "Spanish", "Portuguese", "French", "English" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the chemical formula for table salt?",
+    //     answers: [ "NaCl", "KCl", "CaCO3", "MgSO4" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "Which country is known as the Land of the Rising Sun?",
+    //     answers: [ "China", "Japan", "Thailand", "South Korea" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the capital of France?",
+    //     answers: [ "Berlin", "London", "Paris", "Rome" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "In which year did the World War II end?",
+    //     answers: [ "1945", "1939", "1918", "1963" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "What is the largest desert in the world?",
+    //     answers: [ "Sahara", "Gobi", "Kalahari", "Arctic Desert" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "Who was the first person to walk on the Moon?",
+    //     answers: [ "Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the currency of the United Kingdom?",
+    //     answers: [ "Euro", "Dollar", "Pound Sterling", "Yen" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
+    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+    //     correct: 3,
+    // },
+    // {
+    //     question: "Which metal is liquid at room temperature?",
+    //     answers: [ "Iron", "Mercury", "Gold", "Silver" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which planet has the most moons?",
+    //     answers: [ "Earth", "Saturn", "Jupiter", "Mars" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What is the primary language spoken in Canada?",
+    //     answers: [ "English and French", "English and Spanish", "French and German", "Spanish and Portuguese" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "Which country gifted the Statue of Liberty to the USA?",
+    //     answers: [ "Germany", "France", "Italy", "Spain" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the most abundant element in the universe?",
+    //     answers: [ "Oxygen", "Carbon", "Hydrogen", "Nitrogen" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What is the largest bone in the human body?",
+    //     answers: [ "Femur", "Tibia", "Humerus", "Fibula" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "Which ocean is the Bermuda Triangle located in?",
+    //     answers: [ "Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "What is the main ingredient in guacamole?",
+    //     answers: [ "Tomato", "Avocado", "Onion", "Pepper" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the center of an atom called?",
+    //     answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "Which vitamin is essential for blood clotting?",
+    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K" ],
+    //     correct: 3,
+    // },
+    // {
+    //     question: "What is the largest land animal?",
+    //     answers: [ "Elephant", "Giraffe", "Hippopotamus", "Rhinoceros" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "Who wrote 'The Odyssey'?",
+    //     answers: [ "Homer", "Virgil", "Sophocles", "Aristotle" ],
+    //     correct: 0,
+    // },
+    // {
+    //     question: "What force keeps us on the ground?",
+    //     answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What planet is known as the Red Planet?",
+    //     answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which organ pumps blood throughout the human body?",
+    //     answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What natural satellite orbits the Earth?",
+    //     answers: [ "Mars", "Sun", "Moon", "Venus" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What is the largest planet in our Solar System?",
+    //     answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What gas do plants absorb from the atmosphere?",
+    //     answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What is the chemical symbol for water?",
+    //     answers: [ "O2", "H2O", "CO2", "NaCl" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "What phenomenon causes the seasons on Earth?",
+    //     answers: [
+    //         "Earth's distance from the Sun",
+    //         "Earth's axial tilt",
+    //         "Solar flares",
+    //         "Lunar phases",
+    //     ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
+    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+    //     correct: 3,
+    // },
+    // {
+    //     question: "What type of energy is stored in a stretched rubber band?",
+    //     answers: [
+    //         "Kinetic Energy",
+    //         "Thermal Energy",
+    //         "Elastic Potential Energy",
+    //         "Chemical Energy",
+    //     ],
+    //     correct: 2,
+    // },
+    // {
+    //     question: "What is the most abundant element in the universe?",
+    //     answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
+    //     correct: 1,
+    // },
+    // {
+    //     question: "Which organelle is known as the powerhouse of the cell?",
+    //     answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+    //     correct: 2,
+    // },
     {
         question: "What is the study of the weather called?",
         answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
@@ -330,34 +330,34 @@ let score = 0;
 const loginContainer = document.querySelector( ".loginContainer" );
 const displayContainer = document.querySelector( ".displayContainer" );
 
-// const registerSection = document.getElementById( "registerSection" );
-// const loginSection = document.getElementById( "loginSection" );
-// const quizSection = document.getElementById( "quizSection" );
-// const scoreSection = document.getElementById( "scoreSection" );
-// const pastScoresSection = document.getElementById( "pastScoresSection" );
-// const registerError = document.getElementById( "registerError" );
+const registerSection = document.getElementById( "registerSection" );
+const loginSection = document.getElementById( "loginSection" );
+const quizSection = document.getElementById( "quizSection" );
+const scoreSection = document.getElementById( "scoreSection" );
+const pastScoresSection = document.getElementById( "pastScoresSection" );
+const registerError = document.getElementById( "registerError" );
 
-// const firstName = document.getElementById( "firstName" );
-// const lastName = document.getElementById( "lastName" );
-// const email = document.getElementById( "email" );
-// const registerUsername = document.getElementById( "registerUsername" );
-// const registerPassword = document.getElementById( "registerPassword" );
-// const confirmPassword = document.getElementById( "confirmPassword" );
-// const registerButton = document.getElementById( "registerButton" );
-// const loginUsername = document.getElementById( "loginUsername" );
-// const loginPassword = document.getElementById( "loginPassword" );
-// const loginButton = document.getElementById( "loginButton" );
+const firstName = document.getElementById( "firstName" );
+const lastName = document.getElementById( "lastName" );
+const email = document.getElementById( "email" );
+const registerUsername = document.getElementById( "registerUsername" );
+const registerPassword = document.getElementById( "registerPassword" );
+const confirmPassword = document.getElementById( "confirmPassword" );
+const registerButton = document.getElementById( "registerButton" );
+const loginUsername = document.getElementById( "loginUsername" );
+const loginPassword = document.getElementById( "loginPassword" );
+const loginButton = document.getElementById( "loginButton" );
 
-// const backButton = document.getElementById( "backButton" );
-// const pastScoresEl = document.getElementById( "pastScores" );
-// const retryButton = document.getElementById( "retryButton" );
+const backButton = document.getElementById( "backButton" );
+const pastScoresEl = document.getElementById( "pastScores" );
+const retryButton = document.getElementById( "retryButton" );
 
-// const actionButtons = document.getElementById( "actionButtons" );
-// const logoutButton = document.getElementById( "logoutButton" );
-// const viewScoresButton = document.getElementById( "viewScoresButton" );
-// const resetScoresButton = document.getElementById( "resetScoresButton" );
-// const sortByDateButton = document.getElementById( "sortByDateButton" );
-// const sortByScoreButton = document.getElementById( "sortByScoreButton" );
+const actionButtons = document.getElementById( "actionButtons" );
+const logoutButton = document.getElementById( "logoutButton" );
+const viewScoresButton = document.getElementById( "viewScoresButton" );
+const resetScoresButton = document.getElementById( "resetScoresButton" );
+const sortByDateButton = document.getElementById( "sortByDateButton" );
+const sortByScoreButton = document.getElementById( "sortByScoreButton" );
 
 // Function to create and append the registration form dynamically
 function createRegisterSection () {
@@ -406,9 +406,7 @@ function createRegisterSection () {
         registerPassword,
         confirmPassword,
     ].forEach( ( field ) => {
-        field.addEventListener( "input", () => {
-            clearErrorStyles( field )
-        } );
+        field.addEventListener( "input", clearErrorStyles );
     } );
 }
 
@@ -468,7 +466,6 @@ function createScoreSection () {
     `;
     displayContainer.appendChild( scoreSection );
     document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
-    showScore();
 }
 
 // Function to create the past scores section dynamically
@@ -484,7 +481,6 @@ function createPastScoresSection () {
     displayContainer.appendChild( pastScoresSection );
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
         removeElementById( "pastScoresSection" )
-        createScoresButtons();
         createScoreSection();
     } );
 }
@@ -502,18 +498,12 @@ function createActionButtons () {
 }
 
 function createSortButtons ( actionButtons ) {
-    actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+    actionButtons.innerHTML += `
         <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
         <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
     `
     displayContainer.appendChild( actionButtons );
     logoutEventListener();
-    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
-        // Show the confirmation dialog
-        createDialog();
-    } );
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
     const userScoresKey = `quizScores_${ currentUserId }`;
@@ -546,7 +536,6 @@ function logoutEventListener () {
         removeElementById( "scoreSection" )
         removeElementById( "quizSection" )
         removeElementById( "actionButtons" )
-        createRegisterSection();
         createLoginSection();
         document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
         const current = localStorage.getItem( "currentUserId" );
@@ -579,35 +568,25 @@ function createScoresButtons () {
 
 // Function to create the dialog section dynamically
 function createDialog () {
-
     const dialog = document.createElement( "dialog" );
     dialog.classList.add( "nes-dialog", "nes-container", "is-rounded" );
     dialog.id = "dialog-default";
-
     dialog.innerHTML = `
-        <p class="title">Confirmation</p>
-        <p>Are you sure you want to reset all past scores?</p>
-        <menu class="dialog-menu">
-            <button class="nes-btn" id="cancelButton">Cancel</button>
-            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-        </menu>
+        <form method="dialog">
+            <p class="title">Confirmation</p>
+            <p>Are you sure you want to reset all past scores?</p>
+            <menu class="dialog-menu">
+                <button class="nes-btn">Cancel</button>
+                <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
+            </menu>
+        </form>
     `;
     document.body.appendChild( dialog );
-
-    // Handle the confirm button click
     document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
         const currentUserId = localStorage.getItem( "currentUserId" );
-        if ( currentUserId ) {
-            localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear quiz scores in localStorage
-            sessionStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear session data
-            returnToBeginning(); // Call function to reset the quiz
-        }
-        dialog.close(); // Close the dialog after confirming
-    } );
-
-    // Handle the cancel button click
-    document.querySelector( "#cancelButton" ).addEventListener( "click", () => {
-        dialog.close(); // Just close the dialog when cancel is clicked
+        localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
+        sessionStorage.removeItem( `quizScores_${ currentUserId }` );
+        returnToBeginning();
     } );
 }
 
@@ -645,14 +624,6 @@ function validateEmail ( email ) {
 
 // Validate registration form
 function validateRegistrationForm () {
-    const firstName = document.getElementById( "firstName" );
-    const lastName = document.getElementById( "lastName" );
-    const email = document.getElementById( "email" );
-    const registerUsername = document.getElementById( "registerUsername" );
-    const registerPassword = document.getElementById( "registerPassword" );
-    const confirmPassword = document.getElementById( "confirmPassword" );
-
-
     const fields = [
         { element: firstName, name: "First Name" },
         { element: lastName, name: "Last Name" },
@@ -663,12 +634,10 @@ function validateRegistrationForm () {
     ];
 
     // Reset previous error styles
+    resetErrorStyles( fields );
     const registerError = document.getElementById( "registerError" );
 
-    if ( registerError ) {
-        console.log( registerError )
-        resetErrorStyles( fields );
-    }
+    registerError.style.display = "none";
 
     // Basic validation
     for ( const field of fields ) {
@@ -713,15 +682,12 @@ function validateRegistrationForm () {
 }
 
 function resetErrorStyles ( fields ) {
-    document.getElementById( "registerError" ).style.display = "none";
     fields.forEach( ( field ) => {
-        console.log( field )
         field.element.classList.remove( "is-error" );
     } );
 }
 
 function showError ( message, field ) {
-    let registerError = document.getElementById( "registerError" );
     registerError.textContent = message;
     registerError.style.display = "block";
     field.classList.add( "is-error" );
@@ -761,7 +727,8 @@ async function registerUser ( fields ) {
     localStorage.setItem( "firstName", newUser.firstName );
 
     // Update the UI to transition from registration to login
-    removeElementById( "registerSection" )
+    registerSection.style.display = "none";
+    loginSection.style.display = "block"; // Go to login after registration
 }
 
 // Helper function to hash the password (SHA-256 example)
@@ -783,9 +750,17 @@ function generateUniqueId () {
 
 // Function to remove error classes and hide the error message
 // Function to remove error classes and hide the error message
-function clearErrorStyles ( field ) {
-    let registerError = document.getElementById( "registerError" );
-    field.classList.remove( "is-error" ) // Remove error class from all fields
+function clearErrorStyles () {
+    const fields = [
+        firstName,
+        lastName,
+        email,
+        registerUsername,
+        registerPassword,
+        confirmPassword,
+    ];
+
+    fields.forEach( ( field ) => field.classList.remove( "is-error" ) ); // Remove error class from all fields
     registerError.style.display = "none"; // Hide error message
 }
 
@@ -1041,37 +1016,31 @@ function checkAnswer ( selected ) {
 
 // Show Score
 function showScore () {
+    // Hide unnecessary UI elements
+    removeElementById( "quizSection" );
+
+    // Display the score section
+    createScoreSection();
+    createScoresButtons();
+
+
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" );
+
+    // Display the user's score
+    const scoreMessageEl = document.getElementById( "scoreMessage" );
+    scoreMessageEl.textContent = `You scored ${ score } out of ${ quizData.length }!`;
 
     // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${ currentUserId }`;
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
 
-    // Retrieve current process for the current user
-    const userProgressKey = `quizProgress_${ currentUserId }`;
-    const quizProgress = JSON.parse( sessionStorage.getItem( userProgressKey ) ) || []
+    // Add the new score with the current timestamp
+    const timestamp = new Date().toLocaleString();
+    pastScores.push( { score: score, total: quizData.length, date: timestamp } );
 
-    console.log( quizProgress.currentQuestion );
-    if ( quizProgress.currentQuestion == totalQuestions ) {
-        // Add the new score with the current timestamp
-        const timestamp = new Date().toLocaleString();
-        pastScores.push( { score: score, total: quizData.length, date: timestamp } );
-
-        // Update localStorage with the new scores
-        localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
-    }
-
-    // Sort the past scores by date (most recent first)
-    pastScores.sort( ( a, b ) => Date.parse( b.date ) - Date.parse( a.date ) );
-
-    // Get the most recent score (which will be the first after sorting)
-    const mostRecentScore = pastScores[ 0 ];
-
-    // Display the user's score
-    // Update the score message with the most recent score
-    const scoreMessageEl = document.getElementById( "scoreMessage" );
-    scoreMessageEl.textContent = `Most Recent Score: ${ mostRecentScore.score } out of ${ mostRecentScore.total } on ${ mostRecentScore.date }`;
+    // Update localStorage with the new scores
+    localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
 }
 
 function returnToBeginning () {
@@ -1088,7 +1057,6 @@ function returnToBeginning () {
 
     // Update the UI
     removeElementById( "scoreSection" )
-    removeElementById( "pastScoresSection" )
     removeElementById( "dialog-default" )
     createActionButtons()
 
