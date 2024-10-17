@@ -547,10 +547,8 @@ function logoutEventListener () {
         setCookie( "username", "", -1 ); // Setting the cookie expiration in the past to remove it
         sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
         // Redirect to the login page
-        removeElementById( "pastScoresSection" )
-        removeElementById( "scoreSection" )
-        removeElementById( "quizSection" )
-        removeElementById( "actionButtons" )
+        removeAllSections();
+        createRegisterSection();
         createLoginSection();
         document.getElementById( "welcomeMessage" ).textContent = ""; // Clear welcome message
         const current = localStorage.getItem( "currentUserId" );
@@ -584,17 +582,17 @@ function createScoresButtons () {
 // Function to create the dialog section dynamically
 function createDialog () {
     const dialog = document.createElement( "dialog" );
-    dialog.classList.add( "nes-dialog", "nes-container", "is-rounded" );
-    dialog.id = "dialog-default";
+    dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
+    dialog.id = "dialog-dark-rounded";
     dialog.innerHTML = `
-        <form method="dialog">
-            <p class="title">Confirmation</p>
-            <p>Are you sure you want to reset all past scores?</p>
-            <menu class="dialog-menu">
-                <button class="nes-btn">Cancel</button>
-                <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-            </menu>
-        </form>
+    <form method ="dialog">
+        <p class="title">Confirmation</p>
+        <p>Are you sure you want to reset all past scores?</p>
+        <menu class="dialog-menu">
+            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
+        </menu>
+    </form>
     `;
     document.body.appendChild( dialog );
     document.querySelector( "#resetConfirm" ).addEventListener( "click", () => {
@@ -632,6 +630,13 @@ function validateEmail ( email ) {
 
 // Validate registration form
 function validateRegistrationForm () {
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+
     const fields = [
         { element: firstName, name: "First Name" },
         { element: lastName, name: "Last Name" },
@@ -696,6 +701,8 @@ function resetErrorStyles ( fields ) {
 }
 
 function showError ( message, field ) {
+    const registerError = document.getElementById( "registerError" );
+
     registerError.textContent = message;
     registerError.style.display = "block";
     field.classList.add( "is-error" );
@@ -759,6 +766,13 @@ function generateUniqueId () {
 // Function to remove error classes and hide the error message
 // Function to remove error classes and hide the error message
 function clearErrorStyles () {
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+
     const fields = [
         firstName,
         lastName,
@@ -769,6 +783,7 @@ function clearErrorStyles () {
     ];
 
     fields.forEach( ( field ) => field.classList.remove( "is-error" ) ); // Remove error class from all fields
+    const registerError = document.getElementById( "registerError" );
     registerError.style.display = "none"; // Hide error message
 }
 
