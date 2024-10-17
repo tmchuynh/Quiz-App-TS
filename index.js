@@ -496,7 +496,7 @@ function createPastScoresSection () {
     displayContainer.appendChild( pastScoresSection );
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
         removeElementById( "pastScoresSection" )
-        createScoreSection();
+        showScore();
     } );
 }
 
@@ -1056,12 +1056,16 @@ function showScore () {
     const userScoresKey = `quizScores_${ currentUserId }`;
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
 
-    // Add the new score with the current timestamp
-    const timestamp = new Date().toLocaleString();
-    pastScores.push( { score: score, total: quizData.length, date: timestamp } );
+    // Retrieve current quiz progress
+    const quizProgress = sessionStorage.getItem( "quizProgress" );
+    if ( quizProgress === totalQuestions ) {
+        // Add the new score with the current timestamp
+        const timestamp = new Date().toLocaleString();
+        pastScores.push( { score: score, total: quizData.length, date: timestamp } );
 
-    // Update localStorage with the new scores
-    localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+        // Update localStorage with the new scores
+        localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+    }
 
     // Sort the past scores by date (most recent first)
     pastScores.sort( ( a, b ) => Date.parse( b.date ) - Date.parse( a.date ) );
