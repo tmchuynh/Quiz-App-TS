@@ -330,34 +330,49 @@ let score = 0;
 const loginContainer = document.querySelector( ".loginContainer" );
 const displayContainer = document.querySelector( ".displayContainer" );
 
-const registerSection = document.getElementById( "registerSection" );
-const loginSection = document.getElementById( "loginSection" );
-const quizSection = document.getElementById( "quizSection" );
-const scoreSection = document.getElementById( "scoreSection" );
-const pastScoresSection = document.getElementById( "pastScoresSection" );
-const registerError = document.getElementById( "registerError" );
+// Function to remove an element by its ID
+function removeElementById ( elementId ) {
+    const element = document.getElementById( elementId );
+    if ( element ) {
+        element.remove(); // Remove the element from the DOM
+    }
+}
 
-const firstName = document.getElementById( "firstName" );
-const lastName = document.getElementById( "lastName" );
-const email = document.getElementById( "email" );
-const registerUsername = document.getElementById( "registerUsername" );
-const registerPassword = document.getElementById( "registerPassword" );
-const confirmPassword = document.getElementById( "confirmPassword" );
-const registerButton = document.getElementById( "registerButton" );
-const loginUsername = document.getElementById( "loginUsername" );
-const loginPassword = document.getElementById( "loginPassword" );
-const loginButton = document.getElementById( "loginButton" );
+// Function to remove the registration section
+function removeRegisterSection () {
+    removeElementById( "registerSection" );
+}
 
-const backButton = document.getElementById( "backButton" );
-const pastScoresEl = document.getElementById( "pastScores" );
-const retryButton = document.getElementById( "retryButton" );
+// Function to remove the login section
+function removeLoginSection () {
+    removeElementById( "loginSection" );
+}
 
-const actionButtons = document.getElementById( "actionButtons" );
-const logoutButton = document.getElementById( "logoutButton" );
-const viewScoresButton = document.getElementById( "viewScoresButton" );
-const resetScoresButton = document.getElementById( "resetScoresButton" );
-const sortByDateButton = document.getElementById( "sortByDateButton" );
-const sortByScoreButton = document.getElementById( "sortByScoreButton" );
+// Function to remove the quiz section
+function removeQuizSection () {
+    removeElementById( "quizSection" );
+}
+
+// Function to remove the score section
+function removeScoreSection () {
+    removeElementById( "scoreSection" );
+}
+
+// Function to remove the past scores section
+function removePastScoresSection () {
+    removeElementById( "pastScoresSection" );
+}
+
+// Function to remove all sections dynamically
+function removeAllSections () {
+    removeRegisterSection();
+    removeLoginSection();
+    removeQuizSection();
+    removeScoreSection();
+    removePastScoresSection();
+    removeElementById( "actionButtons" );  // Remove the action buttons section
+    removeElementById( "dialog-default" ); // Remove the dialog
+}
 
 // Function to create and append the registration form dynamically
 function createRegisterSection () {
@@ -381,8 +396,14 @@ function createRegisterSection () {
         <button id="registerButton" class="nes-btn is-success">Register</button>
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
-    loginContainer.appendChild( registerSection );
-    document.querySelector( "#registerButton" ).addEventListener( "click", validateRegistrationForm );
+
+    // Append the dynamically created register section to the loginContainer
+    document.querySelector( ".loginContainer" ).appendChild( registerSection );
+
+    // Attach event listener to the register button
+    document.getElementById( "registerButton" ).addEventListener( "click", validateRegistrationForm );
+
+    // Attach event listener for the Enter key on the register section
     registerSection.addEventListener( "keydown", ( event ) => {
         if ( event.key === "Enter" ) {
             validateRegistrationForm();
@@ -397,18 +418,12 @@ function createRegisterSection () {
     const registerPassword = document.getElementById( "registerPassword" );
     const confirmPassword = document.getElementById( "confirmPassword" );
 
-    // Attach the same event listener to all relevant input fields
-    [
-        firstName,
-        lastName,
-        email,
-        registerUsername,
-        registerPassword,
-        confirmPassword,
-    ].forEach( ( field ) => {
+    // Attach input event listeners to all input fields for clearing error styles
+    [ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ].forEach( ( field ) => {
         field.addEventListener( "input", clearErrorStyles );
     } );
 }
+
 
 // Function to create and append the login form dynamically
 function createLoginSection () {
