@@ -759,11 +759,7 @@ function createPastScoresSection () {
 
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
         removeElementById( "pastScoresSection" )
-        if ( checkProgressAtEnd( currentUserId ) ) {
-            showScore();
-        } else {
-            loadQuiz();
-        }
+        checkProgressAtEnd( currentUserId ) ? showScore() : loadQuiz();
     } );
 }
 
@@ -969,13 +965,7 @@ function loadQuiz () {
     removeElementById( "loginSection" );
 
     const userProgressKey = `quizScores_${ currentUserId }`;
-    const scoreData = localStorage.getItem( userProgressKey );
-    if ( scoreData ) {
-        createScoresButtons();
-    } else {
-        createActionButtons();
-    }
-
+    localStorage.getItem( userProgressKey ) ? createScoresButtons() : createActionButtons();
     if ( !document.querySelector( "#quizSection" ) ) {
         createQuizSection();
     }
