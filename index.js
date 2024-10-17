@@ -521,9 +521,9 @@ function getRegisterFormFields () {
 }
 
 
-async function registerUser ( fields ) {
+function registerUser ( fields ) {
     // Hash the password before storing it
-    const hashedPassword = await hashPassword( fields[ 4 ].element.value.trim() );
+    const hashedPassword = hashPassword( fields[ 4 ].element.value.trim() );
 
     const newUser = {
         id: generateUniqueId(),
@@ -551,10 +551,10 @@ async function registerUser ( fields ) {
 }
 
 // Helper function to hash the password (SHA-256 example)
-async function hashPassword ( password ) {
+function hashPassword ( password ) {
     const encoder = new TextEncoder();
     const data = encoder.encode( password );
-    const hashBuffer = await crypto.subtle.digest( "SHA-256", data );
+    const hashBuffer = crypto.subtle.digest( "SHA-256", data );
     const hashArray = Array.from( new Uint8Array( hashBuffer ) );
     const hashHex = hashArray
         .map( ( b ) => b.toString( 16 ).padStart( 2, "0" ) )
@@ -619,7 +619,7 @@ function createLoginSection () {
 
 
 // Validate login form
-async function validateLoginForm () {
+function validateLoginForm () {
     const { loginUsername, loginPassword } = getLoginFormFields();
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
@@ -650,7 +650,7 @@ async function validateLoginForm () {
     const users = JSON.parse( localStorage.getItem( "users" ) ) || [];
 
     // Hash the entered password for comparison
-    const hashedPassword = await hashPassword( password );
+    const hashedPassword = hashPassword( password );
 
     // Find the user with matching username and hashed password
     const user = users.find(
@@ -721,7 +721,9 @@ function createQuizSection () {
     quizSection.classList.add( "nes-container", "is-rounded", "quiz-section" );
     quizSection.id = "quizSection";
     quizSection.innerHTML = `
-        <p id="question"></p>
+        <div class="question-container">
+            <p id="question"></p>
+        </div>
         <div id="answers"></div>
         <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
     `;
@@ -736,7 +738,7 @@ function createScoreSection () {
     scoreSection.innerHTML = `
         <h2 class="nes-text">Quiz Completed!</h2>
         <p id="scoreMessage"></p>
-        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
+        <button id="retryButton" class="nes-btn is-warning retry-button">Retry Quiz</button>
     `;
     displayContainer.appendChild( scoreSection );
     document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
@@ -753,9 +755,15 @@ function createPastScoresSection () {
         <button id="backButton" class="nes-btn">Back to Quiz</button>
     `;
     displayContainer.appendChild( pastScoresSection );
+    const currentUserId = localStorage.getItem( "currentUserId" );
+
     document.querySelector( "#backButton" ).addEventListener( "click", () => {
         removeElementById( "pastScoresSection" )
-        showScore();
+        if ( checkProgressAtEnd( currentUserId ) ) {
+            showScore();
+        } else {
+            loadQuiz();
+        }
     } );
 }
 
@@ -922,7 +930,6 @@ function returnToBeginning () {
     // Display the first question
     loadQuiz();
 }
-
 
 // Load Quiz
 function loadQuiz () {
@@ -1109,10 +1116,7 @@ function showScore () {
     const userScoresKey = `quizScores_${ currentUserId }`;
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
 
-    // Retrieve current quiz progress
-    const quizProgress = sessionStorage.getItem( `quizProgress_${ currentUserId }` );
-    console.log()
-    if ( JSON.parse( quizProgress ).currentQuestion === totalQuestions - 1 ) {
+    if ( checkProgressAtEnd( currentUserId ) ) {
         // Add the new score with the current timestamp
         const timestamp = new Date().toLocaleString();
         pastScores.push( { score: score, total: quizData.length, date: timestamp } );
@@ -1134,5 +1138,15 @@ function showScore () {
     }
 }
 
+function checkProgressAtEnd ( currentUserId ) {
+    // Retrieve current quiz progress
+    const quizProgress = sessionStorage.getItem( `quizProgress_${ currentUserId }` );
+    if ( JSON.parse( quizProgress ).currentQuestion === totalQuestions - 1 ) {
+        return true;
+    }
+}
+
+
 // Initial load
 window.onload = loadQuiz;
+
