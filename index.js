@@ -715,7 +715,6 @@ function logoutEventListener () {
     } );
 }
 
-
 // Function to create and append the quiz section dynamically
 function createQuizSection () {
     const quizSection = document.createElement( "div" );
@@ -727,20 +726,6 @@ function createQuizSection () {
         <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
     `;
     displayContainer.appendChild( quizSection );
-}
-
-// Function to create and append the score section dynamically
-function createScoreSection () {
-    const scoreSection = document.createElement( "div" );
-    scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
-    scoreSection.id = "scoreSection";
-    scoreSection.innerHTML = `
-        <h2 class="nes-text">Quiz Completed!</h2>
-        <p id="scoreMessage"></p>
-        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
-    `;
-    displayContainer.appendChild( scoreSection );
-    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
 }
 
 // Function to create the past scores section dynamically
@@ -770,6 +755,40 @@ function createActionButtons () {
     `;
     displayContainer.appendChild( actionButtons );
     logoutEventListener();
+}
+
+function createScoresButtons () {
+    removeElementById( "actionButtons" );
+    const actionButtons = document.createElement( "section" );
+    actionButtons.id = "actionButtons";
+    actionButtons.innerHTML = `
+        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
+        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+    `
+    displayContainer.appendChild( actionButtons );
+    logoutEventListener();
+    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
+        createSortButtons( actionButtons );
+    } );
+    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
+    } );
+}
+
+// Function to create and append the score section dynamically
+function createScoreSection () {
+    const scoreSection = document.createElement( "div" );
+    scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
+    scoreSection.id = "scoreSection";
+    scoreSection.innerHTML = `
+        <h2 class="nes-text">Quiz Completed!</h2>
+        <p id="scoreMessage"></p>
+        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
+    `;
+    displayContainer.appendChild( scoreSection );
+    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
 }
 
 function createSortButtons ( actionButtons ) {
@@ -809,25 +828,53 @@ function createSortButtons ( actionButtons ) {
     } );
 }
 
+function renderScores ( pastScores ) {
+    // Remove existing sections
+    removeElementById( "quizSection" );
+    removeElementById( "scoreSection" );
+    removeElementById( "pastScoresSection" );
 
-function createScoresButtons () {
-    removeElementById( "actionButtons" );
-    const actionButtons = document.createElement( "section" );
-    actionButtons.id = "actionButtons";
-    actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
-    `
-    displayContainer.appendChild( actionButtons );
-    logoutEventListener();
-    document.querySelector( "#viewScoresButton" ).addEventListener( "click", () => {
-        createSortButtons( actionButtons );
-    } );
-    document.querySelector( "#resetScoresButton" ).addEventListener( "click", () => {
-        // Show the confirmation dialog
-        createDialog();
-    } );
+    // Create the past scores section dynamically
+    createPastScoresSection();
+
+    // Create table headers and rows for the scores
+    const tableHeaders = `
+        <tr>
+            <th>Score</th>
+            <th>Total Questions</th>
+            <th>Percentage</th>
+            <th>Date</th>
+        </tr>`;
+
+    const tableRows = pastScores
+        .map( ( { score, total, date } ) => {
+            const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate percentage
+            const formattedDate = formatDate( date );
+            return `
+                <tr>
+                    <td>${ score }</td>
+                    <td>${ total }</td>
+                    <td>${ percentage }%</td>
+                    <td>${ formattedDate }</td>
+                </tr>`;
+        } )
+        .join( "" );
+
+    // Insert the table into the #pastScores element
+    document.querySelector( "#pastScores" ).innerHTML = `
+        ${ tableHeaders }
+        ${ tableRows }
+    `;
+}
+
+// Helper function to format date to mm/dd/yy
+function formatDate ( dateString ) {
+    const date = new Date( dateString ); // Convert the string to a Date object
+    const month = ( date.getMonth() + 1 ).toString().padStart( 2, '0' ); // getMonth() returns 0-11, so add 1
+    const day = date.getDate().toString().padStart( 2, '0' ); // Add leading 0 if necessary
+    const year = date.getFullYear().toString().slice( -2 ); // Get last 2 digits of the year (yy)
+
+    return `${ month }/${ day }/${ year }`; // Return in mm/dd/yy format
 }
 
 // Function to create the dialog section dynamically
@@ -854,6 +901,27 @@ function createDialog () {
         returnToBeginning();
     } );
 }
+
+function returnToBeginning () {
+    // Reset quiz variables
+    currentQuestion = 0;
+    score = 0;
+
+    const currentUserId = localStorage.getItem( "currentUserId" );
+    const userProgressKey = `quizProgress_${ currentUserId }`;
+    sessionStorage.setItem(
+        userProgressKey,
+        JSON.stringify( { currentQuestion, score } )
+    );
+
+    // Update the UI
+    removeElementById( "scoreSection" )
+    createActionButtons()
+
+    // Display the first question
+    loadQuiz();
+}
+
 
 // Load Quiz
 function loadQuiz () {
@@ -900,29 +968,31 @@ function loadQuiz () {
         createActionButtons();
     }
 
-
     if ( !document.querySelector( "#quizSection" ) ) {
         createQuizSection();
     }
-
 
     // Load user progress in the quiz
     loadProgress();
 }
 
-const shuffle = ( array ) => {
-    // Step 1: Fisher-Yates Shuffle
-    for ( let i = array.length - 1; i > 0; i-- ) {
-        const j = Math.floor( Math.random() * ( i + 1 ) );
-        [ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ];
-    }
+// Function to load progress on quiz start
+function loadProgress () {
+    const currentUserId = localStorage.getItem( "currentUserId" );
+    const userProgressKey = `quizProgress_${ currentUserId }`;
+    const progressData = sessionStorage.getItem( userProgressKey );
 
-    // Step 2: Random sort shuffle
-    return array
-        .map( ( a ) => ( { sort: Math.random(), value: a } ) )
-        .sort( ( a, b ) => a.sort - b.sort )
-        .map( ( a ) => a.value );
-};
+    if ( progressData ) {
+        const { currentQuestion: savedQuestion, score: savedScore } =
+            JSON.parse( progressData );
+        currentQuestion = savedQuestion;
+        score = savedScore;
+    } else {
+        currentQuestion = 0; // Start from the beginning if no progress is saved
+        score = 0;
+    }
+    displayQuestion();
+}
 
 // Display Question
 function displayQuestion () {
@@ -984,24 +1054,6 @@ function updateProgressBar () {
     ); // Store progress
 }
 
-// Function to load progress on quiz start
-function loadProgress () {
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    const userProgressKey = `quizProgress_${ currentUserId }`;
-    const progressData = sessionStorage.getItem( userProgressKey );
-
-    if ( progressData ) {
-        const { currentQuestion: savedQuestion, score: savedScore } =
-            JSON.parse( progressData );
-        currentQuestion = savedQuestion;
-        score = savedScore;
-    } else {
-        currentQuestion = 0; // Start from the beginning if no progress is saved
-        score = 0;
-    }
-    displayQuestion();
-}
-
 // Check Answer
 function checkAnswer ( selected ) {
     const currentQuiz = quizData[ currentQuestion ];
@@ -1022,6 +1074,20 @@ function checkAnswer ( selected ) {
         showScore(); // Display final score
     }
 }
+
+const shuffle = ( array ) => {
+    // Step 1: Fisher-Yates Shuffle
+    for ( let i = array.length - 1; i > 0; i-- ) {
+        const j = Math.floor( Math.random() * ( i + 1 ) );
+        [ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ];
+    }
+
+    // Step 2: Random sort shuffle
+    return array
+        .map( ( a ) => ( { sort: Math.random(), value: a } ) )
+        .sort( ( a, b ) => a.sort - b.sort )
+        .map( ( a ) => a.value );
+};
 
 // Show Score
 function showScore () {
@@ -1065,75 +1131,6 @@ function showScore () {
     if ( scoreMessageEl ) {
         scoreMessageEl.textContent = `Most Recent Score: ${ mostRecentScore.score } out of ${ mostRecentScore.total } on ${ mostRecentScore.date }`;
     }
-}
-
-function returnToBeginning () {
-    // Reset quiz variables
-    currentQuestion = 0;
-    score = 0;
-
-    const currentUserId = localStorage.getItem( "currentUserId" );
-    const userProgressKey = `quizProgress_${ currentUserId }`;
-    sessionStorage.setItem(
-        userProgressKey,
-        JSON.stringify( { currentQuestion, score } )
-    );
-
-    // Update the UI
-    removeElementById( "scoreSection" )
-    createActionButtons()
-
-    // Display the first question
-    loadQuiz();
-}
-
-function renderScores ( pastScores ) {
-    // Remove existing sections
-    removeElementById( "quizSection" );
-    removeElementById( "scoreSection" );
-    removeElementById( "pastScoresSection" );
-
-    // Create the past scores section dynamically
-    createPastScoresSection();
-
-    // Create table headers and rows for the scores
-    const tableHeaders = `
-        <tr>
-            <th>Score</th>
-            <th>Total Questions</th>
-            <th>Percentage</th>
-            <th>Date</th>
-        </tr>`;
-
-    const tableRows = pastScores
-        .map( ( { score, total, date } ) => {
-            const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate percentage
-            const formattedDate = formatDate( date );
-            return `
-                <tr>
-                    <td>${ score }</td>
-                    <td>${ total }</td>
-                    <td>${ percentage }%</td>
-                    <td>${ formattedDate }</td>
-                </tr>`;
-        } )
-        .join( "" );
-
-    // Insert the table into the #pastScores element
-    document.querySelector( "#pastScores" ).innerHTML = `
-        ${ tableHeaders }
-        ${ tableRows }
-    `;
-}
-
-// Helper function to format date to mm/dd/yy
-function formatDate ( dateString ) {
-    const date = new Date( dateString ); // Convert the string to a Date object
-    const month = ( date.getMonth() + 1 ).toString().padStart( 2, '0' ); // getMonth() returns 0-11, so add 1
-    const day = date.getDate().toString().padStart( 2, '0' ); // Add leading 0 if necessary
-    const year = date.getFullYear().toString().slice( -2 ); // Get last 2 digits of the year (yy)
-
-    return `${ month }/${ day }/${ year }`; // Return in mm/dd/yy format
 }
 
 // Initial load
