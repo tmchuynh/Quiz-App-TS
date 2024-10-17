@@ -108,3 +108,7 @@ label {
 .nes-progress {
     margin-bottom: 1rem;
 }
+
+li {
+    padding: 5px;
+}

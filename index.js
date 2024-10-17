@@ -1083,7 +1083,26 @@ function returnToBeginning () {
     loadQuiz();
 }
 
+// function renderScores ( pastScores ) {
+//     removeElementById( "quizSection" );
+//     removeElementById( "scoreSection" );
+//     removeElementById( "pastScoresSection" );
+
+//     // Create the past scores section dynamically
+//     createPastScoresSection();
+
+//     // Display the sorted scores with percentage
+//     document.querySelector( "#pastScores" ).innerHTML = pastScores
+//         .map( ( { score, total, date } ) => {
+//             const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate and format percentage
+//             return `<li>${ score }/${ total } - ${ percentage }% - ${ date }</li>`;
+//         } )
+//         .join( "" );
+// }
+
+
 function renderScores ( pastScores ) {
+    // Remove existing sections
     removeElementById( "quizSection" );
     removeElementById( "scoreSection" );
     removeElementById( "pastScoresSection" );
@@ -1091,15 +1110,46 @@ function renderScores ( pastScores ) {
     // Create the past scores section dynamically
     createPastScoresSection();
 
-    // Display the sorted scores with percentage
-    document.querySelector( "#pastScores" ).innerHTML = pastScores
+    // Create table headers and rows for the scores
+    const tableHeaders = `
+        <tr>
+            <th>Score</th>
+            <th>Total Questions</th>
+            <th>Percentage</th>
+            <th>Date</th>
+        </tr>`;
+
+    const tableRows = pastScores
         .map( ( { score, total, date } ) => {
-            const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate and format percentage
-            return `<li>${ score }/${ total } - ${ percentage }% - ${ date }</li>`;
+            const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate percentage
+            const formattedDate = formatDate( date );
+            return `
+                <tr>
+                    <td>${ score }</td>
+                    <td>${ total }</td>
+                    <td>${ percentage }%</td>
+                    <td>${ formattedDate }</td>
+                </tr>`;
         } )
         .join( "" );
+
+    // Insert the table into the #pastScores element
+    document.querySelector( "#pastScores" ).innerHTML = `
+        <table style="width: 100%; border-collapse: collapse;">
+            ${ tableHeaders }
+            ${ tableRows }
+        </table>`;
 }
 
+// Helper function to format date to mm/dd/yy
+function formatDate ( dateString ) {
+    const date = new Date( dateString ); // Convert the string to a Date object
+    const month = ( date.getMonth() + 1 ).toString().padStart( 2, '0' ); // getMonth() returns 0-11, so add 1
+    const day = date.getDate().toString().padStart( 2, '0' ); // Add leading 0 if necessary
+    const year = date.getFullYear().toString().slice( -2 ); // Get last 2 digits of the year (yy)
+
+    return `${ month }/${ day }/${ year }`; // Return in mm/dd/yy format
+}
 
 // Initial load
 window.onload = loadQuiz;
