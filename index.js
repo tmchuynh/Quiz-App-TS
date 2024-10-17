@@ -728,6 +728,20 @@ function createQuizSection () {
     displayContainer.appendChild( quizSection );
 }
 
+// Function to create and append the score section dynamically
+function createScoreSection () {
+    const scoreSection = document.createElement( "div" );
+    scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
+    scoreSection.id = "scoreSection";
+    scoreSection.innerHTML = `
+        <h2 class="nes-text">Quiz Completed!</h2>
+        <p id="scoreMessage"></p>
+        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
+    `;
+    displayContainer.appendChild( scoreSection );
+    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
+}
+
 // Function to create the past scores section dynamically
 function createPastScoresSection () {
     const pastScoresSection = document.createElement( "div" );
@@ -748,7 +762,7 @@ function createPastScoresSection () {
 // Function to create the action buttons dynamically
 function createActionButtons () {
     removeElementById( "actionButtons" )
-    const actionButtons = document.createElement( "section" );
+    actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
@@ -759,7 +773,7 @@ function createActionButtons () {
 
 function createScoresButtons () {
     removeElementById( "actionButtons" );
-    const actionButtons = document.createElement( "section" );
+    actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
@@ -777,23 +791,10 @@ function createScoresButtons () {
     } );
 }
 
-// Function to create and append the score section dynamically
-function createScoreSection () {
-    const scoreSection = document.createElement( "div" );
-    scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
-    scoreSection.id = "scoreSection";
-    scoreSection.innerHTML = `
-        <h2 class="nes-text">Quiz Completed!</h2>
-        <p id="scoreMessage"></p>
-        <button id="retryButton" class="nes-btn is-warning">Retry Quiz</button>
-    `;
-    displayContainer.appendChild( scoreSection );
-    document.querySelector( "#retryButton" ).addEventListener( "click", () => returnToBeginning() );
-}
-
 function createSortButtons ( actionButtons ) {
     removeElementById( "actionButtons" )
-    const actionButtons = document.createElement( "section" );
+    actionButtons = document.createElement( "section" );
+    actionButtons.id = "actionButtons";
     actionButtons.innerHTML += `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
