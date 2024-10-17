@@ -1,310 +1,310 @@
 // Quiz Data
 const quizData = [
-    // {
-    //     question: "What is the largest planet in our Solar System?",
-    //     answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What gas do plants absorb from the atmosphere?",
-    //     answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the chemical symbol for water?",
-    //     answers: [ "O2", "H2O", "CO2", "NaCl" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What natural satellite orbits the Earth?",
-    //     answers: [ "Mars", "Sun", "Moon", "Venus" ],
-    //     correct: 2
-    // },
-    // {
-    //     question: "What phenomenon causes the seasons on Earth?",
-    //     answers: [ "Earth's distance from the Sun", "Earth's axial tilt", "Solar flares", "Lunar phases" ],
-    //     correct: 1
-    // },
-    // {
-    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
-    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-    //     correct: 3
-    // },
-    // {
-    //     question: "What type of energy is stored in a stretched rubber band?",
-    //     answers: [ "Kinetic Energy", "Thermal Energy", "Elastic Potential Energy", "Chemical Energy" ],
-    //     correct: 2
-    // },
-    // {
-    //     question: "What is the most abundant element in the universe?",
-    //     answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
-    //     correct: 1
-    // },
-    // {
-    //     question: "Which organelle is known as the powerhouse of the cell?",
-    //     answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
-    //     correct: 2
-    // },
-    // {
-    //     question: "What is the study of the weather called?",
-    //     answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
-    //     correct: 1
-    // },
-    // {
-    //     question: "What kind of animal is a dolphin?",
-    //     answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
-    //     correct: 3
-    // },
-    // {
-    //     question: "What is the basic unit of life?",
-    //     answers: [ "Atom", "Molecule", "Cell", "Organ" ],
-    //     correct: 2
-    // },
-    // {
-    //     question: "Which part of the cell contains genetic material?",
-    //     answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "What force keeps us on the ground?",
-    //     answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What planet is known as the Red Planet?",
-    //     answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which organ pumps blood throughout the human body?",
-    //     answers: [ "Brain", "Lungs", "Heart", "Liver" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What is the process by which plants make their own food?",
-    //     answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the boiling point of water at sea level in Celsius?",
-    //     answers: [ "50°C", "75°C", "100°C", "125°C" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "Which gas is most abundant in Earth's atmosphere?",
-    //     answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the center of an atom called?",
-    //     answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "Which part of the cell contains genetic material?",
-    //     answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "What is the process by which plants make their own food?",
-    //     answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the boiling point of water at sea level in Celsius?",
-    //     answers: [ "50°C", "75°C", "100°C", "125°C" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "Which gas is most abundant in Earth's atmosphere?",
-    //     answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which country hosted the first modern Olympic Games?",
-    //     answers: [ "France", "Greece", "USA", "Germany" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which country hosted the 2016 Summer Olympics?",
-    //     answers: [ "China", "Brazil", "UK", "Russia" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which language is primarily spoken in Brazil?",
-    //     answers: [ "Spanish", "Portuguese", "French", "English" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the chemical formula for table salt?",
-    //     answers: [ "NaCl", "KCl", "CaCO3", "MgSO4" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "Which country is known as the Land of the Rising Sun?",
-    //     answers: [ "China", "Japan", "Thailand", "South Korea" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the capital of France?",
-    //     answers: [ "Berlin", "London", "Paris", "Rome" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "In which year did the World War II end?",
-    //     answers: [ "1945", "1939", "1918", "1963" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "What is the largest desert in the world?",
-    //     answers: [ "Sahara", "Gobi", "Kalahari", "Arctic Desert" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "Who was the first person to walk on the Moon?",
-    //     answers: [ "Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the currency of the United Kingdom?",
-    //     answers: [ "Euro", "Dollar", "Pound Sterling", "Yen" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
-    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-    //     correct: 3,
-    // },
-    // {
-    //     question: "Which metal is liquid at room temperature?",
-    //     answers: [ "Iron", "Mercury", "Gold", "Silver" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which planet has the most moons?",
-    //     answers: [ "Earth", "Saturn", "Jupiter", "Mars" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What is the primary language spoken in Canada?",
-    //     answers: [ "English and French", "English and Spanish", "French and German", "Spanish and Portuguese" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "Which country gifted the Statue of Liberty to the USA?",
-    //     answers: [ "Germany", "France", "Italy", "Spain" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the most abundant element in the universe?",
-    //     answers: [ "Oxygen", "Carbon", "Hydrogen", "Nitrogen" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What is the largest bone in the human body?",
-    //     answers: [ "Femur", "Tibia", "Humerus", "Fibula" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "Which ocean is the Bermuda Triangle located in?",
-    //     answers: [ "Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "What is the main ingredient in guacamole?",
-    //     answers: [ "Tomato", "Avocado", "Onion", "Pepper" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the center of an atom called?",
-    //     answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "Which vitamin is essential for blood clotting?",
-    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K" ],
-    //     correct: 3,
-    // },
-    // {
-    //     question: "What is the largest land animal?",
-    //     answers: [ "Elephant", "Giraffe", "Hippopotamus", "Rhinoceros" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "Who wrote 'The Odyssey'?",
-    //     answers: [ "Homer", "Virgil", "Sophocles", "Aristotle" ],
-    //     correct: 0,
-    // },
-    // {
-    //     question: "What force keeps us on the ground?",
-    //     answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What planet is known as the Red Planet?",
-    //     answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which organ pumps blood throughout the human body?",
-    //     answers: [ "Brain", "Lungs", "Heart", "Liver" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What natural satellite orbits the Earth?",
-    //     answers: [ "Mars", "Sun", "Moon", "Venus" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What is the largest planet in our Solar System?",
-    //     answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What gas do plants absorb from the atmosphere?",
-    //     answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What is the chemical symbol for water?",
-    //     answers: [ "O2", "H2O", "CO2", "NaCl" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "What phenomenon causes the seasons on Earth?",
-    //     answers: [
-    //         "Earth's distance from the Sun",
-    //         "Earth's axial tilt",
-    //         "Solar flares",
-    //         "Lunar phases",
-    //     ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which vitamin is produced when a person is exposed to sunlight?",
-    //     answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
-    //     correct: 3,
-    // },
-    // {
-    //     question: "What type of energy is stored in a stretched rubber band?",
-    //     answers: [
-    //         "Kinetic Energy",
-    //         "Thermal Energy",
-    //         "Elastic Potential Energy",
-    //         "Chemical Energy",
-    //     ],
-    //     correct: 2,
-    // },
-    // {
-    //     question: "What is the most abundant element in the universe?",
-    //     answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
-    //     correct: 1,
-    // },
-    // {
-    //     question: "Which organelle is known as the powerhouse of the cell?",
-    //     answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
-    //     correct: 2,
-    // },
+    {
+        question: "What is the largest planet in our Solar System?",
+        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+        correct: 2,
+    },
+    {
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answers: [ "O2", "H2O", "CO2", "NaCl" ],
+        correct: 1,
+    },
+    {
+        question: "What natural satellite orbits the Earth?",
+        answers: [ "Mars", "Sun", "Moon", "Venus" ],
+        correct: 2
+    },
+    {
+        question: "What phenomenon causes the seasons on Earth?",
+        answers: [ "Earth's distance from the Sun", "Earth's axial tilt", "Solar flares", "Lunar phases" ],
+        correct: 1
+    },
+    {
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3
+    },
+    {
+        question: "What type of energy is stored in a stretched rubber band?",
+        answers: [ "Kinetic Energy", "Thermal Energy", "Elastic Potential Energy", "Chemical Energy" ],
+        correct: 2
+    },
+    {
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
+        correct: 1
+    },
+    {
+        question: "Which organelle is known as the powerhouse of the cell?",
+        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+        correct: 2
+    },
+    {
+        question: "What is the study of the weather called?",
+        answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
+        correct: 1
+    },
+    {
+        question: "What kind of animal is a dolphin?",
+        answers: [ "Fish", "Amphibian", "Reptile", "Mammal" ],
+        correct: 3
+    },
+    {
+        question: "What is the basic unit of life?",
+        answers: [ "Atom", "Molecule", "Cell", "Organ" ],
+        correct: 2
+    },
+    {
+        question: "Which part of the cell contains genetic material?",
+        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+        correct: 0,
+    },
+    {
+        question: "What force keeps us on the ground?",
+        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+        correct: 2,
+    },
+    {
+        question: "What planet is known as the Red Planet?",
+        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+        correct: 1,
+    },
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+        correct: 2,
+    },
+    {
+        question: "What is the process by which plants make their own food?",
+        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+        correct: 1,
+    },
+    {
+        question: "What is the boiling point of water at sea level in Celsius?",
+        answers: [ "50°C", "75°C", "100°C", "125°C" ],
+        correct: 2,
+    },
+    {
+        question: "Which gas is most abundant in Earth's atmosphere?",
+        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+        correct: 1,
+    },
+    {
+        question: "What is the center of an atom called?",
+        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+        correct: 2,
+    },
+    {
+        question: "Which part of the cell contains genetic material?",
+        answers: [ "Nucleus", "Cytoplasm", "Cell membrane", "Mitochondria" ],
+        correct: 0,
+    },
+    {
+        question: "What is the process by which plants make their own food?",
+        answers: [ "Respiration", "Photosynthesis", "Digestion", "Transpiration" ],
+        correct: 1,
+    },
+    {
+        question: "What is the boiling point of water at sea level in Celsius?",
+        answers: [ "50°C", "75°C", "100°C", "125°C" ],
+        correct: 2,
+    },
+    {
+        question: "Which gas is most abundant in Earth's atmosphere?",
+        answers: [ "Oxygen", "Nitrogen", "Carbon Dioxide", "Argon" ],
+        correct: 1,
+    },
+    {
+        question: "Which country hosted the first modern Olympic Games?",
+        answers: [ "France", "Greece", "USA", "Germany" ],
+        correct: 1,
+    },
+    {
+        question: "Which country hosted the 2016 Summer Olympics?",
+        answers: [ "China", "Brazil", "UK", "Russia" ],
+        correct: 1,
+    },
+    {
+        question: "Which language is primarily spoken in Brazil?",
+        answers: [ "Spanish", "Portuguese", "French", "English" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical formula for table salt?",
+        answers: [ "NaCl", "KCl", "CaCO3", "MgSO4" ],
+        correct: 0,
+    },
+    {
+        question: "Which country is known as the Land of the Rising Sun?",
+        answers: [ "China", "Japan", "Thailand", "South Korea" ],
+        correct: 1,
+    },
+    {
+        question: "What is the capital of France?",
+        answers: [ "Berlin", "London", "Paris", "Rome" ],
+        correct: 2,
+    },
+    {
+        question: "In which year did the World War II end?",
+        answers: [ "1945", "1939", "1918", "1963" ],
+        correct: 0,
+    },
+    {
+        question: "What is the largest desert in the world?",
+        answers: [ "Sahara", "Gobi", "Kalahari", "Arctic Desert" ],
+        correct: 0,
+    },
+    {
+        question: "Who was the first person to walk on the Moon?",
+        answers: [ "Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "Michael Collins" ],
+        correct: 1,
+    },
+    {
+        question: "What is the currency of the United Kingdom?",
+        answers: [ "Euro", "Dollar", "Pound Sterling", "Yen" ],
+        correct: 2,
+    },
+    {
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3,
+    },
+    {
+        question: "Which metal is liquid at room temperature?",
+        answers: [ "Iron", "Mercury", "Gold", "Silver" ],
+        correct: 1,
+    },
+    {
+        question: "Which planet has the most moons?",
+        answers: [ "Earth", "Saturn", "Jupiter", "Mars" ],
+        correct: 2,
+    },
+    {
+        question: "What is the primary language spoken in Canada?",
+        answers: [ "English and French", "English and Spanish", "French and German", "Spanish and Portuguese" ],
+        correct: 0,
+    },
+    {
+        question: "Which country gifted the Statue of Liberty to the USA?",
+        answers: [ "Germany", "France", "Italy", "Spain" ],
+        correct: 1,
+    },
+    {
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Carbon", "Hydrogen", "Nitrogen" ],
+        correct: 2,
+    },
+    {
+        question: "What is the largest bone in the human body?",
+        answers: [ "Femur", "Tibia", "Humerus", "Fibula" ],
+        correct: 0,
+    },
+    {
+        question: "Which ocean is the Bermuda Triangle located in?",
+        answers: [ "Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean" ],
+        correct: 0,
+    },
+    {
+        question: "What is the main ingredient in guacamole?",
+        answers: [ "Tomato", "Avocado", "Onion", "Pepper" ],
+        correct: 1,
+    },
+    {
+        question: "What is the center of an atom called?",
+        answers: [ "Electron", "Proton", "Nucleus", "Neutron" ],
+        correct: 2,
+    },
+    {
+        question: "Which vitamin is essential for blood clotting?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K" ],
+        correct: 3,
+    },
+    {
+        question: "What is the largest land animal?",
+        answers: [ "Elephant", "Giraffe", "Hippopotamus", "Rhinoceros" ],
+        correct: 0,
+    },
+    {
+        question: "Who wrote 'The Odyssey'?",
+        answers: [ "Homer", "Virgil", "Sophocles", "Aristotle" ],
+        correct: 0,
+    },
+    {
+        question: "What force keeps us on the ground?",
+        answers: [ "Magnetism", "Friction", "Gravity", "Electricity" ],
+        correct: 2,
+    },
+    {
+        question: "What planet is known as the Red Planet?",
+        answers: [ "Venus", "Mars", "Jupiter", "Mercury" ],
+        correct: 1,
+    },
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        answers: [ "Brain", "Lungs", "Heart", "Liver" ],
+        correct: 2,
+    },
+    {
+        question: "What natural satellite orbits the Earth?",
+        answers: [ "Mars", "Sun", "Moon", "Venus" ],
+        correct: 2,
+    },
+    {
+        question: "What is the largest planet in our Solar System?",
+        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
+        correct: 2,
+    },
+    {
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answers: [ "O2", "H2O", "CO2", "NaCl" ],
+        correct: 1,
+    },
+    {
+        question: "What phenomenon causes the seasons on Earth?",
+        answers: [
+            "Earth's distance from the Sun",
+            "Earth's axial tilt",
+            "Solar flares",
+            "Lunar phases",
+        ],
+        correct: 1,
+    },
+    {
+        question: "Which vitamin is produced when a person is exposed to sunlight?",
+        answers: [ "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D" ],
+        correct: 3,
+    },
+    {
+        question: "What type of energy is stored in a stretched rubber band?",
+        answers: [
+            "Kinetic Energy",
+            "Thermal Energy",
+            "Elastic Potential Energy",
+            "Chemical Energy",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What is the most abundant element in the universe?",
+        answers: [ "Oxygen", "Hydrogen", "Carbon", "Helium" ],
+        correct: 1,
+    },
+    {
+        question: "Which organelle is known as the powerhouse of the cell?",
+        answers: [ "Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus" ],
+        correct: 2,
+    },
     {
         question: "What is the study of the weather called?",
         answers: [ "Geology", "Meteorology", "Astronomy", "Biology" ],
@@ -541,8 +541,12 @@ function createSortButtons ( actionButtons ) {
 
     // Sort by Score (highest to lowest)
     document.querySelector( "#sortByScoreButton" ).addEventListener( "click", () => {
-        const sortedByScore = [ ...pastScores ].sort( ( a, b ) => b.score - a.score );
-        renderScores( sortedByScore );
+        const sortedByPercentage = [ ...pastScores ].sort( ( a, b ) => {
+            const percentageA = ( a.score / a.total ) * 100;
+            const percentageB = ( b.score / b.total ) * 100;
+            return percentageB - percentageA; // Sort by percentage (highest first)
+        } );
+        renderScores( sortedByPercentage );
     } );
 }
 
@@ -1080,13 +1084,18 @@ function returnToBeginning () {
 }
 
 function renderScores ( pastScores ) {
-    removeElementById( "quizSection" )
-    removeElementById( "scoreSection" )
-    removeElementById( "pastScoresSection" )
+    removeElementById( "quizSection" );
+    removeElementById( "scoreSection" );
+    removeElementById( "pastScoresSection" );
+
+    // Create the past scores section dynamically
     createPastScoresSection();
+
+    // Display the sorted scores with percentage
     document.querySelector( "#pastScores" ).innerHTML = pastScores
         .map( ( { score, total, date } ) => {
-            return `<li>${ score }/${ total } - ${ date }</li>`;
+            const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate and format percentage
+            return `<li>${ score }/${ total } - ${ percentage }% - ${ date }</li>`;
         } )
         .join( "" );
 }
