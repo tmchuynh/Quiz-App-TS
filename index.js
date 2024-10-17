@@ -411,12 +411,7 @@ function createRegisterSection () {
     } );
 
     // Retrieve input elements by their IDs and attach event listeners to them
-    const firstName = document.getElementById( "firstName" );
-    const lastName = document.getElementById( "lastName" );
-    const email = document.getElementById( "email" );
-    const registerUsername = document.getElementById( "registerUsername" );
-    const registerPassword = document.getElementById( "registerPassword" );
-    const confirmPassword = document.getElementById( "confirmPassword" );
+    const { firstName, lastName, email, registerUsername, registerPassword, confirmPassword } = getRegisterFormFields();
 
     // Attach input event listeners to all input fields for clearing error styles
     [ firstName, lastName, email, registerUsername, registerPassword, confirmPassword ].forEach( ( field ) => {
@@ -424,6 +419,16 @@ function createRegisterSection () {
     } );
 }
 
+
+function getRegisterFormFields () {
+    const firstName = document.getElementById( "firstName" );
+    const lastName = document.getElementById( "lastName" );
+    const email = document.getElementById( "email" );
+    const registerUsername = document.getElementById( "registerUsername" );
+    const registerPassword = document.getElementById( "registerPassword" );
+    const confirmPassword = document.getElementById( "confirmPassword" );
+    return { firstName, lastName, email, registerUsername, registerPassword, confirmPassword };
+}
 
 // Function to create and append the login form dynamically
 function createLoginSection () {
@@ -631,12 +636,8 @@ function validateEmail ( email ) {
 
 // Validate registration form
 function validateRegistrationForm () {
-    const firstName = document.getElementById( "firstName" );
-    const lastName = document.getElementById( "lastName" );
-    const email = document.getElementById( "email" );
-    const registerUsername = document.getElementById( "registerUsername" );
-    const registerPassword = document.getElementById( "registerPassword" );
-    const confirmPassword = document.getElementById( "confirmPassword" );
+    const { firstName, lastName, email, registerUsername, registerPassword, confirmPassword } = getRegisterFormFields();
+
 
     const fields = [
         { element: firstName, name: "First Name" },
@@ -767,12 +768,8 @@ function generateUniqueId () {
 // Function to remove error classes and hide the error message
 // Function to remove error classes and hide the error message
 function clearErrorStyles () {
-    const firstName = document.getElementById( "firstName" );
-    const lastName = document.getElementById( "lastName" );
-    const email = document.getElementById( "email" );
-    const registerUsername = document.getElementById( "registerUsername" );
-    const registerPassword = document.getElementById( "registerPassword" );
-    const confirmPassword = document.getElementById( "confirmPassword" );
+    const { firstName, lastName, email, registerUsername, registerPassword, confirmPassword } = getRegisterFormFields();
+
 
     const fields = [
         firstName,
@@ -790,8 +787,7 @@ function clearErrorStyles () {
 
 // Validate login form
 async function validateLoginForm () {
-    const loginUsername = document.getElementById( "loginUsername" );
-    const loginPassword = document.getElementById( "loginPassword" );
+    const { loginUsername, loginPassword } = getLoginFormFields();
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
 
@@ -836,12 +832,17 @@ async function validateLoginForm () {
     }
 }
 
+function getLoginFormFields () {
+    const loginUsername = document.getElementById( "loginUsername" );
+    const loginPassword = document.getElementById( "loginPassword" );
+    return { loginUsername, loginPassword };
+}
+
 // Helper function to handle login errors
 function handleLoginError ( message ) {
     loginError.textContent = message;
     loginError.style.display = "block";
-    const loginUsername = document.getElementById( "loginUsername" );
-    const loginPassword = document.getElementById( "loginPassword" );
+    const { loginUsername, loginPassword } = getLoginFormFields();
     [ loginUsername, loginPassword ].forEach( ( field ) =>
         field.classList.add( "is-error" )
     );
@@ -859,8 +860,7 @@ function handleLoginSuccess ( user ) {
 
 // Function to remove error classes and hide the login error message
 function clearLoginErrorStyles () {
-    const loginUsername = document.getElementById( "loginUsername" );
-    const loginPassword = document.getElementById( "loginPassword" );
+    const { loginUsername, loginPassword } = getLoginFormFields();
     const fields = [ loginUsername, loginPassword ];
 
     // Remove error class from both fields
