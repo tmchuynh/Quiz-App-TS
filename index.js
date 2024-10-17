@@ -1057,8 +1057,9 @@ function showScore () {
     const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) ) || [];
 
     // Retrieve current quiz progress
-    const quizProgress = sessionStorage.getItem( "quizProgress" );
-    if ( quizProgress === totalQuestions ) {
+    const quizProgress = sessionStorage.getItem( `quizProgress_${ currentUserId }` );
+    console.log()
+    if ( JSON.parse( quizProgress ).currentQuestion === totalQuestions - 1 ) {
         // Add the new score with the current timestamp
         const timestamp = new Date().toLocaleString();
         pastScores.push( { score: score, total: quizData.length, date: timestamp } );
