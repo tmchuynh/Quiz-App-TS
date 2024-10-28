@@ -1,3 +1,5 @@
+import 'dialog-polyfill';
+
 // Define interfaces
 interface QuizQuestion {
     question: string;
@@ -629,6 +631,11 @@ function createDialog (): void {
         sessionStorage.removeItem( `quizScores_${ currentUserId }` );
         removeElementById( "dialog-dark-rounded" );
         returnToBeginning();
+    } );
+
+    const dialogs = document.querySelectorAll( 'dialog' );
+    dialogs.forEach( ( dialog ) => {
+        ( window as any ).dialogPolyfill.registerDialog( dialog );
     } );
 }
 
