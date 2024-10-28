@@ -1,4 +1,5 @@
-// import 'dialog-polyfill';
+declare var dialogPolyfill: any;
+
 // Define interfaces
 interface QuizQuestion {
     question: string;
@@ -34,7 +35,7 @@ const quizData: QuizQuestion[] = [
     // ... (rest of the quiz data remains the same)
 ];
 
-const currentUserId = localStorage.getItem( "currentUserId" );
+let currentUserId = localStorage.getItem( "currentUserId" );
 let currentQuestion: number = 0;
 const totalQuestions: number = quizData.length; // Total number of questions
 let score: number = 0;
@@ -265,9 +266,6 @@ async function registerUser ( fields: { element: HTMLInputElement; }[] ): Promis
     // Save the updated users array in localStorage
     sessionStorage.setItem( "users", JSON.stringify( users ) );
 
-    // Optionally, store the first name separately if needed
-    sessionStorage.setItem( "firstName", newUser.firstName );
-
     // Update the UI to transition from registration to login
     const registerSection = document.getElementById( "registerSection" ) as HTMLElement;
     const loginSection = document.getElementById( "loginSection" ) as HTMLElement;
@@ -411,6 +409,9 @@ function handleLoginError ( message: string ): void {
 function handleLoginSuccess ( user: User ): void {
     // Set current session user
     localStorage.setItem( "currentUserId", user.id );
+    localStorage.setItem( "firstName", user.firstName );
+    localStorage.setItem( "lastName", user.lastName );
+    localStorage.setItem( "username", user.username );
     const loginError = document.getElementById( "loginError" ) as HTMLElement;
     loginError.style.display = "none"; // Hide any previous error
 
@@ -519,6 +520,7 @@ function createActionButtons (): void {
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
     displayContainer.appendChild( actionButtons );
+    logoutEventListener();
 }
 
 function createScoresButtons (): void {
@@ -531,6 +533,8 @@ function createScoresButtons (): void {
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
     `;
     displayContainer.appendChild( actionButtons );
+
+    logoutEventListener();
 
 
     document.querySelector( "#viewScoresButton" )?.addEventListener( "click", () => {
@@ -577,6 +581,11 @@ function createSortButtons (): void {
             return percentageB - percentageA; // Sort by percentage (highest first)
         } );
         renderScores( sortedByPercentage );
+    } );
+
+    document.querySelector( "#resetScoresButton" )?.addEventListener( "click", () => {
+        // Show the confirmation dialog
+        createDialog();
     } );
 }
 
@@ -630,35 +639,42 @@ function formatDate ( dateString: string ): string {
     return `${ month }/${ day }/${ year }`; // Return in mm/dd/yy format
 }
 
-// Function to create the dialog section dynamically
 function createDialog (): void {
     const dialog = document.createElement( "dialog" );
-    const dialogs = document.querySelectorAll( 'dialog' );
-    dialogs.forEach( ( dialog ) => {
-        ( window as any ).dialogPolyfill.registerDialog( dialog );
-    } );
     dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
     dialog.id = "dialog-dark-rounded";
     dialog.innerHTML = `
-    <form method ="dialog">
-        <p class="title">Confirmation</p>
-        <p>Are you sure you want to reset all past scores?</p>
-        <menu class="dialog-menu">
-            <button class="nes-btn cancel-btn">Cancel</button>
-            <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
-        </menu>
-    </form>
+        <form method="dialog">
+            <p class="title">Confirmation</p>
+            <p>Are you sure you want to reset all past scores?</p>
+            <menu class="dialog-menu">
+                <button class="nes-btn" id="cancel-btn" type="button">Cancel</button>
+                <button class="nes-btn is-primary" id="resetConfirm" type="button">Confirm</button>
+            </menu>
+        </form>
     `;
     document.body.appendChild( dialog );
-    document.querySelector( "#resetConfirm" )?.addEventListener( "click", () => {
+
+    // Register the dialog with the polyfill if necessary
+    if ( typeof dialog.showModal !== 'function' ) {
+        dialogPolyfill.registerDialog( dialog );
+    }
+
+    // Show the dialog
+    dialog.showModal();
+
+    // Add event listener for the Confirm button
+    document.getElementById( "resetConfirm" )?.addEventListener( "click", () => {
         const currentUserId = localStorage.getItem( "currentUserId" )!;
         localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
         sessionStorage.removeItem( `quizScores_${ currentUserId }` );
-        removeElementById( "dialog-dark-rounded" );
+        dialog.close(); // Close the dialog
         returnToBeginning();
     } );
+
+    // Add event listener for the Cancel button
     document.querySelector( '#cancel-btn' )?.addEventListener( "click", () => {
-        removeElementById( 'dialog-dark-rounded' );
+        removeElementById( 'dialog-dark-rounded' ); // Close the dialog
     } );
 }
 
@@ -673,7 +689,7 @@ function returnToBeginning (): void {
         userProgressKey,
         JSON.stringify( { currentQuestion, score } )
     );
-
+    sessionStorage.setItem( "quizProgress", String( 0 ) );
     // Update the UI
     removeElementById( "scoreSection" );
     createActionButtons();
@@ -832,9 +848,13 @@ function checkAnswer ( selected: number ): void {
     if ( currentQuestion < quizData.length ) {
         displayQuestion(); // Show the next question
     } else {
+        showScore(); // Display final score
+        if ( currentQuestion == quizData.length ) {
+            currentQuestion = 0;
+            score = 0;
+        }
         sessionStorage.setItem( `quizProgress_${ currentUserId }`, JSON.stringify( { "currentQuestion": currentQuestion, "score": score } ) );
         sessionStorage.setItem( "quizProgress", String( currentQuestion ) );
-        showScore(); // Display final score
     }
 }
 
@@ -869,15 +889,16 @@ function showScore (): void {
 
     // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${ currentUserId }`;
-    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" );
+    const pastScores = JSON.parse( sessionStorage.getItem( userScoresKey ) || "[]" );
 
     if ( checkProgressAtEnd( currentUserId ) ) {
         // Add the new score with the current timestamp
         const timestamp = new Date().toLocaleString();
         pastScores.push( { score: score, total: quizData.length, date: timestamp } );
+        console.log( pastScores );
 
         // Update localStorage with the new scores
-        localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+        sessionStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
     }
 
     // Sort the past scores by date (most recent first)
@@ -896,7 +917,7 @@ function showScore (): void {
 function checkProgressAtEnd ( currentUserId: string ): boolean {
     // Retrieve current quiz progress
     const quizProgress = sessionStorage.getItem( `quizProgress_${ currentUserId }` );
-    if ( quizProgress && JSON.parse( quizProgress ).currentQuestion === totalQuestions - 1 ) {
+    if ( quizProgress && JSON.parse( quizProgress ).currentQuestion == totalQuestions - 1 ) {
         return true;
     }
     return false;
