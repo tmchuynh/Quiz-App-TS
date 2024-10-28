@@ -1,5 +1,4 @@
-import 'dialog-polyfill';
-
+// import 'dialog-polyfill';
 // Define interfaces
 interface QuizQuestion {
     question: string;
@@ -22,9 +21,20 @@ const quizData: QuizQuestion[] = [
         answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
         correct: 2,
     },
+    {
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answers: [ "O2", "H2O", "CO2", "NaCl" ],
+        correct: 1,
+    },
     // ... (rest of the quiz data remains the same)
 ];
 
+const currentUserId = localStorage.getItem( "currentUserId" );
 let currentQuestion: number = 0;
 const totalQuestions: number = quizData.length; // Total number of questions
 let score: number = 0;
@@ -361,7 +371,7 @@ async function validateLoginForm (): Promise<void> {
     }
 
     // Retrieve users from localStorage
-    const users: User[] = JSON.parse( localStorage.getItem( "users" ) || "[]" );
+    const users: User[] = JSON.parse( sessionStorage.getItem( "users" ) || "[]" );
 
     // Hash the entered password for comparison
     const hashedPassword = await hashPassword( password );
@@ -405,7 +415,11 @@ function handleLoginSuccess ( user: User ): void {
     loginError.style.display = "none"; // Hide any previous error
 
     // Load user data and proceed to the quiz
-    loadQuiz(); // Proceed to quiz section
+    if ( !loadQuiz() ) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    } // Proceed to quiz section
 }
 
 // Function to remove error classes and hide the login error message
@@ -420,8 +434,7 @@ function clearLoginErrorStyles (): void {
     const loginError = document.getElementById( "loginError" ) as HTMLElement;
     loginError.style.display = "none";
 }
-
-function logoutEventListener (): void {
+function logoutEventListener () {
     document.querySelector( "#logoutButton" )?.addEventListener( "click", () => {
         sessionStorage.removeItem( "quizProgress" ); // Remove any quiz progress
         // Redirect to the login page
@@ -485,7 +498,15 @@ function createPastScoresSection (): void {
 
     document.querySelector( "#backButton" )?.addEventListener( "click", () => {
         removeElementById( "pastScoresSection" );
-        checkProgressAtEnd( currentUserId! ) ? showScore() : loadQuiz();
+        if ( checkProgressAtEnd( currentUserId! ) ) {
+            showScore();
+        } else {
+            if ( !loadQuiz() ) {
+                removeAllSections();
+                createRegisterSection();
+                createLoginSection();
+            }
+        }
     } );
 }
 
@@ -498,7 +519,6 @@ function createActionButtons (): void {
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
     displayContainer.appendChild( actionButtons );
-    logoutEventListener();
 }
 
 function createScoresButtons (): void {
@@ -511,7 +531,8 @@ function createScoresButtons (): void {
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
     `;
     displayContainer.appendChild( actionButtons );
-    logoutEventListener();
+
+
     document.querySelector( "#viewScoresButton" )?.addEventListener( "click", () => {
         createSortButtons();
     } );
@@ -612,6 +633,10 @@ function formatDate ( dateString: string ): string {
 // Function to create the dialog section dynamically
 function createDialog (): void {
     const dialog = document.createElement( "dialog" );
+    const dialogs = document.querySelectorAll( 'dialog' );
+    dialogs.forEach( ( dialog ) => {
+        ( window as any ).dialogPolyfill.registerDialog( dialog );
+    } );
     dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
     dialog.id = "dialog-dark-rounded";
     dialog.innerHTML = `
@@ -619,7 +644,7 @@ function createDialog (): void {
         <p class="title">Confirmation</p>
         <p>Are you sure you want to reset all past scores?</p>
         <menu class="dialog-menu">
-            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn cancel-btn">Cancel</button>
             <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
         </menu>
     </form>
@@ -632,10 +657,8 @@ function createDialog (): void {
         removeElementById( "dialog-dark-rounded" );
         returnToBeginning();
     } );
-
-    const dialogs = document.querySelectorAll( 'dialog' );
-    dialogs.forEach( ( dialog ) => {
-        ( window as any ).dialogPolyfill.registerDialog( dialog );
+    document.querySelector( '#cancel-btn' )?.addEventListener( "click", () => {
+        removeElementById( 'dialog-dark-rounded' );
     } );
 }
 
@@ -656,27 +679,31 @@ function returnToBeginning (): void {
     createActionButtons();
 
     // Display the first question
-    loadQuiz();
+    if ( !loadQuiz() ) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    }
 }
 
 // Load Quiz
-function loadQuiz (): void {
+function loadQuiz (): Boolean {
     const currentUserId = localStorage.getItem( "currentUserId" );
 
     if ( !currentUserId ) {
         // If no user is logged in, show the login section
         createRegisterSection();
         createLoginSection();
-        return;
+        return true;
     }
 
     // Retrieve users and find the current user
-    const users: User[] = JSON.parse( localStorage.getItem( "users" ) || "[]" );
+    const users: User[] = JSON.parse( sessionStorage.getItem( "users" ) || "[]" );
     const foundUser = users.find( ( user ) => user.id === currentUserId );
 
     if ( !foundUser ) {
         console.error( "User not found!" );
-        return;
+        return false;
     }
 
     const { firstName } = foundUser;
@@ -706,6 +733,8 @@ function loadQuiz (): void {
 
     // Load user progress in the quiz
     loadProgress();
+
+    return true;
 }
 
 // Function to load progress on quiz start
@@ -718,6 +747,7 @@ function loadProgress (): void {
         const { currentQuestion: savedQuestion, score: savedScore } = JSON.parse( progressData );
         currentQuestion = savedQuestion;
         score = savedScore;
+        console.log( currentQuestion, score );
     } else {
         currentQuestion = 0; // Start from the beginning if no progress is saved
         score = 0;
@@ -729,6 +759,7 @@ function loadProgress (): void {
 function displayQuestion (): void {
     // Display the action buttons and show the logout button
     const currentQuizData = quizData[ currentQuestion ];
+    console.log( currentQuestion );
     const questionEl = document.getElementById( "question" ) as HTMLElement;
     const answersEl = document.getElementById( "answers" ) as HTMLElement;
 
@@ -801,8 +832,8 @@ function checkAnswer ( selected: number ): void {
     if ( currentQuestion < quizData.length ) {
         displayQuestion(); // Show the next question
     } else {
-        const currentUserId = localStorage.getItem( "currentUserId" )!;
-        sessionStorage.setItem( `quizProgress_${ currentUserId }`, JSON.stringify( { currentQuestion } ) ); // Store the progress
+        sessionStorage.setItem( `quizProgress_${ currentUserId }`, JSON.stringify( { "currentQuestion": currentQuestion, "score": score } ) );
+        sessionStorage.setItem( "quizProgress", String( currentQuestion ) );
         showScore(); // Display final score
     }
 }
@@ -872,4 +903,11 @@ function checkProgressAtEnd ( currentUserId: string ): boolean {
 }
 
 // Initial load
-window.onload = loadQuiz;
+
+window.addEventListener( "load", () => {
+    if ( !loadQuiz() ) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    }
+} );

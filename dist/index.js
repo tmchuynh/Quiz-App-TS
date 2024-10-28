@@ -6,8 +6,19 @@ const quizData = [
         answers: ["Earth", "Mars", "Jupiter", "Saturn"],
         correct: 2,
     },
+    {
+        question: "What gas do plants absorb from the atmosphere?",
+        answers: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        correct: 1,
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answers: ["O2", "H2O", "CO2", "NaCl"],
+        correct: 1,
+    },
     // ... (rest of the quiz data remains the same)
 ];
+const currentUserId = localStorage.getItem("currentUserId");
 let currentQuestion = 0;
 const totalQuestions = quizData.length; // Total number of questions
 let score = 0;
@@ -137,7 +148,7 @@ async function validateRegistrationForm() {
         return;
     }
     // Check if user already exists
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const users = JSON.parse(sessionStorage.getItem("users") || "[]");
     if (isUsernameTaken(registerUsername.value.trim(), users)) {
         showError("Username already exists.", registerUsername);
         return;
@@ -183,13 +194,13 @@ async function registerUser(fields) {
         password: hashedPassword, // Store the hashed password
     };
     // Retrieve existing users from localStorage or initialize an empty array
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const users = JSON.parse(sessionStorage.getItem("users") || "[]");
     // Add the new user to the users array
     users.push(newUser);
     // Save the updated users array in localStorage
-    localStorage.setItem("users", JSON.stringify(users));
+    sessionStorage.setItem("users", JSON.stringify(users));
     // Optionally, store the first name separately if needed
-    localStorage.setItem("firstName", newUser.firstName);
+    sessionStorage.setItem("firstName", newUser.firstName);
     // Update the UI to transition from registration to login
     const registerSection = document.getElementById("registerSection");
     const loginSection = document.getElementById("loginSection");
@@ -278,7 +289,7 @@ async function validateLoginForm() {
         return;
     }
     // Retrieve users from localStorage
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const users = JSON.parse(sessionStorage.getItem("users") || "[]");
     // Hash the entered password for comparison
     const hashedPassword = await hashPassword(password);
     // Find the user with matching username and hashed password
@@ -311,7 +322,11 @@ function handleLoginSuccess(user) {
     const loginError = document.getElementById("loginError");
     loginError.style.display = "none"; // Hide any previous error
     // Load user data and proceed to the quiz
-    loadQuiz(); // Proceed to quiz section
+    if (!loadQuiz()) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    } // Proceed to quiz section
 }
 // Function to remove error classes and hide the login error message
 function clearLoginErrorStyles() {
@@ -381,7 +396,16 @@ function createPastScoresSection() {
     const currentUserId = localStorage.getItem("currentUserId");
     (_a = document.querySelector("#backButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         removeElementById("pastScoresSection");
-        checkProgressAtEnd(currentUserId) ? showScore() : loadQuiz();
+        if (checkProgressAtEnd(currentUserId)) {
+            showScore();
+        }
+        else {
+            if (!loadQuiz()) {
+                removeAllSections();
+                createRegisterSection();
+                createLoginSection();
+            }
+        }
     });
 }
 // Function to create and append the action buttons dynamically
@@ -393,7 +417,6 @@ function createActionButtons() {
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
     displayContainer.appendChild(actionButtons);
-    logoutEventListener();
 }
 function createScoresButtons() {
     var _a, _b;
@@ -406,7 +429,6 @@ function createScoresButtons() {
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
     `;
     displayContainer.appendChild(actionButtons);
-    logoutEventListener();
     (_a = document.querySelector("#viewScoresButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         createSortButtons();
     });
@@ -493,8 +515,12 @@ function formatDate(dateString) {
 }
 // Function to create the dialog section dynamically
 function createDialog() {
-    var _a;
+    var _a, _b;
     const dialog = document.createElement("dialog");
+    const dialogs = document.querySelectorAll('dialog');
+    dialogs.forEach((dialog) => {
+        window.dialogPolyfill.registerDialog(dialog);
+    });
     dialog.classList.add("nes-dialog", "nes-container", "is-rounded", "is-dark");
     dialog.id = "dialog-dark-rounded";
     dialog.innerHTML = `
@@ -502,7 +528,7 @@ function createDialog() {
         <p class="title">Confirmation</p>
         <p>Are you sure you want to reset all past scores?</p>
         <menu class="dialog-menu">
-            <button class="nes-btn">Cancel</button>
+            <button class="nes-btn cancel-btn">Cancel</button>
             <button class="nes-btn is-primary" id="resetConfirm">Confirm</button>
         </menu>
     </form>
@@ -514,6 +540,9 @@ function createDialog() {
         sessionStorage.removeItem(`quizScores_${currentUserId}`);
         removeElementById("dialog-dark-rounded");
         returnToBeginning();
+    });
+    (_b = document.querySelector('#cancel-btn')) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+        removeElementById('dialog-dark-rounded');
     });
 }
 function returnToBeginning() {
@@ -527,7 +556,11 @@ function returnToBeginning() {
     removeElementById("scoreSection");
     createActionButtons();
     // Display the first question
-    loadQuiz();
+    if (!loadQuiz()) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    }
 }
 // Load Quiz
 function loadQuiz() {
@@ -536,14 +569,14 @@ function loadQuiz() {
         // If no user is logged in, show the login section
         createRegisterSection();
         createLoginSection();
-        return;
+        return true;
     }
     // Retrieve users and find the current user
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const users = JSON.parse(sessionStorage.getItem("users") || "[]");
     const foundUser = users.find((user) => user.id === currentUserId);
     if (!foundUser) {
         console.error("User not found!");
-        return;
+        return false;
     }
     const { firstName } = foundUser;
     // Check if the user has logged in before
@@ -568,6 +601,7 @@ function loadQuiz() {
     }
     // Load user progress in the quiz
     loadProgress();
+    return true;
 }
 // Function to load progress on quiz start
 function loadProgress() {
@@ -578,6 +612,7 @@ function loadProgress() {
         const { currentQuestion: savedQuestion, score: savedScore } = JSON.parse(progressData);
         currentQuestion = savedQuestion;
         score = savedScore;
+        console.log(currentQuestion, score);
     }
     else {
         currentQuestion = 0; // Start from the beginning if no progress is saved
@@ -589,6 +624,7 @@ function loadProgress() {
 function displayQuestion() {
     // Display the action buttons and show the logout button
     const currentQuizData = quizData[currentQuestion];
+    console.log(currentQuestion);
     const questionEl = document.getElementById("question");
     const answersEl = document.getElementById("answers");
     // Set the question text
@@ -646,8 +682,8 @@ function checkAnswer(selected) {
         displayQuestion(); // Show the next question
     }
     else {
-        const currentUserId = localStorage.getItem("currentUserId");
-        sessionStorage.setItem(`quizProgress_${currentUserId}`, JSON.stringify({ currentQuestion })); // Store the progress
+        sessionStorage.setItem(`quizProgress_${currentUserId}`, JSON.stringify({ "currentQuestion": currentQuestion, "score": score }));
+        sessionStorage.setItem("quizProgress", String(currentQuestion));
         showScore(); // Display final score
     }
 }
@@ -704,5 +740,11 @@ function checkProgressAtEnd(currentUserId) {
     return false;
 }
 // Initial load
-window.onload = loadQuiz;
+window.addEventListener("load", () => {
+    if (!loadQuiz()) {
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    }
+});
 //# sourceMappingURL=index.js.map

@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
-    "start": "tsc && live-server dist"
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",
