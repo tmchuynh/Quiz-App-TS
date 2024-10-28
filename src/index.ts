@@ -182,7 +182,7 @@ async function validateRegistrationForm (): Promise<void> {
     }
 
     // Check if user already exists
-    const users: User[] = JSON.parse( localStorage.getItem( "users" ) || "[]" );
+    const users: User[] = JSON.parse( sessionStorage.getItem( "users" ) || "[]" );
     if ( isUsernameTaken( registerUsername.value.trim(), users ) ) {
         showError( "Username already exists.", registerUsername );
         return;
@@ -245,16 +245,16 @@ async function registerUser ( fields: { element: HTMLInputElement; }[] ): Promis
     };
 
     // Retrieve existing users from localStorage or initialize an empty array
-    const users: User[] = JSON.parse( localStorage.getItem( "users" ) || "[]" );
+    const users: User[] = JSON.parse( sessionStorage.getItem( "users" ) || "[]" );
 
     // Add the new user to the users array
     users.push( newUser );
 
     // Save the updated users array in localStorage
-    localStorage.setItem( "users", JSON.stringify( users ) );
+    sessionStorage.setItem( "users", JSON.stringify( users ) );
 
     // Optionally, store the first name separately if needed
-    localStorage.setItem( "firstName", newUser.firstName );
+    sessionStorage.setItem( "firstName", newUser.firstName );
 
     // Update the UI to transition from registration to login
     const registerSection = document.getElementById( "registerSection" ) as HTMLElement;
