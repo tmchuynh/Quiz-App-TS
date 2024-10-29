@@ -95,7 +95,7 @@ label {
     padding: 10px;
 }
 
-#actionButtons {
+.buttonGroup {
     min-width: 30%;
     justify-content: flex-end;
     max-width: fit-content;

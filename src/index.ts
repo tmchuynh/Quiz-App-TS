@@ -508,6 +508,7 @@ function createActionButtons (): void {
     removeElementById( "actionButtons" );
     const actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
+    actionButtons.className = "buttonGroup";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
     `;
@@ -519,6 +520,7 @@ function createScoresButtons (): void {
     removeElementById( "actionButtons" );
     const actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
+    actionButtons.className = "buttonGroup";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
         <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
@@ -542,6 +544,7 @@ function createSortButtons (): void {
     removeElementById( "actionButtons" );
     const actionButtons = document.createElement( "section" );
     actionButtons.id = "actionButtons";
+    actionButtons.className = "buttonGroup";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="nes-btn is-warning">Logout</button>
         <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
