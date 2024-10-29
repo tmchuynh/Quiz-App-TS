@@ -92,6 +92,12 @@ function createRegisterSection() {
         <input type="password" id="registerPassword" class="nes-input" placeholder="Enter password" />
         <label for="confirmPassword" class="nes-text">Retype Password:</label>
         <input type="password" id="confirmPassword" class="nes-input" placeholder="Retype password" />
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="registerPasswordView">
+			<label class="form-check-label" for="registerPasswordView">
+				Show Password
+			</label>
+		</div>
         <button id="registerButton" class="nes-btn is-success">Register</button>
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
@@ -245,7 +251,7 @@ function clearErrorStyles() {
 }
 // Function to create and append the login form dynamically
 function createLoginSection() {
-    var _a;
+    var _a, _b;
     const loginSection = document.createElement("div");
     loginSection.classList.add("nes-container", "is-rounded", "login-section");
     loginSection.id = "loginSection";
@@ -255,6 +261,12 @@ function createLoginSection() {
         <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
         <label for="loginPassword" class="nes-text">Password:</label>
         <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="loginPasswordView">
+			<label class="form-check-label" for="loginPasswordView">
+				Show Password
+			</label>
+		</div>
         <button id="loginButton" class="nes-btn is-primary">Login</button>
         <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
     `;
@@ -270,6 +282,8 @@ function createLoginSection() {
     // Attach the same event listener to both login input fields
     [loginUsername, loginPassword].forEach((field) => {
         field.addEventListener("input", clearLoginErrorStyles);
+    });
+    (_b = loginContainer.querySelector(".form-check")) === null || _b === void 0 ? void 0 : _b.addEventListener("clicked", () => {
     });
 }
 // Validate login form

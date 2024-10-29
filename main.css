@@ -37,6 +37,7 @@ label {
     flex-wrap: auto;
     margin: auto;
     justify-content: center;
+    user-select: none;
 }
 
 .container {
@@ -45,6 +46,23 @@ label {
     min-height: 10rem;
     display: flex;
     position: relative;
+    user-select: none;
+}
+
+.form-check {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1.5rem 0 0 0;
+}
+
+.form-check .form-check-input {
+    margin: auto 0;
+}
+
+.form-check .form-check-label {
+    padding: 0;
+    margin: auto 0;
 }
 
 @media screen and (max-width: 769px) {

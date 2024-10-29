@@ -128,6 +128,12 @@ function createRegisterSection(): void {
         <input type="password" id="registerPassword" class="nes-input" placeholder="Enter password" />
         <label for="confirmPassword" class="nes-text">Retype Password:</label>
         <input type="password" id="confirmPassword" class="nes-input" placeholder="Retype password" />
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="registerPasswordView">
+			<label class="form-check-label" for="registerPasswordView">
+				Show Password
+			</label>
+		</div>
         <button id="registerButton" class="nes-btn is-success">Register</button>
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
@@ -331,6 +337,12 @@ function createLoginSection(): void {
         <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
         <label for="loginPassword" class="nes-text">Password:</label>
         <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" value="" id="loginPasswordView">
+			<label class="form-check-label" for="loginPasswordView">
+				Show Password
+			</label>
+		</div>
         <button id="loginButton" class="nes-btn is-primary">Login</button>
         <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
     `;
@@ -348,6 +360,10 @@ function createLoginSection(): void {
 	// Attach the same event listener to both login input fields
 	[loginUsername, loginPassword].forEach( ( field ) => {
 		field.addEventListener( "input", clearLoginErrorStyles );
+	} );
+
+	loginContainer.querySelector( ".form-check" )?.addEventListener( "clicked", () => {
+
 	} );
 }
 
