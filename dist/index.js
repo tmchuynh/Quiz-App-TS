@@ -393,6 +393,9 @@ function logoutEventListener() {
         localStorage.clear();
     });
 }
+window.addEventListener('beforeunload', () => {
+    localStorage.clear();
+});
 // Function to create and append the quiz section dynamically
 function createQuizSection() {
     const quizSection = document.createElement("div");
