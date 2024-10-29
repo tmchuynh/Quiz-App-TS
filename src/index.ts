@@ -16,24 +16,47 @@ interface User {
 }
 
 // Quiz Data
-const quizData: QuizQuestion[] = [
+type Answer = {
+    text: string;
+    correct: boolean;
+};
+
+type Question = {
+    question: string;
+    answers: Answer[];
+};
+
+const quizData: Question[] = [
     {
         question: "What is the largest planet in our Solar System?",
-        answers: [ "Earth", "Mars", "Jupiter", "Saturn" ],
-        correct: 2,
+        answers: [
+            { text: "Earth", correct: false },
+            { text: "Mars", correct: false },
+            { text: "Jupiter", correct: true },
+            { text: "Saturn", correct: false }
+        ]
     },
     {
         question: "What gas do plants absorb from the atmosphere?",
-        answers: [ "Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen" ],
-        correct: 1,
+        answers: [
+            { text: "Oxygen", correct: false },
+            { text: "Carbon Dioxide", correct: true },
+            { text: "Nitrogen", correct: false },
+            { text: "Hydrogen", correct: false }
+        ]
     },
     {
         question: "What is the chemical symbol for water?",
-        answers: [ "O2", "H2O", "CO2", "NaCl" ],
-        correct: 1,
+        answers: [
+            { text: "O2", correct: false },
+            { text: "H2O", correct: true },
+            { text: "CO2", correct: false },
+            { text: "NaCl", correct: false }
+        ]
     },
-    // ... (rest of the quiz data remains the same)
+    // ... (rest of the quiz data can be transformed similarly)
 ];
+
 
 let currentQuestion: number = 0;
 const totalQuestions: number = quizData.length; // Total number of questions
@@ -797,12 +820,12 @@ function displayQuestion (): void {
         }
 
         // Update the button text
-        button.textContent = answer;
+        button.textContent = answer.text;
 
         // Remove any previous event listeners and add a new one
         const newButton = button.cloneNode( true ) as HTMLElement; // Clean up old event listeners
         button.replaceWith( newButton ); // Replace old button with new one
-        newButton.addEventListener( "click", () => checkAnswer( index ) );
+        newButton.addEventListener( "click", () => checkAnswer( answer ) );
     } );
 
     // Update the progress bar
@@ -825,11 +848,9 @@ function updateProgressBar (): void {
 }
 
 // Check Answer
-function checkAnswer ( selected: number ): void {
-    const currentQuiz = quizData[ currentQuestion ];
-
+function checkAnswer ( selected: Answer ): void {
     // Increment score if the selected answer is correct
-    if ( selected === currentQuiz.correct ) {
+    if ( true === selected.correct ) {
         score++;
     }
 
@@ -849,7 +870,7 @@ function checkAnswer ( selected: number ): void {
     }
 }
 
-const shuffle = ( array: string[] ): string[] => {
+const shuffle = ( array: Answer[] ): Answer[] => {
     // Step 1: Fisher-Yates Shuffle
     for ( let i = array.length - 1; i > 0; i-- ) {
         const j = Math.floor( Math.random() * ( i + 1 ) );
