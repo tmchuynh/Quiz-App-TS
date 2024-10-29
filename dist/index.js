@@ -18,7 +18,6 @@ const quizData = [
     },
     // ... (rest of the quiz data remains the same)
 ];
-let currentUserId = localStorage.getItem("currentUserId");
 let currentQuestion = 0;
 const totalQuestions = quizData.length; // Total number of questions
 let score = 0;
@@ -323,11 +322,7 @@ function handleLoginSuccess(user) {
     const loginError = document.getElementById("loginError");
     loginError.style.display = "none"; // Hide any previous error
     // Load user data and proceed to the quiz
-    if (!loadQuiz()) {
-        removeAllSections();
-        createRegisterSection();
-        createLoginSection();
-    } // Proceed to quiz section
+    loadQuiz(); // Proceed to quiz section
 }
 // Function to remove error classes and hide the login error message
 function clearLoginErrorStyles() {
@@ -401,11 +396,7 @@ function createPastScoresSection() {
             showScore();
         }
         else {
-            if (!loadQuiz()) {
-                removeAllSections();
-                createRegisterSection();
-                createLoginSection();
-            }
+            !loadQuiz();
         }
     });
 }
@@ -456,7 +447,7 @@ function createSortButtons() {
     // Get the current user ID
     const currentUserId = localStorage.getItem("currentUserId");
     const userScoresKey = `quizScores_${currentUserId}`;
-    const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
+    const pastScores = JSON.parse(sessionStorage.getItem(userScoresKey) || "[]");
     renderScores(pastScores);
     // Sort by Date (newest to oldest)
     (_a = document.querySelector("#sortByDateButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
@@ -567,11 +558,7 @@ function returnToBeginning() {
     removeElementById("scoreSection");
     createActionButtons();
     // Display the first question
-    if (!loadQuiz()) {
-        removeAllSections();
-        createRegisterSection();
-        createLoginSection();
-    }
+    loadQuiz();
 }
 // Load Quiz
 function loadQuiz() {
@@ -606,7 +593,13 @@ function loadQuiz() {
     removeElementById("registerSection");
     removeElementById("loginSection");
     const userProgressKey = `quizScores_${currentUserId}`;
-    localStorage.getItem(userProgressKey) ? createScoresButtons() : createActionButtons();
+    // sessionStorage.getItem( userProgressKey ) ? createScoresButtons() : createActionButtons();
+    if (sessionStorage.getItem(userProgressKey)) {
+        createScoresButtons();
+    }
+    else {
+        createActionButtons();
+    }
     if (!document.querySelector("#quizSection")) {
         createQuizSection();
     }
@@ -698,7 +691,6 @@ function checkAnswer(selected) {
             currentQuestion = 0;
             score = 0;
         }
-        sessionStorage.setItem(`quizProgress_${currentUserId}`, JSON.stringify({ "currentQuestion": currentQuestion, "score": score }));
         sessionStorage.setItem("quizProgress", String(currentQuestion));
     }
 }
@@ -757,10 +749,6 @@ function checkProgressAtEnd(currentUserId) {
 }
 // Initial load
 window.addEventListener("load", () => {
-    if (!loadQuiz()) {
-        removeAllSections();
-        createRegisterSection();
-        createLoginSection();
-    }
+    loadQuiz();
 });
 //# sourceMappingURL=index.js.map

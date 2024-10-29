@@ -553,7 +553,7 @@ function createSortButtons (): void {
     // Get the current user ID
     const currentUserId = localStorage.getItem( "currentUserId" )!;
     const userScoresKey = `quizScores_${ currentUserId }`;
-    const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" );
+    const pastScores = JSON.parse( sessionStorage.getItem( userScoresKey ) || "[]" );
 
     renderScores( pastScores );
 
@@ -846,8 +846,6 @@ function checkAnswer ( selected: number ): void {
             currentQuestion = 0;
             score = 0;
         }
-        const currentUserId = localStorage.getItem( "currentuserId" );
-        sessionStorage.setItem( `quizProgress_${ currentUserId }`, JSON.stringify( { "currentQuestion": currentQuestion, "score": score } ) );
         sessionStorage.setItem( "quizProgress", String( currentQuestion ) );
     }
 }
