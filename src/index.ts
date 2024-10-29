@@ -159,6 +159,21 @@ function createRegisterSection(): void {
 	[firstName, lastName, email, registerUsername, registerPassword, confirmPassword].forEach( ( field ) => {
 		field.addEventListener( "input", clearErrorStyles );
 	} );
+
+	const checkbox = loginContainer.querySelector( '#registerPasswordView' ) as HTMLInputElement;
+	const passwordElement = document.querySelector( "#registerPassword" );
+	const confirmPasswordElement = document.querySelector( "#confirmPassword" );
+
+	checkbox?.addEventListener( 'change', function ( this: HTMLInputElement ) {
+		if ( this.checked ) {
+			passwordElement.type = "text";
+			confirmPasswordElement.type = "text";
+		}
+		else {
+			passwordElement.type = "password";
+			confirmPasswordElement.type = "password";
+		}
+	} );
 }
 
 // Validate email format
@@ -338,7 +353,7 @@ function createLoginSection(): void {
         <label for="loginPassword" class="nes-text">Password:</label>
         <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="" id="loginPasswordView">
+			<input class="form-check-input" name="checkbox" type="checkbox" value="" id="loginPasswordView">
 			<label class="form-check-label" for="loginPasswordView">
 				Show Password
 			</label>
@@ -362,8 +377,16 @@ function createLoginSection(): void {
 		field.addEventListener( "input", clearLoginErrorStyles );
 	} );
 
-	loginContainer.querySelector( ".form-check" )?.addEventListener( "clicked", () => {
+	const checkbox = loginContainer.querySelector( '#loginPasswordView' ) as HTMLInputElement;
 
+	const passwordElement = document.querySelector( "#loginPassword" );
+	checkbox?.addEventListener( 'change', function ( this: HTMLInputElement ) {
+		if ( this.checked ) {
+			passwordElement.type = "text";
+		}
+		else {
+			passwordElement.type = "password";
+		}
 	} );
 }
 

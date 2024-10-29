@@ -118,6 +118,19 @@ function createRegisterSection() {
     [firstName, lastName, email, registerUsername, registerPassword, confirmPassword].forEach((field) => {
         field.addEventListener("input", clearErrorStyles);
     });
+    const checkbox = loginContainer.querySelector('#registerPasswordView');
+    const passwordElement = document.querySelector("#registerPassword");
+    const confirmPasswordElement = document.querySelector("#confirmPassword");
+    checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            passwordElement.type = "text";
+            confirmPasswordElement.type = "text";
+        }
+        else {
+            passwordElement.type = "password";
+            confirmPasswordElement.type = "password";
+        }
+    });
 }
 // Validate email format
 function validateEmail(email) {
@@ -251,7 +264,7 @@ function clearErrorStyles() {
 }
 // Function to create and append the login form dynamically
 function createLoginSection() {
-    var _a, _b;
+    var _a;
     const loginSection = document.createElement("div");
     loginSection.classList.add("nes-container", "is-rounded", "login-section");
     loginSection.id = "loginSection";
@@ -262,7 +275,7 @@ function createLoginSection() {
         <label for="loginPassword" class="nes-text">Password:</label>
         <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="" id="loginPasswordView">
+			<input class="form-check-input" name="checkbox" type="checkbox" value="" id="loginPasswordView">
 			<label class="form-check-label" for="loginPasswordView">
 				Show Password
 			</label>
@@ -283,7 +296,15 @@ function createLoginSection() {
     [loginUsername, loginPassword].forEach((field) => {
         field.addEventListener("input", clearLoginErrorStyles);
     });
-    (_b = loginContainer.querySelector(".form-check")) === null || _b === void 0 ? void 0 : _b.addEventListener("clicked", () => {
+    const checkbox = loginContainer.querySelector('#loginPasswordView');
+    const passwordElement = document.querySelector("#loginPassword");
+    checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            passwordElement.type = "text";
+        }
+        else {
+            passwordElement.type = "password";
+        }
     });
 }
 // Validate login form
