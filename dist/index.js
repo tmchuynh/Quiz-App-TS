@@ -6,8 +6,8 @@ const quizData = [
             { text: "Earth", correct: false },
             { text: "Mars", correct: false },
             { text: "Jupiter", correct: true },
-            { text: "Saturn", correct: false }
-        ]
+            { text: "Saturn", correct: false },
+        ],
     },
     {
         question: "What gas do plants absorb from the atmosphere?",
@@ -15,8 +15,8 @@ const quizData = [
             { text: "Oxygen", correct: false },
             { text: "Carbon Dioxide", correct: true },
             { text: "Nitrogen", correct: false },
-            { text: "Hydrogen", correct: false }
-        ]
+            { text: "Hydrogen", correct: false },
+        ],
     },
     {
         question: "What is the chemical symbol for water?",
@@ -24,8 +24,8 @@ const quizData = [
             { text: "O2", correct: false },
             { text: "H2O", correct: true },
             { text: "CO2", correct: false },
-            { text: "NaCl", correct: false }
-        ]
+            { text: "NaCl", correct: false },
+        ],
     },
     // ... (rest of the quiz data can be transformed similarly)
 ];
@@ -191,7 +191,14 @@ function getRegisterFormFields() {
     const registerUsername = document.getElementById("registerUsername");
     const registerPassword = document.getElementById("registerPassword");
     const confirmPassword = document.getElementById("confirmPassword");
-    return { firstName, lastName, email, registerUsername, registerPassword, confirmPassword };
+    return {
+        firstName,
+        lastName,
+        email,
+        registerUsername,
+        registerPassword,
+        confirmPassword,
+    };
 }
 async function registerUser(fields) {
     // Hash the password before storing it
@@ -221,9 +228,7 @@ async function hashPassword(password) {
     const data = encoder.encode(password);
     const hashBuffer = await crypto.subtle.digest("SHA-256", data);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray
-        .map((b) => b.toString(16).padStart(2, "0"))
-        .join("");
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
     return hashHex;
 }
 // Function to generate a unique ID
@@ -233,14 +238,7 @@ function generateUniqueId() {
 // Function to remove error classes and hide the error message
 function clearErrorStyles() {
     const { firstName, lastName, email, registerUsername, registerPassword, confirmPassword } = getRegisterFormFields();
-    const fields = [
-        firstName,
-        lastName,
-        email,
-        registerUsername,
-        registerPassword,
-        confirmPassword,
-    ];
+    const fields = [firstName, lastName, email, registerUsername, registerPassword, confirmPassword];
     fields.forEach((field) => field.classList.remove("is-error")); // Remove error class from all fields
     const registerError = document.getElementById("registerError");
     registerError.style.display = "none"; // Hide error message
@@ -540,7 +538,7 @@ function createDialog() {
     `;
     displayContainer.appendChild(dialog);
     // Register the dialog with the polyfill if necessary
-    if (typeof dialog.showModal !== 'function') {
+    if (typeof dialog.showModal !== "function") {
         dialogPolyfill.registerDialog(dialog);
     }
     // Show the dialog
@@ -554,8 +552,8 @@ function createDialog() {
         returnToBeginning();
     });
     // Add event listener for the Cancel button
-    (_b = document.querySelector('#cancel-btn')) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
-        removeElementById('dialog-dark-rounded'); // Close the dialog
+    (_b = document.querySelector("#cancel-btn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+        removeElementById("dialog-dark-rounded"); // Close the dialog
     });
 }
 function returnToBeginning() {

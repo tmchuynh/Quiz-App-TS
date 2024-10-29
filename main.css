@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     background-color: #f4f4f4;
     position: relative;
     line-height: 1.5;
@@ -58,7 +58,6 @@ label {
         flex-direction: column-reverse;
         max-width: 100%;
     }
-
 }
 
 .nes-dialog {
@@ -81,11 +80,11 @@ label {
     }
 
     .nes-dialog p {
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 
     .nes-dialog button {
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -127,29 +126,27 @@ label {
     justify-content: space-around;
 }
 
-
 @media screen and (min-width: 425px) and (max-width: 768px) {
     .view-score-history {
         min-width: 90%;
     }
 
     .view-score-history table th {
-        font-size: .65rem;
+        font-size: 0.65rem;
     }
 
     .view-score-history table td {
-        font-size: .65rem;
+        font-size: 0.65rem;
     }
 }
 
 @media screen and (max-width: 376px) {
-
     .view-score-history table th {
-        font-size: .85rem;
+        font-size: 0.85rem;
     }
 
     .view-score-history table td {
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 
     .view-score-history table tr {
