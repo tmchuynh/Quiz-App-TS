@@ -381,7 +381,7 @@ function createScoreSection() {
 function createPastScoresSection() {
     var _a;
     const pastScoresSection = document.createElement("div");
-    pastScoresSection.classList.add("nes-container", "nes-table-responsive", "is-rounded", "view-score-history");
+    pastScoresSection.classList.add("nes-container", "is-rounded", "view-score-history");
     pastScoresSection.id = "pastScoresSection";
     pastScoresSection.innerHTML = `
         <h2 class="nes-text">Past Scores</h2>
@@ -482,9 +482,8 @@ function renderScores(pastScores) {
     const tableHeaders = `
         <tr>
             <th>Score</th>
-            <th>Total Questions</th>
             <th>Percentage</th>
-            <th>Date</th>
+            <th class="scoreDate">Date</th>
         </tr>`;
     const tableRows = pastScores
         .map(({ score, total, date }) => {
@@ -492,10 +491,9 @@ function renderScores(pastScores) {
         const formattedDate = formatDate(date);
         return `
                 <tr>
-                    <td>${score}</td>
-                    <td>${total}</td>
-                    <td>${percentage}%</td>
-                    <td>${formattedDate}</td>
+                    <td>${score} / ${total}</td>
+                    <td class="scorePercentage">${percentage}%</td>
+                    <td class="scoreDate">${formattedDate}</td>
                 </tr>`;
     })
         .join("");
@@ -529,7 +527,7 @@ function createDialog() {
             </menu>
         </form>
     `;
-    document.body.appendChild(dialog);
+    displayContainer.appendChild(dialog);
     // Register the dialog with the polyfill if necessary
     if (typeof dialog.showModal !== 'function') {
         dialogPolyfill.registerDialog(dialog);

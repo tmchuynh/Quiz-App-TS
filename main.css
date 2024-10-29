@@ -24,6 +24,12 @@ label {
     padding-top: 1rem;
 }
 
+@media screen and (max-width: 376px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
 .loginContainer {
     display: flex;
     gap: 3rem;
@@ -38,6 +44,21 @@ label {
     margin: auto;
     min-height: 10rem;
     display: flex;
+    position: relative;
+}
+
+@media screen and (max-width: 769px) {
+    .loginContainer {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .container {
+        align-items: center;
+        flex-direction: column-reverse;
+        max-width: 100%;
+    }
+
 }
 
 .nes-dialog {
@@ -46,6 +67,37 @@ label {
     top: 45%;
     left: 25%;
     display: flex;
+}
+
+@media screen and (max-width: 1025px) {
+    .nes-dialog {
+        left: 10%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .nes-dialog menu {
+        padding: 10px;
+    }
+
+    .nes-dialog p {
+        font-size: .75rem;
+    }
+
+    .nes-dialog button {
+        font-size: .75rem;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .nes-dialog {
+        left: 4%;
+    }
+
+    .nes-dialog button {
+        padding: 10px;
+        margin: 5px;
+    }
 }
 
 .login-section,
@@ -70,6 +122,58 @@ label {
     align-items: center;
 }
 
+.view-score-history table tr {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .view-score-history {
+        min-width: 90%;
+    }
+
+    .view-score-history table th {
+        font-size: .65rem;
+    }
+
+    .view-score-history table td {
+        font-size: .65rem;
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+    .view-score-history table th {
+        font-size: .85rem;
+    }
+
+    .view-score-history table td {
+        font-size: .75rem;
+    }
+
+    .view-score-history table tr {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .view-score-history table .scoreDate {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .view-score-history {
+        min-width: 90%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .view-last-score {
+        max-width: 90%;
+    }
+}
+
 .question-container {
     min-height: 5rem;
     text-align: center;
@@ -81,7 +185,7 @@ label {
     padding: 0;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .quiz-section {
         max-width: 90%;
         padding: 10px;
@@ -109,6 +213,11 @@ label {
     position: relative;
 }
 
+@media screen and (max-width: 425px) {
+    .buttonGroup {
+        flex-direction: column;
+    }
+}
 
 .nes-text.is-error {
     color: red;
