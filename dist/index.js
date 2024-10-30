@@ -3317,17 +3317,12 @@ function loadProgress() {
     const progressData = localStorage.getItem(userProgressKey);
     const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
-    const existingItem = currentProgress.find(item => item.quizId === quizId);
-    console.log(existingItem);
-    if (existingItem) {
-        const { currentQuestion: savedQuestion, score: savedScore, quiz: savedQuizType } = JSON.parse(progressData);
-        currentQuestion = savedQuestion;
-        score = savedScore;
-        console.log(currentProgress);
-        // Update existing object
-        existingItem.currentQuestion = currentQuestion;
-        existingItem.score = score;
-        console.log(existingItem);
+    const index = currentProgress.findIndex(item => item.quizId === quizId);
+    if (index !== -1) {
+        const _a = { currentQuestion, score, quizId };
+        console.log(_a);
+        currentProgress.splice(index, 1);
+        currentProgress.push(_a);
     }
     else {
         currentQuestion = 0; // Start from the beginning if no progress is saved
@@ -3336,7 +3331,6 @@ function loadProgress() {
             currentProgress.push({ currentQuestion, score, quizId });
         }
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
-        console.log(JSON.parse(localStorage.getItem(userProgressKey)));
     }
     displayQuestion();
 }
@@ -3351,33 +3345,23 @@ function displayQuestion() {
     }
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
-    const progressData = localStorage.getItem(userProgressKey);
-    console.log(JSON.parse(progressData));
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey)) || "[]";
     const quizId = sessionStorage.getItem("quizId");
     const index = currentProgress.findIndex(item => item.quizId === quizId);
-    console.log(index);
     if (index == -1) {
         currentQuestion = 0;
         score = 0;
         currentProgress.push({ currentQuestion, score, quizId });
     }
     else {
-        // currentQuestion = currentProgress[index].currentQuestion;
-        // score = currentProgress[index].score;
         const _a = { currentQuestion, score, quizId };
-        console.log(_a);
         currentProgress.splice(index, 1);
-        console.log(currentProgress);
         currentProgress.push(_a);
-        console.log(currentProgress);
-        // if ( !currentProgress.some( item => item.quizId === quizId ) ) {
-        // 	currentProgress.push( { currentQuestion, score, quizId } );
-        // }
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
     }
     const currentQuiz = quizData[selection];
     const currentQuizData = currentQuiz[currentQuestion];
+    console.log(currentQuestion);
     console.log(currentQuiz);
     totalQuestions = currentQuiz.length;
     // Get DOM elements
@@ -3441,18 +3425,15 @@ function checkAnswer(shuffledAnswers, selected) {
     }
     // Update the current question index
     currentQuestion++;
+    console.log(currentQuestion);
     const userProgressKey = `quizProgress_${sessionStorage.getItem("currentUserId")}`;
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const quizId = sessionStorage.getItem("quizId");
     const index = currentProgress.findIndex(item => item.quizId === quizId);
-    console.log(index);
     if (index !== -1) {
         const _a = { currentQuestion, score, quizId };
-        console.log(_a);
         currentProgress.splice(index, 1);
-        console.log(currentProgress);
         currentProgress.push(_a);
-        console.log(currentProgress);
     }
     // Store progress only at the end of the quiz
     if (currentQuestion < totalQuestions) {
@@ -3464,13 +3445,11 @@ function checkAnswer(shuffledAnswers, selected) {
         if (currentQuestion == totalQuestions) {
             currentQuestion = 0;
             score = 0;
-            console.log(currentQuestion, score, quizId);
         }
         localStorage.setItem("quizProgress", String(currentQuestion));
     }
 }
 const shuffle = (array) => {
-    console.log(array);
     // Step 1: Fisher-Yates Shuffle
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -3523,7 +3502,6 @@ function showScore() {
         const userProgressKey = `quizProgress_${currentUserId}`;
         const quizId = sessionStorage.getItem("quizId");
         const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]").filter(item => item.quizId !== null);
-        ;
         if (!currentProgress.some(item => item.quizId === quizId)) {
             currentProgress.push({ currentQuestion, score, quizId });
         }
