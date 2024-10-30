@@ -2656,7 +2656,7 @@ function removeAllSections() {
 }
 // Function to create and append the registration form dynamically
 function createRegisterSection() {
-    var _a;
+    var _b;
     const registerSection = document.createElement("div");
     registerSection.classList.add("nes-container", "is-rounded", "registeration-section");
     registerSection.id = "registerSection";
@@ -2684,7 +2684,7 @@ function createRegisterSection() {
         <p id="registerError" class="nes-text is-error" style="display:none;"></p>
     `;
     // Append the dynamically created register section to the loginContainer
-    (_a = document.querySelector(".loginContainer")) === null || _a === void 0 ? void 0 : _a.appendChild(registerSection);
+    (_b = document.querySelector(".loginContainer")) === null || _b === void 0 ? void 0 : _b.appendChild(registerSection);
     // Attach event listener to the register button
     const registerButton = document.getElementById("registerButton");
     registerButton.addEventListener("click", validateRegistrationForm);
@@ -2846,7 +2846,7 @@ function clearErrorStyles() {
 }
 // Function to create and append the login form dynamically
 function createLoginSection() {
-    var _a;
+    var _b;
     const loginSection = document.createElement("div");
     loginSection.classList.add("nes-container", "is-rounded", "login-section");
     loginSection.id = "loginSection";
@@ -2866,7 +2866,7 @@ function createLoginSection() {
         <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
     `;
     loginContainer.appendChild(loginSection);
-    (_a = document.querySelector("#loginButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", validateLoginForm);
+    (_b = document.querySelector("#loginButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", validateLoginForm);
     loginSection.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             validateLoginForm();
@@ -2961,8 +2961,8 @@ function clearLoginErrorStyles() {
     loginError.style.display = "none";
 }
 function logoutEventListener() {
-    var _a;
-    (_a = document.querySelector("#logoutButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    var _b;
+    (_b = document.querySelector("#logoutButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         localStorage.removeItem("quizProgress"); // Remove any quiz progress
         // Redirect to the login page
         removeAllSections();
@@ -3014,11 +3014,11 @@ function createQuizSelection() {
     displayContainer.appendChild(quizSelectionSection);
     const Quiz_Buttons = document.querySelectorAll(".quiz-selection-section button");
     Quiz_Buttons.forEach((button) => button.addEventListener("click", () => {
-        var _a;
+        var _b;
         sessionStorage.setItem("quizId", button.id);
         let quizData = button.id.split("_")[0].concat("Data");
         sessionStorage.setItem("quizData", quizData);
-        const tempArray = (_a = sessionStorage.getItem("quizId")) === null || _a === void 0 ? void 0 : _a.split("_")[0].split(/(?=[A-Z])/);
+        const tempArray = (_b = sessionStorage.getItem("quizId")) === null || _b === void 0 ? void 0 : _b.split("_")[0].split(/(?=[A-Z])/);
         if (tempArray) {
             tempArray[0] = tempArray[0].charAt(0).toUpperCase() + tempArray[0].slice(1);
             const quiz_type = tempArray.join(" ");
@@ -3044,7 +3044,7 @@ function createQuizSection() {
 }
 // Function to create and append the score section dynamically
 function createScoreSection() {
-    var _a;
+    var _b;
     const scoreSection = document.createElement("div");
     scoreSection.classList.add("nes-container", "is-rounded", "view-last-score");
     scoreSection.id = "scoreSection";
@@ -3054,11 +3054,11 @@ function createScoreSection() {
         <button id="retryButton" class="nes-btn is-warning retry-button">Retry Quiz</button>
     `;
     displayContainer.appendChild(scoreSection);
-    (_a = document.querySelector("#retryButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => returnToBeginning());
+    (_b = document.querySelector("#retryButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => returnToBeginning());
 }
 // Function to create the past scores section dynamically
 function createPastScoresSection() {
-    var _a;
+    var _b;
     const pastScoresSection = document.createElement("div");
     pastScoresSection.classList.add("nes-container", "is-rounded", "view-score-history");
     pastScoresSection.id = "pastScoresSection";
@@ -3069,7 +3069,7 @@ function createPastScoresSection() {
     `;
     displayContainer.appendChild(pastScoresSection);
     const currentUserId = sessionStorage.getItem("currentUserId");
-    (_a = document.querySelector("#backButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    (_b = document.querySelector("#backButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         removeElementById("pastScoresSection");
         if (checkProgressAtEnd(currentUserId)) {
             showScore();
@@ -3092,7 +3092,7 @@ function createActionButtons() {
     logoutEventListener();
 }
 function createScoresButtons() {
-    var _a, _b;
+    var _b, _c;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
@@ -3104,17 +3104,17 @@ function createScoresButtons() {
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
-    (_a = document.querySelector("#viewScoresButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    (_b = document.querySelector("#viewScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         removeElementById("quizSelectionSection");
         createSortButtons();
     });
-    (_b = document.querySelector("#resetScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_c = document.querySelector("#resetScoresButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         // Show the confirmation dialog
         createDialog();
     });
 }
 function createSortButtons() {
-    var _a, _b, _c, _d;
+    var _b, _c, _d, _e;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
@@ -3134,17 +3134,17 @@ function createSortButtons() {
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
     renderScores(pastScores);
     // Sort by Quiz (alphabetically)
-    (_a = document.querySelector("#sortByQuizButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    (_b = document.querySelector("#sortByQuizButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         const sortedByQuiz = [...pastScores].sort((a, b) => a.quiz.localeCompare(b.quiz));
         renderScores(sortedByQuiz);
     });
     // Sort by Date (newest to oldest)
-    (_b = document.querySelector("#sortByDateButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_c = document.querySelector("#sortByDateButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         const sortedByDate = [...pastScores].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         renderScores(sortedByDate);
     });
     // Sort by Score (highest to lowest)
-    (_c = document.querySelector("#sortByScoreButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    (_d = document.querySelector("#sortByScoreButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
         const sortedByPercentage = [...pastScores].sort((a, b) => {
             const percentageA = (a.score / a.total) * 100;
             const percentageB = (b.score / b.total) * 100;
@@ -3152,7 +3152,7 @@ function createSortButtons() {
         });
         renderScores(sortedByPercentage);
     });
-    (_d = document.querySelector("#resetScoresButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+    (_e = document.querySelector("#resetScoresButton")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
         // Show the confirmation dialog
         createDialog();
     });
@@ -3205,7 +3205,7 @@ function formatDate(dateString) {
     return `${month}/${day}/${year}`; // Return in mm/dd/yy format
 }
 function createDialog() {
-    var _a, _b;
+    var _b, _c;
     const dialog = document.createElement("dialog");
     dialog.classList.add("nes-dialog", "nes-container", "is-rounded", "is-dark");
     dialog.id = "dialog-dark-rounded";
@@ -3227,7 +3227,7 @@ function createDialog() {
     // Show the dialog
     dialog.showModal();
     // Add event listener for the Confirm button
-    (_a = document.getElementById("resetConfirm")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    (_b = document.getElementById("resetConfirm")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         const currentUserId = sessionStorage.getItem("currentUserId");
         localStorage.removeItem(`quizScores_${currentUserId}`); // Clear the quiz scores
         sessionStorage.removeItem("quizData");
@@ -3237,7 +3237,7 @@ function createDialog() {
         returnToBeginning();
     });
     // Add event listener for the Cancel button
-    (_b = document.querySelector("#cancel-btn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_c = document.querySelector("#cancel-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         removeElementById("dialog-dark-rounded"); // Close the dialog
     });
 }
@@ -3349,25 +3349,37 @@ function displayQuestion() {
         console.error("Invalid quiz selection.");
         return;
     }
-    const userProgressKey = `quizProgress_${sessionStorage.getItem("currentUserId")}`;
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    const currentUserId = sessionStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    const progressData = localStorage.getItem(userProgressKey);
+    console.log(JSON.parse(progressData));
+    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey)) || "[]";
     const quizId = sessionStorage.getItem("quizId");
-    const index = currentProgress.findIndex(item => {
-        console.log(item);
-        item.quizId === quizId;
-    });
+    const index = currentProgress.findIndex(item => item.quizId === quizId);
     console.log(index);
-    const currentQuiz = quizData[selection];
-    const currentQuizData = currentQuiz[currentQuestion];
-    totalQuestions = currentQuiz.length;
-    if (index !== -1) {
-        const foundItem = currentProgress[index];
-        console.log(foundItem);
-        currentQuestion = foundItem.currentQuestion;
-        score = foundItem.score;
+    if (index == -1) {
+        currentQuestion = 0;
+        score = 0;
+        currentProgress.push({ currentQuestion, score, quizId });
+    }
+    else {
+        // currentQuestion = currentProgress[index].currentQuestion;
+        // score = currentProgress[index].score;
+        const _a = { currentQuestion, score, quizId };
+        console.log(_a);
         currentProgress.splice(index, 1);
         console.log(currentProgress);
+        currentProgress.push(_a);
+        console.log(currentProgress);
+        // if ( !currentProgress.some( item => item.quizId === quizId ) ) {
+        // 	currentProgress.push( { currentQuestion, score, quizId } );
+        // }
+        localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
     }
+    const currentQuiz = quizData[selection];
+    const currentQuizData = currentQuiz[currentQuestion];
+    console.log(currentQuiz);
+    totalQuestions = currentQuiz.length;
     // Get DOM elements
     const questionEl = document.getElementById("question");
     const answersEl = document.getElementById("answers");
@@ -3429,20 +3441,36 @@ function checkAnswer(shuffledAnswers, selected) {
     }
     // Update the current question index
     currentQuestion++;
+    const userProgressKey = `quizProgress_${sessionStorage.getItem("currentUserId")}`;
+    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    const quizId = sessionStorage.getItem("quizId");
+    const index = currentProgress.findIndex(item => item.quizId === quizId);
+    console.log(index);
+    if (index !== -1) {
+        const _a = { currentQuestion, score, quizId };
+        console.log(_a);
+        currentProgress.splice(index, 1);
+        console.log(currentProgress);
+        currentProgress.push(_a);
+        console.log(currentProgress);
+    }
     // Store progress only at the end of the quiz
     if (currentQuestion < totalQuestions) {
         displayQuestion(); // Show the next question
     }
     else {
+        console.log("at the end...going to show score function.......");
         showScore(); // Display final score
         if (currentQuestion == totalQuestions) {
             currentQuestion = 0;
             score = 0;
+            console.log(currentQuestion, score, quizId);
         }
         localStorage.setItem("quizProgress", String(currentQuestion));
     }
 }
 const shuffle = (array) => {
+    console.log(array);
     // Step 1: Fisher-Yates Shuffle
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

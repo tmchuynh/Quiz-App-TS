@@ -3514,17 +3514,14 @@ function loadProgress(): void {
 	const quizId = sessionStorage.getItem( "quizId" );
 	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
 	const existingItem = currentProgress.find( item => item.quizId === quizId );
-	console.log( existingItem );
 
 	if ( existingItem ) {
 		const { currentQuestion: savedQuestion, score: savedScore, quiz: savedQuizType } = JSON.parse( progressData );
 		currentQuestion = savedQuestion;
 		score = savedScore;
-		console.log( currentProgress );
 		// Update existing object
 		existingItem.currentQuestion = currentQuestion;
 		existingItem.score = score;
-		console.log( existingItem );
 
 	} else {
 		currentQuestion = 0; // Start from the beginning if no progress is saved
@@ -3533,7 +3530,6 @@ function loadProgress(): void {
 			currentProgress.push( { currentQuestion, score, quizId } );
 		}
 		localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
-		console.log( JSON.parse( localStorage.getItem( userProgressKey ) ) );
 	}
 
 	displayQuestion();
@@ -3549,29 +3545,27 @@ function displayQuestion(): void {
 		console.error( "Invalid quiz selection." );
 		return;
 	}
+	const currentUserId = sessionStorage.getItem( "currentUserId" );
+	const userProgressKey = `quizProgress_${ currentUserId }`;
+	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) ) || "[]";
+	const quizId = sessionStorage.getItem( "quizId" );
 
-	const userProgressKey = `quizProgress_${ sessionStorage.getItem( "currentUserId" )! }`;
-	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
-	const quizId = sessionStorage.getItem( "quizId" )!;
-	const index = currentProgress.findIndex( item => {
-		console.log( item );
-		item.quizId === quizId;
-	} );
-	console.log( index );
+	const index = currentProgress.findIndex( item => item.quizId === quizId );
+
+	if ( index == -1 ) {
+		currentQuestion = 0;
+		score = 0;
+		currentProgress.push( { currentQuestion, score, quizId } );
+	} else {
+		const _a = { currentQuestion, score, quizId };
+		currentProgress.splice( index, 1 );
+		currentProgress.push( _a );
+		localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
+	}
 
 	const currentQuiz = quizData[selection];
 	const currentQuizData = currentQuiz[currentQuestion];
 	totalQuestions = currentQuiz.length;
-	if ( index !== -1 ) {
-		const foundItem = currentProgress[index];
-		console.log( foundItem );
-		currentQuestion = foundItem.currentQuestion;
-		score = foundItem.score;
-
-		currentProgress.splice( index, 1 );
-		console.log( currentProgress );
-	}
-
 
 	// Get DOM elements
 	const questionEl = document.getElementById( "question" );
@@ -3647,11 +3641,24 @@ function checkAnswer( shuffledAnswers: Answer[], selected: number ): void {
 	// Update the current question index
 	currentQuestion++;
 
+	const userProgressKey = `quizProgress_${ sessionStorage.getItem( "currentUserId" )! }`;
+	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
+	const quizId = sessionStorage.getItem( "quizId" )!;
+
+	const index = currentProgress.findIndex( item => item.quizId === quizId );
+	if ( index !== -1 ) {
+		const _a = { currentQuestion, score, quizId };
+		currentProgress.splice( index, 1 );
+		currentProgress.push( _a );
+	}
+
 	// Store progress only at the end of the quiz
 	if ( currentQuestion < totalQuestions ) {
 		displayQuestion(); // Show the next question
 	} else {
+		console.log( "at the end...going to show score function......." );
 		showScore(); // Display final score
+
 		if ( currentQuestion == totalQuestions ) {
 			currentQuestion = 0;
 			score = 0;
@@ -3726,7 +3733,7 @@ function showScore(): void {
 		const userProgressKey = `quizProgress_${ currentUserId }`;
 		const quizId = sessionStorage.getItem( "quizId" );
 
-		const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" ).filter( item => item.quizId !== null );;
+		const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" ).filter( item => item.quizId !== null );
 		if ( !currentProgress.some( item => item.quizId === quizId ) ) {
 			currentProgress.push( { currentQuestion, score, quizId } );
 		}
