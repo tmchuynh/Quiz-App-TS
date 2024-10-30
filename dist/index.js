@@ -3463,6 +3463,7 @@ const shuffle = (array) => {
 };
 // Show Score
 function showScore() {
+    console.log("Show Score");
     removeAllSections();
     // Display the score section
     createScoresButtons();
@@ -3476,12 +3477,15 @@ function showScore() {
     // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${currentUserId}`;
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
+    console.log("pasScores: ", pastScores);
     const selection = sessionStorage.getItem("quizData");
     const currentQuiz = quizData[selection];
+    console.log("Current Quiz: ", checkProgressAtEnd(currentUserId));
     if (checkProgressAtEnd(currentUserId)) {
         // Add the new score with the current timestamp
         const timestamp = new Date().toLocaleString();
         pastScores.push({ score: score, total: currentQuiz.length, quiz: sessionStorage.getItem("quizType"), date: timestamp });
+        console.log("pasScores updated: ", pastScores);
         // Update localStorage with the new scores
         localStorage.setItem(userScoresKey, JSON.stringify(pastScores));
         // Sort the past scores by date (most recent first)
@@ -3491,7 +3495,7 @@ function showScore() {
         // Update the score message with the most recent score
         const scoreMessageEl = document.getElementById("scoreMessage");
         if (scoreMessageEl) {
-            scoreMessageEl.textContent = `Most Recent Score: ${mostRecentScore.score} out of ${mostRecentScore.total} on ${mostRecentScore.date}`;
+            scoreMessageEl.textContent = `Most Recent Score: ${mostRecentScore.score} out of ${mostRecentScore.total} on the ${mostRecentScore.quiz} quiz on ${mostRecentScore.date}.`;
         }
     }
     const quizProgress = localStorage.getItem(`quizProgress_${currentUserId}`);
@@ -3510,10 +3514,16 @@ function showScore() {
 }
 function checkProgressAtEnd(currentUserId) {
     // Retrieve current quiz progress
-    const quizProgress = localStorage.getItem(`quizProgress_${currentUserId}`);
-    if (quizProgress) {
-        const { currentQuestion: savedQuestion, score: savedScore, quiz: savedQuizType } = JSON.parse(quizProgress);
-        if (savedQuestion === totalQuestions && savedQuizType === sessionStorage.getItem("quizType")) {
+    const quizProgress = JSON.parse(localStorage.getItem(`quizProgress_${currentUserId}`));
+    console.log((quizProgress));
+    const currentQuiz = sessionStorage.getItem("quizId");
+    const foundItem = quizProgress.some(item => item.quizId === currentQuiz);
+    console.log((foundItem));
+    if (foundItem) {
+        const { currentQuestion: savedQuestion, score: savedScore } = (foundItem);
+        console.log((currentQuestion), (score));
+        if (currentQuestion === totalQuestions) {
+            console.log("True");
             return true;
         }
     }
