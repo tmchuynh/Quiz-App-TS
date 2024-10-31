@@ -758,6 +758,7 @@ function promptForDifficulty( quizId: string ): void {
 	removeElementById( "quizSelectionSection" );
 
 	const difficultySection = document.createElement( "div" );
+	const quiz_type = sessionStorage.getItem( "quizType" );
 	difficultySection.classList.add(
 		"flex",
 		"min-h-full",
@@ -784,7 +785,7 @@ function promptForDifficulty( quizId: string ): void {
 	);
 	difficultySection.id = "difficultySection";
 	difficultySection.innerHTML = `
-	  <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Select Difficulty Level</h2>
+	  <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Select Difficulty Level for <br/> ${ quiz_type }</h2>
 	  <div id="difficultyOptions" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-3">
 
 	  </div>
@@ -1100,7 +1101,7 @@ function createSortButtons(): void {
 	actionButtons.className =
 		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 
-	const buttonClass = "text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800";
+	const buttonClass = "text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800 space-y-2";
 
 	function createButton( id: string, text: string ): HTMLButtonElement {
 		const button = document.createElement( 'button' );
@@ -1116,13 +1117,13 @@ function createSortButtons(): void {
 
 
 	actionButtons.innerHTML = `
-		<div class="gap-1 my-auto text-center  auto-cols-max grid grid-cols-2 order-last">
+		<div class="gap-1 text-center auto-cols-max grid grid-cols-2 order-last">
 			<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 			<button id="resetScoresButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Reset All Scores</button>
 		</div>
 	
         <button id="backToSelectionButton" class="text-white order-4 bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
-        <div class="buttonGroup gap-1 my-auto text-center auto-cols-max grid grid-cols-3 order-2" id="sortingButtons">
+        <div class="buttonGroup gap-1 text-center auto-cols-max grid grid-cols-3 order-2" id="sortingButtons">
 
         </div>
     `;
@@ -1139,11 +1140,11 @@ function createSortButtons(): void {
 
 	actionButtons.innerHTML +=
 		`<div>
-			<select id="filterByQuizDropdown" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-			<option value="Filter by Quiz" selected>Filter by Quiz</option>
-				<!-- Quiz options will be added here dynamically -->
+			<select id="filterByQuizDropdown" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				<option value="Filter by Quiz" selected>Filter by Quiz</option>
+					<!-- Quiz options will be added here dynamically -->
 			</select>
-			<div class="dateFilterGroup gap-3 my-auto text-center auto-cols-max grid grid-cols-2 py-4">
+			<div class="dateFilterGroup gap-3 my-auto text-center auto-cols-max grid grid-cols-2 py-1.5">
 				<div class="gap-1 my-auto text-center auto-cols-max grid lg:grid-cols-1 grid-cols-2">
 					<label for="startDateInput" class="text-black items-center flex lg:justify-center justify-end">Start Date:</label>
 					<input type="date" id="startDateInput" class="bg-gray-200 text-black rounded-lg px-3 py-2">
@@ -1153,7 +1154,7 @@ function createSortButtons(): void {
 					<input type="date" id="endDateInput" class="bg-gray-200 text-black rounded-lg px-3 py-2">
 				</div>
 			</div>
-			<div class="gap-1 my-auto text-center auto-cols-max grid lg:grid-cols-1 grid-cols-2">
+			<div class="gap-1 my-auto text-center auto-cols-max grid grid-cols-2">
 				<button id="applyDateFilterButton" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Apply Date Filter</button>
 				<button id="clearFiltersButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Clear Filters</button>
 			</div>
@@ -1267,7 +1268,7 @@ function createSortButtons(): void {
 		.querySelector( "#clearFiltersButton" )
 		?.addEventListener( "click", () => {
 			filteredScores = [...pastScores];
-			filterByQuizDropdown.value = ""; // Reset dropdown selection
+			filterByQuizDropdown.value = "Filter by Quiz"; // Reset dropdown selection
 			// Reset date inputs
 			( document.getElementById( "startDateInput" ) as HTMLInputElement ).value = "";
 			( document.getElementById( "endDateInput" ) as HTMLInputElement ).value = "";
