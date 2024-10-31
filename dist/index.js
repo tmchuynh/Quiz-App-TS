@@ -2686,7 +2686,7 @@ function createRegisterSection() {
     registerSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "registeration-section", "space-y-2");
     registerSection.id = "registerSection";
     registerSection.innerHTML = `
-        <h2 class="text-4xl font-extrabold dark:text-white my-3">Register</h2>
+        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Register</h2>
 		<label for="firstName" class="block text-md/6 font-medium text-gray-900">First Name:</label>
 		<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
 		<label for="lastName" class="block text-md/6 font-medium text-gray-900">Last Name:</label>
@@ -2889,7 +2889,7 @@ function createLoginSection() {
     loginSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "login-section", "space-y-2");
     loginSection.id = "loginSection";
     loginSection.innerHTML = `
-        <h2 class="text-4xl font-extrabold dark:text-white my-3">Login</h2>
+        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Login</h2>
 		<label for="loginUsername" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Username:</label>
 		<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
 		<label for="loginPassword" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Password:</label>
@@ -3052,7 +3052,7 @@ function createQuizSelection() {
     quizSelectionSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "quiz-selection-section", "w-11/12");
     quizSelectionSection.id = "quizSelectionSection";
     quizSelectionSection.innerHTML = `
-        <h2 class="text-4xl font-extrabold dark:text-white">Select a Quiz</h2>
+        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Select a Quiz</h2>
         <div id="quizOptions" class="grid grid-cols-4 gap-4 p-3">
             
         </div>
@@ -3088,7 +3088,7 @@ function createQuizSelection() {
 // Function to create and append the quiz section dynamically
 function createQuizSection() {
     const quizSection = document.createElement("div");
-    quizSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section", "col-span-7");
+    quizSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section", "col-span-7", "w-11/12");
     quizSection.id = "quizSection";
     quizSection.innerHTML = `
         <div class="question-container">
@@ -3105,11 +3105,11 @@ function createQuizSection() {
 function createScoreSection() {
     var _a;
     const scoreSection = document.createElement("div");
-    scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score", "col-span-7");
+    scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score", "col-span-7", "w-11/12");
     scoreSection.id = "scoreSection";
     scoreSection.innerHTML = `
-        <h2 class="text-4xl font-extrabold dark:text-white">Quiz Completed!</h2>
-        <p id="scoreMessage"></p>
+        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Quiz Completed!</h2>
+        <p id="scoreMessage" class="py-4"></p>
         <button id="retryButton" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800  retry-button">Retry Quiz</button>
     `;
     displayContainer.appendChild(scoreSection);
@@ -3119,12 +3119,12 @@ function createScoreSection() {
 function createPastScoresSection() {
     var _a;
     const pastScoresSection = document.createElement("div");
-    pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history", "col-span-7");
+    pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history", "col-span-7", "w-11/12");
     pastScoresSection.id = "pastScoresSection";
     pastScoresSection.innerHTML = `
-        <h2 class="text-4xl font-extrabold dark:text-white">Past Scores</h2>
+        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Past Scores</h2>
         <table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 100%; border-collapse: collapse;"></table>
-        <button id="backButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back to Quiz</button>
+        <button id="backButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 mt-6 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back to Quiz</button>
     `;
     displayContainer.appendChild(pastScoresSection);
     const currentUserId = sessionStorage.getItem("currentUserId");
@@ -3143,7 +3143,7 @@ function createActionButtons() {
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
-    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
     actionButtons.innerHTML = `
 		<div class="grid grid-cols-1">
 			<button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
@@ -3153,15 +3153,14 @@ function createActionButtons() {
     logoutEventListener();
 }
 function createScoresButtons() {
-    var _a, _b;
+    var _a;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
-    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 text-center col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
     actionButtons.innerHTML = `
 		<button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
 		<button id="viewScoresButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Past Scores</button>
-		<button id="resetScoresButton" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Reset All Scores</button>
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
@@ -3169,23 +3168,21 @@ function createScoresButtons() {
         removeElementById("quizSelectionSection");
         createSortButtons();
     });
-    (_b = document.querySelector("#resetScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
-        // Show the confirmation dialog
-        createDialog();
-    });
 }
 function createSortButtons() {
     var _a, _b, _c, _d;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
-    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+    actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 text-center space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
     actionButtons.innerHTML = `
         <button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
         <button id="resetScoresButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Reset All Scores</button>
-        <button id="sortByQuizButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Quiz</button>
-        <button id="sortByDateButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Date</button>
-        <button id="sortByScoreButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Score</button>
+		<div class="buttonGroup md:grid grid-cols-1 gap-1 my-auto text-center space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max">
+			<button id="sortByQuizButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Quiz</button>
+			<button id="sortByDateButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Date</button>
+			<button id="sortByScoreButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Score</button>
+		</div>
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
@@ -3227,7 +3224,7 @@ function renderScores(pastScores) {
     createPastScoresSection();
     // Create table headers and rows for the scores
     const tableHeaders = `
-		<thead class="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+		<thead class="text-md text-white uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">
 			<tr>
 				<th>Quiz</th>
 				<th>Score</th>
@@ -3241,7 +3238,7 @@ function renderScores(pastScores) {
         const formattedDate = formatDate(date);
         return `
 				<tbody>
-					<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+					<tr class="bg-white hover:bg-gray-200 border-b dark:bg-gray-800 dark:border-gray-700">
 						<td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">${quiz}</td>
 						<td>${score} / ${total}</td>
 						<td class="scorePercentage">${percentage}%</td>
