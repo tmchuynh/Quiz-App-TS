@@ -3228,12 +3228,13 @@ function createQuizSelection() {
 	if ( quizOptionsContainer ) {
 		quizOptions.forEach( quiz => {
 			const button = document.createElement( "button" );
-			button.id = `quiz_${ quiz.id }`;
+			button.id = quiz.id;
 			button.textContent = quiz.label;
 			button.className = "button text-white bg-teal-700 hover:bg-teal-400 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800";
 			button.addEventListener( "click", () => {
 				sessionStorage.setItem( "quizId", button.id );
 				let quizData = button.id.split( "_" )[0].concat( "Data" );
+				console.log( quizData );
 				sessionStorage.setItem( "quizData", quizData );
 
 				const tempArray = sessionStorage
@@ -3264,9 +3265,9 @@ function createQuizSection(): void {
         <div class="question-container">
             <p id="question"></p>
         </div>
-        <div id="answers"></div>
+        <div id="answers" class="flex justify-around space-y-2 space-x-2></div>
         <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" id="quizProgressBar"></div>
 		</div>
     `;
 	displayContainer.appendChild( quizSection );
@@ -3304,7 +3305,7 @@ function createPastScoresSection(): void {
 		if ( checkProgressAtEnd( currentUserId! ) ) {
 			showScore();
 		} else {
-			!loadQuiz();
+			loadQuiz();
 		}
 	} );
 }
@@ -3501,6 +3502,7 @@ function createDialog(): void {
 	} );
 }
 
+// Function to reset quiz and return to the beginning
 function returnToBeginning(): void {
 	// Reset quiz variables
 	currentQuestion = 0;
@@ -3508,20 +3510,19 @@ function returnToBeginning(): void {
 
 	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userProgressKey = `quizProgress_${ currentUserId }`;
+	const quizId = sessionStorage.getItem( "quizId" )!;
 
-	// Check if the user has completed the current quiz
-	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" )
-		.filter( ( item: any ) => item.quizId !== null )
-		.filter( ( item: any ) => item.quizId !== quizId );
-	const quizId = sessionStorage.getItem( "quizId" );
-	if ( !currentProgress.some( ( item: any ) => item.quizId === quizId ) ) {
-		currentProgress.push( { currentQuestion, score, quizId } );
-	}
-	// Remove entries with null quizId
+	// Retrieve current progress and remove the current quiz's progress
+	let currentProgress: ProgressItem[] = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
+	currentProgress = currentProgress.filter( ( item ) => item.quizId !== quizId );
 
+	// Add new progress starting from the beginning
+	currentProgress.push( { currentQuestion, score, quizId } );
+
+	// Sort and save the updated progress
+	sortProgressArray( currentProgress );
 	localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
 
-	localStorage.setItem( "quizProgress", String( 0 ) );
 	// Update the UI
 	removeElementById( "scoreSection" );
 	createActionButtons();
@@ -3530,15 +3531,15 @@ function returnToBeginning(): void {
 	loadQuiz();
 }
 
-// Load Quiz
-function loadQuiz(): Boolean {
+// Function to load the quiz
+function loadQuiz(): void {
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
 
 	if ( !currentUserId ) {
-		// If no user is logged in, show the login section
+		// If no user is logged in, show the login and registration sections
 		createRegisterSection();
 		createLoginSection();
-		return true;
+		return;
 	}
 
 	// Retrieve users and find the current user
@@ -3549,38 +3550,37 @@ function loadQuiz(): Boolean {
 		createRegisterSection();
 		createLoginSection();
 		console.error( "User not found!" );
-		return false;
+		return;
 	}
 
 	const { firstName } = foundUser;
 
 	// Check if the user has logged in before
-	const hasLoggedInBefore = localStorage.getItem( "hasLoggedInBefore" );
+	const hasLoggedInBeforeKey = `hasLoggedInBefore_${ currentUserId }`;
+	const hasLoggedInBefore = localStorage.getItem( hasLoggedInBeforeKey );
 
 	// Display a welcome message based on the user's login history
-	const welcomeMessage = document.getElementById( "welcomeMessage" ) as HTMLElement;
+	const welcomeMessage = document.getElementById( "welcomeMessage" );
 	if ( welcomeMessage ) {
 		if ( hasLoggedInBefore ) {
 			welcomeMessage.textContent = `Welcome back, ${ firstName }!`;
 		} else {
 			welcomeMessage.textContent = `Welcome, ${ firstName }!`;
-			localStorage.setItem( "hasLoggedInBefore", "true" ); // Mark user as logged in for future
+			localStorage.setItem( hasLoggedInBeforeKey, "true" ); // Mark user as logged in for future
 		}
 	}
 
 	removeElementById( "registerSection" );
 	removeElementById( "loginSection" );
 
-	const userProgressKey = `quizScores_${ currentUserId }`;
-	if ( localStorage.getItem( userProgressKey ) ) {
+	const userScoresKey = `quizScores_${ currentUserId }`;
+	if ( localStorage.getItem( userScoresKey ) ) {
 		createScoresButtons();
 	} else {
 		createActionButtons();
 	}
 
 	createQuizSelection();
-
-	return true;
 }
 
 // Function to load progress on quiz start
@@ -3589,11 +3589,11 @@ function loadProgress(): void {
 		createQuizSection();
 	}
 
-	const currentUserId = sessionStorage.getItem( "currentUserId" );
+	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userProgressKey = `quizProgress_${ currentUserId }`;
-	const quizId = sessionStorage.getItem( "quizId" ) || "";
+	const quizId = sessionStorage.getItem( "quizId" )!;
 	const currentProgress: ProgressItem[] = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
-	const index = currentProgress.findIndex( ( item: any ) => item.quizId === quizId );
+	const index = currentProgress.findIndex( ( item ) => item.quizId === quizId );
 
 	if ( index !== -1 ) {
 		// Progress exists, load currentQuestion and score from stored progress
@@ -3605,7 +3605,7 @@ function loadProgress(): void {
 		score = 0;
 
 		// Save initial progress
-		currentProgress.push( { currentQuestion, score, quizId: quizId } );
+		currentProgress.push( { currentQuestion, score, quizId } );
 
 		// Sort the array alphabetically by quizId
 		sortProgressArray( currentProgress );
@@ -3634,27 +3634,16 @@ function displayQuestion(): void {
 		return;
 	}
 
-	const currentUserId = sessionStorage.getItem( "currentUserId" );
-	const userProgressKey = `quizProgress_${ currentUserId }`;
-	const quizId = sessionStorage.getItem( "quizId" );
-	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
-	const index = currentProgress.findIndex( ( item: any ) => item.quizId === quizId );
+	const currentQuiz = quizData[selection];
+	totalQuestions = currentQuiz.length;
 
-	if ( index === -1 ) {
-		// Should not happen if loadProgress is working
-		currentQuestion = 0;
-		score = 0;
-		currentProgress.push( { currentQuestion, score, quizId } );
-		localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
-	} else {
-		// Progress exists, load currentQuestion and score from stored progress
-		currentQuestion = currentProgress[index].currentQuestion;
-		score = currentProgress[index].score;
+	// Check if currentQuestion is within bounds
+	if ( currentQuestion >= totalQuestions ) {
+		showScore();
+		return;
 	}
 
-	const currentQuiz = quizData[selection];
 	const currentQuizData = currentQuiz[currentQuestion];
-	totalQuestions = currentQuiz.length;
 
 	// Get DOM elements
 	const questionEl = document.getElementById( "question" );
@@ -3684,7 +3673,7 @@ function displayQuestion(): void {
 		} else {
 			// Create new button if necessary
 			button = document.createElement( "button" );
-			button.classList.add( "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" );
+			button.className = "answer-button"; // Use a CSS class for styling
 			answersEl.appendChild( button );
 		}
 
@@ -3707,19 +3696,33 @@ function updateProgressBar(): void {
 	const progressValue = ( ( currentQuestion + 1 ) / totalQuestions ) * 100; // Calculate percentage
 	progressBar.value = progressValue; // Update the value of the progress bar
 
-	// Save current progress in session storage
+	// Save current progress
+	saveProgress();
+}
+
+// Function to save progress to localStorage
+function saveProgress(): void {
 	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userProgressKey = `quizProgress_${ currentUserId }`;
-	const quizId = sessionStorage.getItem( "quizId" );
+	const quizId = sessionStorage.getItem( "quizId" )!;
+	const currentProgress: ProgressItem[] = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
+	const index = currentProgress.findIndex( ( item ) => item.quizId === quizId );
 
-	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
-	if ( !currentProgress.some( ( item: any ) => item.quizId === quizId ) ) {
+	if ( index !== -1 ) {
+		// Update existing progress
+		currentProgress[index].currentQuestion = currentQuestion;
+		currentProgress[index].score = score;
+	} else {
+		// Add new progress
 		currentProgress.push( { currentQuestion, score, quizId } );
 	}
+
+	// Sort the array alphabetically by quizId
+	sortProgressArray( currentProgress );
 	localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
 }
 
-// Check Answer
+// Function to check the answer and proceed
 function checkAnswer( answers: Answer[], selectedIndex: number ): void {
 	const selectedAnswer = answers[selectedIndex];
 	if ( selectedAnswer.correct ) {
@@ -3727,48 +3730,27 @@ function checkAnswer( answers: Answer[], selectedIndex: number ): void {
 	}
 	currentQuestion++;
 
-	// Now, update progress in localStorage
-	const currentUserId = sessionStorage.getItem( "currentUserId" );
-	const userProgressKey = `quizProgress_${ currentUserId }`;
-	const quizId = sessionStorage.getItem( "quizId" );
-	const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
-	const index = currentProgress.findIndex( ( item: any ) => item.quizId === quizId );
+	// Update progress
+	saveProgress();
 
-	if ( index !== -1 ) {
-		const _a = { currentQuestion, score, quizId };
-		currentProgress.splice( index, 1 );
-		currentProgress.push( _a );
-	}
-
-	// Store progress only at the end of the quiz
+	// Proceed to next question or show score
 	if ( currentQuestion < totalQuestions ) {
 		displayQuestion(); // Show the next question
 	} else {
 		showScore(); // Display final score
-
-		if ( currentQuestion == totalQuestions ) {
-			currentQuestion = 0;
-			score = 0;
-		}
-		localStorage.setItem( "quizProgress", String( currentQuestion ) );
 	}
 }
 
+// Shuffle function using Fisher-Yates algorithm
 const shuffle = ( array: Answer[] ): Answer[] => {
-	// Step 1: Fisher-Yates Shuffle
 	for ( let i = array.length - 1; i > 0; i-- ) {
 		const j = Math.floor( Math.random() * ( i + 1 ) );
 		[array[i], array[j]] = [array[j], array[i]];
 	}
-
-	// Step 2: Random sort shuffle
-	return array
-		.map( ( a ) => ( { sort: Math.random(), value: a } ) )
-		.sort( ( a, b ) => a.sort - b.sort )
-		.map( ( a ) => a.value );
+	return array;
 };
 
-// Show Score
+// Function to show the final score
 function showScore(): void {
 	removeAllSections();
 
@@ -3776,14 +3758,7 @@ function showScore(): void {
 	createScoresButtons();
 	createScoreSection();
 
-	// Get the current user ID
-	const currentUserId = sessionStorage.getItem( "currentUserId" );
-	if ( !currentUserId ) {
-		console.error( "No current user ID found." );
-		return;
-	}
-
-	// Retrieve and update past scores for the current user
+	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userScoresKey = `quizScores_${ currentUserId }`;
 	const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" );
 
@@ -3794,42 +3769,24 @@ function showScore(): void {
 	}
 	const currentQuiz = quizData[selection];
 
-	if ( checkProgressAtEnd( currentUserId ) ) {
-		// Add the new score with the current timestamp
-		const timestamp = new Date().toLocaleString();
-		pastScores.push( { score: score, total: currentQuiz.length, quiz: sessionStorage.getItem( "quizType" ), date: timestamp } );
+	// Add the new score with the current timestamp
+	const timestamp = new Date().toLocaleString();
+	const quizType = sessionStorage.getItem( "quizType" ) || "Unknown Quiz";
+	pastScores.push( { score, total: currentQuiz.length, quiz: quizType, date: timestamp } );
 
-		// Update localStorage with the new scores
-		localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
+	// Update localStorage with the new scores
+	localStorage.setItem( userScoresKey, JSON.stringify( pastScores ) );
 
-		// Sort the past scores by date (most recent first)
-		pastScores.sort( ( a: any, b: any ) => Date.parse( b.date ) - Date.parse( a.date ) );
-
-		// Get the most recent score (which will be the first after sorting)
-		const mostRecentScore = pastScores[0];
-
-		// Update the score message with the most recent score
-		const scoreMessageEl = document.getElementById( "scoreMessage" ) as HTMLElement;
-		if ( scoreMessageEl ) {
-			scoreMessageEl.textContent = `Most Recent Score: ${ mostRecentScore.score } out of ${ mostRecentScore.total } on the ${ mostRecentScore.quiz } quiz on ${ mostRecentScore.date }.`;
-		}
+	// Update the score message with the most recent score
+	const scoreMessageEl = document.getElementById( "scoreMessage" );
+	if ( scoreMessageEl ) {
+		scoreMessageEl.textContent = `You scored ${ score } out of ${ currentQuiz.length } on the ${ quizType } quiz.`;
 	}
 
-	const quizProgress = localStorage.getItem( `quizProgress_${ currentUserId }` );
-	if ( quizProgress ) {
-		currentQuestion = 0;
-		score = 0;
-
-		// Save current progress in session storage
-		const userProgressKey = `quizProgress_${ currentUserId }`;
-		const quizId = sessionStorage.getItem( "quizId" );
-
-		const currentProgress = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" ).filter( ( item: any ) => item.quizId !== null );
-		if ( !currentProgress.some( ( item: any ) => item.quizId === quizId ) ) {
-			currentProgress.push( { currentQuestion, score, quizId } );
-		}
-		localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
-	}
+	// Reset quiz progress
+	currentQuestion = 0;
+	score = 0;
+	saveProgress();
 }
 
 function checkProgressAtEnd( currentUserId: string ): boolean {

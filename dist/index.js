@@ -2681,7 +2681,7 @@ function removeAllSections() {
 }
 // Function to create and append the registration form dynamically
 function createRegisterSection() {
-    var _b;
+    var _a;
     const registerSection = document.createElement("div");
     registerSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "registeration-section", "space-y-2");
     registerSection.id = "registerSection";
@@ -2709,7 +2709,7 @@ function createRegisterSection() {
 		<p id="registerError" class="mt-2 text-sm text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
     // Append the dynamically created register section to the loginContainer
-    (_b = document.querySelector(".loginContainer")) === null || _b === void 0 ? void 0 : _b.appendChild(registerSection);
+    (_a = document.querySelector(".loginContainer")) === null || _a === void 0 ? void 0 : _a.appendChild(registerSection);
     // Attach event listener to the register button
     const registerButton = document.getElementById("registerButton");
     registerButton.addEventListener("click", validateRegistrationForm);
@@ -2884,7 +2884,7 @@ function clearErrorStyles() {
 }
 // Function to create and append the login form dynamically
 function createLoginSection() {
-    var _b;
+    var _a;
     const loginSection = document.createElement("div");
     loginSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "login-section", "space-y-2");
     loginSection.id = "loginSection";
@@ -2904,7 +2904,7 @@ function createLoginSection() {
 		<p id="loginError" class="mt-2 text-sm text-red-600 dark:text-red-400" style="display:none;">Incorrect username or password.</p>
 		`;
     loginContainer.appendChild(loginSection);
-    (_b = document.querySelector("#loginButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", validateLoginForm);
+    (_a = document.querySelector("#loginButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", validateLoginForm);
     loginSection.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             validateLoginForm();
@@ -3019,8 +3019,8 @@ function clearLoginErrorStyles() {
     loginError.style.display = "none";
 }
 function logoutEventListener() {
-    var _b;
-    (_b = document.querySelector("#logoutButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    var _a;
+    (_a = document.querySelector("#logoutButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         localStorage.removeItem("quizProgress"); // Remove any quiz progress
         // Redirect to the login page
         removeAllSections();
@@ -3062,16 +3062,17 @@ function createQuizSelection() {
     if (quizOptionsContainer) {
         quizOptions.forEach(quiz => {
             const button = document.createElement("button");
-            button.id = `quiz_${quiz.id}`;
+            button.id = quiz.id;
             button.textContent = quiz.label;
             button.className = "button text-white bg-teal-700 hover:bg-teal-400 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800";
             button.addEventListener("click", () => {
-                var _b;
+                var _a;
                 sessionStorage.setItem("quizId", button.id);
                 let quizData = button.id.split("_")[0].concat("Data");
+                console.log(quizData);
                 sessionStorage.setItem("quizData", quizData);
-                const tempArray = (_b = sessionStorage
-                    .getItem("quizId")) === null || _b === void 0 ? void 0 : _b.split("_")[0].split(/(?=[A-Z])/);
+                const tempArray = (_a = sessionStorage
+                    .getItem("quizId")) === null || _a === void 0 ? void 0 : _a.split("_")[0].split(/(?=[A-Z])/);
                 if (tempArray) {
                     tempArray[0] = tempArray[0].charAt(0).toUpperCase() + tempArray[0].slice(1);
                     const quiz_type = tempArray.join(" ");
@@ -3093,16 +3094,16 @@ function createQuizSection() {
         <div class="question-container">
             <p id="question"></p>
         </div>
-        <div id="answers"></div>
+        <div id="answers" class="flex justify-around space-y-2 space-x-2></div>
         <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" id="quizProgressBar"></div>
 		</div>
     `;
     displayContainer.appendChild(quizSection);
 }
 // Function to create and append the score section dynamically
 function createScoreSection() {
-    var _b;
+    var _a;
     const scoreSection = document.createElement("div");
     scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score", "col-span-7");
     scoreSection.id = "scoreSection";
@@ -3112,11 +3113,11 @@ function createScoreSection() {
         <button id="retryButton" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800  retry-button">Retry Quiz</button>
     `;
     displayContainer.appendChild(scoreSection);
-    (_b = document.querySelector("#retryButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => returnToBeginning());
+    (_a = document.querySelector("#retryButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => returnToBeginning());
 }
 // Function to create the past scores section dynamically
 function createPastScoresSection() {
-    var _b;
+    var _a;
     const pastScoresSection = document.createElement("div");
     pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history", "col-span-7");
     pastScoresSection.id = "pastScoresSection";
@@ -3127,13 +3128,13 @@ function createPastScoresSection() {
     `;
     displayContainer.appendChild(pastScoresSection);
     const currentUserId = sessionStorage.getItem("currentUserId");
-    (_b = document.querySelector("#backButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_a = document.querySelector("#backButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         removeElementById("pastScoresSection");
         if (checkProgressAtEnd(currentUserId)) {
             showScore();
         }
         else {
-            !loadQuiz();
+            loadQuiz();
         }
     });
 }
@@ -3152,7 +3153,7 @@ function createActionButtons() {
     logoutEventListener();
 }
 function createScoresButtons() {
-    var _b, _c;
+    var _a, _b;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
@@ -3164,17 +3165,17 @@ function createScoresButtons() {
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
-    (_b = document.querySelector("#viewScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_a = document.querySelector("#viewScoresButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         removeElementById("quizSelectionSection");
         createSortButtons();
     });
-    (_c = document.querySelector("#resetScoresButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    (_b = document.querySelector("#resetScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         // Show the confirmation dialog
         createDialog();
     });
 }
 function createSortButtons() {
-    var _b, _c, _d, _e;
+    var _a, _b, _c, _d;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
@@ -3194,17 +3195,17 @@ function createSortButtons() {
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
     renderScores(pastScores);
     // Sort by Quiz (alphabetically)
-    (_b = document.querySelector("#sortByQuizButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_a = document.querySelector("#sortByQuizButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         const sortedByQuiz = [...pastScores].sort((a, b) => a.quiz.localeCompare(b.quiz));
         renderScores(sortedByQuiz);
     });
     // Sort by Date (newest to oldest)
-    (_c = document.querySelector("#sortByDateButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    (_b = document.querySelector("#sortByDateButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         const sortedByDate = [...pastScores].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         renderScores(sortedByDate);
     });
     // Sort by Score (highest to lowest)
-    (_d = document.querySelector("#sortByScoreButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+    (_c = document.querySelector("#sortByScoreButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         const sortedByPercentage = [...pastScores].sort((a, b) => {
             const percentageA = (a.score / a.total) * 100;
             const percentageB = (b.score / b.total) * 100;
@@ -3212,7 +3213,7 @@ function createSortButtons() {
         });
         renderScores(sortedByPercentage);
     });
-    (_e = document.querySelector("#resetScoresButton")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
+    (_d = document.querySelector("#resetScoresButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
         // Show the confirmation dialog
         createDialog();
     });
@@ -3265,7 +3266,7 @@ function formatDate(dateString) {
     return `${month}/${day}/${year}`; // Return in mm/dd/yy format
 }
 function createDialog() {
-    var _b, _c;
+    var _a, _b;
     const dialog = document.createElement("div");
     dialog.setAttribute("tabindex", "-1");
     dialog.classList.add("overflow-y-auto", "flex", "overflow-x-hidden", "inset-2/4", "z-50", "justify-center", "items-center", "w-full", "max-h-full", "col-span-12");
@@ -3298,7 +3299,7 @@ function createDialog() {
     `;
     displayContainer.appendChild(dialog);
     // Add event listener for the Confirm button
-    (_b = document.getElementById("resetConfirm")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_a = document.getElementById("resetConfirm")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         const currentUserId = sessionStorage.getItem("currentUserId");
         localStorage.removeItem(`quizScores_${currentUserId}`); // Clear the quiz scores
         sessionStorage.removeItem("quizData");
@@ -3308,41 +3309,40 @@ function createDialog() {
         returnToBeginning();
     });
     // Add event listener for the Cancel button
-    (_c = document.querySelector("#cancel-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    (_b = document.querySelector("#cancel-btn")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         removeElementById("dialog"); // Close the dialog
     });
 }
+// Function to reset quiz and return to the beginning
 function returnToBeginning() {
     // Reset quiz variables
     currentQuestion = 0;
     score = 0;
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
-    // Check if the user has completed the current quiz
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]")
-        .filter((item) => item.quizId !== null)
-        .filter((item) => item.quizId !== quizId);
     const quizId = sessionStorage.getItem("quizId");
-    if (!currentProgress.some((item) => item.quizId === quizId)) {
-        currentProgress.push({ currentQuestion, score, quizId });
-    }
-    // Remove entries with null quizId
+    // Retrieve current progress and remove the current quiz's progress
+    let currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    currentProgress = currentProgress.filter((item) => item.quizId !== quizId);
+    // Add new progress starting from the beginning
+    currentProgress.push({ currentQuestion, score, quizId });
+    // Sort and save the updated progress
+    sortProgressArray(currentProgress);
     localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
-    localStorage.setItem("quizProgress", String(0));
     // Update the UI
     removeElementById("scoreSection");
     createActionButtons();
     // Display the first question
     loadQuiz();
 }
-// Load Quiz
+// Function to load the quiz
 function loadQuiz() {
     const currentUserId = sessionStorage.getItem("currentUserId");
     if (!currentUserId) {
-        // If no user is logged in, show the login section
+        // If no user is logged in, show the login and registration sections
         createRegisterSection();
         createLoginSection();
-        return true;
+        return;
     }
     // Retrieve users and find the current user
     const users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -3351,11 +3351,12 @@ function loadQuiz() {
         createRegisterSection();
         createLoginSection();
         console.error("User not found!");
-        return false;
+        return;
     }
     const { firstName } = foundUser;
     // Check if the user has logged in before
-    const hasLoggedInBefore = localStorage.getItem("hasLoggedInBefore");
+    const hasLoggedInBeforeKey = `hasLoggedInBefore_${currentUserId}`;
+    const hasLoggedInBefore = localStorage.getItem(hasLoggedInBeforeKey);
     // Display a welcome message based on the user's login history
     const welcomeMessage = document.getElementById("welcomeMessage");
     if (welcomeMessage) {
@@ -3364,20 +3365,19 @@ function loadQuiz() {
         }
         else {
             welcomeMessage.textContent = `Welcome, ${firstName}!`;
-            localStorage.setItem("hasLoggedInBefore", "true"); // Mark user as logged in for future
+            localStorage.setItem(hasLoggedInBeforeKey, "true"); // Mark user as logged in for future
         }
     }
     removeElementById("registerSection");
     removeElementById("loginSection");
-    const userProgressKey = `quizScores_${currentUserId}`;
-    if (localStorage.getItem(userProgressKey)) {
+    const userScoresKey = `quizScores_${currentUserId}`;
+    if (localStorage.getItem(userScoresKey)) {
         createScoresButtons();
     }
     else {
         createActionButtons();
     }
     createQuizSelection();
-    return true;
 }
 // Function to load progress on quiz start
 function loadProgress() {
@@ -3386,7 +3386,7 @@ function loadProgress() {
     }
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
-    const quizId = sessionStorage.getItem("quizId") || "";
+    const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const index = currentProgress.findIndex((item) => item.quizId === quizId);
     if (index !== -1) {
@@ -3399,7 +3399,7 @@ function loadProgress() {
         currentQuestion = 0;
         score = 0;
         // Save initial progress
-        currentProgress.push({ currentQuestion, score, quizId: quizId });
+        currentProgress.push({ currentQuestion, score, quizId });
         // Sort the array alphabetically by quizId
         sortProgressArray(currentProgress);
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
@@ -3424,26 +3424,14 @@ function displayQuestion() {
         console.error("Invalid quiz selection.");
         return;
     }
-    const currentUserId = sessionStorage.getItem("currentUserId");
-    const userProgressKey = `quizProgress_${currentUserId}`;
-    const quizId = sessionStorage.getItem("quizId");
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
-    const index = currentProgress.findIndex((item) => item.quizId === quizId);
-    if (index === -1) {
-        // Should not happen if loadProgress is working
-        currentQuestion = 0;
-        score = 0;
-        currentProgress.push({ currentQuestion, score, quizId });
-        localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
-    }
-    else {
-        // Progress exists, load currentQuestion and score from stored progress
-        currentQuestion = currentProgress[index].currentQuestion;
-        score = currentProgress[index].score;
-    }
     const currentQuiz = quizData[selection];
-    const currentQuizData = currentQuiz[currentQuestion];
     totalQuestions = currentQuiz.length;
+    // Check if currentQuestion is within bounds
+    if (currentQuestion >= totalQuestions) {
+        showScore();
+        return;
+    }
+    const currentQuizData = currentQuiz[currentQuestion];
     // Get DOM elements
     const questionEl = document.getElementById("question");
     const answersEl = document.getElementById("answers");
@@ -3468,7 +3456,7 @@ function displayQuestion() {
         else {
             // Create new button if necessary
             button = document.createElement("button");
-            button.classList.add("text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white");
+            button.className = "answer-button"; // Use a CSS class for styling
             answersEl.appendChild(button);
         }
         // Update the button text
@@ -3486,72 +3474,61 @@ function updateProgressBar() {
     const progressBar = document.getElementById("quizProgressBar");
     const progressValue = ((currentQuestion + 1) / totalQuestions) * 100; // Calculate percentage
     progressBar.value = progressValue; // Update the value of the progress bar
-    // Save current progress in session storage
-    const currentUserId = sessionStorage.getItem("currentUserId");
-    const userProgressKey = `quizProgress_${currentUserId}`;
-    const quizId = sessionStorage.getItem("quizId");
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
-    if (!currentProgress.some((item) => item.quizId === quizId)) {
-        currentProgress.push({ currentQuestion, score, quizId });
-    }
-    localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
+    // Save current progress
+    saveProgress();
 }
-// Check Answer
-function checkAnswer(answers, selectedIndex) {
-    const selectedAnswer = answers[selectedIndex];
-    if (selectedAnswer.correct) {
-        score++;
-    }
-    currentQuestion++;
-    // Now, update progress in localStorage
+// Function to save progress to localStorage
+function saveProgress() {
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
     const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const index = currentProgress.findIndex((item) => item.quizId === quizId);
     if (index !== -1) {
-        const _a = { currentQuestion, score, quizId };
-        currentProgress.splice(index, 1);
-        currentProgress.push(_a);
+        // Update existing progress
+        currentProgress[index].currentQuestion = currentQuestion;
+        currentProgress[index].score = score;
     }
-    // Store progress only at the end of the quiz
+    else {
+        // Add new progress
+        currentProgress.push({ currentQuestion, score, quizId });
+    }
+    // Sort the array alphabetically by quizId
+    sortProgressArray(currentProgress);
+    localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
+}
+// Function to check the answer and proceed
+function checkAnswer(answers, selectedIndex) {
+    const selectedAnswer = answers[selectedIndex];
+    if (selectedAnswer.correct) {
+        score++;
+    }
+    currentQuestion++;
+    // Update progress
+    saveProgress();
+    // Proceed to next question or show score
     if (currentQuestion < totalQuestions) {
         displayQuestion(); // Show the next question
     }
     else {
         showScore(); // Display final score
-        if (currentQuestion == totalQuestions) {
-            currentQuestion = 0;
-            score = 0;
-        }
-        localStorage.setItem("quizProgress", String(currentQuestion));
     }
 }
+// Shuffle function using Fisher-Yates algorithm
 const shuffle = (array) => {
-    // Step 1: Fisher-Yates Shuffle
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    // Step 2: Random sort shuffle
-    return array
-        .map((a) => ({ sort: Math.random(), value: a }))
-        .sort((a, b) => a.sort - b.sort)
-        .map((a) => a.value);
+    return array;
 };
-// Show Score
+// Function to show the final score
 function showScore() {
     removeAllSections();
     // Display the score section
     createScoresButtons();
     createScoreSection();
-    // Get the current user ID
     const currentUserId = sessionStorage.getItem("currentUserId");
-    if (!currentUserId) {
-        console.error("No current user ID found.");
-        return;
-    }
-    // Retrieve and update past scores for the current user
     const userScoresKey = `quizScores_${currentUserId}`;
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
     const selection = sessionStorage.getItem("quizData");
@@ -3560,35 +3537,21 @@ function showScore() {
         return;
     }
     const currentQuiz = quizData[selection];
-    if (checkProgressAtEnd(currentUserId)) {
-        // Add the new score with the current timestamp
-        const timestamp = new Date().toLocaleString();
-        pastScores.push({ score: score, total: currentQuiz.length, quiz: sessionStorage.getItem("quizType"), date: timestamp });
-        // Update localStorage with the new scores
-        localStorage.setItem(userScoresKey, JSON.stringify(pastScores));
-        // Sort the past scores by date (most recent first)
-        pastScores.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-        // Get the most recent score (which will be the first after sorting)
-        const mostRecentScore = pastScores[0];
-        // Update the score message with the most recent score
-        const scoreMessageEl = document.getElementById("scoreMessage");
-        if (scoreMessageEl) {
-            scoreMessageEl.textContent = `Most Recent Score: ${mostRecentScore.score} out of ${mostRecentScore.total} on the ${mostRecentScore.quiz} quiz on ${mostRecentScore.date}.`;
-        }
+    // Add the new score with the current timestamp
+    const timestamp = new Date().toLocaleString();
+    const quizType = sessionStorage.getItem("quizType") || "Unknown Quiz";
+    pastScores.push({ score, total: currentQuiz.length, quiz: quizType, date: timestamp });
+    // Update localStorage with the new scores
+    localStorage.setItem(userScoresKey, JSON.stringify(pastScores));
+    // Update the score message with the most recent score
+    const scoreMessageEl = document.getElementById("scoreMessage");
+    if (scoreMessageEl) {
+        scoreMessageEl.textContent = `You scored ${score} out of ${currentQuiz.length} on the ${quizType} quiz.`;
     }
-    const quizProgress = localStorage.getItem(`quizProgress_${currentUserId}`);
-    if (quizProgress) {
-        currentQuestion = 0;
-        score = 0;
-        // Save current progress in session storage
-        const userProgressKey = `quizProgress_${currentUserId}`;
-        const quizId = sessionStorage.getItem("quizId");
-        const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]").filter((item) => item.quizId !== null);
-        if (!currentProgress.some((item) => item.quizId === quizId)) {
-            currentProgress.push({ currentQuestion, score, quizId });
-        }
-        localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
-    }
+    // Reset quiz progress
+    currentQuestion = 0;
+    score = 0;
+    saveProgress();
 }
 function checkProgressAtEnd(currentUserId) {
     // Retrieve current quiz progress
