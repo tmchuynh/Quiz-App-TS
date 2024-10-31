@@ -2748,32 +2748,30 @@ function removeAllSections(): void {
 // Function to create and append the registration form dynamically
 function createRegisterSection(): void {
 	const registerSection = document.createElement( "div" );
-	registerSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "registeration-section" );
+	registerSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "registeration-section", "space-y-2" );
 	registerSection.id = "registerSection";
 	registerSection.innerHTML = `
-        <h2 class="">Register</h2>
-		<form class="space-y-6">
-			<label for="firstName" class="block text-sm/6 font-medium text-gray-900">First Name:</label>
-			<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
-			<label for="lastName" class="block text-sm/6 font-medium text-gray-900">Last Name:</label>
-			<input type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter last name" />
-			<label for="email" class="block text-sm/6 font-medium text-gray-900">Email:</label>
-			<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter email" />
-			<label for="registerUsername" class="block text-sm/6 font-medium text-gray-900">Username:</label>
-			<input type="text" id="registerUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
-			<label for="registerPassword" class="block text-sm/6 font-medium text-gray-900">Password:</label>
-			<input type="password" id="registerPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
-			<label for="confirmPassword" class="block text-sm/6 font-medium text-gray-900">Retype Password:</label>
-			<input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Retype password" autocomplete="current-password"/>
-			<div class="flex items-center mb-4">
-				<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" value="" id="registerPasswordView">
-				<label class="form-check-label ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="registerPasswordView">
-					Show Password
-				</label>
-			</div>
-			<button id="registerButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
-			<p id="registerError" class=" " style="display:none;"></p>
-		</form>
+        <h2 class="text-4xl font-extrabold dark:text-white my-3">Register</h2>
+		<label for="firstName" class="block text-md/6 font-medium text-gray-900">First Name:</label>
+		<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
+		<label for="lastName" class="block text-md/6 font-medium text-gray-900">Last Name:</label>
+		<input type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter last name" />
+		<label for="email" class="block text-md/6 font-medium text-gray-900">Email:</label>
+		<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter email" />
+		<label for="registerUsername" class="block text-md/6 font-medium text-gray-900">Username:</label>
+		<input type="text" id="registerUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+		<label for="registerPassword" class="block text-md/6 font-medium text-gray-900">Password:</label>
+		<input type="password" id="registerPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
+		<label for="confirmPassword" class="block text-md/6 font-medium text-gray-900">Retype Password:</label>
+		<input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Retype password" autocomplete="current-password"/>
+		<div class="flex items-center mb-4">
+			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" value="" id="registerPasswordView">
+			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-gray-300" for="registerPasswordView">
+				Show Password
+			</label>
+		</div>
+		<button id="registerButton" class="float-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+		<p id="registerError" class="mt-2 text-sm text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
 
 	// Append the dynamically created register section to the loginContainer
@@ -2881,7 +2879,11 @@ async function validateRegistrationForm(): Promise<void> {
 
 function resetErrorStyles( fields: { element: HTMLInputElement; }[] ): void {
 	fields.forEach( ( field ) => {
-		field.element.classList.remove( "" );
+		field.element.classList.remove( "mt-2" );
+		field.element.classList.remove( "text-sm" );
+		field.element.classList.remove( "text-red-600" );
+		field.element.classList.remove( "dark:text-red-400" );
+
 	} );
 }
 
@@ -2890,7 +2892,10 @@ function showError( message: string, field: HTMLElement ): void {
 
 	registerError.textContent = message;
 	registerError.style.display = "block";
-	field.classList.add( "" );
+	field.classList.add( "mt-2" );
+	field.classList.add( "text-sm" );
+	field.classList.add( "text-red-600" );
+	field.classList.add( "dark:text-red-400" );
 }
 
 function isValidPassword( password: string ): boolean {
@@ -2975,7 +2980,12 @@ function clearErrorStyles(): void {
 
 	const fields = [firstName, lastName, email, registerUsername, registerPassword, confirmPassword];
 
-	fields.forEach( ( field ) => field.classList.remove( "" ) ); // Remove error class from all fields
+	fields.forEach( ( field ) => {
+		field.classList.remove( "mt-2" );
+		field.classList.remove( "text-sm" );
+		field.classList.remove( "text-red-600" );
+		field.classList.remove( "dark:text-red-400" );
+	} ); // Remove error class from all fields
 	const registerError = document.getElementById( "registerError" ) as HTMLElement;
 	registerError.style.display = "none"; // Hide error message
 }
@@ -2983,24 +2993,22 @@ function clearErrorStyles(): void {
 // Function to create and append the login form dynamically
 function createLoginSection(): void {
 	const loginSection = document.createElement( "div" );
-	loginSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "login-section" );
+	loginSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "login-section", "space-y-2" );
 	loginSection.id = "loginSection";
 	loginSection.innerHTML = `
-        <h2 class="">Login</h2>
-		<form class="space-y-6">
-			<label for="loginUsername" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username:</label>
-			<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
-			<label for="loginPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password:</label>
-			<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
-			<div class="form-check">
-				<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
-				<label class="form-check-label ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="loginPasswordView">
-					Show Password
-				</label>
-			</div>
-			<button id="loginButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
-			<p id="loginError" class=" " style="display:none;">Incorrect username or password.</p>
-		</form>
+        <h2 class="text-4xl font-extrabold dark:text-white my-3">Login</h2>
+		<label for="loginUsername" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Username:</label>
+		<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+		<label for="loginPassword" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Password:</label>
+		<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
+		<div class="form-check">
+			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
+			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-gray-300" for="loginPasswordView">
+				Show Password
+			</label>
+		</div>
+		<button id="loginButton" class="float-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+		<p id="loginError" class="mt-2 text-sm text-red-600 dark:text-red-400" style="display:none;">Incorrect username or password.</p>
 		`;
 	loginContainer.appendChild( loginSection );
 	document.querySelector( "#loginButton" )?.addEventListener( "click", validateLoginForm );
@@ -3040,7 +3048,12 @@ async function validateLoginForm(): Promise<void> {
 
 	// Reset error styles for both fields
 	const fields = [loginUsername, loginPassword];
-	fields.forEach( ( field ) => field.classList.remove( "" ) );
+	fields.forEach( ( field ) => {
+		field.classList.remove( "mt-2" );
+		field.classList.remove( "text-sm" );
+		field.classList.remove( "text-red-600" );
+		field.classList.remove( "dark:text-red-400" );
+	} );
 	const loginError = document.getElementById( "loginError" ) as HTMLElement;
 
 	loginError.style.display = "none";
@@ -3053,7 +3066,10 @@ async function validateLoginForm(): Promise<void> {
 		// Add '' class to empty fields
 		fields.forEach( ( field ) => {
 			if ( !field.value.trim() ) {
-				field.classList.add( "" );
+				field.classList.add( "mt-2" );
+				field.classList.add( "text-sm" );
+				field.classList.add( "text-red-600" );
+				field.classList.add( "dark:text-red-400" );
 			}
 		} );
 
@@ -3092,7 +3108,12 @@ function handleLoginError( message: string ): void {
 	loginError.textContent = message;
 	loginError.style.display = "block";
 	const { loginUsername, loginPassword } = getLoginFormFields();
-	[loginUsername, loginPassword].forEach( ( field ) => field.classList.add( "" ) );
+	[loginUsername, loginPassword].forEach( ( field ) => {
+		field.classList.add( "mt-2" );
+		field.classList.add( "text-sm" );
+		field.classList.add( "text-red-600" );
+		field.classList.add( "dark:text-red-400" );
+	} );
 }
 
 // Helper function to handle successful login
@@ -3115,7 +3136,12 @@ function clearLoginErrorStyles(): void {
 	const fields = [loginUsername, loginPassword];
 
 	// Remove error class from both fields
-	fields.forEach( ( field ) => field.classList.remove( "" ) );
+	fields.forEach( ( field ) => {
+		field.classList.remove( "mt-2" );
+		field.classList.remove( "text-sm" );
+		field.classList.remove( "text-red-600" );
+		field.classList.remove( "dark:text-red-400" );
+	} );
 
 	// Hide error message
 	const loginError = document.getElementById( "loginError" ) as HTMLElement;
@@ -3138,12 +3164,12 @@ function logoutEventListener() {
 
 function createQuizSelection() {
 	const quizSelectionSection = document.createElement( "div" );
-	quizSelectionSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-selection-section" );
+	quizSelectionSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "quiz-selection-section", "w-11/12" );
 	quizSelectionSection.id = "quizSelectionSection";
 	quizSelectionSection.innerHTML = `
-        <h2 class="">Select a Quiz</h2>
-        <div id="quizOptions">
-            <button id="artQuiz_Button" class=" humanities">Art Quiz</button>
+        <h2 class="text-4xl font-extrabold dark:text-white">Select a Quiz</h2>
+        <div id="quizOptions" class="grid grid-cols-4 gap-4 p-3">
+            <button id="artQuiz_Button" class="text-black bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 humanities">Art Quiz</button>
             <button id="astrologyQuiz_Button" class=" humanities">Astrology Quiz</button>
             <button id="literatureQuiz_Button" class=" humanities">Literature Quiz</button>
             <button id="englishQuiz_Button" class=" humanities">English Quiz</button>
@@ -3200,7 +3226,7 @@ function createQuizSelection() {
 // Function to create and append the quiz section dynamically
 function createQuizSection(): void {
 	const quizSection = document.createElement( "div" );
-	quizSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section" );
+	quizSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section" );
 	quizSection.id = "quizSection";
 	quizSection.innerHTML = `
         <div class="question-container">
@@ -3217,12 +3243,12 @@ function createQuizSection(): void {
 // Function to create and append the score section dynamically
 function createScoreSection(): void {
 	const scoreSection = document.createElement( "div" );
-	scoreSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score" );
+	scoreSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score" );
 	scoreSection.id = "scoreSection";
 	scoreSection.innerHTML = `
-        <h2 class="">Quiz Completed!</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white">Quiz Completed!</h2>
         <p id="scoreMessage"></p>
-        <button id="retryButton" class="  retry-button">Retry Quiz</button>
+        <button id="retryButton" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800  retry-button">Retry Quiz</button>
     `;
 	displayContainer.appendChild( scoreSection );
 	document.querySelector( "#retryButton" )?.addEventListener( "click", () => returnToBeginning() );
@@ -3231,11 +3257,11 @@ function createScoreSection(): void {
 // Function to create the past scores section dynamically
 function createPastScoresSection(): void {
 	const pastScoresSection = document.createElement( "div" );
-	pastScoresSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history" );
+	pastScoresSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history" );
 	pastScoresSection.id = "pastScoresSection";
 	pastScoresSection.innerHTML = `
-        <h2 class="">Past Scores</h2>
-        <table id="pastScores" class="scores-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 100%; border-collapse: collapse;"></table>
+        <h2 class="text-4xl font-extrabold dark:text-white">Past Scores</h2>
+        <table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 100%; border-collapse: collapse;"></table>
         <button id="backButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back to Quiz</button>
     `;
 	displayContainer.appendChild( pastScoresSection );
@@ -3256,9 +3282,11 @@ function createActionButtons(): void {
 	removeElementById( "actionButtons" );
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
-	actionButtons.className = "buttonGroup";
+	actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class=" ">Logout</button>
+		<div class="grid grid-cols-1">
+			<button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
+		</div>
     `;
 	displayContainer.appendChild( actionButtons );
 	logoutEventListener();
@@ -3268,11 +3296,11 @@ function createScoresButtons(): void {
 	removeElementById( "actionButtons" );
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
-	actionButtons.className = "buttonGroup";
+	actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class=" ">Logout</button>
-        <button id="viewScoresButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Past Scores</button>
-        <button id="resetScoresButton" class=" ">Reset All Scores</button>
+		<button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
+		<button id="viewScoresButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Past Scores</button>
+		<button id="resetScoresButton" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Reset All Scores</button>
     `;
 	displayContainer.appendChild( actionButtons );
 
@@ -3292,10 +3320,10 @@ function createSortButtons(): void {
 	removeElementById( "actionButtons" );
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
-	actionButtons.className = "buttonGroup";
+	actionButtons.className = "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class=" ">Logout</button>
-        <button id="resetScoresButton" class=" ">Reset All Scores</button>
+        <button id="logoutButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Logout</button>
+        <button id="resetScoresButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Reset All Scores</button>
         <button id="sortByQuizButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Quiz</button>
         <button id="sortByDateButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Date</button>
         <button id="sortByScoreButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Score</button>
@@ -3348,7 +3376,7 @@ function renderScores( pastScores: any[] ): void {
 
 	// Create table headers and rows for the scores
 	const tableHeaders = `
-		<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+		<thead class="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 			<tr>
 				<th>Quiz</th>
 				<th>Score</th>
@@ -3624,7 +3652,7 @@ function displayQuestion(): void {
 		} else {
 			// Create new button if necessary
 			button = document.createElement( "button" );
-			button.classList.add( "" );
+			button.classList.add( "text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" );
 			answersEl.appendChild( button );
 		}
 
