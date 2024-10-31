@@ -3056,15 +3056,31 @@ function createQuizSelection() {
         <div id="quizOptions" class="grid grid-cols-4 gap-4 p-3">
             
         </div>
+
+		<div class="flex justify-center mt-5">
+			<span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-emerald-800 rounded-full me-1.5 flex-shrink-0"></span>New</span>
+			<span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-rose-800 rounded-full me-1.5 flex-shrink-0"></span>In Progress</span>
+		</div>
     `;
     displayContainer.appendChild(quizSelectionSection);
+    // Retrieve current user's progress
+    const currentUserId = sessionStorage.getItem("currentUserId");
+    const userProgressKey = `quizProgress_${currentUserId}`;
+    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const quizOptionsContainer = document.getElementById("quizOptions");
     if (quizOptionsContainer) {
         quizOptions.forEach(quiz => {
             const button = document.createElement("button");
             button.id = quiz.id;
             button.textContent = quiz.label;
-            button.className = "button text-white bg-teal-700 hover:bg-teal-400 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800";
+            button.className = "button text-white bg-emerald-800 hover:bg-emerald-400 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800";
+            // Check if the quiz is already in progress
+            const progressItem = currentProgress.find((item) => item.quizId === quiz.id && item.currentQuestion > 0);
+            if (progressItem) {
+                // Quiz is in progress, change the button class
+                button.className =
+                    "button text-white bg-rose-800 hover:bg-rose-400 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800";
+            }
             button.addEventListener("click", () => {
                 var _a;
                 sessionStorage.setItem("quizId", button.id);
