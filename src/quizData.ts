@@ -10,7 +10,6 @@ export interface Question {
     answers: Answer[];
 }
 
-
 // Define an export interface for the quiz data structure
 export interface QuizData {
     chemistryQuizData: Question[];

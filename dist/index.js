@@ -421,17 +421,13 @@ function logoutEventListener() {
         sessionStorage.clear();
     });
 }
-// function sortQuizArrayByDifficulty( arr: QuizOption[] ) {
-// 	return arr.sort( ( a, b ) => {
-//         if ( a.difficulty < b.difficulty ) {
-//             return -1;
-//         }
-//         if ( a.difficulty > b.difficulty ) {
-//             return 1;
-//         }
-//         return 0;
-//     } );
-// }
+/**
+ * Sorts an array of QuizOption objects by their label in ascending order.
+ *
+ * @param {QuizOption[]} arr - The array of QuizOption objects to be sorted.
+ *
+ * @returns {void} - The function does not return a value, but it modifies the input array in place.
+ */
 function sortQuizArrayByName(arr) {
     arr.sort((a, b) => a.label.localeCompare(b.label));
 }
@@ -494,6 +490,13 @@ function createQuizSelection() {
         });
     }
 }
+/**
+ * Prompts the user to select a difficulty level for a given quiz.
+ *
+ * @param {string} quizId - The ID of the quiz.
+ *
+ * @returns {void}
+ */
 function promptForDifficulty(quizId) {
     // Remove the quiz selection section
     removeElementById("quizSelectionSection");
@@ -518,7 +521,7 @@ function promptForDifficulty(quizId) {
             button.textContent = `Level ${level}`;
             button.className =
                 "button text-white bg-zinc-700 hover:bg-zinc-600 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800";
-            // // Check if the quiz is already in progress at any difficulty level
+            // Check if the quiz is already in progress at any difficulty level
             // const progressItems = currentProgress.filter( ( item ) => item.currentQuestion > 0 );
             // if ( progressItems.length > 0 ) {
             // 	button.className =
@@ -533,6 +536,14 @@ function promptForDifficulty(quizId) {
         }
     }
 }
+/**
+ * Sets up the quiz data for the given quiz ID and difficulty level.
+ *
+ * @param {string} quizId - The ID of the quiz.
+ * @param {number} difficultyLevel - The difficulty level of the quiz.
+ *
+ * @returns {void}
+ */
 function setupQuizData(quizId, difficultyLevel) {
     var _a;
     removeAllSections();
@@ -665,6 +676,12 @@ function createScoresButtons() {
         createSortButtons();
     });
 }
+/**
+ * Adds a button to the action buttons section that allows the user to select a different quiz.
+ * When clicked, it removes all existing sections and loads the quiz selection section.
+ * It also adds an event listener to the "viewScoresButton" to remove the quiz selection section
+ * and create the sort buttons section when clicked.
+ */
 function addBackToSelectionSectionButton() {
     var _a, _b;
     const actionButtons = document.querySelector("#actionButtons");
@@ -742,6 +759,20 @@ function createSortButtons() {
         createDialog();
     });
 }
+/**
+ * Renders the quiz scores in a table format.
+ *
+ * @param {any[]} pastScores - An array of objects containing quiz scores.
+ * Each object has the following properties:
+ * - score: The number of correct answers.
+ * - total: The total number of questions in the quiz.
+ * - quiz: The name of the quiz.
+ * - date: The date and time when the quiz was taken.
+ *
+ * The function removes existing sections, creates a new past scores section,
+ * and dynamically generates table headers and rows for the scores.
+ * It then inserts the table into the `#pastScores` element.
+ */
 function renderScores(pastScores) {
     // Remove existing sections
     removeElementById("quizSection");
@@ -784,7 +815,12 @@ function renderScores(pastScores) {
         ${tableRows}
     `;
 }
-// Helper function to format time to hh:mm AM/PM
+/**
+ * Formats a date string to the hh:mm AM/PM format.
+ *
+ * @param {string} dateString - The date string to be formatted.
+ * @returns {string} - The formatted date string in hh:mm AM/PM format.
+ */
 function formatTime(dateString) {
     const date = new Date(dateString); // Convert the string to a Date object
     let hours = date.getHours(); // Get hours from 0 to 23
@@ -795,7 +831,12 @@ function formatTime(dateString) {
     const formattedHours = hours.toString().padStart(2, "0"); // Pad hours with leading zero if necessary
     return `${formattedHours}:${minutes} ${ampm}`; // Return in hh:mm AM/PM format
 }
-// Helper function to format date to mm/dd/yy
+/**
+ * Formats a date string to the mm/dd/yy format.
+ *
+ * @param {string} dateString - The date string to be formatted.
+ * @returns {string} - The formatted date string in mm/dd/yy format.
+ */
 function formatDate(dateString) {
     const date = new Date(dateString); // Convert the string to a Date object
     const month = (date.getMonth() + 1).toString().padStart(2, "0"); // getMonth() returns 0-11, so add 1
@@ -851,7 +892,15 @@ function createDialog() {
         removeElementById("dialog"); // Close the dialog
     });
 }
-// Function to reset quiz and return to the beginning
+/**
+ * Resets the quiz variables and returns to the beginning of the quiz.
+ *
+ * @remarks
+ * This function clears the current question, score, and progress for the current quiz.
+ * It also removes the current quiz's progress from the user's progress storage.
+ *
+ * @returns {void}
+ */
 function returnToBeginning() {
     // Reset quiz variables
     currentQuestion = 0;
@@ -875,7 +924,16 @@ function returnToBeginning() {
     // Display the first question
     setupQuizData(quizId, difficultyLevel);
 }
-// Function to load the quiz
+/**
+ * Loads the quiz based on the current user's login status.
+ *
+ * @remarks
+ * This function checks if a user is logged in. If not, it displays the login and registration sections.
+ * If a user is logged in, it retrieves the user's information and displays a welcome message.
+ * It also removes any existing sections and creates new ones based on the user's progress.
+ *
+ * @returns {void}
+ */
 function loadQuiz() {
     const currentUserId = sessionStorage.getItem("currentUserId");
     if (!currentUserId) {
@@ -919,7 +977,19 @@ function loadQuiz() {
     }
     createQuizSelection();
 }
-// Function to load progress on quiz start
+/**
+ * Loads the quiz progress from local storage and updates the current question and score.
+ * If no progress is found, it starts from the beginning.
+ *
+ * @remarks
+ * This function checks if the quiz section exists. If not, it creates a new quiz section.
+ * It retrieves the current user's ID and quiz ID from local storage.
+ * It then retrieves the user's progress from local storage and finds the progress for the current quiz.
+ * If progress is found, it updates the current question and score.
+ * If no progress is found, it starts from the beginning by setting the current question and score to 0.
+ *
+ * @returns {void}
+ */
 function loadProgress() {
     if (!document.querySelector("#quizSection")) {
         createQuizSection();
@@ -949,6 +1019,17 @@ function loadProgress() {
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
     }
 }
+/**
+ * Sorts the progress array based on the quizId in ascending order.
+ *
+ * @param {ProgressItem[]} progressArray - The array of progress items to be sorted.
+ *
+ * @returns {void} - The function does not return any value.
+ *
+ * @remarks
+ * This function sorts the progress array in ascending order based on the quizId.
+ * It uses the Array.sort() method with a custom comparison function.
+ */
 function sortProgressArray(progressArray) {
     progressArray.sort((a, b) => {
         if (a.quizId < b.quizId)
@@ -995,7 +1076,17 @@ function createQuestionElement(question) {
         newButton.addEventListener("click", () => checkAnswer(index));
     });
 }
-// Display Question
+/**
+ * Displays the current question to the user interface.
+ *
+ * @remarks
+ * This function retrieves the quiz data and current question from session storage.
+ * It then checks if the quiz data and current question are valid.
+ * If they are, it creates a new question element and updates the progress bar.
+ * If the current question is out of bounds, it shows the final score.
+ *
+ * @returns {void}
+ */
 function displayQuestion() {
     loadProgress();
     removeElementById("quizSelectionSection");
@@ -1022,7 +1113,15 @@ function displayQuestion() {
     // Update the progress bar
     updateProgressBar();
 }
-// Function to update the progress bar
+/**
+ * Updates the progress bar based on the current question and total questions.
+ *
+ * @remarks
+ * This function retrieves the progress bar element from the DOM, calculates the progress percentage,
+ * logs the progress percentage to the console, updates the width of the progress bar, and saves the progress.
+ *
+ * @returns {void} - The function does not return any value.
+ */
 function updateProgressBar() {
     const progressBar = document.getElementById("quizProgressBar");
     const progressValue = ((currentQuestion + 1) / totalQuestions) * 100; // Calculate percentage
@@ -1031,7 +1130,19 @@ function updateProgressBar() {
     // Save current progress
     saveProgress();
 }
-// Function to save progress to localStorage
+/**
+ * Saves the current progress of the user to local storage.
+ *
+ * @remarks
+ * This function retrieves the user's ID, quiz ID, and difficulty level from session storage.
+ * It then retrieves the current progress from local storage or creates a new array if none exists.
+ * It finds the index of the current quiz in the progress array and updates the progress if found.
+ * If not found, it adds a new progress item to the array.
+ * The progress array is then sorted alphabetically by quiz ID and difficulty level.
+ * Finally, the updated progress array is saved back to local storage.
+ *
+ * @returns {void} - The function does not return any value.
+ */
 function saveProgress() {
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
@@ -1057,7 +1168,23 @@ function saveProgress() {
     sortProgressArray(currentProgress);
     localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
 }
-// Function to check the answer and proceed
+/**
+ * Checks the selected answer and updates the score and current question.
+ *
+ * @param {number} selectedAnswerIndex - The index of the selected answer in the question's answers array.
+ *
+ * @returns {void} - The function does not return any value.
+ *
+ * @remarks
+ * This function retrieves the current quiz data from session storage.
+ * It then checks if the current quiz data is available. If not, it logs an error message and returns.
+ * It retrieves the question and selected answer from the current quiz data.
+ * It logs the selected answer index and the selected answer for debugging purposes.
+ * If the selected answer is correct, it increments the score.
+ * It increments the current question.
+ * It saves the updated progress.
+ * Finally, it displays the next question.
+ */
 function checkAnswer(selectedAnswerIndex) {
     const currentQuizDataStr = sessionStorage.getItem("currentQuizData");
     if (!currentQuizDataStr) {
@@ -1086,7 +1213,21 @@ const shuffle = (array) => {
     }
     return array;
 };
-// Function to show the final score
+/**
+ * Displays the final score and updates the user's scores.
+ *
+ * @remarks
+ * This function retrieves the current quiz data from session storage.
+ * It then checks if the current quiz data is available. If not, it logs an error message and returns.
+ * It retrieves the question and selected answer from the current quiz data.
+ * It logs the selected answer index and the selected answer for debugging purposes.
+ * If the selected answer is correct, it increments the score.
+ * It increments the current question.
+ * It saves the updated progress.
+ * Finally, it displays the score message with the most recent score.
+ *
+ * @returns {void} - The function does not return any value.
+ */
 function showScore() {
     removeAllSections();
     // Display the score section
@@ -1137,6 +1278,20 @@ function showScore() {
     score = 0;
     saveProgress();
 }
+/**
+ * Checks if the user has completed the current quiz.
+ *
+ * @param {string} currentUserId - The ID of the current user.
+ *
+ * @returns {boolean} - Returns true if the user has completed the current quiz, false otherwise.
+ *
+ * @remarks
+ * This function retrieves the current quiz progress from local storage.
+ * It then checks if the current quiz ID exists in the progress array.
+ * If the quiz ID is found, it further checks if the current question number is equal to the total number of questions.
+ * If both conditions are met, it returns true, indicating that the user has completed the current quiz.
+ * Otherwise, it returns false.
+ */
 function checkProgressAtEnd(currentUserId) {
     // Retrieve current quiz progress
     const quizProgress = JSON.parse(localStorage.getItem(`quizProgress_${currentUserId}`));
