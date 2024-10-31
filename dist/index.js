@@ -2704,13 +2704,15 @@ function createRegisterSection() {
     const passwordElement = document.querySelector("#registerPassword");
     const confirmPasswordElement = document.querySelector("#confirmPassword");
     checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            passwordElement.type = "text";
-            confirmPasswordElement.type = "text";
-        }
-        else {
-            passwordElement.type = "password";
-            confirmPasswordElement.type = "password";
+        if (passwordElement && confirmPasswordElement) {
+            if (this.checked) {
+                passwordElement.setAttribute("type", "text");
+                confirmPasswordElement.setAttribute("type", "text");
+            }
+            else {
+                passwordElement.setAttribute("type", "password");
+                confirmPasswordElement.setAttribute("type", "password");
+            }
         }
     });
 }
@@ -2881,11 +2883,13 @@ function createLoginSection() {
     const checkbox = loginContainer.querySelector('#loginPasswordView');
     const passwordElement = document.querySelector("#loginPassword");
     checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            passwordElement.type = "text";
-        }
-        else {
-            passwordElement.type = "password";
+        if (passwordElement) {
+            if (this.checked) {
+                passwordElement.setAttribute("type", "text");
+            }
+            else {
+                passwordElement.setAttribute("type", "password");
+            }
         }
     });
 }
@@ -3315,11 +3319,38 @@ function loadProgress() {
     const userProgressKey = `quizProgress_${currentUserId}`;
     const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+<<<<<<< HEAD
     const index = currentProgress.findIndex(item => item.quizId === quizId);
     if (index !== -1) {
         // Progress exists, load currentQuestion and score from stored progress
         currentQuestion = currentProgress[index].currentQuestion;
         score = currentProgress[index].score;
+=======
+    const item = currentProgress.findIndex(item => item.quizId === quizId);
+    if (item !== -1) {
+        console.log(item);
+        console.log("Progress loaded:", currentProgress[item]);
+        // const a = currentProgress.splice( index, 1 )[0];
+        // console.log( a );
+        // console.log( "displayQuestion retrieved data", a );
+        // _a.currentQuestion = a.currentQuestion;
+        // _a.score = a.score;
+        // _a.quizId = a.quizId;
+        // currentProgress.push( _a );
+        // console.log( "displayQuestion pushed data", _a );
+        // localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
+        const foundItem = currentProgress.find(item => item.quizId === quizId);
+        let { currentQuestion: currentQuestion, score: score } = currentProgress[item];
+        console.log("currentQuestion:", currentQuestion, "score:", score);
+        console.log("Progress saved:", foundItem);
+        currentQuestion = currentQuestion;
+        score = score;
+        const _a = { currentQuestion, score, quizId };
+        console.log("currentQuestion:", currentQuestion, "score:", score);
+        // console.log( "loading progress", _a );
+        // currentProgress.splice( item, 1 );
+        // currentProgress.push( _a );
+>>>>>>> master
     }
     else {
         // Start from the beginning if no progress is saved
@@ -3344,7 +3375,7 @@ function sortProgressArray(progressArray) {
 function displayQuestion() {
     loadProgress();
     removeElementById("quizSelectionSection");
-    // Get the selected quiz data from sessionStorage
+    // // Get the selected quiz data from sessionStorage
     const selection = sessionStorage.getItem("quizData");
     if (!selection || !isQuizDataKey(selection)) {
         console.error("Invalid quiz selection.");
@@ -3353,23 +3384,44 @@ function displayQuestion() {
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
     const quizId = sessionStorage.getItem("quizId");
+<<<<<<< HEAD
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey)) || "[]";
     const index = currentProgress.findIndex(item => item.quizId === quizId);
     if (index === -1) {
+=======
+    const item = currentProgress.findIndex(item => item.quizId === quizId);
+    console.log("index display:", item);
+    if (item === -1) {
+>>>>>>> master
         currentQuestion = 0;
         score = 0;
         currentProgress.push({ currentQuestion, score, quizId });
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
     }
     else {
+<<<<<<< HEAD
         // Progress exists, load currentQuestion and score from stored progress
         currentQuestion = currentProgress[index].currentQuestion;
         score = currentProgress[index].score;
+=======
+        console.log("here");
+        currentProgress.splice(item, 1);
+        const a = currentProgress.splice(item, 1)[0];
+        const _a = { currentQuestion, score, quizId };
+        console.log("displayQuestion retrieved data", a);
+        // _a.currentQuestion = a.currentQuestion;
+        // _a.score = a.score;
+        // _a.quizId = a.quizId;
+        currentQuestion = _a.currentQuestion;
+        score = _a.score;
+        console.log("currentQuestion:", currentQuestion, "score:", score);
+        currentProgress.push(_a);
+        console.log("displayQuestion pushed data", _a);
+        localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
+>>>>>>> master
     }
     const currentQuiz = quizData[selection];
     const currentQuizData = currentQuiz[currentQuestion];
-    console.log(currentQuestion);
-    console.log(currentQuiz);
     totalQuestions = currentQuiz.length;
     // Get DOM elements
     const questionEl = document.getElementById("question");
@@ -3431,13 +3483,20 @@ function checkAnswer(answers, selectedIndex) {
         score++;
     }
     currentQuestion++;
+<<<<<<< HEAD
     // Now, update progress in localStorage
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
+=======
+    console.log("currentQuestion:", currentQuestion);
+    const userProgressKey = `quizProgress_${sessionStorage.getItem("currentUserId")}`;
+    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+>>>>>>> master
     const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const index = currentProgress.findIndex(item => item.quizId === quizId);
     if (index !== -1) {
+<<<<<<< HEAD
         currentProgress[index].currentQuestion = currentQuestion;
         currentProgress[index].score = score;
     }
@@ -3452,6 +3511,25 @@ function checkAnswer(answers, selectedIndex) {
     }
     else {
         displayQuestion();
+=======
+        console.log(index);
+        const _a = { currentQuestion, score, quizId };
+        currentProgress.splice(index, 1);
+        currentProgress.push(_a);
+    }
+    // Store progress only at the end of the quiz
+    if (currentQuestion < totalQuestions) {
+        console.log("not the end");
+        displayQuestion(); // Show the next question
+    }
+    else {
+        showScore(); // Display final score
+        if (currentQuestion == totalQuestions) {
+            currentQuestion = 0;
+            score = 0;
+        }
+        localStorage.setItem("quizProgress", String(currentQuestion));
+>>>>>>> master
     }
 }
 const shuffle = (array) => {
@@ -3482,6 +3560,10 @@ function showScore() {
     const userScoresKey = `quizScores_${currentUserId}`;
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
     const selection = sessionStorage.getItem("quizData");
+    if (!selection || !isQuizDataKey(selection)) {
+        console.error("Invalid quiz selection.");
+        return;
+    }
     const currentQuiz = quizData[selection];
     if (checkProgressAtEnd(currentUserId)) {
         // Add the new score with the current timestamp
@@ -3496,7 +3578,7 @@ function showScore() {
         // Update the score message with the most recent score
         const scoreMessageEl = document.getElementById("scoreMessage");
         if (scoreMessageEl) {
-            scoreMessageEl.textContent = `Most Recent Score: ${mostRecentScore.score} out of ${mostRecentScore.total} on ${mostRecentScore.date}`;
+            scoreMessageEl.textContent = `Most Recent Score: ${mostRecentScore.score} out of ${mostRecentScore.total} on the ${mostRecentScore.quiz} quiz on ${mostRecentScore.date}.`;
         }
     }
     const quizProgress = localStorage.getItem(`quizProgress_${currentUserId}`);
@@ -3515,10 +3597,11 @@ function showScore() {
 }
 function checkProgressAtEnd(currentUserId) {
     // Retrieve current quiz progress
-    const quizProgress = localStorage.getItem(`quizProgress_${currentUserId}`);
-    if (quizProgress) {
-        const { currentQuestion: savedQuestion, score: savedScore, quiz: savedQuizType } = JSON.parse(quizProgress);
-        if (savedQuestion === totalQuestions && savedQuizType === sessionStorage.getItem("quizType")) {
+    const quizProgress = JSON.parse(localStorage.getItem(`quizProgress_${currentUserId}`));
+    const currentQuiz = sessionStorage.getItem("quizId");
+    const foundItem = quizProgress.some(item => item.quizId === currentQuiz);
+    if (foundItem) {
+        if (currentQuestion === totalQuestions) {
             return true;
         }
     }
