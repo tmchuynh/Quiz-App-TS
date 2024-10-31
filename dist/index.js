@@ -519,13 +519,15 @@ function promptForDifficulty(quizId) {
         for (let level = 1; level <= 5; level++) {
             const button = document.createElement("button");
             button.textContent = `Level ${level}`;
-            button.className =
-                "button text-white bg-zinc-700 hover:bg-zinc-600 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800";
             // Check if the quiz is already in progress at any difficulty level
-            const progressItems = currentProgress.find((item) => item.quizId === quizId && item.currentQuestion > 0);
+            const progressItems = currentProgress.find((item) => item.quizId === quizId && item.currentQuestion > 0 && item.difficultyLevel == level);
             if (progressItems) {
                 button.className =
                     "button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
+            }
+            else {
+                button.className =
+                    "button text-white bg-zinc-700 hover:bg-zinc-600 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800";
             }
             button.addEventListener("click", () => {
                 sessionStorage.setItem("difficultyLevel", level.toString());
@@ -557,17 +559,12 @@ function setupQuizData(quizId, difficultyLevel) {
         createActionButtons();
     }
     addBackToSelectionSectionButton();
-    console.log("quizId", quizId);
-    console.log(typeof quizId, typeof difficultyLevel);
-    console.log(!isQuizDataKey(quizId + "Data"));
     if (!isQuizDataKey(quizId)) {
         console.error("Invalid quiz ID.");
         return;
     }
-    console.log("quizData", quizData);
     // Find the quiz in the quizData array
     const quizItem = quizData.find((quiz) => quiz.id === quizId);
-    console.log("quizItem", quizItem);
     if (!quizItem) {
         console.error("Quiz not found.");
         return;
