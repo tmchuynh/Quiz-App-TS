@@ -26,6 +26,14 @@ interface ProgressItem {
 	difficultyLevel: number;
 }
 
+interface Score {
+	date: string;
+	quiz: string;
+	score: number;
+	total: number;
+}
+
+
 let currentQuestion: number = 0;
 let totalQuestions: number = 0; // Total number of questions
 let score: number = 0;
@@ -111,7 +119,7 @@ function createRegisterSection(): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"registeration-section",
@@ -438,7 +446,7 @@ function createLoginSection(): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"login-section",
@@ -660,7 +668,7 @@ function createQuizSelection() {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"quiz-selection-section"
@@ -768,7 +776,7 @@ function promptForDifficulty( quizId: string ): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"login-section",
@@ -907,7 +915,7 @@ function createQuizSection(): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"quiz-section"
@@ -946,7 +954,7 @@ function createScoreSection(): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"view-last-score"
@@ -984,7 +992,7 @@ function createPastScoresSection(): void {
 		"mx-auto",
 		"my-4",
 		"col-span-12",
-		"lg:col-span-7",
+		"lg:col-span-6",
 		"w-full",
 		"lg:w-11/12",
 		"view-score-history"
@@ -1030,13 +1038,17 @@ function createScoresButtons(): void {
 	removeElementById( "actionButtons" );
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
+
 	actionButtons.className =
-		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 text-center col-span-2 space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 	actionButtons.innerHTML = `
 		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 		<button id="viewScoresButton" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">View Past Scores</button>
     `;
 	displayContainer.appendChild( actionButtons );
+
+	const children = actionButtons.children.length;
+	actionButtons.classList.add( `grid-cols-${ children }` );
 
 	logoutEventListener();
 
@@ -1057,6 +1069,9 @@ function createScoresButtons(): void {
 function addBackToSelectionSectionButton(): void {
 	const actionButtons = document.querySelector( "#actionButtons" );
 	if ( actionButtons ) {
+		actionButtons.className =
+			"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
+
 		actionButtons.innerHTML += `
         <button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
 		`;
@@ -1083,52 +1098,160 @@ function createSortButtons(): void {
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
 	actionButtons.className =
-		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 text-center space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
+
+	const buttonClass = "text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800";
+
+	function createButton( id: string, text: string ): HTMLButtonElement {
+		const button = document.createElement( 'button' );
+		button.id = id;
+		button.className = buttonClass;
+		button.textContent = text;
+		return button;
+	}
+
+	const sortByQuizButton = createButton( "sortByQuizButton", "Sort by Quiz" );
+	const sortByDateButton = createButton( "sortByDateButton", "Sort by Date" );
+	const sortByScoreButton = createButton( "sortByScoreButton", "Sort by Score" );
+
+
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
-        <button id="resetScoresButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Reset All Scores</button>
-		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
-		<div class="buttonGroup md:grid grid-cols-1 gap-1 my-auto text-center space-y-2 md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max">
-			<button id="sortByQuizButton" class="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">Sort by Quiz</button>
-			<button id="sortByDateButton" class="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">Sort by Date</button>
-			<button id="sortByScoreButton" class="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">Sort by Score</button>
+		<div class="gap-1 my-auto text-center  auto-cols-max grid grid-cols-2 order-last">
+			<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
+			<button id="resetScoresButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Reset All Scores</button>
 		</div>
+	
+        <button id="backToSelectionButton" class="text-white order-4 bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
+        <div class="buttonGroup gap-1 my-auto text-center auto-cols-max grid grid-cols-3 order-2" id="sortingButtons">
+
+        </div>
     `;
+
 	displayContainer.appendChild( actionButtons );
 	logoutEventListener();
+
+	const buttonContainer = document.getElementById( "sortingButtons" );
+	if ( buttonContainer ) {
+		buttonContainer.appendChild( sortByQuizButton );
+		buttonContainer.appendChild( sortByDateButton );
+		buttonContainer.appendChild( sortByScoreButton );
+	}
+
+	actionButtons.innerHTML +=
+		`<div>
+			<select id="filterByQuizDropdown" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+			<option value="Filter by Quiz" selected>Filter by Quiz</option>
+				<!-- Quiz options will be added here dynamically -->
+			</select>
+			<div class="dateFilterGroup gap-3 my-auto text-center auto-cols-max grid grid-cols-2 py-4">
+				<div class="gap-1 my-auto text-center auto-cols-max grid lg:grid-cols-1 grid-cols-2">
+					<label for="startDateInput" class="text-black items-center flex lg:justify-center justify-end">Start Date:</label>
+					<input type="date" id="startDateInput" class="bg-gray-200 text-black rounded-lg px-3 py-2">
+				</div>
+				<div class="gap-1 my-auto text-center auto-cols-max grid lg:grid-cols-1 grid-cols-2">
+					<label for="endDateInput" class="text-black items-center flex lg:justify-center justify-end">End Date:</label>
+					<input type="date" id="endDateInput" class="bg-gray-200 text-black rounded-lg px-3 py-2">
+				</div>
+			</div>
+			<div class="gap-1 my-auto text-center auto-cols-max grid lg:grid-cols-1 grid-cols-2">
+				<button id="applyDateFilterButton" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Apply Date Filter</button>
+				<button id="clearFiltersButton" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Clear Filters</button>
+			</div>
+		</div>`;
+
 	// Get the current user ID
 	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userScoresKey = `quizScores_${ currentUserId }`;
-	const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" );
+	const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" ) as Score[];
 
-	renderScores( pastScores );
+	// Store filtered scores
+	let filteredScores = [...pastScores];
+
+	// Populate the dropdown with quiz names
+	const quizNames: string[] = [...new Set( pastScores.map( ( score ) => score.quiz ) )];
+	const filterByQuizDropdown = document.getElementById( "filterByQuizDropdown" ) as HTMLSelectElement;
+	quizNames.forEach( ( quizName: string ) => {
+		const option = document.createElement( "option" );
+		option.value = quizName;
+		option.text = quizName;
+		filterByQuizDropdown.appendChild( option );
+	} );
+
+
+	renderScores( filteredScores );
+
+	// Event listener for dropdown change
+	filterByQuizDropdown.addEventListener( "change", () => {
+		const selectedQuiz = filterByQuizDropdown.value;
+		if ( selectedQuiz ) {
+			filteredScores = pastScores.filter(
+				( score: any ) => score.quiz === selectedQuiz
+			);
+		} else {
+			// If no quiz selected (empty value), show all scores
+			filteredScores = [...pastScores];
+		}
+		renderScores( filteredScores );
+	} );
+
+	// Event listener for Apply Date Filter button
+	const applyDateFilterButton = document.getElementById( "applyDateFilterButton" )!;
+	applyDateFilterButton.addEventListener( "click", () => {
+		const startDateInput = document.getElementById( "startDateInput" ) as HTMLInputElement;
+		const endDateInput = document.getElementById( "endDateInput" ) as HTMLInputElement;
+		const startDateStr = startDateInput.value;
+		const endDateStr = endDateInput.value;
+
+		if ( startDateStr && endDateStr ) {
+			if ( startDateStr > endDateStr ) {
+				alert( "End date must be on or after the start date." );
+				return;
+			}
+			const startDate = new Date( startDateStr );
+			const endDate = new Date( endDateStr );
+			if ( !isNaN( startDate.getTime() ) && !isNaN( endDate.getTime() ) ) {
+				// Filter based on existing filteredScores to chain filters
+				filteredScores = filteredScores.filter( ( score: any ) => {
+					const scoreDate = new Date( score.date );
+					return scoreDate >= startDate && scoreDate <= endDate;
+				} );
+				renderScores( filteredScores );
+			} else {
+				alert( "Invalid date format. Please use the date picker." );
+			}
+		} else {
+			alert( "Please select both start and end dates." );
+		}
+	} );
 
 	// Sort by Quiz (alphabetically)
 	document
 		.querySelector( "#sortByQuizButton" )
 		?.addEventListener( "click", () => {
-			const sortedByQuiz = [...pastScores].sort( ( a, b ) =>
+			const sortedByQuiz = [...filteredScores].sort( ( a, b ) =>
 				a.quiz.localeCompare( b.quiz )
 			);
 			renderScores( sortedByQuiz );
+			filteredScores = sortedByQuiz;
 		} );
 
 	// Sort by Date (newest to oldest)
 	document
 		.querySelector( "#sortByDateButton" )
 		?.addEventListener( "click", () => {
-			const sortedByDate = [...pastScores].sort(
+			const sortedByDate = [...filteredScores].sort(
 				( a: any, b: any ) =>
 					new Date( b.date ).getTime() - new Date( a.date ).getTime()
 			);
 			renderScores( sortedByDate );
+			filteredScores = sortedByDate;
 		} );
 
 	// Sort by Score (highest to lowest)
 	document
 		.querySelector( "#sortByScoreButton" )
 		?.addEventListener( "click", () => {
-			const sortedByPercentage = [...pastScores].sort(
+			const sortedByPercentage = [...filteredScores].sort(
 				( a: any, b: any ) => {
 					const percentageA = ( a.score / a.total ) * 100;
 					const percentageB = ( b.score / b.total ) * 100;
@@ -1136,6 +1259,19 @@ function createSortButtons(): void {
 				}
 			);
 			renderScores( sortedByPercentage );
+			filteredScores = sortedByPercentage;
+		} );
+
+	// Clear Filters
+	document
+		.querySelector( "#clearFiltersButton" )
+		?.addEventListener( "click", () => {
+			filteredScores = [...pastScores];
+			filterByQuizDropdown.value = ""; // Reset dropdown selection
+			// Reset date inputs
+			( document.getElementById( "startDateInput" ) as HTMLInputElement ).value = "";
+			( document.getElementById( "endDateInput" ) as HTMLInputElement ).value = "";
+			renderScores( filteredScores );
 		} );
 
 	document
@@ -1152,6 +1288,7 @@ function createSortButtons(): void {
 			createDialog();
 		} );
 }
+
 
 /**
  * Renders the quiz scores in a table format.
@@ -1411,7 +1548,8 @@ function loadQuiz(): void {
 	removeElementById( "loginSection" );
 
 	const userScoresKey = `quizScores_${ currentUserId }`;
-	if ( localStorage.getItem( userScoresKey ) ) {
+	const pastScores = JSON.parse( localStorage.getItem( userScoresKey ) || "[]" ) as Score[];
+	if ( pastScores ) {
 		createScoresButtons();
 	} else {
 		createActionButtons();
