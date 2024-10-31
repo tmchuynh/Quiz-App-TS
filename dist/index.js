@@ -1,4 +1,29 @@
 "use strict";
+const quizOptions = [
+    { id: "artQuiz_Button", label: "Art Quiz", category: "humanities" },
+    { id: "astrologyQuiz_Button", label: "Astrology Quiz", category: "humanities" },
+    { id: "literatureQuiz_Button", label: "Literature Quiz", category: "humanities" },
+    { id: "englishQuiz_Button", label: "English Quiz", category: "humanities" },
+    { id: "historyQuiz_Button", label: "History Quiz", category: "humanities" },
+    { id: "geographyQuiz_Button", label: "Geography Quiz", category: "humanities" },
+    { id: "philosophyQuiz_Button", label: "Philosophy Quiz", category: "humanities" },
+    { id: "socialStudiesQuiz_Button", label: "Social Studies Quiz", category: "humanities" },
+    { id: "sportsQuiz_Button", label: "Sports Quiz", category: "entertainment" },
+    { id: "animalQuiz_Button", label: "Animals Quiz", category: "entertainment" },
+    { id: "musicQuiz_Button", label: "Music Quiz", category: "entertainment" },
+    { id: "chemistryQuiz_Button", label: "Chemistry Quiz", category: "sciences" },
+    { id: "psychologyQuiz_Button", label: "Psychology Quiz", category: "sciences" },
+    { id: "physicsQuiz_Button", label: "Physics Quiz", category: "sciences" },
+    { id: "biologyQuiz_Button", label: "Biology Quiz", category: "sciences" },
+    { id: "healthCareQuiz_Button", label: "Health Care Quiz", category: "sciences" },
+    { id: "mathQuiz_Button", label: "Math Quiz", category: "technology" },
+    { id: "computerScienceQuiz_Button", label: "Computer Science Quiz", category: "technology" },
+    { id: "engineeringQuiz_Button", label: "Engineering Quiz", category: "technology" },
+    { id: "politicsQuiz_Button", label: "Politics Quiz", category: "social-studies" },
+    { id: "economicsQuiz_Button", label: "Economics Quiz", category: "social-studies" },
+    { id: "financeQuiz_Button", label: "Finance Quiz", category: "social-studies" },
+    { id: "realEstateQuiz_Button", label: "Real Estate Quiz", category: "social-studies" }
+];
 const quizData = {
     chemistryQuizData: [
         {
@@ -3008,6 +3033,20 @@ function logoutEventListener() {
         sessionStorage.clear();
     });
 }
+// function sortQuizArrayByDifficulty( arr: QuizOption[] ) {
+// 	return arr.sort( ( a, b ) => {
+//         if ( a.difficulty < b.difficulty ) {
+//             return -1;
+//         }
+//         if ( a.difficulty > b.difficulty ) {
+//             return 1;
+//         }
+//         return 0;
+//     } );
+// }
+function sortQuizArrayByName(arr) {
+    arr.sort((a, b) => a.label.localeCompare(b.label));
+}
 function createQuizSelection() {
     const quizSelectionSection = document.createElement("div");
     quizSelectionSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "quiz-selection-section", "w-11/12");
@@ -3015,52 +3054,35 @@ function createQuizSelection() {
     quizSelectionSection.innerHTML = `
         <h2 class="text-4xl font-extrabold dark:text-white">Select a Quiz</h2>
         <div id="quizOptions" class="grid grid-cols-4 gap-4 p-3">
-            <button id="artQuiz_Button" class="text-black bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 humanities">Art Quiz</button>
-            <button id="astrologyQuiz_Button" class=" humanities">Astrology Quiz</button>
-            <button id="literatureQuiz_Button" class=" humanities">Literature Quiz</button>
-            <button id="englishQuiz_Button" class=" humanities">English Quiz</button>
-            <button id="historyQuiz_Button" class=" humanities">History Quiz</button>
-            <button id="geographyQuiz_Button" class=" humanities">Geography Quiz</button>
-            <button id="philosophyQuiz_Button" class=" humanities">Philosophy Quiz</button>
-            <button id="socialStudiesQuiz_Button" class=" humanities">Social Studies Quiz</button>
-
-            <button id="sportsQuiz_Button" class=" entertainment">Sports Quiz</button>
-            <button id="animalQuiz_Button" class=" entertainment">Animals Quiz</button>
-            <button id="musicQuiz_Button" class=" entertainment">Music Quiz</button>
-
-            <button id="chemistryQuiz_Button" class=" sciences">Chemistry Quiz</button>
-            <button id="psychologyQuiz_Button" class=" sciences">Psychology Quiz</button>
-            <button id="physicsQuiz_Button" class=" sciences">Physics Quiz</button>
-            <button id="biologyQuiz_Button" class=" sciences">Biology Quiz</button>
-            <button id="healthCareQuiz_Button" class=" sciences">Health Care Quiz</button>
-
-            <button id="mathQuiz_Button" class=" technology">Math Quiz</button>
-            <button id="computerScienceQuiz_Button" class=" technology">Computer Science Quiz</button>
-            <button id="engineeringQuiz_Button" class=" technology">Engineering Quiz</button>
-
-            <button id="politicsQuiz_Button" class=" social-studies">Politics Quiz</button>
-            <button id="economicsQuiz_Button" class=" social-studies">Economics Quiz</button>
-            <button id="financeQuiz_Button" class=" social-studies">Finance Quiz</button>
-            <button id="realEstateQuiz_Button" class=" social-studies">Real Estate Quiz</button>
+            
         </div>
     `;
     displayContainer.appendChild(quizSelectionSection);
-    const Quiz_Buttons = document.querySelectorAll(".quiz-selection-section button");
-    Quiz_Buttons.forEach((button) => button.addEventListener("click", () => {
-        var _b;
-        sessionStorage.setItem("quizId", button.id);
-        let quizData = button.id.split("_")[0].concat("Data");
-        sessionStorage.setItem("quizData", quizData);
-        const tempArray = (_b = sessionStorage
-            .getItem("quizId")) === null || _b === void 0 ? void 0 : _b.split("_")[0].split(/(?=[A-Z])/);
-        if (tempArray) {
-            tempArray[0] = tempArray[0].charAt(0).toUpperCase() + tempArray[0].slice(1);
-            const quiz_type = tempArray.join(" ");
-            sessionStorage.setItem("quizType", quiz_type);
-        }
-        // Load user progress in the quiz
-        displayQuestion();
-    }));
+    const quizOptionsContainer = document.getElementById("quizOptions");
+    if (quizOptionsContainer) {
+        quizOptions.forEach(quiz => {
+            const button = document.createElement("button");
+            button.id = `quiz_${quiz.id}`;
+            button.textContent = quiz.label;
+            button.className = "button text-white bg-teal-700 hover:bg-teal-400 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800";
+            button.addEventListener("click", () => {
+                var _b;
+                sessionStorage.setItem("quizId", button.id);
+                let quizData = button.id.split("_")[0].concat("Data");
+                sessionStorage.setItem("quizData", quizData);
+                const tempArray = (_b = sessionStorage
+                    .getItem("quizId")) === null || _b === void 0 ? void 0 : _b.split("_")[0].split(/(?=[A-Z])/);
+                if (tempArray) {
+                    tempArray[0] = tempArray[0].charAt(0).toUpperCase() + tempArray[0].slice(1);
+                    const quiz_type = tempArray.join(" ");
+                    sessionStorage.setItem("quizType", quiz_type);
+                }
+                // Load user progress in the quiz
+                displayQuestion();
+            });
+            quizOptionsContainer.appendChild(button);
+        });
+    }
 }
 // Function to create and append the quiz section dynamically
 function createQuizSection() {
