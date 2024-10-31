@@ -1,4 +1,4 @@
-import { quizData, quizOptions, isQuizDataKey, } from "./quizData";
+import { quizData, quizOptions, isQuizDataKey, } from "./quizData.js";
 let currentQuestion = 0;
 let totalQuestions = 0; // Total number of questions
 let score = 0;

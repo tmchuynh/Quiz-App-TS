@@ -8,7 +8,7 @@ import {
 	QuizOption,
 	isQuizDataKey,
 	QuizDataKey,
-} from "./quizData";
+} from "./quizData.js";
 
 declare var dialogPolyfill: any;
 
