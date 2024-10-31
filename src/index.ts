@@ -2781,7 +2781,7 @@ function removeAllSections(): void {
 // Function to create and append the registration form dynamically
 function createRegisterSection(): void {
 	const registerSection = document.createElement( "div" );
-	registerSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "registeration-section", "space-y-2" );
+	registerSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "registeration-section", "space-y-2" );
 	registerSection.id = "registerSection";
 	registerSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Register</h2>
@@ -3026,7 +3026,7 @@ function clearErrorStyles(): void {
 // Function to create and append the login form dynamically
 function createLoginSection(): void {
 	const loginSection = document.createElement( "div" );
-	loginSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "login-section", "space-y-2" );
+	loginSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "login-section", "space-y-2" );
 	loginSection.id = "loginSection";
 	loginSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Login</h2>
@@ -3213,11 +3213,11 @@ function sortQuizArrayByName( arr: QuizOption[] ) {
 
 function createQuizSelection() {
 	const quizSelectionSection = document.createElement( "div" );
-	quizSelectionSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "quiz-selection-section", );
+	quizSelectionSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "quiz-selection-section", );
 	quizSelectionSection.id = "quizSelectionSection";
 	quizSelectionSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Select a Quiz</h2>
-        <div id="quizOptions" class="grid grid-cols-4 gap-4 p-3">
+        <div id="quizOptions" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3">
             
         </div>
 
@@ -3282,13 +3282,13 @@ function createQuizSelection() {
 // Function to create and append the quiz section dynamically
 function createQuizSection(): void {
 	const quizSection = document.createElement( "div" );
-	quizSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "quiz-section" );
+	quizSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "quiz-section" );
 	quizSection.id = "quizSection";
 	quizSection.innerHTML = `
         <div class="question-container">
             <p id="question" class="text-2xl"></p>
         </div>
-        <div id="answers" class="grid grid-cols-2 gap-4 p-5"></div>
+        <div id="answers" class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5"></div>
         <div class="w-full bg-transparent rounded-full h-2.5 p-6">
 			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" id="quizProgressBar"></div>
 		</div>
@@ -3299,7 +3299,7 @@ function createQuizSection(): void {
 // Function to create and append the score section dynamically
 function createScoreSection(): void {
 	const scoreSection = document.createElement( "div" );
-	scoreSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "view-last-score" );
+	scoreSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "view-last-score" );
 	scoreSection.id = "scoreSection";
 	scoreSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Quiz Completed!</h2>
@@ -3313,12 +3313,14 @@ function createScoreSection(): void {
 // Function to create the past scores section dynamically
 function createPastScoresSection(): void {
 	const pastScoresSection = document.createElement( "div" );
-	pastScoresSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-7", "w-11/12", "view-score-history" );
+	pastScoresSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-7", "w-full", "lg:w-11/12", "view-score-history" );
 	pastScoresSection.id = "pastScoresSection";
 	pastScoresSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Past Scores</h2>
-        <table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100" style="width: 100%; border-collapse: collapse;"></table>
-        <button id="backButton" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4">Back to Quiz</button>
+		<div class="overflow-x-auto">
+        	<table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100" style="width: 100%; border-collapse: collapse;"></table>
+        </div>
+		<button id="backButton" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4">Back to Quiz</button>
     `;
 	displayContainer.appendChild( pastScoresSection );
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
@@ -3462,6 +3464,7 @@ function renderScores( pastScores: any[] ): void {
 				<th>Score</th>
 				<th>Percentage</th>
 				<th class="scoreDate">Date</th>
+				<th class="scoreTime">Time</th>
 			</tr>
 		</thead>`;
 
@@ -3469,6 +3472,7 @@ function renderScores( pastScores: any[] ): void {
 		.map( ( { score, total, quiz, date } ) => {
 			const percentage = ( ( score / total ) * 100 ).toFixed( 2 ); // Calculate percentage
 			const formattedDate = formatDate( date );
+			const formattedTime = formatTime( date );
 			return `
 				<tbody>
 					<tr class="bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700">
@@ -3476,6 +3480,7 @@ function renderScores( pastScores: any[] ): void {
 						<td>${ score } / ${ total }</td>
 						<td class="scorePercentage">${ percentage }%</td>
 						<td class="scoreDate">${ formattedDate }</td>
+						<td class="scoreDate">${ formattedTime }</td>
 					</tr>
 				</tbody>`;
 		} )
@@ -3487,6 +3492,20 @@ function renderScores( pastScores: any[] ): void {
         ${ tableHeaders }
         ${ tableRows }
     `;
+}
+
+// Helper function to format time to hh:mm AM/PM
+function formatTime( dateString: string ): string {
+	const date = new Date( dateString ); // Convert the string to a Date object
+	let hours = date.getHours(); // Get hours from 0 to 23
+	const minutes = date.getMinutes().toString().padStart( 2, "0" ); // Get minutes and pad with leading zero if necessary
+	const ampm = hours >= 12 ? "PM" : "AM"; // Determine AM or PM
+
+	hours = hours % 12; // Convert to 12-hour format
+	hours = hours ? hours : 12; // Adjust midnight hour from 0 to 12
+	const formattedHours = hours.toString().padStart( 2, "0" ); // Pad hours with leading zero if necessary
+
+	return `${ formattedHours }:${ minutes } ${ ampm }`; // Return in hh:mm AM/PM format
 }
 
 // Helper function to format date to mm/dd/yy
