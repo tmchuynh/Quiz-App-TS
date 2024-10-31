@@ -2748,30 +2748,32 @@ function removeAllSections(): void {
 // Function to create and append the registration form dynamically
 function createRegisterSection(): void {
 	const registerSection = document.createElement( "div" );
-	registerSection.classList.add( "nes-container", "is-rounded", "registeration-section" );
+	registerSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "registeration-section" );
 	registerSection.id = "registerSection";
 	registerSection.innerHTML = `
-        <h2 class="nes-text">Register</h2>
-        <label for="firstName" class="nes-text">First Name:</label>
-        <input type="text" id="firstName" class="nes-input" placeholder="Enter first name" />
-        <label for="lastName" class="nes-text">Last Name:</label>
-        <input type="text" id="lastName" class="nes-input" placeholder="Enter last name" />
-        <label for="email" class="nes-text">Email:</label>
-        <input type="email" id="email" class="nes-input" placeholder="Enter email" />
-        <label for="registerUsername" class="nes-text">Username:</label>
-        <input type="text" id="registerUsername" class="nes-input" placeholder="Enter username" />
-        <label for="registerPassword" class="nes-text">Password:</label>
-        <input type="password" id="registerPassword" class="nes-input" placeholder="Enter password" />
-        <label for="confirmPassword" class="nes-text">Retype Password:</label>
-        <input type="password" id="confirmPassword" class="nes-input" placeholder="Retype password" />
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" value="" id="registerPasswordView">
-			<label class="form-check-label" for="registerPasswordView">
-				Show Password
-			</label>
-		</div>
-        <button id="registerButton" class="nes-btn is-success">Register</button>
-        <p id="registerError" class="nes-text is-error" style="display:none;"></p>
+        <h2 class="">Register</h2>
+		<form class="space-y-6">
+			<label for="firstName" class="block text-sm/6 font-medium text-gray-900">First Name:</label>
+			<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
+			<label for="lastName" class="block text-sm/6 font-medium text-gray-900">Last Name:</label>
+			<input type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter last name" />
+			<label for="email" class="block text-sm/6 font-medium text-gray-900">Email:</label>
+			<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter email" />
+			<label for="registerUsername" class="block text-sm/6 font-medium text-gray-900">Username:</label>
+			<input type="text" id="registerUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+			<label for="registerPassword" class="block text-sm/6 font-medium text-gray-900">Password:</label>
+			<input type="password" id="registerPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
+			<label for="confirmPassword" class="block text-sm/6 font-medium text-gray-900">Retype Password:</label>
+			<input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Retype password" autocomplete="current-password"/>
+			<div class="flex items-center mb-4">
+				<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" value="" id="registerPasswordView">
+				<label class="form-check-label ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="registerPasswordView">
+					Show Password
+				</label>
+			</div>
+			<button id="registerButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+			<p id="registerError" class=" " style="display:none;"></p>
+		</form>
     `;
 
 	// Append the dynamically created register section to the loginContainer
@@ -2879,7 +2881,7 @@ async function validateRegistrationForm(): Promise<void> {
 
 function resetErrorStyles( fields: { element: HTMLInputElement; }[] ): void {
 	fields.forEach( ( field ) => {
-		field.element.classList.remove( "is-error" );
+		field.element.classList.remove( "" );
 	} );
 }
 
@@ -2888,7 +2890,7 @@ function showError( message: string, field: HTMLElement ): void {
 
 	registerError.textContent = message;
 	registerError.style.display = "block";
-	field.classList.add( "is-error" );
+	field.classList.add( "" );
 }
 
 function isValidPassword( password: string ): boolean {
@@ -2973,7 +2975,7 @@ function clearErrorStyles(): void {
 
 	const fields = [firstName, lastName, email, registerUsername, registerPassword, confirmPassword];
 
-	fields.forEach( ( field ) => field.classList.remove( "is-error" ) ); // Remove error class from all fields
+	fields.forEach( ( field ) => field.classList.remove( "" ) ); // Remove error class from all fields
 	const registerError = document.getElementById( "registerError" ) as HTMLElement;
 	registerError.style.display = "none"; // Hide error message
 }
@@ -2981,23 +2983,25 @@ function clearErrorStyles(): void {
 // Function to create and append the login form dynamically
 function createLoginSection(): void {
 	const loginSection = document.createElement( "div" );
-	loginSection.classList.add( "nes-container", "is-rounded", "login-section" );
+	loginSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "login-section" );
 	loginSection.id = "loginSection";
 	loginSection.innerHTML = `
-        <h2 class="nes-text">Login</h2>
-        <label for="loginUsername" class="nes-text">Username:</label>
-        <input type="text" id="loginUsername" class="nes-input" placeholder="Enter username" />
-        <label for="loginPassword" class="nes-text">Password:</label>
-        <input type="password" id="loginPassword" class="nes-input" placeholder="Enter password" />
-		<div class="form-check">
-			<input class="form-check-input" name="checkbox" type="checkbox" value="" id="loginPasswordView">
-			<label class="form-check-label" for="loginPasswordView">
-				Show Password
-			</label>
-		</div>
-        <button id="loginButton" class="nes-btn is-primary">Login</button>
-        <p id="loginError" class="nes-text is-error" style="display:none;">Incorrect username or password.</p>
-    `;
+        <h2 class="">Login</h2>
+		<form class="space-y-6">
+			<label for="loginUsername" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username:</label>
+			<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+			<label for="loginPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password:</label>
+			<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
+			<div class="form-check">
+				<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
+				<label class="form-check-label ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="loginPasswordView">
+					Show Password
+				</label>
+			</div>
+			<button id="loginButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+			<p id="loginError" class=" " style="display:none;">Incorrect username or password.</p>
+		</form>
+		`;
 	loginContainer.appendChild( loginSection );
 	document.querySelector( "#loginButton" )?.addEventListener( "click", validateLoginForm );
 	loginSection.addEventListener( "keydown", ( event: KeyboardEvent ) => {
@@ -3036,7 +3040,7 @@ async function validateLoginForm(): Promise<void> {
 
 	// Reset error styles for both fields
 	const fields = [loginUsername, loginPassword];
-	fields.forEach( ( field ) => field.classList.remove( "is-error" ) );
+	fields.forEach( ( field ) => field.classList.remove( "" ) );
 	const loginError = document.getElementById( "loginError" ) as HTMLElement;
 
 	loginError.style.display = "none";
@@ -3046,10 +3050,10 @@ async function validateLoginForm(): Promise<void> {
 		loginError.textContent = "Please enter both username and password.";
 		loginError.style.display = "block";
 
-		// Add 'is-error' class to empty fields
+		// Add '' class to empty fields
 		fields.forEach( ( field ) => {
 			if ( !field.value.trim() ) {
-				field.classList.add( "is-error" );
+				field.classList.add( "" );
 			}
 		} );
 
@@ -3088,7 +3092,7 @@ function handleLoginError( message: string ): void {
 	loginError.textContent = message;
 	loginError.style.display = "block";
 	const { loginUsername, loginPassword } = getLoginFormFields();
-	[loginUsername, loginPassword].forEach( ( field ) => field.classList.add( "is-error" ) );
+	[loginUsername, loginPassword].forEach( ( field ) => field.classList.add( "" ) );
 }
 
 // Helper function to handle successful login
@@ -3111,7 +3115,7 @@ function clearLoginErrorStyles(): void {
 	const fields = [loginUsername, loginPassword];
 
 	// Remove error class from both fields
-	fields.forEach( ( field ) => field.classList.remove( "is-error" ) );
+	fields.forEach( ( field ) => field.classList.remove( "" ) );
 
 	// Hide error message
 	const loginError = document.getElementById( "loginError" ) as HTMLElement;
@@ -3134,38 +3138,38 @@ function logoutEventListener() {
 
 function createQuizSelection() {
 	const quizSelectionSection = document.createElement( "div" );
-	quizSelectionSection.classList.add( "nes-container", "is-rounded", "quiz-selection-section" );
+	quizSelectionSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-selection-section" );
 	quizSelectionSection.id = "quizSelectionSection";
 	quizSelectionSection.innerHTML = `
-        <h2 class="nes-text">Select a Quiz</h2>
+        <h2 class="">Select a Quiz</h2>
         <div id="quizOptions">
-            <button id="artQuiz_Button" class="nes-btn humanities">Art Quiz</button>
-            <button id="astrologyQuiz_Button" class="nes-btn humanities">Astrology Quiz</button>
-            <button id="literatureQuiz_Button" class="nes-btn humanities">Literature Quiz</button>
-            <button id="englishQuiz_Button" class="nes-btn humanities">English Quiz</button>
-            <button id="historyQuiz_Button" class="nes-btn humanities">History Quiz</button>
-            <button id="geographyQuiz_Button" class="nes-btn humanities">Geography Quiz</button>
-            <button id="philosophyQuiz_Button" class="nes-btn humanities">Philosophy Quiz</button>
-            <button id="socialStudiesQuiz_Button" class="nes-btn humanities">Social Studies Quiz</button>
+            <button id="artQuiz_Button" class=" humanities">Art Quiz</button>
+            <button id="astrologyQuiz_Button" class=" humanities">Astrology Quiz</button>
+            <button id="literatureQuiz_Button" class=" humanities">Literature Quiz</button>
+            <button id="englishQuiz_Button" class=" humanities">English Quiz</button>
+            <button id="historyQuiz_Button" class=" humanities">History Quiz</button>
+            <button id="geographyQuiz_Button" class=" humanities">Geography Quiz</button>
+            <button id="philosophyQuiz_Button" class=" humanities">Philosophy Quiz</button>
+            <button id="socialStudiesQuiz_Button" class=" humanities">Social Studies Quiz</button>
 
-            <button id="sportsQuiz_Button" class="nes-btn entertainment">Sports Quiz</button>
-            <button id="animalQuiz_Button" class="nes-btn entertainment">Animals Quiz</button>
-            <button id="musicQuiz_Button" class="nes-btn entertainment">Music Quiz</button>
+            <button id="sportsQuiz_Button" class=" entertainment">Sports Quiz</button>
+            <button id="animalQuiz_Button" class=" entertainment">Animals Quiz</button>
+            <button id="musicQuiz_Button" class=" entertainment">Music Quiz</button>
 
-            <button id="chemistryQuiz_Button" class="nes-btn sciences">Chemistry Quiz</button>
-            <button id="psychologyQuiz_Button" class="nes-btn sciences">Psychology Quiz</button>
-            <button id="physicsQuiz_Button" class="nes-btn sciences">Physics Quiz</button>
-            <button id="biologyQuiz_Button" class="nes-btn sciences">Biology Quiz</button>
-            <button id="healthCareQuiz_Button" class="nes-btn sciences">Health Care Quiz</button>
+            <button id="chemistryQuiz_Button" class=" sciences">Chemistry Quiz</button>
+            <button id="psychologyQuiz_Button" class=" sciences">Psychology Quiz</button>
+            <button id="physicsQuiz_Button" class=" sciences">Physics Quiz</button>
+            <button id="biologyQuiz_Button" class=" sciences">Biology Quiz</button>
+            <button id="healthCareQuiz_Button" class=" sciences">Health Care Quiz</button>
 
-            <button id="mathQuiz_Button" class="nes-btn technology">Math Quiz</button>
-            <button id="computerScienceQuiz_Button" class="nes-btn technology">Computer Science Quiz</button>
-            <button id="engineeringQuiz_Button" class="nes-btn technology">Engineering Quiz</button>
+            <button id="mathQuiz_Button" class=" technology">Math Quiz</button>
+            <button id="computerScienceQuiz_Button" class=" technology">Computer Science Quiz</button>
+            <button id="engineeringQuiz_Button" class=" technology">Engineering Quiz</button>
 
-            <button id="politicsQuiz_Button" class="nes-btn social-studies">Politics Quiz</button>
-            <button id="economicsQuiz_Button" class="nes-btn social-studies">Economics Quiz</button>
-            <button id="financeQuiz_Button" class="nes-btn social-studies">Finance Quiz</button>
-            <button id="realEstateQuiz_Button" class="nes-btn social-studies">Real Estate Quiz</button>
+            <button id="politicsQuiz_Button" class=" social-studies">Politics Quiz</button>
+            <button id="economicsQuiz_Button" class=" social-studies">Economics Quiz</button>
+            <button id="financeQuiz_Button" class=" social-studies">Finance Quiz</button>
+            <button id="realEstateQuiz_Button" class=" social-studies">Real Estate Quiz</button>
         </div>
     `;
 	displayContainer.appendChild( quizSelectionSection );
@@ -3196,14 +3200,16 @@ function createQuizSelection() {
 // Function to create and append the quiz section dynamically
 function createQuizSection(): void {
 	const quizSection = document.createElement( "div" );
-	quizSection.classList.add( "nes-container", "is-rounded", "quiz-section" );
+	quizSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section" );
 	quizSection.id = "quizSection";
 	quizSection.innerHTML = `
         <div class="question-container">
             <p id="question"></p>
         </div>
         <div id="answers"></div>
-        <progress class="nes-progress is-pattern" value="50" max="100" id="quizProgressBar"></progress>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+		</div>
     `;
 	displayContainer.appendChild( quizSection );
 }
@@ -3211,12 +3217,12 @@ function createQuizSection(): void {
 // Function to create and append the score section dynamically
 function createScoreSection(): void {
 	const scoreSection = document.createElement( "div" );
-	scoreSection.classList.add( "nes-container", "is-rounded", "view-last-score" );
+	scoreSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score" );
 	scoreSection.id = "scoreSection";
 	scoreSection.innerHTML = `
-        <h2 class="nes-text">Quiz Completed!</h2>
+        <h2 class="">Quiz Completed!</h2>
         <p id="scoreMessage"></p>
-        <button id="retryButton" class="nes-btn is-warning retry-button">Retry Quiz</button>
+        <button id="retryButton" class="  retry-button">Retry Quiz</button>
     `;
 	displayContainer.appendChild( scoreSection );
 	document.querySelector( "#retryButton" )?.addEventListener( "click", () => returnToBeginning() );
@@ -3225,12 +3231,12 @@ function createScoreSection(): void {
 // Function to create the past scores section dynamically
 function createPastScoresSection(): void {
 	const pastScoresSection = document.createElement( "div" );
-	pastScoresSection.classList.add( "nes-container", "is-rounded", "view-score-history" );
+	pastScoresSection.classList.add( "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history" );
 	pastScoresSection.id = "pastScoresSection";
 	pastScoresSection.innerHTML = `
-        <h2 class="nes-text">Past Scores</h2>
-        <table id="pastScores" class="scores-table" style="width: 100%; border-collapse: collapse;"></table>
-        <button id="backButton" class="nes-btn">Back to Quiz</button>
+        <h2 class="">Past Scores</h2>
+        <table id="pastScores" class="scores-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 100%; border-collapse: collapse;"></table>
+        <button id="backButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back to Quiz</button>
     `;
 	displayContainer.appendChild( pastScoresSection );
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
@@ -3252,7 +3258,7 @@ function createActionButtons(): void {
 	actionButtons.id = "actionButtons";
 	actionButtons.className = "buttonGroup";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
+        <button id="logoutButton" class=" ">Logout</button>
     `;
 	displayContainer.appendChild( actionButtons );
 	logoutEventListener();
@@ -3264,9 +3270,9 @@ function createScoresButtons(): void {
 	actionButtons.id = "actionButtons";
 	actionButtons.className = "buttonGroup";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="viewScoresButton" class="nes-btn is-success">View Past Scores</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
+        <button id="logoutButton" class=" ">Logout</button>
+        <button id="viewScoresButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Past Scores</button>
+        <button id="resetScoresButton" class=" ">Reset All Scores</button>
     `;
 	displayContainer.appendChild( actionButtons );
 
@@ -3288,11 +3294,11 @@ function createSortButtons(): void {
 	actionButtons.id = "actionButtons";
 	actionButtons.className = "buttonGroup";
 	actionButtons.innerHTML = `
-        <button id="logoutButton" class="nes-btn is-warning">Logout</button>
-        <button id="resetScoresButton" class="nes-btn is-error">Reset All Scores</button>
-        <button id="sortByQuizButton" class="nes-btn is-primary">Sort by Quiz</button>
-        <button id="sortByDateButton" class="nes-btn is-primary">Sort by Date</button>
-        <button id="sortByScoreButton" class="nes-btn is-primary">Sort by Score</button>
+        <button id="logoutButton" class=" ">Logout</button>
+        <button id="resetScoresButton" class=" ">Reset All Scores</button>
+        <button id="sortByQuizButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Quiz</button>
+        <button id="sortByDateButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Date</button>
+        <button id="sortByScoreButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sort by Score</button>
     `;
 	displayContainer.appendChild( actionButtons );
 	logoutEventListener();
@@ -3342,7 +3348,7 @@ function renderScores( pastScores: any[] ): void {
 
 	// Create table headers and rows for the scores
 	const tableHeaders = `
-		<thead>
+		<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 			<tr>
 				<th>Quiz</th>
 				<th>Score</th>
@@ -3357,8 +3363,8 @@ function renderScores( pastScores: any[] ): void {
 			const formattedDate = formatDate( date );
 			return `
 				<tbody>
-					<tr>
-						<td>${ quiz }</td>
+					<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+						<td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">${ quiz }</td>
 						<td>${ score } / ${ total }</td>
 						<td class="scorePercentage">${ percentage }%</td>
 						<td class="scoreDate">${ formattedDate }</td>
@@ -3386,28 +3392,37 @@ function formatDate( dateString: string ): string {
 }
 
 function createDialog(): void {
-	const dialog = document.createElement( "dialog" );
-	dialog.classList.add( "nes-dialog", "nes-container", "is-rounded", "is-dark" );
-	dialog.id = "dialog-dark-rounded";
+	const dialog = document.createElement( "div" );
+	dialog.setAttribute( "tabindex", "-1" );
+	dialog.classList.add( "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" );
+	dialog.id = "dialog";
 	dialog.innerHTML = `
-        <form method="dialog">
-            <p class="title">Confirmation</p>
-            <p>Are you sure you want to reset all past scores?</p>
-            <menu class="dialog-menu">
-                <button class="nes-btn" id="cancel-btn" type="button">Cancel</button>
-                <button class="nes-btn is-primary" id="resetConfirm" type="button">Confirm</button>
-            </menu>
-        </form>
+		<div class="relative p-4 w-full max-w-2xl max-h-full">
+			<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+				<div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+						Reset Past Scores Confirmation
+					</h3>
+					<button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+						<svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+						</svg>
+						<span class="sr-only">Close modal</span>
+					</button>
+				</div>
+				<div class="p-4 md:p-5 space-y-4">
+					<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+						Are you sure you want to delete all past scores? This action cannot be undone.
+					</p>
+				</div>
+				<div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+					<button data-modal-hide="default-modal" type="button" id="resetConfirm" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+					<button data-modal-hide="default-modal" type="button" id="cancel-btn" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+				</div>
+			</div>
+		</div>
     `;
 	displayContainer.appendChild( dialog );
-
-	// Register the dialog with the polyfill if necessary
-	if ( typeof dialog.showModal !== "function" ) {
-		dialogPolyfill.registerDialog( dialog );
-	}
-
-	// Show the dialog
-	dialog.showModal();
 
 	// Add event listener for the Confirm button
 	document.getElementById( "resetConfirm" )?.addEventListener( "click", () => {
@@ -3415,14 +3430,14 @@ function createDialog(): void {
 		localStorage.removeItem( `quizScores_${ currentUserId }` ); // Clear the quiz scores
 		sessionStorage.removeItem( "quizData" );
 		sessionStorage.removeItem( "quizId" );
-		dialog.close(); // Close the dialog
+		removeElementById( "dialog" ); // Close the dialog
 		removeAllSections();
 		returnToBeginning();
 	} );
 
 	// Add event listener for the Cancel button
 	document.querySelector( "#cancel-btn" )?.addEventListener( "click", () => {
-		removeElementById( "dialog-dark-rounded" ); // Close the dialog
+		removeElementById( "dialog" ); // Close the dialog
 	} );
 }
 
@@ -3609,7 +3624,7 @@ function displayQuestion(): void {
 		} else {
 			// Create new button if necessary
 			button = document.createElement( "button" );
-			button.classList.add( "nes-btn" );
+			button.classList.add( "" );
 			answersEl.appendChild( button );
 		}
 
