@@ -3087,7 +3087,7 @@ function createQuizSelection() {
 // Function to create and append the quiz section dynamically
 function createQuizSection() {
     const quizSection = document.createElement("div");
-    quizSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section");
+    quizSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "quiz-section", "col-span-7");
     quizSection.id = "quizSection";
     quizSection.innerHTML = `
         <div class="question-container">
@@ -3104,7 +3104,7 @@ function createQuizSection() {
 function createScoreSection() {
     var _b;
     const scoreSection = document.createElement("div");
-    scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score");
+    scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-last-score", "col-span-7");
     scoreSection.id = "scoreSection";
     scoreSection.innerHTML = `
         <h2 class="text-4xl font-extrabold dark:text-white">Quiz Completed!</h2>
@@ -3118,7 +3118,7 @@ function createScoreSection() {
 function createPastScoresSection() {
     var _b;
     const pastScoresSection = document.createElement("div");
-    pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history");
+    pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "px-6", "py-12", "lg:px-8", "container", "rounded-lg", "view-score-history", "col-span-7");
     pastScoresSection.id = "pastScoresSection";
     pastScoresSection.innerHTML = `
         <h2 class="text-4xl font-extrabold dark:text-white">Past Scores</h2>
@@ -3268,11 +3268,11 @@ function createDialog() {
     var _b, _c;
     const dialog = document.createElement("div");
     dialog.setAttribute("tabindex", "-1");
-    dialog.classList.add("overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full");
+    dialog.classList.add("overflow-y-auto", "flex", "overflow-x-hidden", "inset-2/4", "z-50", "justify-center", "items-center", "w-full", "max-h-full", "col-span-12");
     dialog.id = "dialog";
     dialog.innerHTML = `
 		<div class="relative p-4 w-full max-w-2xl max-h-full">
-			<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+			<div class="relative bg-white rounded-lg shadow dark:bg-gray-200">
 				<div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
 					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
 						Reset Past Scores Confirmation
