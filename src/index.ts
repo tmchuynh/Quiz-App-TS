@@ -10,8 +10,6 @@ import {
 	QuizDataKey,
 } from "./quizData.js";
 
-declare var dialogPolyfill: any;
-
 // Define interfaces
 interface User {
 	id: string;
@@ -27,7 +25,6 @@ interface ProgressItem {
 	quizId: string;
 	difficultyLevel: number;
 }
-
 
 let currentQuestion: number = 0;
 let totalQuestions: number = 0; // Total number of questions
@@ -716,7 +713,6 @@ function createQuizSelection() {
 					"button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
 			}
 
-
 			button.addEventListener( "click", () => {
 				sessionStorage.setItem( "quizId", button.id );
 				let quizData = button.id.split( "_" )[0].concat( "Data" );
@@ -831,14 +827,15 @@ function setupQuizData( quizId: string, difficultyLevel: number ) {
 
 	addBackToSelectionSectionButton();
 
-
 	if ( !isQuizDataKey( quizId ) ) {
 		console.error( "Invalid quiz ID." );
 		return;
 	}
 
 	// Find the quiz in the quizData array
-	const quizItem = quizData.find( ( quiz: { id: string; } ) => quiz.id === quizId );
+	const quizItem = quizData.find(
+		( quiz: { id: string; } ) => quiz.id === quizId
+	);
 	if ( !quizItem ) {
 		console.error( "Quiz not found." );
 		return;
@@ -859,18 +856,21 @@ function setupQuizData( quizId: string, difficultyLevel: number ) {
 		question.answers = shuffle( question.answers );
 	} );
 
-	sessionStorage.setItem( "currentQuizData", JSON.stringify( shuffledQuestions ) );
+	sessionStorage.setItem(
+		"currentQuizData",
+		JSON.stringify( shuffledQuestions )
+	);
 	sessionStorage.setItem( "totalQuestions", questions.length.toString() );
 
 	// Update quizType for display purposes
-	const quizType = quizOptions.find( ( option: { id: string; } ) => option.id === quizId )?.label || "Quiz";
+	const quizType =
+		quizOptions.find( ( option: { id: string; } ) => option.id === quizId )
+			?.label || "Quiz";
 	sessionStorage.setItem( "quizType", quizType );
 
 	// Proceed to load the quiz
 	displayQuestion();
 }
-
-
 
 // Function to create and append the quiz section dynamically
 function createQuizSection(): void {
@@ -1275,7 +1275,9 @@ function returnToBeginning(): void {
 
 	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userProgressKey = `quizProgress_${ currentUserId }`;
-	const difficultyLevel = parseInt( sessionStorage.getItem( "difficultyLevel" )! );
+	const difficultyLevel = parseInt(
+		sessionStorage.getItem( "difficultyLevel" )!
+	);
 	const quizId = sessionStorage.getItem( "quizId" )!;
 
 	// Retrieve current progress and remove the current quiz's progress
@@ -1283,7 +1285,11 @@ function returnToBeginning(): void {
 		localStorage.getItem( userProgressKey ) || "[]"
 	);
 	currentProgress = currentProgress.filter(
-		( item ) => !( item.quizId === quizId && item.difficultyLevel === difficultyLevel )
+		( item ) =>
+			!(
+				item.quizId === quizId &&
+				item.difficultyLevel === difficultyLevel
+			)
 	);
 
 	// Add new progress starting from the beginning
@@ -1300,7 +1306,6 @@ function returnToBeginning(): void {
 	// Display the first question
 	setupQuizData( quizId, difficultyLevel );
 }
-
 
 // Function to load the quiz
 function loadQuiz(): void {
@@ -1366,9 +1371,12 @@ function loadProgress(): void {
 	const currentProgress: ProgressItem[] = JSON.parse(
 		localStorage.getItem( userProgressKey ) || "[]"
 	);
-	const difficultyLevel = parseInt( sessionStorage.getItem( "difficultyLevel" )! );
+	const difficultyLevel = parseInt(
+		sessionStorage.getItem( "difficultyLevel" )!
+	);
 	const progressItem = currentProgress.find(
-		( item ) => item.quizId === quizId && item.difficultyLevel === difficultyLevel
+		( item ) =>
+			item.quizId === quizId && item.difficultyLevel === difficultyLevel
 	);
 	if ( progressItem ) {
 		currentQuestion = progressItem.currentQuestion;
@@ -1379,7 +1387,12 @@ function loadProgress(): void {
 		score = 0;
 
 		// Save initial progress
-		currentProgress.push( { currentQuestion, score, quizId, difficultyLevel } );
+		currentProgress.push( {
+			currentQuestion,
+			score,
+			quizId,
+			difficultyLevel,
+		} );
 		sortProgressArray( currentProgress );
 		localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
 	}
@@ -1433,12 +1446,9 @@ function createQuestionElement( question: Question ): void {
 		// Remove any previous event listeners and add a new one
 		const newButton = button.cloneNode( true ) as HTMLElement;
 		button.replaceWith( newButton );
-		newButton.addEventListener( "click", () =>
-			checkAnswer( index )
-		);
+		newButton.addEventListener( "click", () => checkAnswer( index ) );
 	} );
 }
-
 
 // Display Question
 function displayQuestion(): void {
@@ -1494,12 +1504,17 @@ function saveProgress(): void {
 	const currentUserId = sessionStorage.getItem( "currentUserId" )!;
 	const userProgressKey = `quizProgress_${ currentUserId }`;
 	const quizId = sessionStorage.getItem( "quizId" )!;
-	const difficultyLevel = parseInt( sessionStorage.getItem( "difficultyLevel" )! );
+	const difficultyLevel = parseInt(
+		sessionStorage.getItem( "difficultyLevel" )!
+	);
 
-	const currentProgress: ProgressItem[] = JSON.parse( localStorage.getItem( userProgressKey ) || "[]" );
+	const currentProgress: ProgressItem[] = JSON.parse(
+		localStorage.getItem( userProgressKey ) || "[]"
+	);
 
 	const index = currentProgress.findIndex(
-		( item ) => item.quizId === quizId && item.difficultyLevel === difficultyLevel
+		( item ) =>
+			item.quizId === quizId && item.difficultyLevel === difficultyLevel
 	);
 
 	if ( index !== -1 ) {
@@ -1508,14 +1523,18 @@ function saveProgress(): void {
 		currentProgress[index].score = score;
 	} else {
 		// Add new progress
-		currentProgress.push( { currentQuestion, score, quizId, difficultyLevel } );
+		currentProgress.push( {
+			currentQuestion,
+			score,
+			quizId,
+			difficultyLevel,
+		} );
 	}
 
 	// Sort the array alphabetically by quizId and difficultyLevel
 	sortProgressArray( currentProgress );
 	localStorage.setItem( userProgressKey, JSON.stringify( currentProgress ) );
 }
-
 
 // Function to check the answer and proceed
 function checkAnswer( selectedAnswerIndex: number ): void {
@@ -1544,7 +1563,6 @@ function checkAnswer( selectedAnswerIndex: number ): void {
 	displayQuestion();
 }
 
-
 // Generic shuffle function using the Fisher-Yates algorithm
 const shuffle = ( array: any ) => {
 	for ( let i = array.length - 1; i > 0; i-- ) {
@@ -1553,8 +1571,6 @@ const shuffle = ( array: any ) => {
 	}
 	return array;
 };
-
-
 
 // Function to show the final score
 function showScore(): void {
@@ -1579,7 +1595,9 @@ function showScore(): void {
 	const difficultyLevel = parseInt( difficultyLevelStr, 10 );
 
 	// Find the quiz in the quizData array
-	const quizItem = quizData.find( ( quiz: { id: string; } ) => quiz.id === quizId );
+	const quizItem = quizData.find(
+		( quiz: { id: string; } ) => quiz.id === quizId
+	);
 	if ( !quizItem ) {
 		console.error( "Quiz not found." );
 		return;
@@ -1620,8 +1638,6 @@ function showScore(): void {
 	score = 0;
 	saveProgress();
 }
-
-
 
 function checkProgressAtEnd( currentUserId: string ): boolean {
 	// Retrieve current quiz progress

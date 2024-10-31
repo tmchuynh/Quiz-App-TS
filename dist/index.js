@@ -862,7 +862,8 @@ function returnToBeginning() {
     const quizId = sessionStorage.getItem("quizId");
     // Retrieve current progress and remove the current quiz's progress
     let currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
-    currentProgress = currentProgress.filter((item) => !(item.quizId === quizId && item.difficultyLevel === difficultyLevel));
+    currentProgress = currentProgress.filter((item) => !(item.quizId === quizId &&
+        item.difficultyLevel === difficultyLevel));
     // Add new progress starting from the beginning
     currentProgress.push({ currentQuestion, score, quizId, difficultyLevel });
     // Sort and save the updated progress
@@ -938,7 +939,12 @@ function loadProgress() {
         currentQuestion = 0;
         score = 0;
         // Save initial progress
-        currentProgress.push({ currentQuestion, score, quizId, difficultyLevel });
+        currentProgress.push({
+            currentQuestion,
+            score,
+            quizId,
+            difficultyLevel,
+        });
         sortProgressArray(currentProgress);
         localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
     }
@@ -1040,7 +1046,12 @@ function saveProgress() {
     }
     else {
         // Add new progress
-        currentProgress.push({ currentQuestion, score, quizId, difficultyLevel });
+        currentProgress.push({
+            currentQuestion,
+            score,
+            quizId,
+            difficultyLevel,
+        });
     }
     // Sort the array alphabetically by quizId and difficultyLevel
     sortProgressArray(currentProgress);
