@@ -522,14 +522,15 @@ function promptForDifficulty(quizId) {
             button.className =
                 "button text-white bg-zinc-700 hover:bg-zinc-600 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800";
             // Check if the quiz is already in progress at any difficulty level
-            // const progressItems = currentProgress.filter( ( item ) => item.currentQuestion > 0 );
-            // if ( progressItems.length > 0 ) {
-            // 	button.className =
-            // 		"button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
-            // }
+            const progressItems = currentProgress.find((item) => item.quizId === quizId && item.currentQuestion > 0);
+            if (progressItems) {
+                button.className =
+                    "button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
+            }
             button.addEventListener("click", () => {
                 sessionStorage.setItem("difficultyLevel", level.toString());
                 // Now load the quiz questions based on the selected difficulty
+                console.log("Loading quiz questions", quizId, level);
                 setupQuizData(quizId, level);
             });
             difficultyOptionsContainer.appendChild(button);
@@ -556,12 +557,17 @@ function setupQuizData(quizId, difficultyLevel) {
         createActionButtons();
     }
     addBackToSelectionSectionButton();
+    console.log("quizId", quizId);
+    console.log(typeof quizId, typeof difficultyLevel);
+    console.log(!isQuizDataKey(quizId + "Data"));
     if (!isQuizDataKey(quizId)) {
         console.error("Invalid quiz ID.");
         return;
     }
+    console.log("quizData", quizData);
     // Find the quiz in the quizData array
     const quizItem = quizData.find((quiz) => quiz.id === quizId);
+    console.log("quizItem", quizItem);
     if (!quizItem) {
         console.error("Quiz not found.");
         return;

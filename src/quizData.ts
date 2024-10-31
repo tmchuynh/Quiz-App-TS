@@ -75,7 +75,9 @@ export const quizOptions: QuizOption[] = [
     { id: "realEstateQuiz", label: "Real Estate Quiz", category: "social-studies" },
     { id: "psychologyQuiz", label: "Psychology Quiz", category: "sciences" },
     { id: "socialStudiesQuiz", label: "Social Studies Quiz", category: "humanities" },
-    { id: "sportsQuiz", label: "Sports Quiz", category: "entertainment" }
+    { id: "sociologyQuiz", label: "Sociology Quiz", category: "social-studies" },
+    { id: "sportsQuiz", label: "Sports Quiz", category: "entertainment" },
+    { id: "warfareQuiz", label: "Warfare Quiz", category: "humanities" },
 ];
 
 // Animal Quiz Data
@@ -10741,16 +10743,1070 @@ export const mathData: Quiz = {
     ],
 };
 
+// Sociology Quiz Data
+export const sociologyData: Quiz = {
+    1: [
+        {
+            question: "What is the study of society and social behavior called?",
+            answers: [
+                { text: "Psychology", correct: false },
+                { text: "Sociology", correct: true },
+                { text: "Anthropology", correct: false },
+                { text: "Economics", correct: false },
+            ],
+        },
+        {
+            question: "What term describes a group of people with shared characteristics?",
+            answers: [
+                { text: "Society", correct: false },
+                { text: "Community", correct: true },
+                { text: "Culture", correct: false },
+                { text: "Institution", correct: false },
+            ],
+        },
+        {
+            question: "What is a social norm?",
+            answers: [
+                { text: "A legal requirement", correct: false },
+                { text: "An expected behavior in a group", correct: true },
+                { text: "A cultural artifact", correct: false },
+                { text: "A biological trait", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'deviance' refer to?",
+            answers: [
+                { text: "Conformity to social norms", correct: false },
+                { text: "Behavior that violates norms", correct: true },
+                { text: "The study of groups", correct: false },
+                { text: "A type of social organization", correct: false },
+            ],
+        },
+        {
+            question: "What is a culture?",
+            answers: [
+                { text: "A biological classification", correct: false },
+                { text: "Shared beliefs, values, and practices", correct: true },
+                { text: "A social institution", correct: false },
+                { text: "A type of government", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for a position within a social structure?",
+            answers: [
+                { text: "Role", correct: true },
+                { text: "Status", correct: false },
+                { text: "Norm", correct: false },
+                { text: "Value", correct: false },
+            ],
+        },
+        {
+            question: "What is social stratification?",
+            answers: [
+                { text: "The organization of society into hierarchical layers", correct: true },
+                { text: "The process of social change", correct: false },
+                { text: "The study of social networks", correct: false },
+                { text: "The analysis of social behavior", correct: false },
+            ],
+        },
+        {
+            question: "What is the process by which individuals learn and internalize the values and norms of their culture?",
+            answers: [
+                { text: "Socialization", correct: true },
+                { text: "Acculturation", correct: false },
+                { text: "Assimilation", correct: false },
+                { text: "Enculturation", correct: false },
+            ],
+        },
+        {
+            question: "What term describes the movement of individuals or groups from one social class to another?",
+            answers: [
+                { text: "Social mobility", correct: true },
+                { text: "Social change", correct: false },
+                { text: "Social stratification", correct: false },
+                { text: "Socialization", correct: false },
+            ],
+        },
+        {
+            question: "What is the concept of 'groupthink'?",
+            answers: [
+                { text: "A decision-making process where group members conform to a consensus", correct: true },
+                { text: "The study of group behavior", correct: false },
+                { text: "A method of conflict resolution", correct: false },
+                { text: "A form of social control", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'social change' refer to?",
+            answers: [
+                { text: "Changes in laws and policies", correct: false },
+                { text: "Alterations in social structures and relationships", correct: true },
+                { text: "Changes in personal beliefs", correct: false },
+                { text: "Changes in economic systems", correct: false },
+            ],
+        },
+    ],
+    2: [
+        {
+            question: "What is the sociological perspective that emphasizes the importance of social structures?",
+            answers: [
+                { text: "Symbolic interactionism", correct: false },
+                { text: "Functionalism", correct: true },
+                { text: "Conflict theory", correct: false },
+                { text: "Feminist theory", correct: false },
+            ],
+        },
+        {
+            question: "Which of the following is a function of social institutions?",
+            answers: [
+                { text: "To create social change", correct: false },
+                { text: "To provide stability and order", correct: true },
+                { text: "To promote individuality", correct: false },
+                { text: "To encourage competition", correct: false },
+            ],
+        },
+        {
+            question: "What is a significant factor that contributes to social inequality?",
+            answers: [
+                { text: "Access to education", correct: true },
+                { text: "Cultural diversity", correct: false },
+                { text: "Community engagement", correct: false },
+                { text: "Social cohesion", correct: false },
+            ],
+        },
+        {
+            question: "What is the difference between 'race' and 'ethnicity'?",
+            answers: [
+                { text: "Race is based on biological traits; ethnicity is based on cultural traits", correct: true },
+                { text: "Race is a social construct; ethnicity is not", correct: false },
+                { text: "Race refers to nationality; ethnicity refers to skin color", correct: false },
+                { text: "Race is unchangeable; ethnicity can change", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for a temporary social grouping of people?",
+            answers: [
+                { text: "Collective", correct: true },
+                { text: "Community", correct: false },
+                { text: "Society", correct: false },
+                { text: "Network", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'normative behavior' refer to?",
+            answers: [
+                { text: "Behavior that is statistically average", correct: false },
+                { text: "Behavior that aligns with societal norms", correct: true },
+                { text: "Behavior that is deviant", correct: false },
+                { text: "Behavior that is biologically determined", correct: false },
+            ],
+        },
+        {
+            question: "What is 'role conflict'?",
+            answers: [
+                { text: "When an individual has multiple roles that conflict", correct: true },
+                { text: "When a role is poorly defined", correct: false },
+                { text: "When roles change over time", correct: false },
+                { text: "When roles are socially constructed", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'anomie' refer to in sociology?",
+            answers: [
+                { text: "A state of normlessness", correct: true },
+                { text: "A type of socialization", correct: false },
+                { text: "A type of social change", correct: false },
+                { text: "A social institution", correct: false },
+            ],
+        },
+        {
+            question: "What is the process of shedding old roles and adopting new ones called?",
+            answers: [
+                { text: "Role exit", correct: true },
+                { text: "Role conflict", correct: false },
+                { text: "Role strain", correct: false },
+                { text: "Socialization", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of 'social capital'?",
+            answers: [
+                { text: "The resources available to individuals through their social networks", correct: true },
+                { text: "The economic resources of a community", correct: false },
+                { text: "The level of education in a society", correct: false },
+                { text: "The political power of individuals", correct: false },
+            ],
+        },
+    ],
+    3: [
+        {
+            question: "What is a primary focus of conflict theory?",
+            answers: [
+                { text: "Stability and consensus", correct: false },
+                { text: "Power struggles and inequalities", correct: true },
+                { text: "Social harmony", correct: false },
+                { text: "Cultural integration", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of the feminist perspective in sociology?",
+            answers: [
+                { text: "It emphasizes gender inequality", correct: true },
+                { text: "It focuses solely on women's issues", correct: false },
+                { text: "It ignores intersectionality", correct: false },
+                { text: "It promotes traditional gender roles", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'socialization' refer to?",
+            answers: [
+                { text: "The process of learning and internalizing norms", correct: true },
+                { text: "The creation of social structures", correct: false },
+                { text: "The breakdown of social norms", correct: false },
+                { text: "The promotion of individualism", correct: false },
+            ],
+        },
+        {
+            question: "What is the role of primary groups in socialization?",
+            answers: [
+                { text: "They provide emotional support", correct: true },
+                { text: "They are temporary groupings", correct: false },
+                { text: "They reinforce societal norms", correct: false },
+                { text: "They are focused on larger societal issues", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for a set of shared beliefs and values within a group?",
+            answers: [
+                { text: "Culture", correct: true },
+                { text: "Society", correct: false },
+                { text: "Norm", correct: false },
+                { text: "Institution", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary focus of symbolic interactionism?",
+            answers: [
+                { text: "Social structures", correct: false },
+                { text: "Social interactions and meanings", correct: true },
+                { text: "Cultural norms", correct: false },
+                { text: "Collective behavior", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'deviance' refer to?",
+            answers: [
+                { text: "Behavior that aligns with social norms", correct: false },
+                { text: "Behavior that violates societal norms", correct: true },
+                { text: "Behavior that is accepted", correct: false },
+                { text: "Behavior that is expected", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of social institutions?",
+            answers: [
+                { text: "They create inequalities", correct: false },
+                { text: "They organize society and provide structure", correct: true },
+                { text: "They hinder social change", correct: false },
+                { text: "They focus on individual behavior", correct: false },
+            ],
+        },
+        {
+            question: "What is the impact of globalization on culture?",
+            answers: [
+                { text: "It promotes cultural isolation", correct: false },
+                { text: "It leads to cultural homogenization", correct: true },
+                { text: "It has no impact", correct: false },
+                { text: "It enhances local cultures only", correct: false },
+            ],
+        },
+        {
+            question: "What is the concept of 'role strain'?",
+            answers: [
+                { text: "Conflicts between different roles", correct: false },
+                { text: "Inability to meet the demands of a single role", correct: true },
+                { text: "Absence of roles in society", correct: false },
+                { text: "Disruption of social order", correct: false },
+            ],
+        },
+    ],
+    4: [
+        {
+            question: "What is the concept of 'cultural relativism'?",
+            answers: [
+                { text: "The belief that one's culture is superior", correct: false },
+                { text: "The understanding that cultures must be understood in their own context", correct: true },
+                { text: "The rejection of all cultures", correct: false },
+                { text: "The promotion of global cultures", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for an expected behavior in a given context?",
+            answers: [
+                { text: "Role", correct: true },
+                { text: "Status", correct: false },
+                { text: "Norm", correct: false },
+                { text: "Value", correct: false },
+            ],
+        },
+        {
+            question: "What is the main focus of structural functionalism?",
+            answers: [
+                { text: "Social conflict", correct: false },
+                { text: "The functions of each part of society", correct: true },
+                { text: "Individual behavior", correct: false },
+                { text: "Social change", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'social construct' mean?",
+            answers: [
+                { text: "Something that exists physically", correct: false },
+                { text: "An idea or concept created by society", correct: true },
+                { text: "A natural phenomenon", correct: false },
+                { text: "A law or policy", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'institutionalized discrimination' refer to?",
+            answers: [
+                { text: "Discrimination that is illegal", correct: false },
+                { text: "Discrimination that is part of social structures", correct: true },
+                { text: "Discrimination that is personal", correct: false },
+                { text: "Discrimination that is random", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of social networks?",
+            answers: [
+                { text: "They limit social interactions", correct: false },
+                { text: "They facilitate connections and resource sharing", correct: true },
+                { text: "They promote isolation", correct: false },
+                { text: "They hinder relationships", correct: false },
+            ],
+        },
+        {
+            question: "What is the impact of social media on society?",
+            answers: [
+                { text: "It has no impact", correct: false },
+                { text: "It promotes isolation", correct: false },
+                { text: "It can enhance social connections", correct: true },
+                { text: "It decreases social interaction", correct: false },
+            ],
+        },
+        {
+            question: "What is the role of culture in shaping identity?",
+            answers: [
+                { text: "It has no role", correct: false },
+                { text: "It shapes beliefs, values, and behaviors", correct: true },
+                { text: "It only affects behavior", correct: false },
+                { text: "It is a minor influence", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary focus of postmodern sociology?",
+            answers: [
+                { text: "Social structures", correct: false },
+                { text: "Diversity of perspectives and experiences", correct: true },
+                { text: "Historical analysis", correct: false },
+                { text: "Norms and values", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'social stratification' refer to?",
+            answers: [
+                { text: "The hierarchical arrangement of individuals in society", correct: true },
+                { text: "The study of social networks", correct: false },
+                { text: "The analysis of social behavior", correct: false },
+                { text: "The promotion of equality", correct: false },
+            ],
+        },
+    ],
+    5: [
+        {
+            question: "What is the significance of 'critical theory' in sociology?",
+            answers: [
+                { text: "It seeks to understand social norms", correct: false },
+                { text: "It aims to critique and change society", correct: true },
+                { text: "It promotes social stability", correct: false },
+                { text: "It ignores power dynamics", correct: false },
+            ],
+        },
+        {
+            question: "What is 'intersectionality' in sociology?",
+            answers: [
+                { text: "The study of single identities", correct: false },
+                { text: "How various forms of identity overlap and interact", correct: true },
+                { text: "A concept used in biology", correct: false },
+                { text: "A technique for social research", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'cultural capital' refer to?",
+            answers: [
+                { text: "Economic resources", correct: false },
+                { text: "Knowledge, skills, and education that promote social mobility", correct: true },
+                { text: "Social status", correct: false },
+                { text: "Political power", correct: false },
+            ],
+        },
+        {
+            question: "What is the main focus of social psychology?",
+            answers: [
+                { text: "Individual behavior", correct: false },
+                { text: "Social influences on behavior", correct: true },
+                { text: "The study of cultures", correct: false },
+                { text: "Economic behaviors", correct: false },
+            ],
+        },
+        {
+            question: "What is the concept of 'socialization'?",
+            answers: [
+                { text: "The process of becoming an individual", correct: false },
+                { text: "The lifelong process of learning social norms and values", correct: true },
+                { text: "The promotion of equality", correct: false },
+                { text: "The analysis of social structures", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary goal of sociological research?",
+            answers: [
+                { text: "To describe and explain social phenomena", correct: true },
+                { text: "To promote social change", correct: false },
+                { text: "To validate existing theories", correct: false },
+                { text: "To study individual behavior", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for the study of how societies develop and change over time?",
+            answers: [
+                { text: "Historical sociology", correct: true },
+                { text: "Comparative sociology", correct: false },
+                { text: "Cultural sociology", correct: false },
+                { text: "Quantitative sociology", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'social exclusion' refer to?",
+            answers: [
+                { text: "Inclusion in society", correct: false },
+                { text: "The process of being marginalized and denied access to resources", correct: true },
+                { text: "A concept of integration", correct: false },
+                { text: "The breakdown of social bonds", correct: false },
+            ],
+        },
+        {
+            question: "What is the role of rituals in society?",
+            answers: [
+                { text: "To promote individuality", correct: false },
+                { text: "To reinforce social bonds and cultural values", correct: true },
+                { text: "To create social hierarchy", correct: false },
+                { text: "To encourage competition", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'urban sociology' focus on?",
+            answers: [
+                { text: "Rural communities", correct: false },
+                { text: "The study of social life in urban areas", correct: true },
+                { text: "Globalization", correct: false },
+                { text: "Environmental sociology", correct: false },
+            ],
+        },
+    ],
+};
+
+
+// Warfare Quiz Data
+export const warfareData: Quiz = {
+    1: [
+        {
+            question: "What is the primary purpose of warfare?",
+            answers: [
+                { text: "To achieve political objectives", correct: true },
+                { text: "To conquer territory", correct: false },
+                { text: "To demonstrate power", correct: false },
+                { text: "To gain resources", correct: false },
+            ],
+        },
+        {
+            question: "Which conflict is known as the first global war?",
+            answers: [
+                { text: "World War I", correct: true },
+                { text: "World War II", correct: false },
+                { text: "The Cold War", correct: false },
+                { text: "The Napoleonic Wars", correct: false },
+            ],
+        },
+        {
+            question: "What is guerrilla warfare?",
+            answers: [
+                { text: "Conventional warfare", correct: false },
+                { text: "Irregular warfare by small groups", correct: true },
+                { text: "Nuclear warfare", correct: false },
+                { text: "Chemical warfare", correct: false },
+            ],
+        },
+        {
+            question: "Who was the commander of the British forces during the Battle of Waterloo?",
+            answers: [
+                { text: "Duke of Wellington", correct: true },
+                { text: "Horatio Nelson", correct: false },
+                { text: "Duke of York", correct: false },
+                { text: "Robert E. Lee", correct: false },
+            ],
+        },
+        {
+            question: "What was the main strategy of the Blitzkrieg?",
+            answers: [
+                { text: "Defensive warfare", correct: false },
+                { text: "Rapid and surprise attacks", correct: true },
+                { text: "Use of submarines", correct: false },
+                { text: "Trench warfare", correct: false },
+            ],
+        },
+        {
+            question: "Which battle marked the turning point in the Pacific Theater during WWII?",
+            answers: [
+                { text: "Battle of Midway", correct: true },
+                { text: "Battle of Iwo Jima", correct: false },
+                { text: "Battle of Guadalcanal", correct: false },
+                { text: "Battle of Okinawa", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary weapon of an infantry soldier?",
+            answers: [
+                { text: "Tank", correct: false },
+                { text: "Rifle", correct: true },
+                { text: "Artillery", correct: false },
+                { text: "Missile", correct: false },
+            ],
+        },
+        {
+            question: "Which war was primarily fought over the issue of slavery in the United States?",
+            answers: [
+                { text: "World War I", correct: false },
+                { text: "The Civil War", correct: true },
+                { text: "The Revolutionary War", correct: false },
+                { text: "The War of 1812", correct: false },
+            ],
+        },
+        {
+            question: "What was the first use of atomic bombs in warfare?",
+            answers: [
+                { text: "World War I", correct: false },
+                { text: "Korean War", correct: false },
+                { text: "World War II", correct: true },
+                { text: "Vietnam War", correct: false },
+            ],
+        },
+        {
+            question: "What was the purpose of the Marshall Plan?",
+            answers: [
+                { text: "Rebuild Europe after WWII", correct: true },
+                { text: "Provide military support", correct: false },
+                { text: "Promote communism", correct: false },
+                { text: "Establish NATO", correct: false },
+            ],
+        },
+        {
+            question: "Which country initiated the invasion of Poland in 1939?",
+            answers: [
+                { text: "France", correct: false },
+                { text: "Germany", correct: true },
+                { text: "Soviet Union", correct: false },
+                { text: "Italy", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'War of Attrition' refer to?",
+            answers: [
+                { text: "A war based on guerrilla tactics", correct: false },
+                { text: "A war aimed at wearing down the enemy", correct: true },
+                { text: "A type of psychological warfare", correct: false },
+                { text: "A naval blockade", correct: false },
+            ],
+        },
+        {
+            question: "Who was the leading general of the American Expeditionary Forces in WWI?",
+            answers: [
+                { text: "John J. Pershing", correct: true },
+                { text: "Dwight D. Eisenhower", correct: false },
+                { text: "George S. Patton", correct: false },
+                { text: "William Tecumseh Sherman", correct: false },
+            ],
+        },
+    ],
+    2: [
+        {
+            question: "What tactic involves surprise attacks against a larger enemy?",
+            answers: [
+                { text: "Guerrilla warfare", correct: true },
+                { text: "Trench warfare", correct: false },
+                { text: "Total war", correct: false },
+                { text: "Psychological warfare", correct: false },
+            ],
+        },
+        {
+            question: "Who was the leader of the Allied forces in Europe during WWII?",
+            answers: [
+                { text: "Dwight D. Eisenhower", correct: true },
+                { text: "George S. Patton", correct: false },
+                { text: "Winston Churchill", correct: false },
+                { text: "Douglas MacArthur", correct: false },
+            ],
+        },
+        {
+            question: "What is the name of the international organization founded after WWII to promote peace?",
+            answers: [
+                { text: "League of Nations", correct: false },
+                { text: "United Nations", correct: true },
+                { text: "NATO", correct: false },
+                { text: "European Union", correct: false },
+            ],
+        },
+        {
+            question: "Which conflict was known as the 'Forgotten War'?",
+            answers: [
+                { text: "World War II", correct: false },
+                { text: "Vietnam War", correct: false },
+                { text: "Korean War", correct: true },
+                { text: "Gulf War", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for military strategy that focuses on the importance of logistics?",
+            answers: [
+                { text: "Total war", correct: false },
+                { text: "Logistics warfare", correct: true },
+                { text: "Asymmetric warfare", correct: false },
+                { text: "Cold War", correct: false },
+            ],
+        },
+        {
+            question: "What is the main purpose of a military draft?",
+            answers: [
+                { text: "To recruit volunteers", correct: false },
+                { text: "To maintain a standing army", correct: false },
+                { text: "To conscript citizens for military service", correct: true },
+                { text: "To train soldiers", correct: false },
+            ],
+        },
+        {
+            question: "Which treaty ended World War I?",
+            answers: [
+                { text: "Treaty of Versailles", correct: true },
+                { text: "Treaty of Paris", correct: false },
+                { text: "Treaty of Ghent", correct: false },
+                { text: "Treaty of Trianon", correct: false },
+            ],
+        },
+        {
+            question: "What was the main objective of Operation Desert Storm?",
+            answers: [
+                { text: "To liberate Kuwait", correct: true },
+                { text: "To overthrow Saddam Hussein", correct: false },
+                { text: "To establish democracy in Iraq", correct: false },
+                { text: "To secure oil fields", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'scorched earth' refer to?",
+            answers: [
+                { text: "A military tactic that destroys anything useful", correct: true },
+                { text: "A type of weapon", correct: false },
+                { text: "A geographical region", correct: false },
+                { text: "A peace treaty", correct: false },
+            ],
+        },
+        {
+            question: "What was the significance of the Battle of Stalingrad?",
+            answers: [
+                { text: "It was a major German victory", correct: false },
+                { text: "It marked the turning point in the Eastern Front", correct: true },
+                { text: "It ended the war", correct: false },
+                { text: "It was a naval battle", correct: false },
+            ],
+        },
+        {
+            question: "Which conflict was fought between the United States and Britain in 1812?",
+            answers: [
+                { text: "War of 1812", correct: true },
+                { text: "Revolutionary War", correct: false },
+                { text: "Mexican-American War", correct: false },
+                { text: "Civil War", correct: false },
+            ],
+        },
+        {
+            question: "What does the term 'no man's land' refer to?",
+            answers: [
+                { text: "An area between opposing trenches", correct: true },
+                { text: "A neutral country", correct: false },
+                { text: "An uninhabited area", correct: false },
+                { text: "A peace agreement", correct: false },
+            ],
+        },
+        {
+            question: "Which country did the United States fight in the Vietnam War?",
+            answers: [
+                { text: "North Vietnam", correct: true },
+                { text: "South Vietnam", correct: false },
+                { text: "China", correct: false },
+                { text: "Laos", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary goal of psychological warfare?",
+            answers: [
+                { text: "To confuse the enemy", correct: false },
+                { text: "To induce fear and demoralization", correct: true },
+                { text: "To collect intelligence", correct: false },
+                { text: "To gain territory", correct: false },
+            ],
+        },
+    ],
+    3: [
+        {
+            question: "What is a significant outcome of the Treaty of Versailles?",
+            answers: [
+                { text: "It ended World War I", correct: true },
+                { text: "It led to World War II", correct: false },
+                { text: "It established the United Nations", correct: false },
+                { text: "It unified Germany", correct: false },
+            ],
+        },
+        {
+            question: "What is the term used to describe a military strategy that aims to exhaust the enemy's resources?",
+            answers: [
+                { text: "War of Attrition", correct: true },
+                { text: "Blitzkrieg", correct: false },
+                { text: "Total War", correct: false },
+                { text: "Guerrilla Warfare", correct: false },
+            ],
+        },
+        {
+            question: "Which military campaign is associated with Napoleon Bonaparte?",
+            answers: [
+                { text: "The Peninsular War", correct: true },
+                { text: "The American Civil War", correct: false },
+                { text: "The War of 1812", correct: false },
+                { text: "The Franco-Prussian War", correct: false },
+            ],
+        },
+        {
+            question: "What is the main advantage of using air power in warfare?",
+            answers: [
+                { text: "Mobility", correct: false },
+                { text: "Surprise", correct: true },
+                { text: "Defense", correct: false },
+                { text: "Economic efficiency", correct: false },
+            ],
+        },
+        {
+            question: "What was the name of the first nuclear-powered submarine?",
+            answers: [
+                { text: "USS Nautilus", correct: true },
+                { text: "USS Seawolf", correct: false },
+                { text: "USS Enterprise", correct: false },
+                { text: "USS Nimitz", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary role of a military intelligence officer?",
+            answers: [
+                { text: "Combat training", correct: false },
+                { text: "Gathering and analyzing information", correct: true },
+                { text: "Logistics planning", correct: false },
+                { text: "Field command", correct: false },
+            ],
+        },
+        {
+            question: "What was the goal of the Normandy invasion during WWII?",
+            answers: [
+                { text: "To invade Italy", correct: false },
+                { text: "To liberate Western Europe from Nazi control", correct: true },
+                { text: "To defeat Japan", correct: false },
+                { text: "To establish a foothold in Africa", correct: false },
+            ],
+        },
+        {
+            question: "Which battle is considered the turning point in the Pacific during WWII?",
+            answers: [
+                { text: "Battle of Midway", correct: true },
+                { text: "Battle of Guadalcanal", correct: false },
+                { text: "Battle of Iwo Jima", correct: false },
+                { text: "Battle of Okinawa", correct: false },
+            ],
+        },
+        {
+            question: "What is the term for a surprise attack designed to disrupt the enemy's plans?",
+            answers: [
+                { text: "Counteroffensive", correct: false },
+                { text: "Decapitation strike", correct: true },
+                { text: "Flanking maneuver", correct: false },
+                { text: "Guerrilla tactics", correct: false },
+            ],
+        },
+        {
+            question: "Which global conflict was sparked by the assassination of Archduke Franz Ferdinand?",
+            answers: [
+                { text: "World War I", correct: true },
+                { text: "World War II", correct: false },
+                { text: "The Korean War", correct: false },
+                { text: "The Vietnam War", correct: false },
+            ],
+        },
+    ],
+    4: [
+        {
+            question: "Which military strategy focuses on cutting off supplies to the enemy?",
+            answers: [
+                { text: "Siege warfare", correct: true },
+                { text: "Blitzkrieg", correct: false },
+                { text: "Attrition", correct: false },
+                { text: "Encirclement", correct: false },
+            ],
+        },
+        {
+            question: "What was the primary technology used in trench warfare during WWI?",
+            answers: [
+                { text: "Machine guns", correct: true },
+                { text: "Tanks", correct: false },
+                { text: "Airplanes", correct: false },
+                { text: "Chemical weapons", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of the Geneva Conventions?",
+            answers: [
+                { text: "They establish the laws of war", correct: true },
+                { text: "They regulate international trade", correct: false },
+                { text: "They promote economic development", correct: false },
+                { text: "They address environmental issues", correct: false },
+            ],
+        },
+        {
+            question: "What is the main objective of counterinsurgency operations?",
+            answers: [
+                { text: "To defeat regular armies", correct: false },
+                { text: "To gain the support of the local population", correct: true },
+                { text: "To seize territory", correct: false },
+                { text: "To engage in conventional warfare", correct: false },
+            ],
+        },
+        {
+            question: "Which empire is known for its use of cavalry in warfare?",
+            answers: [
+                { text: "Roman Empire", correct: false },
+                { text: "Mongol Empire", correct: true },
+                { text: "Ottoman Empire", correct: false },
+                { text: "Persian Empire", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary purpose of military logistics?",
+            answers: [
+                { text: "To train soldiers", correct: false },
+                { text: "To provide supplies and support to forces", correct: true },
+                { text: "To engage in combat", correct: false },
+                { text: "To negotiate treaties", correct: false },
+            ],
+        },
+        {
+            question: "What type of warfare involves the use of improvised explosive devices?",
+            answers: [
+                { text: "Guerrilla warfare", correct: true },
+                { text: "Conventional warfare", correct: false },
+                { text: "Cyber warfare", correct: false },
+                { text: "Naval warfare", correct: false },
+            ],
+        },
+        {
+            question: "What is the concept of 'asymmetric warfare'?",
+            answers: [
+                { text: "Warfare between equal powers", correct: false },
+                { text: "Warfare involving unequal forces", correct: true },
+                { text: "Warfare focused on air superiority", correct: false },
+                { text: "Warfare without conventional battles", correct: false },
+            ],
+        },
+        {
+            question: "Which battle is known for the use of tanks in large-scale combat?",
+            answers: [
+                { text: "Battle of the Somme", correct: false },
+                { text: "Battle of Cambrai", correct: true },
+                { text: "Battle of Verdun", correct: false },
+                { text: "Battle of the Bulge", correct: false },
+            ],
+        },
+        {
+            question: "What is the main goal of peacekeeping missions?",
+            answers: [
+                { text: "To engage in combat", correct: false },
+                { text: "To maintain peace and security", correct: true },
+                { text: "To establish a government", correct: false },
+                { text: "To promote trade", correct: false },
+            ],
+        },
+        {
+            question: "Who was the commander of the Allied forces during the D-Day invasion?",
+            answers: [
+                { text: "George Patton", correct: false },
+                { text: "Dwight D. Eisenhower", correct: true },
+                { text: "Omar Bradley", correct: false },
+                { text: "Bernard Montgomery", correct: false },
+            ],
+        },
+    ],
+    5: [
+        {
+            question: "What term describes the ethical considerations of warfare?",
+            answers: [
+                { text: "Just war theory", correct: true },
+                { text: "War crimes", correct: false },
+                { text: "Military ethics", correct: false },
+                { text: "Rules of engagement", correct: false },
+            ],
+        },
+        {
+            question: "Which military strategy is characterized by the rapid movement of troops?",
+            answers: [
+                { text: "Blitzkrieg", correct: true },
+                { text: "Total war", correct: false },
+                { text: "Guerrilla tactics", correct: false },
+                { text: "Siege warfare", correct: false },
+            ],
+        },
+        {
+            question: "What is the primary objective of a military coup?",
+            answers: [
+                { text: "To restore democracy", correct: false },
+                { text: "To overthrow the current government", correct: true },
+                { text: "To establish peace", correct: false },
+                { text: "To gain foreign support", correct: false },
+            ],
+        },
+        {
+            question: "Which war introduced the use of tanks on a large scale?",
+            answers: [
+                { text: "World War I", correct: true },
+                { text: "World War II", correct: false },
+                { text: "Korean War", correct: false },
+                { text: "Vietnam War", correct: false },
+            ],
+        },
+        {
+            question: "What was the main strategy of the Soviet Union during the Cold War?",
+            answers: [
+                { text: "Containment", correct: false },
+                { text: "Rollback", correct: false },
+                { text: "Detente", correct: true },
+                { text: "Escalation", correct: false },
+            ],
+        },
+        {
+            question: "What was the purpose of the Berlin Wall?",
+            answers: [
+                { text: "To prevent East Germans from fleeing to the West", correct: true },
+                { text: "To divide Germany into East and West", correct: false },
+                { text: "To symbolize peace", correct: false },
+                { text: "To separate military zones", correct: false },
+            ],
+        },
+        {
+            question: "Which of the following is a primary characteristic of total war?",
+            answers: [
+                { text: "Limited engagement", correct: false },
+                { text: "Mobilization of entire society", correct: true },
+                { text: "Conventional tactics", correct: false },
+                { text: "Focus on military objectives only", correct: false },
+            ],
+        },
+        {
+            question: "What is the significance of the Nuremberg Trials?",
+            answers: [
+                { text: "To hold war criminals accountable", correct: true },
+                { text: "To promote economic recovery", correct: false },
+                { text: "To establish NATO", correct: false },
+                { text: "To develop peace treaties", correct: false },
+            ],
+        },
+        {
+            question: "Which operation marked the beginning of the U.S. military involvement in Vietnam?",
+            answers: [
+                { text: "Operation Rolling Thunder", correct: false },
+                { text: "Operation Linebacker", correct: false },
+                { text: "Operation Ranch Hand", correct: true },
+                { text: "Operation Enduring Freedom", correct: false },
+            ],
+        },
+        {
+            question: "What military innovation is credited to the Roman Empire?",
+            answers: [
+                { text: "Catapults", correct: false },
+                { text: "Legionary tactics", correct: true },
+                { text: "Horse archers", correct: false },
+                { text: "War elephants", correct: false },
+            ],
+        },
+    ],
+};
+
+
 export const quizDataMap: { [key: string]: Quiz; } = {
+    animalQuiz: animalData,
+    astrologyQuiz: astrologyData,
+    artQuiz: artData,
+    biologyQuiz: biologyData,
+    computerScienceQuiz: computerScienceData,
+    // designQuiz: designData,
+    economicsQuiz: economicsData,
+    engineeringQuiz: engineeringData,
     chemistryQuiz: chemistryData,
     historyQuiz: historyData,
     mathQuiz: mathData,
+    physicsQuiz: physicsData,
+    politicsQuiz: politicsData,
+    realEstateQuiz: realEstateData,
+    sportsQuiz: sportsData,
+    financeQuiz: financeData,
+    englishQuiz: englishData,
+    geographyQuiz: geographyData,
+    healthCareQuiz: healthCareData,
+    philosophyQuiz: philosophyData,
+    socialStudiesQuiz: socialStudiesData,
+    literatureQuiz: literatureData,
+    musicQuiz: musicData,
+    warfareQuiz: warfareData,
+    psychologyQuiz: psychologyData,
+    sociologyQuiz: sociologyData,
 };
 
 export const quizData: QuizItem[] = [
+    { id: "animalQuiz", data: animalData },
+    { id: "astrologyQuiz", data: astrologyData },
+    { id: "artQuiz", data: artData },
+    { id: "biologyQuiz", data: biologyData },
     { id: "chemistryQuiz", data: chemistryData },
+    { id: "computerScienceQuiz", data: computerScienceData },
+    { id: "encounterQuiz", data: economicsData },
+    { id: "englishQuiz", data: englishData },
+    { id: "engineerQuiz", data: engineeringData },
+    { id: "financeQuiz", data: financeData },
+    { id: "geographyQuiz", data: geographyData },
+    { id: "healthcareQuiz", data: healthCareData },
     { id: "historyQuiz", data: historyData },
+    { id: "literatureQuiz", data: literatureData },
     { id: "mathQuiz", data: mathData },
+    { id: "musicQuiz", data: musicData },
+    { id: "philosophyQuiz", data: philosophyData },
+    { id: "physicsQuiz", data: physicsData },
+    { id: "politicsQuiz", data: politicsData },
+    { id: "realEstateQuiz", data: realEstateData },
+    { id: "psychologyQuiz", data: psychologyData },
+    { id: "socialStudiesQuiz", data: socialStudiesData },
+    { id: "sportsQuiz", data: sportsData },
 ];
 
 // Extract keys from QuizData export interface to create a union type
