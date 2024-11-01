@@ -29,6 +29,7 @@ interface ProgressItem {
 interface Score {
 	date: string;
 	quiz: string;
+	difficultyLevel: number;
 	score: number;
 	total: number;
 }
@@ -37,6 +38,7 @@ interface LeaderboardEntry {
 	username: string;
 	score: number;
 	date: string;
+	level: number;
 }
 
 let currentQuestion: number = 0;
@@ -161,7 +163,7 @@ function createRegisterSection(): void {
 				Show Password
 			</label>
 		</div>
-		<button id="registerButton" class="float-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+		<button id="registerButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Register</button>
 		<p id="registerError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
 
@@ -480,7 +482,7 @@ function createLoginSection(): void {
 				Show Password
 			</label>
 		</div>
-		<button id="loginButton" class="float-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+		<button id="loginButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Login</button>
 		<p id="loginError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;">Incorrect username or password.</p>
 		`;
 	loginContainer.appendChild( loginSection );
@@ -752,8 +754,6 @@ function createQuizSelection() {
 					sessionStorage.setItem( "quizType", quiz_type );
 				}
 
-				addBackToSelectionSectionButton();
-
 				sessionStorage.setItem( "quizId", quiz.id );
 				promptForDifficulty( quiz.id );
 			} );
@@ -868,8 +868,6 @@ function setupQuizData( quizId: string, difficultyLevel: number ): void {
 		createActionButtons();
 	}
 
-	addBackToSelectionSectionButton();
-
 	if ( !isQuizDataKey( quizId ) ) {
 		console.error( "Invalid quiz ID." );
 		return;
@@ -919,13 +917,14 @@ function setupQuizData( quizId: string, difficultyLevel: number ): void {
 function createQuizSection(): void {
 	const quizSection = document.createElement( "div" );
 	quizSection.classList.add(
-		"flex",
 		"min-h-full",
-		"flex-col",
-		"justify-center",
+		"h-full",
 		"px-6",
 		"py-4",
 		"lg:px-8",
+		"grid",
+		"gap-4",
+		"grid-cols-1",
 		"container",
 		"border-4",
 		"border-gray-200",
@@ -947,7 +946,7 @@ function createQuizSection(): void {
             <p id="question" class="text-2xl"></p>
         </div>
         <div id="answers" class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5"></div>
-        <div class="w-full bg-transparent rounded-full h-2.5 p-6">
+        <div class="w-full bg-transparent rounded-full p-6">
 			<div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%" id="quizProgressBar"></div>
 		</div>
     `;
@@ -1050,9 +1049,17 @@ function createActionButtons(): void {
 		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
 	actionButtons.innerHTML = `
 		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
+		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg order-3">Select a Different Quiz</button>
     `;
 	displayContainer.appendChild( actionButtons );
 	logoutEventListener();
+
+	document
+		.querySelector( "#backToSelectionButton" )
+		?.addEventListener( "click", () => {
+			removeAllSections();
+			loadQuiz();
+		} );
 }
 
 function createScoresButtons(): void {
@@ -1064,6 +1071,7 @@ function createScoresButtons(): void {
 		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 	actionButtons.innerHTML = `
 		<button id="viewScoresButton" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">View Past Scores</button>
+		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
 		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 order-last">Logout</button>
     `;
 	displayContainer.appendChild( actionButtons );
@@ -1080,57 +1088,24 @@ function createScoresButtons(): void {
 	logoutEventListener();
 
 	document
-		.getElementById( "viewLeaderboardsButton" )
-		?.addEventListener( "click", () => {
-			removeAllSections();
-			displayLeaderboardSelection();
-		} );
-
-	document
-		.querySelector( "#viewScoresButton" )
-		?.addEventListener( "click", () => {
-			removeElementById( "quizSelectionSection" );
-			createSortButtons();
-		} );
-}
-
-/**
- * Adds a button to the action buttons section that allows the user to select a different quiz.
- * When clicked, it removes all existing sections and loads the quiz selection section.
- * It also adds an event listener to the "viewScoresButton" to remove the quiz selection section
- * and create the sort buttons section when clicked.
- */
-function addBackToSelectionSectionButton(): void {
-	const actionButtons = document.querySelector( "#actionButtons" );
-	if ( actionButtons ) {
-		actionButtons.className =
-			"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
-
-		actionButtons.innerHTML += `
-        <button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
-		`;
-	}
-	document
 		.querySelector( "#backToSelectionButton" )
 		?.addEventListener( "click", () => {
 			removeAllSections();
 			loadQuiz();
 		} );
 
-	logoutEventListener();
+	document
+		.getElementById( "viewLeaderboardsButton" )
+		?.addEventListener( "click", () => {
+			removeAllSections();
+			displayLeaderboardSelection();
+		} );
 
 	document
 		.querySelector( "#viewScoresButton" )
 		?.addEventListener( "click", () => {
 			removeElementById( "quizSelectionSection" );
 			createSortButtons();
-		} );
-
-	document
-		.getElementById( "viewLeaderboardsButton" )
-		?.addEventListener( "click", () => {
-			removeAllSections();
-			displayLeaderboardSelection();
 		} );
 }
 
@@ -1993,6 +1968,11 @@ function showScore(): void {
 }
 
 
+/**
+ * Displays a selection of quizzes to view leaderboards.
+ * Fetches all quiz names from the stored data and creates buttons for each quiz.
+ * Adds a back button to return to the quiz selection.
+ */
 function displayLeaderboardSelection(): void {
 	removeAllSections();
 	checkScoreHistory();
@@ -2020,7 +2000,8 @@ function displayLeaderboardSelection(): void {
 		"col-span-12",
 		"lg:col-span-6",
 		"w-full",
-		"lg:w-11/12", );
+		"lg:w-11/12",
+	);
 
 	// Fetch all quiz names from the stored data
 	const quizNames = getAllQuizNames();
@@ -2031,6 +2012,11 @@ function displayLeaderboardSelection(): void {
 	heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
 	selectionContainer.appendChild( heading );
 
+	const leaderboardOptions = document.createElement( "div" );
+	leaderboardOptions.id = 'leaderboardOptions';
+	leaderboardOptions.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3";
+	selectionContainer.appendChild( leaderboardOptions );
+
 	// Create buttons for each quiz
 	quizNames.forEach( ( quizName: string ) => {
 		const button = document.createElement( 'button' );
@@ -2040,7 +2026,7 @@ function displayLeaderboardSelection(): void {
 			removeAllSections();
 			displayLeaderboard( quizName );
 		} );
-		selectionContainer.appendChild( button );
+		leaderboardOptions.appendChild( button );
 	} );
 
 	// Add a back button
@@ -2093,83 +2079,99 @@ function displayLeaderboard( quizName: string ): void {
 	heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
 	leaderboardContainer.appendChild( heading );
 
-	// Get leaderboard data
-	const leaderboardData = getLeaderboardData( quizName );
+	// Get leaderboard data organized by level
+	const leaderboardDataByLevel = getLeaderboardDataByLevel( quizName );
 
-	// Create a table to display the leaderboard
-	const table = document.createElement( 'table' );
-	table.className = 'w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100';
+	console.log( leaderboardDataByLevel );
 
-	// Table header
-	const thead = document.createElement( 'thead' );
-	thead.className = "text-md text-white uppercase bg-gray-400 dark:bg-gray-700";
-	const headerRow = document.createElement( 'tr' );
 
-	const rankHeader = document.createElement( 'th' );
-	rankHeader.textContent = 'Rank';
-	rankHeader.className = 'py-1 text-center';
+	// Loop over each level and create a table
+	const levels = Array.from( leaderboardDataByLevel.keys() ).sort( ( a, b ) => a - b );
 
-	const userHeader = document.createElement( 'th' );
-	userHeader.textContent = 'User';
-	userHeader.className = 'py-1 text-center';
 
-	const scoreHeader = document.createElement( 'th' );
-	scoreHeader.textContent = 'Score';
-	scoreHeader.className = 'py-1 text-center';
+	levels.forEach( ( level ) => {
+		const tableHeading = document.createElement( 'h3' );
+		tableHeading.textContent = `Level ${ level }`;
+		tableHeading.className = "text-xl pt-3";
+		leaderboardContainer.appendChild( tableHeading );
 
-	const dateHeader = document.createElement( 'th' );
-	dateHeader.textContent = 'Date';
-	dateHeader.className = 'py-1 text-center';
 
-	const dateTimeHeader = document.createElement( 'th' );
-	dateTimeHeader.textContent = 'Time';
-	dateTimeHeader.className = 'py-1 text-center';
+		// Create a table to display the leaderboard
+		const table = document.createElement( 'table' );
+		table.className = 'w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100';
 
-	headerRow.appendChild( rankHeader );
-	headerRow.appendChild( userHeader );
-	headerRow.appendChild( scoreHeader );
-	headerRow.appendChild( dateHeader );
-	headerRow.appendChild( dateTimeHeader );
-	thead.appendChild( headerRow );
-	table.appendChild( thead );
+		// Table header
+		const thead = document.createElement( 'thead' );
+		thead.className = "text-md text-white uppercase bg-gray-400 dark:bg-gray-700";
+		const headerRow = document.createElement( 'tr' );
 
-	// Table body
-	const tbody = document.createElement( 'tbody' );
+		const rankHeader = document.createElement( 'th' );
+		rankHeader.textContent = 'Rank';
+		rankHeader.className = 'py-1 text-center';
 
-	leaderboardData.forEach( ( entry, index ) => {
-		const row = document.createElement( 'tr' );
-		row.className = "bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700";
+		const userHeader = document.createElement( 'th' );
+		userHeader.textContent = 'User';
+		userHeader.className = 'py-1 text-center';
 
-		const rankCell = document.createElement( 'td' );
-		rankCell.textContent = ( index + 1 ).toString();
-		rankCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+		const scoreHeader = document.createElement( 'th' );
+		scoreHeader.textContent = 'Score';
+		scoreHeader.className = 'py-1 text-center';
 
-		const userCell = document.createElement( 'td' );
-		userCell.textContent = entry.username;
-		userCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+		const dateHeader = document.createElement( 'th' );
+		dateHeader.textContent = 'Date';
+		dateHeader.className = 'py-1 text-center';
 
-		const scoreCell = document.createElement( 'td' );
-		scoreCell.textContent = `${ entry.score }%`;
-		scoreCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+		const dateTimeHeader = document.createElement( 'th' );
+		dateTimeHeader.textContent = 'Time';
+		dateTimeHeader.className = 'py-1 text-center';
 
-		const dateCell = document.createElement( 'td' );
-		dateCell.textContent = formatDate( entry.date );
-		dateCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+		headerRow.appendChild( rankHeader );
+		headerRow.appendChild( userHeader );
+		headerRow.appendChild( scoreHeader );
+		headerRow.appendChild( dateHeader );
+		headerRow.appendChild( dateTimeHeader );
+		thead.appendChild( headerRow );
+		table.appendChild( thead );
 
-		const timeCell = document.createElement( 'td' );
-		timeCell.textContent = formatTime( entry.date );
-		timeCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+		// Table body
+		const tbody = document.createElement( 'tbody' );
+		const entries = leaderboardDataByLevel.get( level )!;
 
-		row.appendChild( rankCell );
-		row.appendChild( userCell );
-		row.appendChild( scoreCell );
-		row.appendChild( dateCell );
-		row.append( timeCell );
-		tbody.appendChild( row );
+		entries.forEach( ( entry: { username: string; score: any; date: string; }, index: number ) => {
+			const row = document.createElement( 'tr' );
+			row.className = "bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700";
+
+			const rankCell = document.createElement( 'td' );
+			rankCell.textContent = ( index + 1 ).toString();
+			rankCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+
+			const userCell = document.createElement( 'td' );
+			userCell.textContent = entry.username;
+			userCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+
+			const scoreCell = document.createElement( 'td' );
+			scoreCell.textContent = `${ entry.score }%`;
+			scoreCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+
+			const dateCell = document.createElement( 'td' );
+			dateCell.textContent = formatDate( entry.date );
+			dateCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+
+			const timeCell = document.createElement( 'td' );
+			timeCell.textContent = formatTime( entry.date );
+			timeCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+
+			row.appendChild( rankCell );
+			row.appendChild( userCell );
+			row.appendChild( scoreCell );
+			row.appendChild( dateCell );
+			row.append( timeCell );
+			tbody.appendChild( row );
+		} );
+
+		table.appendChild( tbody );
+		leaderboardContainer.appendChild( table );
 	} );
-
-	table.appendChild( tbody );
-	leaderboardContainer.appendChild( table );
 
 	// Add a back button
 	const backButton = document.createElement( 'button' );
@@ -2200,11 +2202,24 @@ function getAllQuizNames(): string[] {
 		}
 	}
 
-	return Array.from( quizNamesSet );
+	return Array.from( quizNamesSet ).sort();
 }
 
-function getLeaderboardData( quizName: string ): LeaderboardEntry[] {
-	const leaderboardMap = new Map<string, { score: number; date: string; }>();
+/**
+ * Retrieves leaderboard data for each difficulty level of a specific quiz.
+ *
+ * @param {string} quizName - The name of the quiz.
+ *
+ * @returns {Map<number, LeaderboardEntry[]>} - A map where the keys are difficulty levels and the values are arrays of leaderboard entries.
+ * Each leaderboard entry contains the username, score, and date.
+ *
+ * @remarks
+ * This function retrieves user scores from localStorage and organizes them by difficulty level.
+ * It filters scores for the selected quiz and calculates the percentage score for each user.
+ * It then sorts each level's leaderboard data by score in descending order.
+ */
+function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardEntry[]> {
+	const leaderboardDataByLevel = new Map<number, LeaderboardEntry[]>();
 
 	// Retrieve users array from localStorage
 	const users = JSON.parse( localStorage.getItem( 'users' ) || '[]' ) as User[];
@@ -2222,48 +2237,66 @@ function getLeaderboardData( quizName: string ): LeaderboardEntry[] {
 			const userId = key.replace( 'quizScores_', '' );
 			const scores = JSON.parse( localStorage.getItem( key ) || '[]' ) as Score[];
 
+			console.log( "userId: ", userId );
+			console.log( "scores: ", scores );
+			console.log( "level:", scores[i].difficultyLevel );
+
 			// Filter scores for the selected quiz
 			const quizScores = scores.filter( ( score ) => score.quiz === quizName );
 
+			console.log( "quizScores: ", quizScores );
+
 			if ( quizScores.length > 0 ) {
-				// Find the highest score and its date for this user for the quiz
-				let highestScorePercentage = -1;
-				let highestScoreDate = '';
+				// Organize scores by level for this user
+				const scoresByLevel = new Map<number, { score: number; date: string; level: number; }>();
 
 				quizScores.forEach( ( s ) => {
 					const percentage = ( s.score / s.total ) * 100;
-					if ( percentage > highestScorePercentage ) {
-						highestScorePercentage = percentage;
-						highestScoreDate = s.date; // Store the date of the highest score
+					const existingEntry = scoresByLevel.get( s.difficultyLevel );
+
+					if ( !existingEntry || percentage > existingEntry.score ) {
+						scoresByLevel.set( s.difficultyLevel, {
+							score: percentage,
+							date: s.date,
+							level: s.difficultyLevel,
+						} );
 					}
 				} );
 
 				// Get the username from the users array
 				const username = userIdToUsernameMap.get( userId ) || 'Unknown User';
 
-				// Update the leaderboard map
-				leaderboardMap.set( username, {
-					score: highestScorePercentage,
-					date: highestScoreDate,
+				// Update the leaderboard data by level
+				scoresByLevel.forEach( ( value, level ) => {
+					const entry: LeaderboardEntry = {
+						username,
+						score: Math.round( value.score ),
+						date: value.date,
+						level: value.level
+					};
+
+					if ( !leaderboardDataByLevel.has( level ) ) {
+						leaderboardDataByLevel.set( level, [] );
+					}
+					leaderboardDataByLevel.get( level )!.push( entry );
+
+					const _a = leaderboardDataByLevel.get( level );
+
+					console.log( _a );
 				} );
 			}
 		}
 	}
 
-	// Convert map to array and sort by score descending
-	const leaderboardArray: LeaderboardEntry[] = [];
-	leaderboardMap.forEach( ( value, username ) => {
-		leaderboardArray.push( {
-			username,
-			score: Math.round( value.score ),
-			date: value.date,
-		} );
+	// Sort each level's leaderboard data by score descending
+	leaderboardDataByLevel.forEach( ( entries ) => {
+		entries.sort( ( a, b ) => b.score - a.score );
 	} );
 
-	leaderboardArray.sort( ( a, b ) => b.score - a.score );
-
-	return leaderboardArray;
+	return leaderboardDataByLevel;
 }
+
+
 
 /**
  * Checks if the user has completed the current quiz.
