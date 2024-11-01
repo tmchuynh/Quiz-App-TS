@@ -750,6 +750,7 @@ function handleLoginSuccess( user: User ): void {
     sessionStorage.setItem( "firstName", user.firstName );
     sessionStorage.setItem( "lastName", user.lastName );
     sessionStorage.setItem( "username", user.username );
+    sessionStorage.setItem( "email", user.email );
     const loginError = document.getElementById( "loginError" ) as HTMLElement;
     loginError.style.display = "none"; // Hide any previous error
 

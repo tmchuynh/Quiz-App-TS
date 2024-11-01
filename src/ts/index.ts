@@ -15,9 +15,11 @@ import {
 	removeLeaderboardSelection,
 	shuffle,
 	formatDate,
-	formatTime,
+	logoutEventListener,
+	formatTime
 } from "./utilities.js";
 import { createLoginSection } from "./login.js";
+import { createProfileSection } from "./profile.js";
 
 let currentQuestion: number = 0;
 let totalQuestions: number = 0; // Total number of questions
@@ -31,23 +33,6 @@ export const displayContainer = document.querySelector(
 	".displayContainer"
 ) as HTMLElement;
 
-function logoutEventListener() {
-	document.querySelector( "#logoutButton" )?.addEventListener( "click", () => {
-		localStorage.removeItem( "quizProgress" ); // Remove any quiz progress
-		// Redirect to the login page
-		removeAllSections();
-		createRegisterSection();
-		createLoginSection();
-		const welcomeMessage = document.getElementById(
-			"welcomeMessage"
-		) as HTMLElement;
-		if ( welcomeMessage ) {
-			welcomeMessage.textContent = ""; // Clear welcome message
-		}
-		sessionStorage.clear();
-	} );
-}
-
 /**
  * Sorts an array of QuizOption objects by their label in ascending order.
  *
@@ -59,7 +44,7 @@ function sortQuizArrayByName( arr: QuizOption[] ): void {
 	arr.sort( ( a, b ) => a.label.localeCompare( b.label ) );
 }
 
-function createQuizSelection() {
+export function createQuizSelection() {
 	checkScoreHistory();
 	const quizSelectionSection = document.createElement( "div" );
 	quizSelectionSection.classList.add(
@@ -457,7 +442,7 @@ function createActionButtons(): void {
 	actionButtons.className =
 		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 	actionButtons.innerHTML = `
-		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
+		<button id="logoutButton" class="logout-button text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg order-3">Select a Different Quiz</button>
     `;
 	displayContainer.appendChild( actionButtons );
@@ -481,7 +466,7 @@ function createScoresButtons(): void {
 	actionButtons.innerHTML = `
 		<button id="viewScoresButton" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">View Past Scores</button>
 		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
-		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 order-last">Logout</button>
+		<button id="logoutButton" class="logout-button text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 order-last">Logout</button>
     `;
 	displayContainer.appendChild( actionButtons );
 
@@ -545,7 +530,7 @@ function createSortButtons(): void {
 
 	actionButtons.innerHTML = `
 		<div class="gap-1 text-center auto-cols-max grid grid-cols-2 order-last">
-			<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
+			<button id="logoutButton" class="logout-button text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 			<button id="resetScoresButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Reset All Scores</button>
 		</div>
 	
@@ -1334,7 +1319,7 @@ function showScore(): void {
  * Fetches all quiz names from the stored data and creates buttons for each quiz.
  * Adds a back button to return to the quiz selection.
  */
-function displayLeaderboardSelection(): void {
+export function displayLeaderboardSelection(): void {
 	removeAllSections();
 	checkScoreHistory();
 
@@ -1702,7 +1687,81 @@ function checkProgressAtEnd( currentUserId: string ): boolean {
 	return false;
 }
 
+
+function setupNavigationListeners(): void {
+	const quizzesLink = document.querySelector( 'a[href="#quizzes"]' );
+	const leaderboardLink = document.querySelector( 'a[href="#leaderboard"]' );
+	const profileLink = document.querySelector( 'a[href="#profile"]' );
+	const logoutButton = document.querySelector( '.logout-button' );
+
+
+	if ( quizzesLink ) {
+		quizzesLink.addEventListener( 'click', () => {
+			removeAllSections();
+			createQuizSelection(); // Function to create the quiz selection section
+		} );
+	}
+
+	if ( leaderboardLink ) {
+		leaderboardLink.addEventListener( 'click', () => {
+			removeAllSections();
+			displayLeaderboardSelection(); // Function to create the leaderboard section
+		} );
+	}
+
+	if ( profileLink ) {
+		profileLink.addEventListener( 'click', () => {
+			removeAllSections();
+			createProfileSection(); // Function to create the user profile section
+		} );
+	}
+
+	if ( logoutButton ) {
+		logoutEventListener();
+	}
+}
+
+export function createHeaderSection() {
+	// Create header section
+	const headerSection = document.createElement( "header" );
+	headerSection.className = "bg-gray-200 dark:bg-gray-900 shadow-lg order-1";
+
+	headerSection.innerHTML = `
+		<div class="container mx-auto flex justify-between items-center p-5">
+            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-br to-emerald-900 from-blue-100">Expanding</span>
+                Your Knowledge.
+            </h1>
+            <nav class="space-x-4 navigation-bar">
+                <a href="#quizzes" class="text-gray-800 dark:text-white hover:underline">Quizzes</a>
+                <a href="#leaderboard" class="text-gray-800 dark:text-white hover:underline">Leaderboard</a>
+                <button id="logoutButton"
+                    class="logout-button bg-red-600 text-white px-3 py-1 rounded hover:bg-red-500 focus:outline-none">Logout</button>
+            </nav>
+        </div>
+	`;
+
+	const body = document.querySelector( "body" );
+	const titleSection = document.querySelector( ".title-section" );
+	body?.insertBefore( headerSection, titleSection! );
+
+	const currentUserId = sessionStorage.getItem( "currentUserId" );
+
+	if ( currentUserId ) {
+		const navigationBar = document.querySelector( ".navigation-bar" );
+		const profileLink = document.createElement( "a" );
+		profileLink.href = "#profile";
+		profileLink.textContent = "Profile";
+		profileLink.className = "text-gray-800 dark:text-white hover:underline";
+		navigationBar?.appendChild( profileLink );
+	}
+
+}
+
 // Initial load
 window.addEventListener( "load", () => {
 	loadQuiz();
+	createHeaderSection();
+	setupNavigationListeners();
 } );

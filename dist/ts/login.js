@@ -515,6 +515,7 @@ function handleLoginSuccess(user) {
     sessionStorage.setItem("firstName", user.firstName);
     sessionStorage.setItem("lastName", user.lastName);
     sessionStorage.setItem("username", user.username);
+    sessionStorage.setItem("email", user.email);
     const loginError = document.getElementById("loginError");
     loginError.style.display = "none"; // Hide any previous error
     // Load user data and proceed to the quiz

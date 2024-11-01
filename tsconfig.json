@@ -6,11 +6,15 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src/ts/**",
+    "baseUrl": "./src/**",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "allowUmdGlobalAccess": true,
     "skipLibCheck": true
   },

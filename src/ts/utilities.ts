@@ -1,3 +1,6 @@
+import { createRegisterSection } from "./registration.js";
+import { createLoginSection } from "./login.js";
+
 export function removeElementById( elementId: string ): void {
     const element = document.getElementById( elementId );
     if ( element ) {
@@ -53,6 +56,10 @@ export function removeNewPasswordSection() {
     removeElementById( "newPasswordSection" );
 }
 
+export function removeProfileSection() {
+    removeElementById( "profileSection" );
+}
+
 // function to remove all sections dynamically
 export function removeAllSections(): void {
     removeRegisterSection();
@@ -60,6 +67,7 @@ export function removeAllSections(): void {
     removeQuizSection();
     removeScoreSection();
     removeResetRequest();
+    removeProfileSection();
     removeConfirmationCode();
     removeNewPasswordSection();
     removeLeaderboardSection();
@@ -185,4 +193,21 @@ export function formatDate( dateString: string ): string {
     const year = date.getFullYear().toString().slice( -2 ); // Get last 2 digits of the year (yy)
 
     return `${ month }/${ day }/${ year }`; // Return in mm/dd/yy format
+}
+
+
+export function logoutEventListener() {
+    var _a;
+    ( _a = document.querySelector( ".logout-button" ) ) === null || _a === void 0 ? void 0 : _a.addEventListener( "click", () => {
+        localStorage.removeItem( "quizProgress" ); // Remove any quiz progress
+        // Redirect to the login page
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+        const welcomeMessage = document.getElementById( "welcomeMessage" );
+        if ( welcomeMessage ) {
+            welcomeMessage.textContent = ""; // Clear welcome message
+        }
+        sessionStorage.clear();
+    } );
 }
