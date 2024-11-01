@@ -29,7 +29,7 @@ A web-based quiz application designed to offer a variety of quizzes across multi
 
 **Score Tracking:**
 
--   Scores are calculated at the end of each quiz and displayed alongside the total number of questions answered.
+-   Scores are calculated at the end of each quiz and displayed alongside the total number of questions answered. Each quiz level button will display the user’s highest score, providing quick access to performance metrics. Users can easily see their best achievements at a glance, encouraging them to improve.
 -   Scores are stored in `localStorage` for persistence across sessions, ensuring users can revisit their achievements.
 -   Users can view a history of their past scores, including individual score details, total questions, and timestamps for reference.
 -   Users have the ability to sort their past scores by date or score, providing flexibility in how they view their performance.
@@ -80,11 +80,6 @@ A web-based quiz application designed to offer a variety of quizzes across multi
 
 -   The application will include a consistent header and footer throughout the interface for improved navigation.
 -   The header will feature quick links to different sections of the app, while the footer will contain copyright information and additional resources.
-
-**Score Display:**
-
--   Each quiz level button will display the user’s highest score, providing quick access to performance metrics.
--   Users can easily see their best achievements at a glance, encouraging them to improve.
 
 **Flashcards Feature:**
 
