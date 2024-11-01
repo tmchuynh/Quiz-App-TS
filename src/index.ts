@@ -148,7 +148,7 @@ function createQuizSelection() {
 				}
 
 				sessionStorage.setItem( "quizId", quiz.id );
-				promptForDifficulty( quiz.id );
+				createDifficultySection( quiz.id );
 			} );
 			quizOptionsContainer.appendChild( button );
 		} );
@@ -162,7 +162,7 @@ function createQuizSelection() {
  *
  * @returns {void}
  */
-function promptForDifficulty( quizId: string ): void {
+function createDifficultySection( quizId: string ): void {
 	// Remove the quiz selection section
 	removeElementById( "quizSelectionSection" );
 
