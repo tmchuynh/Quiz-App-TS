@@ -1,49 +1,135 @@
-# Web App Features
+# Quiz Application
 
--   **User Registration and Login:**
+A web-based quiz application designed to offer a variety of quizzes across multiple subjects, including Chemistry, History, Math, and more. The application supports user registration, tracks progress, and allows users to select quizzes based on difficulty levels.
 
-    -   Users can register with first name, last name, email, username, and password.
-    -   Validation to ensure all fields are filled and meet specific criteria (e.g., email format, password strength).
-    -   Ability to handle multiple users on the same computer, ensuring unique usernames.
+## Table of Contents
 
--   **Quiz Functionality:**
-    -   Users can take quizzes with a series of questions.
-    -   Dynamic question display based on the current quiz state.
-    -   Progress tracking through a visual progress bar.
--   **Score Tracking:**
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [Roadmap](#roadmap)
+-   [Contributing](#contributing)
+-   [License](#license)
 
-    -   Scores are calculated and displayed at the end of each quiz.
-    -   Users can view their past scores, including the score, total questions, and timestamp.
-    -   Scores are stored in `localStorage` for persistence across sessions.
+## Features
 
--   **Score Management:**
+**User Registration and Login:**
 
-    -   Ability to sort past scores by date or score.
-    -   Reset functionality for clearing past scores.
+-   Users register with first name, last name, email, username, and password. Users are shown a checklist of password requirements during registration and password reset, with real-time indicators for compliance (e.g., minimum length, inclusion of uppercase letters, etc.). Requirements are updated dynamically as users type, providing immediate feedback on password strength. Users login information is stored in `localStorage` and the user's ID is storaged in `sessionStorage` after login along with their first and last name for generating a dynamic welcome message.
+-   Users can initiate a password reset process through a "Forgot Password?" link on the login page. This is mocked by using cookies instead of sending POST requests to the user's email address.
+-   Upon accessing the confirmation code, users can enter a new password, which is validated against the established password requirements.
+-   Users are notified of successful password changes, allowing them to log in with their new credentials immediately.
 
--   **User Progress Handling:**
+**Quiz Functionality:**
 
-    -   Save and resume quiz progress using `sessionStorage` to enhance user experience.
-    -   Option to retry the quiz, resetting the current question and score.
+-   Users can take quizzes consisting of a series of questions tailored to different subjects and difficulty levels.
+-   Questions are dynamically loaded based on the selected quiz and user progress.
+-   Progress is visually represented through a progress bar, allowing users to track their completion status.
+-   The application saves quiz progress in `localStorage`, allowing users to easily resume quizzes where they left off without losing their current state.
+-   Users have the option to retry quizzes, which resets their current question index and score for a new attempt.
 
--   **Responsive UI:**
+**Score Tracking:**
 
-    -   Flexibly designed sections for quizzes, scores, and registration/login.
-    -   Clear error messages and visual indicators for form validation.
+-   Scores are calculated at the end of each quiz and displayed alongside the total number of questions answered.
+-   Scores are stored in `localStorage` for persistence across sessions, ensuring users can revisit their achievements.
+-   Users can view a history of their past scores, including individual score details, total questions, and timestamps for reference.
+-   Users have the ability to sort their past scores by date or score, providing flexibility in how they view their performance.
+-   A reset functionality allows users to clear their past scores, giving them a fresh start whenever desired.
 
--   **Accessibility Features:**
+**Leaderboard:**
 
-    -   Error highlighting on input fields when validation fails.
-    -   User-friendly messages displayed for success or error states.
+-   A leaderboard feature displays the top scores achieved by users, fostering a sense of competition and motivation.
+-   Users can view their ranking based on scores across quizzes, along with the total number of quizzes taken.
+-   The leaderboard updates dynamically as users complete quizzes, showcasing the highest scores and their respective usernames.
 
--   **Data Management:**
+**Responsive UI:**
 
-    -   Efficient storage and retrieval of user scores and quiz progress using `localStorage` and `sessionStorage`.
-    -   JSON-based data handling for ease of parsing and serialization.
+-   The application is designed with a flexible and responsive layout, ensuring a seamless experience across devices and screen sizes.
+-   Clear error messages and visual indicators provide immediate feedback for form validation, enhancing usability.
 
--   **Confirmation Dialogs:**
+**Accessibility Features:**
 
-    -   User confirmation prompts for critical actions, such as resetting scores.
+-   Input fields are highlighted with error indicators when validation fails, helping users identify issues easily.
+-   User-friendly messages are displayed for success or error states, ensuring clarity in communication.
 
--   **Real-time Feedback:**
-    -   Instant feedback on user actions, such as successful registrations or validation errors.
+**Data Management:**
+
+-   Efficient storage and retrieval of user scores and quiz progress utilize `localStorage` and `sessionStorage`, enabling data persistence.
+-   JSON-based data handling simplifies parsing and serialization, allowing for straightforward data manipulation.
+
+**Confirmation Dialogs:**
+
+-   Users receive confirmation prompts for critical actions, such as resetting scores or changing passwords, helping to prevent accidental changes.
+
+**Real-time Feedback:**
+
+-   The application provides instant feedback on user actions, including successful registrations, password resets, or validation errors, creating an engaging user experience.
+
+## Technologies Used
+
+-   **Frontend**:
+
+    -   HTML
+    -   CSS (Tailwind CSS)
+    -   TypeScript
+    -   JavaScript
+    -   Local Storage / Session Storage / Cookies for data management
+
+## Roadmap
+
+**Header and Footer:**
+
+-   The application will include a consistent header and footer throughout the interface for improved navigation.
+-   The header will feature quick links to different sections of the app, while the footer will contain copyright information and additional resources.
+
+**Score Display:**
+
+-   Each quiz level button will display the user’s highest score, providing quick access to performance metrics.
+-   Users can easily see their best achievements at a glance, encouraging them to improve.
+
+**Flashcards Feature:**
+
+-   Users will have the ability to create and utilize flashcards to study content derived from quizzes.
+-   Options will include studying the entire subject, specific difficulty levels, or a custom selection of questions.
+-   A user-friendly interface will allow users to select questions from a list, facilitating focused study sessions.
+
+**User Profile Management:**
+
+-   Users will have dedicated profiles containing their username, email, and password, with the ability to update any information.
+-   A selection of default profile photos will be available for users to choose from, enhancing personalization.
+-   Profile management will ensure that users can maintain their account details easily.
+
+**Gamification Elements:**
+
+-   Introduce badges to encourage users.
+-   Users can earn rewards for completing quizzes and studying consistently.
+
+**Testing Feature:**
+
+-   A new testing functionality will be implemented, allowing users to answer written and true/false questions.
+-   Upon completing a test, users will be presented with a chart visualizing their performance, displaying the number of correct and incorrect responses.
+-   Detailed feedback will be provided for each question answered, indicating whether the user’s choice was correct or incorrect. If incorrect, the correct answer will be highlighted for learning purposes.
+
+**Progress Tracking and Analytics:**
+
+-   Users will receive insights into their study habits, including time spent on each subject, accuracy rates, and areas needing improvement.
+-   Visual graphs and charts will represent progress over time, motivating users to stay engaged.
+
+**Audio and Visual Learning:**
+
+-   Users can add audio pronunciations or visual images to their flashcards, enhancing multi-sensory learning.
+-   This feature will be particularly useful for language learning or subjects requiring visual aids.
+
+## License
+
+This project is licensed under the MIT License
+
+### MIT License
+
+MIT License
+
+Copyright (c) [2024] [Tina Huynh]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
