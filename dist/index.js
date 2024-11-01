@@ -190,8 +190,9 @@ function createRegisterSection() {
     ].forEach((field) => {
         field.addEventListener("input", clearErrorStyles);
     });
+    const passwordInput = document.getElementById("registerPassword");
     // Initialize Popover
-    initializePasswordPopover();
+    initializePasswordPopover(passwordInput);
     // Real-time password validation
     registerPassword.addEventListener("input", () => {
         updatePasswordRequirements(registerPassword.value);
@@ -212,8 +213,7 @@ function createRegisterSection() {
         }
     });
 }
-function initializePasswordPopover() {
-    const passwordInput = document.getElementById("registerPassword");
+function initializePasswordPopover(passwordInput) {
     const popover = document.getElementById("popover-password");
     // Initialize Popper.js
     const popperInstance = Popper.createPopper(passwordInput, popover, {
@@ -257,7 +257,7 @@ async function validateRegistrationForm() {
     for (const field of fields) {
         const value = field.element.value.trim();
         if (!value) {
-            showError(`${field.name} is required.`, field.element);
+            showError(`${field.name} is.`, field.element);
             return;
         }
     }
@@ -558,7 +558,7 @@ function displayPasswordResetRequestForm() {
 		<h2 class="text-2xl font-bold mb-4">Reset Password</h2>
 		<p class="mb-4">Please enter your username or email address. You will receive a confirmation code to reset your password.</p>
 		<form id="resetRequestForm" class="space-y-4">
-		<input type="text" id="usernameOrEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username or Email" required />
+		<input type="text" id="usernameOrEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username or Email" />
 		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send Confirmation Code</button>
 		</form>
 		<a href="#" id="returnToLogin" class="text-blue-500 hover:underline">Return to Registration/Login</a>
@@ -618,7 +618,7 @@ function displayConfirmationCodeForm() {
 	  <h2 class="text-2xl font-bold mb-4">Enter Confirmation Code</h2>
 	  <p class="mb-4">A confirmation code has been sent to your email. Please enter it below.</p>
 	  <form id="confirmationCodeForm" class="space-y-4">
-		<input type="text" id="confirmationCode" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirmation Code" required />
+		<input type="text" id="confirmationCode" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirmation Code" />
 		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Verify Code</button>
 	  </form>
 	  <p id="confirmationCodeError" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800" style="display: none;"></p>
@@ -642,7 +642,7 @@ function displayConfirmationCodeModal(confirmationCode) {
 	  <div class="text-center mb-4">
 		<span class="text-3xl font-semibold text-gray-800 dark:text-white">${confirmationCode}</span>
 	  </div>
-	  <button id="closeModalButton" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Continue</button>
+	  <button id="closeModalButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Continue</button>
 	`;
     // Append modal content to overlay
     modalOverlay.appendChild(modalContent);
@@ -701,7 +701,7 @@ function displayNewPasswordForm() {
 	  <form id="newPasswordForm" class="space-y-4">
 		<div class="relative">
 
-			<input type="password" id="newPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Password" />
+			<input type="password" id="newPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Password" autocomplete="new-password"/>
 
 			<!-- Popover Content -->
 			<div id="popover-password" role="tooltip" class="absolute z-10 invisible text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
@@ -744,18 +744,42 @@ function displayNewPasswordForm() {
 			</div>
 		</div>
 
-		<input type="password" id="confirmNewPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" />
+		<input type="password" id="confirmNewPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" autocomplete="new-password"/>
 		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Reset Password</button>
+
+		<div class="flex items-center mb-4 px-3">
+			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" value="" id="newPasswordView">
+			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-white " for="newPasswordView">
+				Show Password
+			</label>
+		</div>
 	  </form>
 	  <p id="newPasswordError" class="text-red-500 mt-2" style="display: none;"></p>
 	`;
     displayContainer.appendChild(newPasswordSection);
+    const newPassword = document.getElementById('newPassword');
     // Initialize Popover
-    initializePasswordPopover();
+    initializePasswordPopover(newPassword);
     // Attach event listener to the form submission
     (_b = document.getElementById('newPasswordForm')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', handleNewPasswordSubmission);
+    const checkbox = newPasswordSection.querySelector("#newPasswordView");
+    const passwordElement = document.querySelector("#newPassword");
+    const confirmPasswordElement = document.querySelector("#confirmNewPassword");
+    console.log("passwordElement:", passwordElement, "confirmPasswordElement:", confirmPasswordElement, "checkbox", checkbox);
+    checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener("change", function () {
+        if (passwordElement && confirmPasswordElement) {
+            if (this.checked) {
+                passwordElement.setAttribute("type", "text");
+                confirmPasswordElement.setAttribute("type", "text");
+            }
+            else {
+                passwordElement.setAttribute("type", "password");
+                confirmPasswordElement.setAttribute("type", "password");
+            }
+        }
+    });
 }
-function handleNewPasswordSubmission(event) {
+async function handleNewPasswordSubmission(event) {
     event.preventDefault();
     const newPasswordInput = document.getElementById('newPassword');
     const confirmNewPasswordInput = document.getElementById('confirmNewPassword');
@@ -794,8 +818,13 @@ function handleNewPasswordSubmission(event) {
         newPasswordError.style.display = 'block';
         return;
     }
+    if (await hashPassword(newPassword) === users[userIndex].password) {
+        newPasswordError.textContent = 'Cannot use an old password.';
+        newPasswordError.style.display = 'block';
+        return;
+    }
     // Update the user's password
-    users[userIndex].password = newPassword; // Hash the password if you have hashing logic
+    users[userIndex].password = await hashPassword(newPassword);
     // Save the updated users array to localStorage
     localStorage.setItem('users', JSON.stringify(users));
     // Remove the reset data from cookies
