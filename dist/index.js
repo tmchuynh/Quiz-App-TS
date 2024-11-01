@@ -44,12 +44,24 @@ function removeLeaderboardSection() {
 function removeLeaderboardSelection() {
     removeElementById("leaderboardSelection");
 }
+function removeResetRequest() {
+    removeElementById("resetRequestSection");
+}
+function removeConfirmationCode() {
+    removeElementById("confirmationCodeSection");
+}
+function removeNewPasswordSection() {
+    removeElementById("newPasswordSection");
+}
 // Function to remove all sections dynamically
 function removeAllSections() {
     removeRegisterSection();
     removeLoginSection();
     removeQuizSection();
     removeScoreSection();
+    removeResetRequest();
+    removeConfirmationCode();
+    removeNewPasswordSection();
     removeLeaderboardSection();
     removeLeaderboardSelection();
     removeDifficultySelectionSection();
@@ -61,6 +73,7 @@ function removeAllSections() {
 // Function to create and append the registration form dynamically
 function createRegisterSection() {
     var _b;
+    removeAllSections();
     const registerSection = document.createElement("div");
     registerSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "registeration-section", "space-y-2");
     registerSection.id = "registerSection";
@@ -280,7 +293,6 @@ async function validateRegistrationForm() {
 }
 function resetErrorStyles(fields) {
     fields.forEach((field) => {
-        field.element.classList.remove("mt-2");
         field.element.classList.remove("text-md");
         field.element.classList.remove("border-red-500");
         field.element.classList.remove("text-red-600");
@@ -291,7 +303,6 @@ function showError(message, field) {
     const registerError = document.getElementById("registerError");
     registerError.textContent = message;
     registerError.style.display = "block";
-    field.classList.add("mt-2");
     field.classList.add("text-md");
     field.classList.add("border-red-500");
     field.classList.add("text-red-600");
@@ -423,7 +434,6 @@ function clearErrorStyles() {
         confirmPassword,
     ];
     fields.forEach((field) => {
-        field.classList.remove("mt-2");
         field.classList.remove("text-md");
         field.classList.remove("text-red-600");
         field.classList.remove("dark:text-red-400");
@@ -433,7 +443,7 @@ function clearErrorStyles() {
 }
 // Function to create and append the login form dynamically
 function createLoginSection() {
-    var _b;
+    var _b, _c;
     const loginSection = document.createElement("div");
     loginSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "login-section", "space-y-2");
     loginSection.id = "loginSection";
@@ -449,13 +459,16 @@ function createLoginSection() {
 			<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
 		</div>
 		
-		<div class="flex items-center mb-4 px-3">
-			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
-			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-white" for="loginPasswordView">
-				Show Password
-			</label>
+		<div class="flex justify-between items-center">
+			<div class="flex items-center px-3">
+				<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
+				<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-white" for="loginPasswordView">
+					Show Password
+				</label>
+			</div>
+			<a href="#" id="forgotPasswordLink" class="text-blue-500 hover:underline">Forgot Password?</a>
 		</div>
-		
+
 		<button id="loginButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Login</button>
 		<p id="loginError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;">Incorrect username or password.</p>
 		`;
@@ -485,6 +498,10 @@ function createLoginSection() {
             }
         }
     });
+    (_c = document.getElementById('forgotPasswordLink')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', (event) => {
+        event.preventDefault();
+        displayPasswordResetRequestForm();
+    });
 }
 // Validate login form
 async function validateLoginForm() {
@@ -494,8 +511,8 @@ async function validateLoginForm() {
     // Reset error styles for both fields
     const fields = [loginUsername, loginPassword];
     fields.forEach((field) => {
-        field.classList.remove("mt-2");
         field.classList.remove("text-md");
+        field.classList.remove("border-red-500");
         field.classList.remove("text-red-600");
         field.classList.remove("dark:text-red-400");
     });
@@ -508,7 +525,6 @@ async function validateLoginForm() {
         // Add '' class to empty fields
         fields.forEach((field) => {
             if (!field.value.trim()) {
-                field.classList.add("mt-2");
                 field.classList.add("text-md");
                 field.classList.add("border-red-500");
                 field.classList.add("text-red-600");
@@ -531,6 +547,238 @@ async function validateLoginForm() {
         handleLoginError("Incorrect username or password."); // On login failure
     }
 }
+// Request password reset form
+function displayPasswordResetRequestForm() {
+    var _b, _c;
+    removeAllSections();
+    const resetRequestSection = document.createElement('div');
+    resetRequestSection.id = 'resetRequestSection';
+    resetRequestSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "reset-password-form", "space-y-2");
+    resetRequestSection.innerHTML = `
+		<h2 class="text-2xl font-bold mb-4">Reset Password</h2>
+		<p class="mb-4">Please enter your username or email address. You will receive a confirmation code to reset your password.</p>
+		<form id="resetRequestForm" class="space-y-4">
+		<input type="text" id="usernameOrEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username or Email" required />
+		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send Confirmation Code</button>
+		</form>
+		<a href="#" id="returnToLogin" class="text-blue-500 hover:underline">Return to Registration/Login</a>
+		<p id="resetRequestError" class="text-red-500 mt-2" style="display: none;"></p>
+	`;
+    displayContainer.appendChild(resetRequestSection);
+    // Attach event listener to the form submission
+    (_b = document.getElementById('resetRequestForm')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', handleResetRequest);
+    (_c = document.getElementById("returnToLogin")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", (event) => {
+        event.preventDefault();
+        removeAllSections();
+        createRegisterSection();
+        createLoginSection();
+    });
+}
+function handleResetRequest(event) {
+    event.preventDefault();
+    const usernameOrEmailInput = document.getElementById('usernameOrEmail');
+    const usernameOrEmail = usernameOrEmailInput.value.trim();
+    const resetRequestError = document.getElementById('resetRequestError');
+    resetRequestError.style.display = 'none';
+    if (!usernameOrEmail) {
+        resetRequestError.textContent = 'Please enter your username or email.';
+        resetRequestError.style.display = 'block';
+        return;
+    }
+    // Retrieve users from localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.username === usernameOrEmail || u.email === usernameOrEmail);
+    if (!user) {
+        resetRequestError.textContent = 'User not found.';
+        resetRequestError.style.display = 'block';
+        return;
+    }
+    // Generate a confirmation code
+    const confirmationCode = generateConfirmationCode();
+    // Store the confirmation code and expiration time in sessionStorage
+    const expirationTime = Date.now() + 3600000; // 1 hour from now
+    const resetData = {
+        userId: user.id,
+        confirmationCode,
+        expiresAt: expirationTime,
+    };
+    sessionStorage.setItem('passwordResetData', JSON.stringify(resetData));
+    // Simulate sending email by displaying the code (for testing purposes)
+    alert(`A confirmation code has been sent to your email: ${confirmationCode}`);
+    // Proceed to confirmation code entry form
+    displayConfirmationCodeForm();
+}
+function generateConfirmationCode() {
+    return Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit code
+}
+function displayConfirmationCodeForm() {
+    var _b;
+    removeAllSections();
+    const confirmationCodeSection = document.createElement('div');
+    confirmationCodeSection.id = 'confirmationCodeSection';
+    confirmationCodeSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "confirmation-code-section", "space-y-2");
+    confirmationCodeSection.innerHTML = `
+	  <h2 class="text-2xl font-bold mb-4">Enter Confirmation Code</h2>
+	  <p class="mb-4">A confirmation code has been sent to your email. Please enter it below.</p>
+	  <form id="confirmationCodeForm" class="space-y-4">
+		<input type="text" id="confirmationCode" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirmation Code" required />
+		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Verify Code</button>
+	  </form>
+	  <p id="confirmationCodeError" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800" style="display: none;"></p>
+	`;
+    displayContainer.appendChild(confirmationCodeSection);
+    // Attach event listener to the form submission
+    (_b = document.getElementById('confirmationCodeForm')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', handleConfirmationCodeSubmission);
+}
+function handleConfirmationCodeSubmission(event) {
+    event.preventDefault();
+    const confirmationCodeInput = document.getElementById('confirmationCode');
+    const confirmationCode = confirmationCodeInput.value.trim();
+    const confirmationCodeError = document.getElementById('confirmationCodeError');
+    confirmationCodeError.style.display = 'none';
+    if (!confirmationCode) {
+        confirmationCodeError.textContent = 'Please enter the confirmation code.';
+        confirmationCodeError.style.display = 'block';
+        return;
+    }
+    // Retrieve reset data from sessionStorage
+    const resetDataString = sessionStorage.getItem('passwordResetData');
+    if (!resetDataString) {
+        confirmationCodeError.textContent = 'No password reset request found.';
+        confirmationCodeError.style.display = 'block';
+        return;
+    }
+    const resetData = JSON.parse(resetDataString);
+    // Check if the code matches and is not expired
+    if (confirmationCode !== resetData.confirmationCode) {
+        confirmationCodeError.textContent = 'Invalid confirmation code.';
+        confirmationCodeError.style.display = 'block';
+        return;
+    }
+    if (Date.now() > resetData.expiresAt) {
+        confirmationCodeError.textContent = 'Confirmation code has expired.';
+        confirmationCodeError.style.display = 'block';
+        sessionStorage.removeItem('passwordResetData');
+        return;
+    }
+    // Proceed to new password form
+    displayNewPasswordForm();
+}
+function displayNewPasswordForm() {
+    var _b;
+    removeAllSections();
+    const newPasswordSection = document.createElement('div');
+    newPasswordSection.id = 'newPasswordSection';
+    newPasswordSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "new-password-section", "space-y-2");
+    newPasswordSection.innerHTML = `
+	  <h2 class="text-2xl font-bold mb-4">Reset Password</h2>
+	  <form id="newPasswordForm" class="space-y-4">
+		<div class="relative">
+
+			<input type="password" id="newPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Password" />
+
+			<!-- Popover Content -->
+			<div id="popover-password" role="tooltip" class="absolute z-10 invisible text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+				<div class="p-3 space-y-2">
+					<h3 class="font-semibold text-gray-900 dark:text-white">Password Requirements</h3>
+					<ul>
+						<li id="requirement-length" class="flex items-center mb-1">
+							<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+							</svg>
+							At least 8 characters (max 15)
+						</li>
+						<li id="requirement-uppercase" class="flex items-center mb-1">
+							<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+							</svg>
+							Includes one uppercase letter
+						</li>
+						<li id="requirement-lowercase" class="flex items-center mb-1">
+							<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+							</svg>
+							Includes one lowercase letter
+						</li>
+						<li id="requirement-number" class="flex items-center mb-1">
+							<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+							</svg>
+							Includes one number
+						</li>
+						<li id="requirement-special" class="flex items-center">
+							<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+							</svg>
+							Includes one special character
+						</li>
+					</ul>
+				</div>
+				<div data-popper-arrow></div>
+			</div>
+		</div>
+
+		<input type="password" id="confirmNewPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" />
+		<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Reset Password</button>
+	  </form>
+	  <p id="newPasswordError" class="text-red-500 mt-2" style="display: none;"></p>
+	`;
+    displayContainer.appendChild(newPasswordSection);
+    // Initialize Popover
+    initializePasswordPopover();
+    // Attach event listener to the form submission
+    (_b = document.getElementById('newPasswordForm')) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', handleNewPasswordSubmission);
+}
+function handleNewPasswordSubmission(event) {
+    event.preventDefault();
+    const newPasswordInput = document.getElementById('newPassword');
+    const confirmNewPasswordInput = document.getElementById('confirmNewPassword');
+    const newPasswordError = document.getElementById('newPasswordError');
+    const newPassword = newPasswordInput.value.trim();
+    const confirmNewPassword = confirmNewPasswordInput.value.trim();
+    newPasswordError.style.display = 'none';
+    if (!newPassword || !confirmNewPassword) {
+        showError("Please enter and confirm your new password", newPasswordError);
+        return;
+    }
+    if (newPassword !== confirmNewPassword) {
+        showError("Passwords do not match.", newPasswordInput);
+        showError("Passwords do not match.", confirmNewPasswordInput);
+        return;
+    }
+    // Validate password strength (reuse your existing password validation)
+    if (!isValidPassword(newPassword)) {
+        newPasswordError.textContent = 'Password does not meet the requirements.';
+        newPasswordError.style.display = 'block';
+        return;
+    }
+    // Retrieve reset data from sessionStorage
+    const resetDataString = sessionStorage.getItem('passwordResetData');
+    if (!resetDataString) {
+        newPasswordError.textContent = 'No password reset request found.';
+        newPasswordError.style.display = 'block';
+        return;
+    }
+    const resetData = JSON.parse(resetDataString);
+    // Retrieve users from localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const userIndex = users.findIndex(u => u.id === resetData.userId);
+    if (userIndex === -1) {
+        newPasswordError.textContent = 'User not found.';
+        newPasswordError.style.display = 'block';
+        return;
+    }
+    // Update the user's password
+    users[userIndex].password = newPassword; // Hash the password if you have hashing logic
+    // Save the updated users array to localStorage
+    localStorage.setItem('users', JSON.stringify(users));
+    // Remove the reset data from sessionStorage
+    sessionStorage.removeItem('passwordResetData');
+    // Password reset successful
+    alert('Your password has been reset. Please log in with your new password.');
+    removeAllSections();
+    createLoginSection();
+}
 function getLoginFormFields() {
     const loginUsername = document.getElementById("loginUsername");
     const loginPassword = document.getElementById("loginPassword");
@@ -543,7 +791,6 @@ function handleLoginError(message) {
     loginError.style.display = "block";
     const { loginUsername, loginPassword } = getLoginFormFields();
     [loginUsername, loginPassword].forEach((field) => {
-        field.classList.add("mt-2");
         field.classList.add("text-md");
         field.classList.add("border-red-500");
         field.classList.add("text-red-600");
@@ -568,7 +815,7 @@ function clearLoginErrorStyles() {
     const fields = [loginUsername, loginPassword];
     // Remove error class from both fields
     fields.forEach((field) => {
-        field.classList.remove("mt-2");
+        field.classList.remove("border-red-500");
         field.classList.remove("text-md");
         field.classList.remove("text-red-600");
         field.classList.remove("dark:text-red-400");
