@@ -457,9 +457,6 @@ function isValidPassword( password: string ): boolean {
 	return Object.values( requirements ).every( ( value ) => value === true );
 }
 
-
-
-
 function isUsernameTaken( username: string, users: User[] ): boolean {
 	return users.some( ( user ) => user.username === username );
 }
@@ -860,20 +857,16 @@ function handleResetRequest( event: Event ): void {
 	// Generate a confirmation code
 	const confirmationCode = generateConfirmationCode();
 
-	// Store the confirmation code and expiration time in sessionStorage
-	const expirationTime = Date.now() + 3600000; // 1 hour from now
+	// Store the confirmation code and expiration time in cookies (expires in 15 minutes)
 	const resetData = {
 		userId: user.id,
 		confirmationCode,
-		expiresAt: expirationTime,
+		expiresAt: Date.now() + 900000, // 15 minutes from current time
 	};
-	sessionStorage.setItem( 'passwordResetData', JSON.stringify( resetData ) );
+	setCookie( 'passwordResetData', JSON.stringify( resetData ), 1 );
 
-	// Simulate sending email by displaying the code (for testing purposes)
-	alert( `A confirmation code has been sent to your email: ${ confirmationCode }` );
-
-	// Proceed to confirmation code entry form
-	displayConfirmationCodeForm();
+	// Display the confirmation code in a Tailwind CSS modal
+	displayConfirmationCodeModal( confirmationCode );
 }
 
 function generateConfirmationCode(): string {
@@ -925,6 +918,41 @@ function displayConfirmationCodeForm(): void {
 	document.getElementById( 'confirmationCodeForm' )?.addEventListener( 'submit', handleConfirmationCodeSubmission );
 }
 
+function displayConfirmationCodeModal( confirmationCode: string ): void {
+	// Create modal overlay
+	const modalOverlay = document.createElement( 'div' );
+	modalOverlay.id = 'modalOverlay';
+	modalOverlay.className = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50';
+
+	// Create modal content
+	const modalContent = document.createElement( 'div' );
+	modalContent.className = 'bg-white dark:bg-gray-800 rounded-lg p-6 mx-4 max-w-md w-full';
+
+	modalContent.innerHTML = `
+	  <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Confirmation Code</h2>
+	  <p class="mb-4 text-gray-600 dark:text-gray-300">A confirmation code has been "sent" to your email. Please use the code below to reset your password. (Note: In a real application, this code would be sent via email.)</p>
+	  <div class="text-center mb-4">
+		<span class="text-3xl font-semibold text-gray-800 dark:text-white">${ confirmationCode }</span>
+	  </div>
+	  <button id="closeModalButton" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Continue</button>
+	`;
+
+	// Append modal content to overlay
+	modalOverlay.appendChild( modalContent );
+
+	// Append overlay to body
+	document.body.appendChild( modalOverlay );
+
+	// Add event listener to close the modal
+	document.getElementById( 'closeModalButton' )?.addEventListener( 'click', () => {
+		// Remove the modal from the DOM
+		document.body.removeChild( modalOverlay );
+		// Proceed to confirmation code entry form
+		displayConfirmationCodeForm();
+	} );
+}
+
+
 function handleConfirmationCodeSubmission( event: Event ): void {
 	event.preventDefault();
 
@@ -940,8 +968,8 @@ function handleConfirmationCodeSubmission( event: Event ): void {
 		return;
 	}
 
-	// Retrieve reset data from sessionStorage
-	const resetDataString = sessionStorage.getItem( 'passwordResetData' );
+	// Retrieve reset data from cookies
+	const resetDataString = getCookie( 'passwordResetData' );
 	if ( !resetDataString ) {
 		confirmationCodeError.textContent = 'No password reset request found.';
 		confirmationCodeError.style.display = 'block';
@@ -960,13 +988,14 @@ function handleConfirmationCodeSubmission( event: Event ): void {
 	if ( Date.now() > resetData.expiresAt ) {
 		confirmationCodeError.textContent = 'Confirmation code has expired.';
 		confirmationCodeError.style.display = 'block';
-		sessionStorage.removeItem( 'passwordResetData' );
+		deleteCookie( 'passwordResetData' );
 		return;
 	}
 
 	// Proceed to new password form
 	displayNewPasswordForm();
 }
+
 
 function displayNewPasswordForm(): void {
 	removeAllSections();
@@ -1084,15 +1113,15 @@ function handleNewPasswordSubmission( event: Event ): void {
 		return;
 	}
 
-	// Validate password strength (reuse your existing password validation)
+	// Validate password strength
 	if ( !isValidPassword( newPassword ) ) {
 		newPasswordError.textContent = 'Password does not meet the requirements.';
 		newPasswordError.style.display = 'block';
 		return;
 	}
 
-	// Retrieve reset data from sessionStorage
-	const resetDataString = sessionStorage.getItem( 'passwordResetData' );
+	// Retrieve reset data from cookies
+	const resetDataString = getCookie( 'passwordResetData' );
 	if ( !resetDataString ) {
 		newPasswordError.textContent = 'No password reset request found.';
 		newPasswordError.style.display = 'block';
@@ -1117,8 +1146,8 @@ function handleNewPasswordSubmission( event: Event ): void {
 	// Save the updated users array to localStorage
 	localStorage.setItem( 'users', JSON.stringify( users ) );
 
-	// Remove the reset data from sessionStorage
-	sessionStorage.removeItem( 'passwordResetData' );
+	// Remove the reset data from cookies
+	deleteCookie( 'passwordResetData' );
 
 	// Password reset successful
 	alert( 'Your password has been reset. Please log in with your new password.' );
@@ -1126,6 +1155,29 @@ function handleNewPasswordSubmission( event: Event ): void {
 	createLoginSection();
 }
 
+function setCookie( name: string, value: string, expiresInHours: number ): void {
+	const date = new Date();
+	date.setTime( date.getTime() + expiresInHours * 60 * 60 * 1000 );
+	const expires = `expires=${ date.toUTCString() }`;
+	document.cookie = `${ name }=${ encodeURIComponent( value ) }; ${ expires }; path=/`;
+}
+
+function getCookie( name: string ): string | null {
+	const cname = `${ name }=`;
+	const decodedCookie = decodeURIComponent( document.cookie );
+	const ca = decodedCookie.split( ';' );
+	for ( let c of ca ) {
+		c = c.trim();
+		if ( c.indexOf( cname ) === 0 ) {
+			return c.substring( cname.length, c.length );
+		}
+	}
+	return null;
+}
+
+function deleteCookie( name: string ): void {
+	document.cookie = `${ name }=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
 
 function getLoginFormFields(): {
 	loginUsername: HTMLInputElement;
