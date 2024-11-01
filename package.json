@@ -1,5 +1,5 @@
 {
-  "name": "nes-quiz-app-ts",
+  "name": "quizlet-plus",
   "version": "1.0.0",
   "description": "- **User Registration and Login:**   - Users can register with first name, last name, email, username, and password.   - Validation to ensure all fields are filled and meet specific criteria (e.g., email format, password strength).   - Ability to handle multiple users on the same computer, ensuring unique usernames.",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tmchuynh/Quiz-App-TS.git"
+    "url": "git+https://github.com/tmchuynh/Quizlet-Plus"
   },
   "author": "Tina Huynh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tmchuynh/Quiz-App-TS/issues"
+    "url": "https://github.com/tmchuynh/Quizlet-Plus/issues"
   },
-  "homepage": "https://github.com/tmchuynh/Quiz-App-TS#readme",
+  "homepage": "https://github.com/tmchuynh/Quizlet-Plus#readme",
   "dependencies": {
     "bootstrap-icons": "^1.11.3"
   },
