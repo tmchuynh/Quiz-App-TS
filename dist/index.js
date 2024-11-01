@@ -38,12 +38,20 @@ function removeQuizSelectionSection() {
 function removeDifficultySelectionSection() {
     removeElementById("difficultySection");
 }
+function removeLeaderboardSection() {
+    removeElementById("leaderboardContainer");
+}
+function removeLeaderboardSelection() {
+    removeElementById("leaderboardSelection");
+}
 // Function to remove all sections dynamically
 function removeAllSections() {
     removeRegisterSection();
     removeLoginSection();
     removeQuizSection();
     removeScoreSection();
+    removeLeaderboardSection();
+    removeLeaderboardSelection();
     removeDifficultySelectionSection();
     removeQuizSelectionSection();
     removePastScoresSection();
@@ -432,6 +440,7 @@ function sortQuizArrayByName(arr) {
     arr.sort((a, b) => a.label.localeCompare(b.label));
 }
 function createQuizSelection() {
+    checkScoreHistory();
     const quizSelectionSection = document.createElement("div");
     quizSelectionSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "quiz-selection-section");
     quizSelectionSection.id = "quizSelectionSection";
@@ -521,7 +530,9 @@ function promptForDifficulty(quizId) {
             const button = document.createElement("button");
             button.textContent = `Level ${level}`;
             // Check if the quiz is already in progress at any difficulty level
-            const progressItems = currentProgress.find((item) => item.quizId === quizId && item.currentQuestion > 0 && item.difficultyLevel == level);
+            const progressItems = currentProgress.find((item) => item.quizId === quizId &&
+                item.currentQuestion > 0 &&
+                item.difficultyLevel == level);
             if (progressItems) {
                 button.className =
                     "button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
@@ -624,6 +635,8 @@ function createScoreSection() {
 // Function to create the past scores section dynamically
 function createPastScoresSection() {
     var _a;
+    removeLeaderboardSection();
+    removeLeaderboardSelection();
     const pastScoresSection = document.createElement("div");
     pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "view-score-history");
     pastScoresSection.id = "pastScoresSection";
@@ -654,30 +667,38 @@ function createActionButtons() {
     actionButtons.className =
         "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
     actionButtons.innerHTML = `
-		<div class="grid grid-cols-1">
-			<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
-		</div>
+		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
 }
 function createScoresButtons() {
-    var _a;
+    var _a, _b;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
     actionButtons.className =
         "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
     actionButtons.innerHTML = `
-		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 		<button id="viewScoresButton" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">View Past Scores</button>
+		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 order-last">Logout</button>
     `;
     displayContainer.appendChild(actionButtons);
+    if (!displayContainer.querySelector(".leaderboardSelection")) {
+        actionButtons.innerHTML += `
+		<button id="viewLeaderboardsButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Leaderboards</button>
+		`;
+    }
     const children = actionButtons.children.length;
     actionButtons.classList.add(`grid-cols-${children}`);
     logoutEventListener();
     (_a = document
-        .querySelector("#viewScoresButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+        .getElementById("viewLeaderboardsButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+        removeAllSections();
+        displayLeaderboardSelection();
+    });
+    (_b = document
+        .querySelector("#viewScoresButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         removeElementById("quizSelectionSection");
         createSortButtons();
     });
@@ -689,7 +710,7 @@ function createScoresButtons() {
  * and create the sort buttons section when clicked.
  */
 function addBackToSelectionSectionButton() {
-    var _a, _b;
+    var _a, _b, _c;
     const actionButtons = document.querySelector("#actionButtons");
     if (actionButtons) {
         actionButtons.className =
@@ -709,9 +730,14 @@ function addBackToSelectionSectionButton() {
         removeElementById("quizSelectionSection");
         createSortButtons();
     });
+    (_c = document
+        .getElementById("viewLeaderboardsButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+        removeAllSections();
+        displayLeaderboardSelection();
+    });
 }
 function createSortButtons() {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
     removeElementById("actionButtons");
     const actionButtons = document.createElement("section");
     actionButtons.id = "actionButtons";
@@ -719,7 +745,7 @@ function createSortButtons() {
         "buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
     const buttonClass = "text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800 space-y-2";
     function createButton(id, text) {
-        const button = document.createElement('button');
+        const button = document.createElement("button");
         button.id = id;
         button.className = buttonClass;
         button.textContent = text;
@@ -734,10 +760,12 @@ function createSortButtons() {
 			<button id="resetScoresButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Reset All Scores</button>
 		</div>
 	
-        <button id="backToSelectionButton" class="text-white order-4 bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
-        <div class="buttonGroup gap-1 text-center auto-cols-max grid grid-cols-3 order-2" id="sortingButtons">
+		<button id="backToSelectionButton" class="text-white order-3 bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg">Select a Different Quiz</button>
+		<div class="buttonGroup gap-1 text-center auto-cols-max grid grid-cols-3 order-2" id="sortingButtons">
 
         </div>
+		<button id="viewLeaderboardsButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 order-4">View Leaderboards</button>
+
     `;
     displayContainer.appendChild(actionButtons);
     logoutEventListener();
@@ -747,8 +775,7 @@ function createSortButtons() {
         buttonContainer.appendChild(sortByDateButton);
         buttonContainer.appendChild(sortByScoreButton);
     }
-    actionButtons.innerHTML +=
-        `<div>
+    actionButtons.innerHTML += `<div>
 			<select id="filterByQuizDropdown" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 				<option value="Filter by Quiz" selected>Filter by Quiz</option>
 					<!-- Quiz options will be added here dynamically -->
@@ -775,13 +802,20 @@ function createSortButtons() {
     // Store filtered scores
     let filteredScores = [...pastScores];
     // Populate the dropdown with quiz names
-    const quizNames = [...new Set(pastScores.map((score) => score.quiz))];
+    const quizNames = [
+        ...new Set(pastScores.map((score) => score.quiz)),
+    ];
     const filterByQuizDropdown = document.getElementById("filterByQuizDropdown");
     quizNames.forEach((quizName) => {
         const option = document.createElement("option");
         option.value = quizName;
         option.text = quizName;
         filterByQuizDropdown.appendChild(option);
+    });
+    (_a = document
+        .getElementById("viewLeaderboardsButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+        removeAllSections();
+        displayLeaderboardSelection();
     });
     renderScores(filteredScores);
     // Event listener for dropdown change
@@ -827,22 +861,22 @@ function createSortButtons() {
         }
     });
     // Sort by Quiz (alphabetically)
-    (_a = document
-        .querySelector("#sortByQuizButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    (_b = document
+        .querySelector("#sortByQuizButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         const sortedByQuiz = [...filteredScores].sort((a, b) => a.quiz.localeCompare(b.quiz));
         renderScores(sortedByQuiz);
         filteredScores = sortedByQuiz;
     });
     // Sort by Date (newest to oldest)
-    (_b = document
-        .querySelector("#sortByDateButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    (_c = document
+        .querySelector("#sortByDateButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         const sortedByDate = [...filteredScores].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         renderScores(sortedByDate);
         filteredScores = sortedByDate;
     });
     // Sort by Score (highest to lowest)
-    (_c = document
-        .querySelector("#sortByScoreButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    (_d = document
+        .querySelector("#sortByScoreButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
         const sortedByPercentage = [...filteredScores].sort((a, b) => {
             const percentageA = (a.score / a.total) * 100;
             const percentageB = (b.score / b.total) * 100;
@@ -852,8 +886,8 @@ function createSortButtons() {
         filteredScores = sortedByPercentage;
     });
     // Clear Filters
-    (_d = document
-        .querySelector("#clearFiltersButton")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+    (_e = document
+        .querySelector("#clearFiltersButton")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
         filteredScores = [...pastScores];
         filterByQuizDropdown.value = "Filter by Quiz"; // Reset dropdown selection
         // Reset date inputs
@@ -861,13 +895,13 @@ function createSortButtons() {
         document.getElementById("endDateInput").value = "";
         renderScores(filteredScores);
     });
-    (_e = document
-        .querySelector("#backToSelectionButton")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => {
+    (_f = document
+        .querySelector("#backToSelectionButton")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
         removeAllSections();
         loadQuiz();
     });
-    (_f = document
-        .querySelector("#resetScoresButton")) === null || _f === void 0 ? void 0 : _f.addEventListener("click", () => {
+    (_g = document
+        .querySelector("#resetScoresButton")) === null || _g === void 0 ? void 0 : _g.addEventListener("click", () => {
         // Show the confirmation dialog
         createDialog();
     });
@@ -897,11 +931,11 @@ function renderScores(pastScores) {
     const tableHeaders = `
 		<thead class="text-md text-white uppercase bg-gray-400 dark:bg-gray-700">
 			<tr>
-				<th>Quiz</th>
-				<th>Score</th>
-				<th>Percentage</th>
-				<th class="scoreDate">Date</th>
-				<th class="scoreTime">Time</th>
+				<th class="text-center">Quiz</th>
+				<th class="text-center">Score</th>
+				<th class="text-center">Percentage</th>
+				<th class="scoreDate text-center">Date</th>
+				<th class="scoreTime text-center">Time</th>
 			</tr>
 		</thead>`;
     const tableRows = pastScores
@@ -912,11 +946,11 @@ function renderScores(pastScores) {
         return `
 				<tbody>
 					<tr class="bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700">
-						<td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">${quiz}</td>
-						<td>${score} / ${total}</td>
-						<td class="scorePercentage">${percentage}%</td>
-						<td class="scoreDate">${formattedDate}</td>
-						<td class="scoreDate">${formattedTime}</td>
+						<td class="border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">${quiz}</td>
+						<td class="border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">${score} / ${total}</td>
+						<td class="scorePercentage border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">${percentage}%</td>
+						<td class="scoreDate border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">${formattedDate}</td>
+						<td class="scoreDate border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">${formattedTime}</td>
 					</tr>
 				</tbody>`;
     })
@@ -1081,6 +1115,10 @@ function loadQuiz() {
     }
     removeElementById("registerSection");
     removeElementById("loginSection");
+    createQuizSelection();
+}
+function checkScoreHistory() {
+    const currentUserId = sessionStorage.getItem("currentUserId");
     const userScoresKey = `quizScores_${currentUserId}`;
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
     if (pastScores) {
@@ -1089,7 +1127,6 @@ function loadQuiz() {
     else {
         createActionButtons();
     }
-    createQuizSelection();
 }
 /**
  * Loads the quiz progress from local storage and updates the current question and score.
@@ -1391,6 +1428,188 @@ function showScore() {
     currentQuestion = 0;
     score = 0;
     saveProgress();
+}
+function displayLeaderboardSelection() {
+    removeAllSections();
+    checkScoreHistory();
+    const selectionContainer = document.createElement('section');
+    selectionContainer.id = 'leaderboardSelection';
+    selectionContainer.classList.add("selectionContainer", "flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12");
+    // Fetch all quiz names from the stored data
+    const quizNames = getAllQuizNames();
+    // Create a heading
+    const heading = document.createElement('h2');
+    heading.textContent = 'Select a Quiz to View Leaderboard';
+    heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
+    selectionContainer.appendChild(heading);
+    // Create buttons for each quiz
+    quizNames.forEach((quizName) => {
+        const button = document.createElement('button');
+        button.textContent = quizName;
+        button.className = 'text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2';
+        button.addEventListener('click', () => {
+            removeAllSections();
+            displayLeaderboard(quizName);
+        });
+        selectionContainer.appendChild(button);
+    });
+    // Add a back button
+    const backButton = document.createElement('button');
+    backButton.textContent = 'Back';
+    backButton.className = 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2';
+    backButton.addEventListener('click', () => {
+        removeAllSections();
+        createQuizSelection();
+    });
+    selectionContainer.appendChild(backButton);
+    displayContainer.appendChild(selectionContainer);
+}
+function displayLeaderboard(quizName) {
+    removeAllSections();
+    checkScoreHistory();
+    const leaderboardContainer = document.createElement('section');
+    leaderboardContainer.id = 'leaderboardContainer';
+    leaderboardContainer.classList.add("flex", "min-h-full", "flex-col", "justify-center", "items-stretch", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "leaderboardContainer");
+    // Create a heading
+    const heading = document.createElement('h2');
+    heading.textContent = `Leaderboard for ${quizName}`;
+    heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
+    leaderboardContainer.appendChild(heading);
+    // Get leaderboard data
+    const leaderboardData = getLeaderboardData(quizName);
+    // Create a table to display the leaderboard
+    const table = document.createElement('table');
+    table.className = 'w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100';
+    // Table header
+    const thead = document.createElement('thead');
+    thead.className = "text-md text-white uppercase bg-gray-400 dark:bg-gray-700";
+    const headerRow = document.createElement('tr');
+    const rankHeader = document.createElement('th');
+    rankHeader.textContent = 'Rank';
+    rankHeader.className = 'py-1 text-center';
+    const userHeader = document.createElement('th');
+    userHeader.textContent = 'User';
+    userHeader.className = 'py-1 text-center';
+    const scoreHeader = document.createElement('th');
+    scoreHeader.textContent = 'Score';
+    scoreHeader.className = 'py-1 text-center';
+    const dateHeader = document.createElement('th');
+    dateHeader.textContent = 'Date';
+    dateHeader.className = 'py-1 text-center';
+    const dateTimeHeader = document.createElement('th');
+    dateTimeHeader.textContent = 'Time';
+    dateTimeHeader.className = 'py-1 text-center';
+    headerRow.appendChild(rankHeader);
+    headerRow.appendChild(userHeader);
+    headerRow.appendChild(scoreHeader);
+    headerRow.appendChild(dateHeader);
+    headerRow.appendChild(dateTimeHeader);
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    // Table body
+    const tbody = document.createElement('tbody');
+    leaderboardData.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.className = "bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700";
+        const rankCell = document.createElement('td');
+        rankCell.textContent = (index + 1).toString();
+        rankCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+        const userCell = document.createElement('td');
+        userCell.textContent = entry.username;
+        userCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+        const scoreCell = document.createElement('td');
+        scoreCell.textContent = `${entry.score}%`;
+        scoreCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+        const dateCell = document.createElement('td');
+        dateCell.textContent = formatDate(entry.date);
+        dateCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+        const timeCell = document.createElement('td');
+        timeCell.textContent = formatTime(entry.date);
+        timeCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+        row.appendChild(rankCell);
+        row.appendChild(userCell);
+        row.appendChild(scoreCell);
+        row.appendChild(dateCell);
+        row.append(timeCell);
+        tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+    leaderboardContainer.appendChild(table);
+    // Add a back button
+    const backButton = document.createElement('button');
+    backButton.textContent = 'Back';
+    backButton.className =
+        'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4';
+    backButton.addEventListener('click', () => {
+        removeAllSections();
+        displayLeaderboardSelection();
+    });
+    leaderboardContainer.appendChild(backButton);
+    displayContainer.appendChild(leaderboardContainer);
+}
+function getAllQuizNames() {
+    const quizNamesSet = new Set();
+    // Iterate over localStorage keys
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('quizScores_')) {
+            const scores = JSON.parse(localStorage.getItem(key) || '[]');
+            scores.forEach((score) => {
+                quizNamesSet.add(score.quiz);
+            });
+        }
+    }
+    return Array.from(quizNamesSet);
+}
+function getLeaderboardData(quizName) {
+    const leaderboardMap = new Map();
+    // Retrieve users array from localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    // Create a map of user IDs to usernames for quick lookup
+    const userIdToUsernameMap = new Map();
+    users.forEach((user) => {
+        userIdToUsernameMap.set(user.id, user.username);
+    });
+    // Iterate over localStorage keys
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('quizScores_')) {
+            const userId = key.replace('quizScores_', '');
+            const scores = JSON.parse(localStorage.getItem(key) || '[]');
+            // Filter scores for the selected quiz
+            const quizScores = scores.filter((score) => score.quiz === quizName);
+            if (quizScores.length > 0) {
+                // Find the highest score and its date for this user for the quiz
+                let highestScorePercentage = -1;
+                let highestScoreDate = '';
+                quizScores.forEach((s) => {
+                    const percentage = (s.score / s.total) * 100;
+                    if (percentage > highestScorePercentage) {
+                        highestScorePercentage = percentage;
+                        highestScoreDate = s.date; // Store the date of the highest score
+                    }
+                });
+                // Get the username from the users array
+                const username = userIdToUsernameMap.get(userId) || 'Unknown User';
+                // Update the leaderboard map
+                leaderboardMap.set(username, {
+                    score: highestScorePercentage,
+                    date: highestScoreDate,
+                });
+            }
+        }
+    }
+    // Convert map to array and sort by score descending
+    const leaderboardArray = [];
+    leaderboardMap.forEach((value, username) => {
+        leaderboardArray.push({
+            username,
+            score: Math.round(value.score),
+            date: value.date,
+        });
+    });
+    leaderboardArray.sort((a, b) => b.score - a.score);
+    return leaderboardArray;
 }
 /**
  * Checks if the user has completed the current quiz.
