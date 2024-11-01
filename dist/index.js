@@ -85,7 +85,7 @@ function createQuizSelection() {
                     sessionStorage.setItem("quizType", quiz_type);
                 }
                 sessionStorage.setItem("quizId", quiz.id);
-                promptForDifficulty(quiz.id);
+                createDifficultySection(quiz.id);
             });
             quizOptionsContainer.appendChild(button);
         });
@@ -98,7 +98,7 @@ function createQuizSelection() {
  *
  * @returns {void}
  */
-function promptForDifficulty(quizId) {
+function createDifficultySection(quizId) {
     // Remove the quiz selection section
     removeElementById("quizSelectionSection");
     const difficultySection = document.createElement("div");
@@ -114,13 +114,20 @@ function promptForDifficulty(quizId) {
     displayContainer.appendChild(difficultySection);
     // Retrieve current user's progress
     const currentUserId = sessionStorage.getItem("currentUserId");
+    const userScores = JSON.parse(localStorage.getItem(`quizScores_${currentUserId}`));
+    console.log(userScores);
     const userProgressKey = `quizProgress_${currentUserId}`;
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const difficultyOptionsContainer = document.getElementById("difficultyOptions");
     if (difficultyOptionsContainer) {
         for (let level = 1; level <= 5; level++) {
             const button = document.createElement("button");
-            button.textContent = `Level ${level}`;
+            // Get the highest score for the current level
+            const highestScore = getHighestScoreForLevel(level, userScores);
+            button.innerHTML = `
+                Level ${level}
+                <div class="text-sm mt-1">${highestScore !== null ? `High Score: ${highestScore}` : ''}</div>
+            `;
             // Check if the quiz is already in progress at any difficulty level
             const progressItems = currentProgress.find((item) => item.quizId === quizId &&
                 item.currentQuestion > 0 &&
@@ -140,6 +147,13 @@ function promptForDifficulty(quizId) {
             difficultyOptionsContainer.appendChild(button);
         }
     }
+}
+// Function to get the highest score for a specific level
+function getHighestScoreForLevel(level, score) {
+    const levelScores = score
+        .filter(item => item.difficultyLevel === level)
+        .map(item => item.score); // Assuming 'score' is the property that holds the score value
+    return levelScores.length > 0 ? Math.max(...levelScores) : null;
 }
 /**
  * Sets up the quiz data for the given quiz ID and difficulty level.

@@ -203,6 +203,8 @@ function createDifficultySection( quizId: string ): void {
 
 	// Retrieve current user's progress
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
+	const userScores = JSON.parse( localStorage.getItem( `quizScores_${ currentUserId }` )! );
+	console.log( userScores );
 	const userProgressKey = `quizProgress_${ currentUserId }`;
 	const currentProgress: ProgressItem[] = JSON.parse(
 		localStorage.getItem( userProgressKey ) || "[]"
@@ -214,7 +216,14 @@ function createDifficultySection( quizId: string ): void {
 	if ( difficultyOptionsContainer ) {
 		for ( let level = 1; level <= 5; level++ ) {
 			const button = document.createElement( "button" );
-			button.textContent = `Level ${ level }`;
+
+			// Get the highest score for the current level
+			const highestScore = getHighestScoreForLevel( level, userScores );
+			button.innerHTML = `
+                Level ${ level }
+                <div class="text-sm mt-1">${ highestScore !== null ? `High Score: ${ highestScore }` : '' }</div>
+            `;
+
 			// Check if the quiz is already in progress at any difficulty level
 			const progressItems = currentProgress.find(
 				( item ) =>
@@ -239,6 +248,15 @@ function createDifficultySection( quizId: string ): void {
 			difficultyOptionsContainer.appendChild( button );
 		}
 	}
+}
+
+// Function to get the highest score for a specific level
+function getHighestScoreForLevel( level: number, score: Score[] ): number | null {
+	const levelScores = score
+		.filter( item => item.difficultyLevel === level )
+		.map( item => item.score ); // Assuming 'score' is the property that holds the score value
+
+	return levelScores.length > 0 ? Math.max( ...levelScores ) : null;
 }
 
 /**
