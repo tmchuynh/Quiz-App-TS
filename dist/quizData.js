@@ -4,10 +4,22 @@ export const quizOptions = [
     { id: "artQuiz", label: "Art Quiz", category: "humanities" },
     { id: "biologyQuiz", label: "Biology Quiz", category: "sciences" },
     { id: "chemistryQuiz", label: "Chemistry Quiz", category: "sciences" },
-    { id: "computerScienceQuiz", label: "Computer Science Quiz", category: "technology" },
-    { id: "economicsQuiz", label: "Economics Quiz", category: "social-studies" },
+    {
+        id: "computerScienceQuiz",
+        label: "Computer Science Quiz",
+        category: "technology",
+    },
+    {
+        id: "economicsQuiz",
+        label: "Economics Quiz",
+        category: "social-studies",
+    },
     { id: "englishQuiz", label: "English Quiz", category: "humanities" },
-    { id: "engineeringQuiz", label: "Engineering Quiz", category: "technology" },
+    {
+        id: "engineeringQuiz",
+        label: "Engineering Quiz",
+        category: "technology",
+    },
     { id: "financeQuiz", label: "Finance Quiz", category: "social-studies" },
     { id: "geographyQuiz", label: "Geography Quiz", category: "humanities" },
     { id: "healthCareQuiz", label: "Health Care Quiz", category: "sciences" },
@@ -18,10 +30,22 @@ export const quizOptions = [
     { id: "philosophyQuiz", label: "Philosophy Quiz", category: "humanities" },
     { id: "physicsQuiz", label: "Physics Quiz", category: "sciences" },
     { id: "politicsQuiz", label: "Politics Quiz", category: "social-studies" },
-    { id: "realEstateQuiz", label: "Real Estate Quiz", category: "social-studies" },
+    {
+        id: "realEstateQuiz",
+        label: "Real Estate Quiz",
+        category: "social-studies",
+    },
     { id: "psychologyQuiz", label: "Psychology Quiz", category: "sciences" },
-    { id: "socialStudiesQuiz", label: "Social Studies Quiz", category: "humanities" },
-    { id: "sociologyQuiz", label: "Sociology Quiz", category: "social-studies" },
+    {
+        id: "socialStudiesQuiz",
+        label: "Social Studies Quiz",
+        category: "humanities",
+    },
+    {
+        id: "sociologyQuiz",
+        label: "Sociology Quiz",
+        category: "social-studies",
+    },
     { id: "sportsQuiz", label: "Sports Quiz", category: "entertainment" },
     { id: "warfareQuiz", label: "Warfare Quiz", category: "humanities" },
 ];
@@ -880,10 +904,19 @@ export const astrologyData = {
         {
             question: "What is a natal chart?",
             answers: [
-                { text: "A chart showing current planetary positions", correct: false },
-                { text: "A horoscope based on your birth time and location", correct: true },
+                {
+                    text: "A chart showing current planetary positions",
+                    correct: false,
+                },
+                {
+                    text: "A horoscope based on your birth time and location",
+                    correct: true,
+                },
                 { text: "A chart of future predictions", correct: false },
-                { text: "A compatibility chart with another person", correct: false },
+                {
+                    text: "A compatibility chart with another person",
+                    correct: false,
+                },
             ],
         },
         {
@@ -898,7 +931,10 @@ export const astrologyData = {
         {
             question: "What does retrograde motion signify in astrology?",
             answers: [
-                { text: "A planet moving forward in its orbit", correct: false },
+                {
+                    text: "A planet moving forward in its orbit",
+                    correct: false,
+                },
                 { text: "A planet appearing to move backward", correct: true },
                 { text: "A planet entering a new house", correct: false },
                 { text: "A planet increasing in speed", correct: false },
@@ -917,9 +953,18 @@ export const astrologyData = {
             question: "What is synastry in astrology?",
             answers: [
                 { text: "The study of planetary retrogrades", correct: false },
-                { text: "Comparing two natal charts for compatibility", correct: true },
-                { text: "Predicting future events based on stars", correct: false },
-                { text: "Analyzing career prospects through astrology", correct: false },
+                {
+                    text: "Comparing two natal charts for compatibility",
+                    correct: true,
+                },
+                {
+                    text: "Predicting future events based on stars",
+                    correct: false,
+                },
+                {
+                    text: "Analyzing career prospects through astrology",
+                    correct: false,
+                },
             ],
         },
         {
@@ -1196,7 +1241,10 @@ export const artData = {
             question: "What is the primary characteristic of Impressionist art?",
             answers: [
                 { text: "Sharp lines and geometric shapes", correct: false },
-                { text: "Emphasis on light and its changing qualities", correct: true },
+                {
+                    text: "Emphasis on light and its changing qualities",
+                    correct: true,
+                },
                 { text: "Use of dark, muted colors", correct: false },
                 { text: "Depiction of mythical subjects", correct: false },
             ],
@@ -1955,8 +2003,14 @@ export const computerScienceData = {
         {
             question: "What is the main function of an operating system?",
             answers: [
-                { text: "Manage computer hardware and software resources", correct: true },
-                { text: "Compile code into executable programs", correct: false },
+                {
+                    text: "Manage computer hardware and software resources",
+                    correct: true,
+                },
+                {
+                    text: "Compile code into executable programs",
+                    correct: false,
+                },
                 { text: "Provide antivirus protection", correct: false },
                 { text: "Edit text documents", correct: false },
             ],
@@ -1975,7 +2029,10 @@ export const computerScienceData = {
         {
             question: "What is the primary purpose of DNS in networking?",
             answers: [
-                { text: "Translate domain names to IP addresses", correct: true },
+                {
+                    text: "Translate domain names to IP addresses",
+                    correct: true,
+                },
                 { text: "Secure network communications", correct: false },
                 { text: "Route data packets", correct: false },
                 { text: "Provide network storage", correct: false },
@@ -1993,7 +2050,10 @@ export const computerScienceData = {
         {
             question: "What is an algorithm?",
             answers: [
-                { text: "A step-by-step procedure for solving a problem", correct: true },
+                {
+                    text: "A step-by-step procedure for solving a problem",
+                    correct: true,
+                },
                 { text: "A type of software", correct: false },
                 { text: "A programming language", correct: false },
                 { text: "A computer hardware component", correct: false },
@@ -2056,9 +2116,15 @@ export const computerScienceData = {
         {
             question: "What is Big O notation used for?",
             answers: [
-                { text: "Describing the performance of an algorithm", correct: true },
+                {
+                    text: "Describing the performance of an algorithm",
+                    correct: true,
+                },
                 { text: "Measuring disk storage capacity", correct: false },
-                { text: "Defining programming language syntax", correct: false },
+                {
+                    text: "Defining programming language syntax",
+                    correct: false,
+                },
                 { text: "Optimizing network throughput", correct: false },
             ],
         },
@@ -2067,10 +2133,22 @@ export const computerScienceData = {
         {
             question: "What is polymorphism in Object-Oriented Programming?",
             answers: [
-                { text: "Ability of different objects to respond to the same function call in different ways", correct: true },
-                { text: "Process of hiding internal states of objects", correct: false },
-                { text: "Mechanism of bundling data with methods", correct: false },
-                { text: "Creating new classes from existing ones", correct: false },
+                {
+                    text: "Ability of different objects to respond to the same function call in different ways",
+                    correct: true,
+                },
+                {
+                    text: "Process of hiding internal states of objects",
+                    correct: false,
+                },
+                {
+                    text: "Mechanism of bundling data with methods",
+                    correct: false,
+                },
+                {
+                    text: "Creating new classes from existing ones",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2085,7 +2163,10 @@ export const computerScienceData = {
         {
             question: "What is the primary purpose of a version control system?",
             answers: [
-                { text: "To manage changes to source code over time", correct: true },
+                {
+                    text: "To manage changes to source code over time",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To deploy applications to servers", correct: false },
                 { text: "To design software architectures", correct: false },
@@ -2121,10 +2202,22 @@ export const computerScienceData = {
         {
             question: "In databases, what does 'ACID' stand for?",
             answers: [
-                { text: "Atomicity, Consistency, Isolation, Durability", correct: true },
-                { text: "Accessibility, Control, Integration, Durability", correct: false },
-                { text: "Atomicity, Control, Isolation, Durability", correct: false },
-                { text: "Accessibility, Consistency, Integration, Durability", correct: false },
+                {
+                    text: "Atomicity, Consistency, Isolation, Durability",
+                    correct: true,
+                },
+                {
+                    text: "Accessibility, Control, Integration, Durability",
+                    correct: false,
+                },
+                {
+                    text: "Atomicity, Control, Isolation, Durability",
+                    correct: false,
+                },
+                {
+                    text: "Accessibility, Consistency, Integration, Durability",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2132,8 +2225,14 @@ export const computerScienceData = {
             answers: [
                 { text: "A function that calls itself", correct: true },
                 { text: "A loop that runs indefinitely", correct: false },
-                { text: "A variable that holds multiple values", correct: false },
-                { text: "A conditional statement that never executes", correct: false },
+                {
+                    text: "A variable that holds multiple values",
+                    correct: false,
+                },
+                {
+                    text: "A conditional statement that never executes",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2159,7 +2258,10 @@ export const computerScienceData = {
         {
             question: "What is a binary tree in computer science?",
             answers: [
-                { text: "A tree data structure in which each node has at most two children", correct: true },
+                {
+                    text: "A tree data structure in which each node has at most two children",
+                    correct: true,
+                },
                 { text: "A tree with two roots", correct: false },
                 { text: "A tree that stores binary data", correct: false },
                 { text: "A tree used for binary search", correct: false },
@@ -2177,10 +2279,22 @@ export const computerScienceData = {
         {
             question: "What is the primary difference between compiled and interpreted languages?",
             answers: [
-                { text: "Compiled languages are executed directly by the CPU, while interpreted languages are executed by an interpreter", correct: true },
-                { text: "Interpreted languages are faster than compiled languages", correct: false },
-                { text: "Compiled languages do not require a compiler", correct: false },
-                { text: "Interpreted languages cannot be used for web development", correct: false },
+                {
+                    text: "Compiled languages are executed directly by the CPU, while interpreted languages are executed by an interpreter",
+                    correct: true,
+                },
+                {
+                    text: "Interpreted languages are faster than compiled languages",
+                    correct: false,
+                },
+                {
+                    text: "Compiled languages do not require a compiler",
+                    correct: false,
+                },
+                {
+                    text: "Interpreted languages cannot be used for web development",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2196,7 +2310,10 @@ export const computerScienceData = {
             question: "What is the main purpose of the Git version control system?",
             answers: [
                 { text: "To manage project dependencies", correct: false },
-                { text: "To track changes in source code during software development", correct: true },
+                {
+                    text: "To track changes in source code during software development",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To deploy applications to servers", correct: false },
             ],
@@ -2231,7 +2348,10 @@ export const computerScienceData = {
         {
             question: "What is the primary function of an operating system?",
             answers: [
-                { text: "To manage computer hardware and software resources", correct: true },
+                {
+                    text: "To manage computer hardware and software resources",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To provide antivirus protection", correct: false },
                 { text: "To edit text documents", correct: false },
@@ -2251,10 +2371,16 @@ export const computerScienceData = {
         {
             question: "What is a deadlock in operating systems?",
             answers: [
-                { text: "When two or more processes are unable to proceed because each is waiting for the other to release resources", correct: true },
+                {
+                    text: "When two or more processes are unable to proceed because each is waiting for the other to release resources",
+                    correct: true,
+                },
                 { text: "When a process uses too much memory", correct: false },
                 { text: "When the CPU is overloaded", correct: false },
-                { text: "When a process finishes execution unexpectedly", correct: false },
+                {
+                    text: "When a process finishes execution unexpectedly",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2269,7 +2395,10 @@ export const computerScienceData = {
         {
             question: "What is the primary purpose of DNS?",
             answers: [
-                { text: "Translate domain names to IP addresses", correct: true },
+                {
+                    text: "Translate domain names to IP addresses",
+                    correct: true,
+                },
                 { text: "Secure network communications", correct: false },
                 { text: "Route data packets", correct: false },
                 { text: "Provide network storage", correct: false },
@@ -2287,8 +2416,14 @@ export const computerScienceData = {
         {
             question: "What is the main purpose of the HTTP protocol?",
             answers: [
-                { text: "To transfer hypertext requests and information on the internet", correct: true },
-                { text: "To secure communications over a network", correct: false },
+                {
+                    text: "To transfer hypertext requests and information on the internet",
+                    correct: true,
+                },
+                {
+                    text: "To secure communications over a network",
+                    correct: false,
+                },
                 { text: "To route data packets", correct: false },
                 { text: "To manage email transmissions", correct: false },
             ],
@@ -2305,7 +2440,10 @@ export const computerScienceData = {
         {
             question: "What is the purpose of a compiler in programming?",
             answers: [
-                { text: "To convert high-level code into machine code", correct: true },
+                {
+                    text: "To convert high-level code into machine code",
+                    correct: true,
+                },
                 { text: "To execute code line by line", correct: false },
                 { text: "To manage memory allocation", correct: false },
                 { text: "To debug code", correct: false },
@@ -2314,10 +2452,22 @@ export const computerScienceData = {
         {
             question: "Which of the following is an example of a binary search tree property?",
             answers: [
-                { text: "Left child nodes are greater than the parent node", correct: false },
-                { text: "Right child nodes are less than the parent node", correct: false },
-                { text: "All left child nodes are less than the parent node and all right child nodes are greater", correct: true },
-                { text: "All child nodes are equal to the parent node", correct: false },
+                {
+                    text: "Left child nodes are greater than the parent node",
+                    correct: false,
+                },
+                {
+                    text: "Right child nodes are less than the parent node",
+                    correct: false,
+                },
+                {
+                    text: "All left child nodes are less than the parent node and all right child nodes are greater",
+                    correct: true,
+                },
+                {
+                    text: "All child nodes are equal to the parent node",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2568,7 +2718,10 @@ export const chemistryData = {
             answers: [
                 { text: "Indicates the size of the orbital", correct: true },
                 { text: "Indicates the shape of the orbital", correct: false },
-                { text: "Indicates the orientation of the orbital", correct: false },
+                {
+                    text: "Indicates the orientation of the orbital",
+                    correct: false,
+                },
                 { text: "Indicates the spin of the electron", correct: false },
             ],
         },
@@ -2615,8 +2768,14 @@ export const chemistryData = {
             answers: [
                 { text: "Mass cannot be created or destroyed", correct: true },
                 { text: "Mass can be converted to energy", correct: false },
-                { text: "Mass increases in chemical reactions", correct: false },
-                { text: "Mass decreases in chemical reactions", correct: false },
+                {
+                    text: "Mass increases in chemical reactions",
+                    correct: false,
+                },
+                {
+                    text: "Mass decreases in chemical reactions",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2715,7 +2874,10 @@ export const chemistryData = {
             question: "What is the function of the cell membrane?",
             answers: [
                 { text: "To store genetic information", correct: false },
-                { text: "To control what enters and exits the cell", correct: true },
+                {
+                    text: "To control what enters and exits the cell",
+                    correct: true,
+                },
                 { text: "To produce energy", correct: false },
                 { text: "To transport substances", correct: false },
             ],
@@ -2723,7 +2885,10 @@ export const chemistryData = {
         {
             question: "What is the process of photosynthesis?",
             answers: [
-                { text: "Conversion of light energy into chemical energy", correct: true },
+                {
+                    text: "Conversion of light energy into chemical energy",
+                    correct: true,
+                },
                 { text: "Breaking down glucose for energy", correct: false },
                 { text: "Using oxygen to produce energy", correct: false },
                 { text: "Absorbing nutrients from soil", correct: false },
@@ -2800,9 +2965,18 @@ export const economicsData = {
         {
             question: "What is the basic economic problem every society faces?",
             answers: [
-                { text: "Unlimited wants and limited resources", correct: true },
-                { text: "Limited wants and unlimited resources", correct: false },
-                { text: "Unlimited resources and unlimited wants", correct: false },
+                {
+                    text: "Unlimited wants and limited resources",
+                    correct: true,
+                },
+                {
+                    text: "Limited wants and unlimited resources",
+                    correct: false,
+                },
+                {
+                    text: "Unlimited resources and unlimited wants",
+                    correct: false,
+                },
                 { text: "Limited resources and limited wants", correct: false },
             ],
         },
@@ -2818,9 +2992,18 @@ export const economicsData = {
         {
             question: "What is the primary role of the Federal Reserve in the United States?",
             answers: [
-                { text: "Control the money supply and manage interest rates", correct: true },
-                { text: "Set fiscal policy and government spending", correct: false },
-                { text: "Regulate international trade agreements", correct: false },
+                {
+                    text: "Control the money supply and manage interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Set fiscal policy and government spending",
+                    correct: false,
+                },
+                {
+                    text: "Regulate international trade agreements",
+                    correct: false,
+                },
                 { text: "Manage the national budget", correct: false },
             ],
         },
@@ -2836,19 +3019,43 @@ export const economicsData = {
         {
             question: "What does 'inflation' refer to in economics?",
             answers: [
-                { text: "A general increase in prices and fall in the purchasing value of money", correct: true },
-                { text: "A general decrease in prices and increase in the purchasing value of money", correct: false },
-                { text: "An increase in the production of goods and services", correct: false },
-                { text: "A decrease in the production of goods and services", correct: false },
+                {
+                    text: "A general increase in prices and fall in the purchasing value of money",
+                    correct: true,
+                },
+                {
+                    text: "A general decrease in prices and increase in the purchasing value of money",
+                    correct: false,
+                },
+                {
+                    text: "An increase in the production of goods and services",
+                    correct: false,
+                },
+                {
+                    text: "A decrease in the production of goods and services",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'opportunity cost'?",
             answers: [
-                { text: "The cost of the next best alternative foregone", correct: true },
-                { text: "The total monetary cost of all resources used", correct: false },
-                { text: "The cost incurred when a business decides to produce a good", correct: false },
-                { text: "The cost associated with borrowing money", correct: false },
+                {
+                    text: "The cost of the next best alternative foregone",
+                    correct: true,
+                },
+                {
+                    text: "The total monetary cost of all resources used",
+                    correct: false,
+                },
+                {
+                    text: "The cost incurred when a business decides to produce a good",
+                    correct: false,
+                },
+                {
+                    text: "The cost associated with borrowing money",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2863,10 +3070,19 @@ export const economicsData = {
         {
             question: "What is the main purpose of fiscal policy?",
             answers: [
-                { text: "To influence economic activity through government spending and taxation", correct: true },
-                { text: "To control the money supply and interest rates", correct: false },
+                {
+                    text: "To influence economic activity through government spending and taxation",
+                    correct: true,
+                },
+                {
+                    text: "To control the money supply and interest rates",
+                    correct: false,
+                },
                 { text: "To regulate international trade", correct: false },
-                { text: "To manage public transportation systems", correct: false },
+                {
+                    text: "To manage public transportation systems",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2881,10 +3097,22 @@ export const economicsData = {
         {
             question: "What is 'unemployment rate'?",
             answers: [
-                { text: "The percentage of the labor force that is jobless and actively seeking employment", correct: true },
-                { text: "The total number of people without jobs", correct: false },
-                { text: "The rate at which jobs are being created", correct: false },
-                { text: "The percentage of people employed part-time", correct: false },
+                {
+                    text: "The percentage of the labor force that is jobless and actively seeking employment",
+                    correct: true,
+                },
+                {
+                    text: "The total number of people without jobs",
+                    correct: false,
+                },
+                {
+                    text: "The rate at which jobs are being created",
+                    correct: false,
+                },
+                {
+                    text: "The percentage of people employed part-time",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -2892,10 +3120,19 @@ export const economicsData = {
         {
             question: "What is 'microeconomics' primarily concerned with?",
             answers: [
-                { text: "Individual and business decisions regarding the allocation of resources", correct: true },
-                { text: "Overall economic factors affecting the entire economy", correct: false },
+                {
+                    text: "Individual and business decisions regarding the allocation of resources",
+                    correct: true,
+                },
+                {
+                    text: "Overall economic factors affecting the entire economy",
+                    correct: false,
+                },
                 { text: "International trade and finance", correct: false },
-                { text: "Government policies and their impact on the economy", correct: false },
+                {
+                    text: "Government policies and their impact on the economy",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2910,26 +3147,56 @@ export const economicsData = {
         {
             question: "What is 'price elasticity of demand'?",
             answers: [
-                { text: "A measure of how much the quantity demanded responds to a change in price", correct: true },
-                { text: "A measure of the total revenue at different price levels", correct: false },
-                { text: "A measure of the change in supply when price changes", correct: false },
-                { text: "A measure of consumer preferences for different goods", correct: false },
+                {
+                    text: "A measure of how much the quantity demanded responds to a change in price",
+                    correct: true,
+                },
+                {
+                    text: "A measure of the total revenue at different price levels",
+                    correct: false,
+                },
+                {
+                    text: "A measure of the change in supply when price changes",
+                    correct: false,
+                },
+                {
+                    text: "A measure of consumer preferences for different goods",
+                    correct: false,
+                },
             ],
         },
         {
             question: "Which factor can cause the demand curve to shift to the right?",
             answers: [
-                { text: "Increase in consumer income for a normal good", correct: true },
-                { text: "Decrease in the price of the good itself", correct: false },
-                { text: "Decrease in consumer income for a normal good", correct: false },
-                { text: "Increase in the price of a substitute good", correct: false },
+                {
+                    text: "Increase in consumer income for a normal good",
+                    correct: true,
+                },
+                {
+                    text: "Decrease in the price of the good itself",
+                    correct: false,
+                },
+                {
+                    text: "Decrease in consumer income for a normal good",
+                    correct: false,
+                },
+                {
+                    text: "Increase in the price of a substitute good",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'marginal cost'?",
             answers: [
-                { text: "The cost of producing one additional unit of a good", correct: true },
-                { text: "The total cost divided by the number of units produced", correct: false },
+                {
+                    text: "The cost of producing one additional unit of a good",
+                    correct: true,
+                },
+                {
+                    text: "The total cost divided by the number of units produced",
+                    correct: false,
+                },
                 { text: "The fixed cost of production", correct: false },
                 { text: "The average variable cost", correct: false },
             ],
@@ -2937,8 +3204,14 @@ export const economicsData = {
         {
             question: "In perfect competition, firms are price takers. What does this mean?",
             answers: [
-                { text: "They accept the market price and cannot influence it", correct: true },
-                { text: "They set their own prices based on costs", correct: false },
+                {
+                    text: "They accept the market price and cannot influence it",
+                    correct: true,
+                },
+                {
+                    text: "They set their own prices based on costs",
+                    correct: false,
+                },
                 { text: "They collaborate to set prices", correct: false },
                 { text: "They follow government-set prices", correct: false },
             ],
@@ -2946,10 +3219,22 @@ export const economicsData = {
         {
             question: "What is 'consumer surplus'?",
             answers: [
-                { text: "The difference between what consumers are willing to pay and what they actually pay", correct: true },
-                { text: "The total amount consumers spend on a good", correct: false },
-                { text: "The additional satisfaction from consuming one more unit of a good", correct: false },
-                { text: "The cost of goods purchased by consumers", correct: false },
+                {
+                    text: "The difference between what consumers are willing to pay and what they actually pay",
+                    correct: true,
+                },
+                {
+                    text: "The total amount consumers spend on a good",
+                    correct: false,
+                },
+                {
+                    text: "The additional satisfaction from consuming one more unit of a good",
+                    correct: false,
+                },
+                {
+                    text: "The cost of goods purchased by consumers",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2964,7 +3249,10 @@ export const economicsData = {
         {
             question: "What is 'game theory' used for in economics?",
             answers: [
-                { text: "Analyzing competitive strategies among firms", correct: true },
+                {
+                    text: "Analyzing competitive strategies among firms",
+                    correct: true,
+                },
                 { text: "Calculating national GDP", correct: false },
                 { text: "Measuring consumer satisfaction", correct: false },
                 { text: "Determining tax rates", correct: false },
@@ -2984,7 +3272,10 @@ export const economicsData = {
         {
             question: "What does 'macroeconomics' study?",
             answers: [
-                { text: "The economy as a whole, including inflation, unemployment, and GDP", correct: true },
+                {
+                    text: "The economy as a whole, including inflation, unemployment, and GDP",
+                    correct: true,
+                },
                 { text: "Individual consumer behavior", correct: false },
                 { text: "Business pricing strategies", correct: false },
                 { text: "Local market structures", correct: false },
@@ -2993,8 +3284,14 @@ export const economicsData = {
         {
             question: "What is 'fiscal policy'?",
             answers: [
-                { text: "Government spending and taxation policies", correct: true },
-                { text: "Central bank's control of the money supply", correct: false },
+                {
+                    text: "Government spending and taxation policies",
+                    correct: true,
+                },
+                {
+                    text: "Central bank's control of the money supply",
+                    correct: false,
+                },
                 { text: "Regulations on international trade", correct: false },
                 { text: "Policies related to labor markets", correct: false },
             ],
@@ -3011,27 +3308,54 @@ export const economicsData = {
         {
             question: "What is 'monetary policy'?",
             answers: [
-                { text: "Central bank's actions to control the money supply and interest rates", correct: true },
-                { text: "Government's decisions on taxation and spending", correct: false },
-                { text: "Regulations on businesses and industries", correct: false },
-                { text: "Policies related to environmental protection", correct: false },
+                {
+                    text: "Central bank's actions to control the money supply and interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Government's decisions on taxation and spending",
+                    correct: false,
+                },
+                {
+                    text: "Regulations on businesses and industries",
+                    correct: false,
+                },
+                {
+                    text: "Policies related to environmental protection",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does the 'Phillips Curve' illustrate?",
             answers: [
-                { text: "The inverse relationship between inflation and unemployment", correct: true },
-                { text: "The relationship between GDP and investment", correct: false },
+                {
+                    text: "The inverse relationship between inflation and unemployment",
+                    correct: true,
+                },
+                {
+                    text: "The relationship between GDP and investment",
+                    correct: false,
+                },
                 { text: "The supply and demand for labor", correct: false },
-                { text: "The effect of taxation on consumer spending", correct: false },
+                {
+                    text: "The effect of taxation on consumer spending",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'stagflation'?",
             answers: [
-                { text: "High inflation combined with high unemployment", correct: true },
+                {
+                    text: "High inflation combined with high unemployment",
+                    correct: true,
+                },
                 { text: "Low inflation and low unemployment", correct: false },
-                { text: "High economic growth with low inflation", correct: false },
+                {
+                    text: "High economic growth with low inflation",
+                    correct: false,
+                },
                 { text: "Deflation and increasing GDP", correct: false },
             ],
         },
@@ -3047,10 +3371,22 @@ export const economicsData = {
         {
             question: "What is the 'balance of payments'?",
             answers: [
-                { text: "A record of all economic transactions between residents of a country and the rest of the world", correct: true },
-                { text: "The difference between a country's exports and imports", correct: false },
-                { text: "The total amount of foreign investment in a country", correct: false },
-                { text: "The government's budget surplus or deficit", correct: false },
+                {
+                    text: "A record of all economic transactions between residents of a country and the rest of the world",
+                    correct: true,
+                },
+                {
+                    text: "The difference between a country's exports and imports",
+                    correct: false,
+                },
+                {
+                    text: "The total amount of foreign investment in a country",
+                    correct: false,
+                },
+                {
+                    text: "The government's budget surplus or deficit",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3066,7 +3402,10 @@ export const economicsData = {
             question: "What does 'GDP per capita' measure?",
             answers: [
                 { text: "Average economic output per person", correct: true },
-                { text: "Total GDP divided by the number of businesses", correct: false },
+                {
+                    text: "Total GDP divided by the number of businesses",
+                    correct: false,
+                },
                 { text: "Government spending per person", correct: false },
                 { text: "Total exports per person", correct: false },
             ],
@@ -3076,7 +3415,10 @@ export const economicsData = {
         {
             question: "What is 'international trade'?",
             answers: [
-                { text: "Exchange of goods and services between countries", correct: true },
+                {
+                    text: "Exchange of goods and services between countries",
+                    correct: true,
+                },
                 { text: "Trade within a single country", correct: false },
                 { text: "Bartering goods without using money", correct: false },
                 { text: "Exchange of currencies only", correct: false },
@@ -3096,7 +3438,10 @@ export const economicsData = {
             answers: [
                 { text: "A tax on imported goods", correct: true },
                 { text: "A subsidy for domestic industries", correct: false },
-                { text: "A quota limiting the number of goods that can be imported", correct: false },
+                {
+                    text: "A quota limiting the number of goods that can be imported",
+                    correct: false,
+                },
                 { text: "A type of trade agreement", correct: false },
             ],
         },
@@ -3112,10 +3457,22 @@ export const economicsData = {
         {
             question: "What is 'foreign direct investment' (FDI)?",
             answers: [
-                { text: "Investment made by a firm or individual in one country into business interests in another country", correct: true },
-                { text: "Investment in foreign stocks and bonds", correct: false },
-                { text: "Investment in domestic industries to export goods", correct: false },
-                { text: "Investment by foreign governments in local infrastructure", correct: false },
+                {
+                    text: "Investment made by a firm or individual in one country into business interests in another country",
+                    correct: true,
+                },
+                {
+                    text: "Investment in foreign stocks and bonds",
+                    correct: false,
+                },
+                {
+                    text: "Investment in domestic industries to export goods",
+                    correct: false,
+                },
+                {
+                    text: "Investment by foreign governments in local infrastructure",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3124,16 +3481,31 @@ export const economicsData = {
                 { text: "Uruguay Round Agreements", correct: true },
                 { text: "Nash Equilibrium", correct: false },
                 { text: "Bretton Woods Agreement", correct: false },
-                { text: "General Agreement on Tariffs and Trade (GATT)", correct: false },
+                {
+                    text: "General Agreement on Tariffs and Trade (GATT)",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'balance of trade' signify?",
             answers: [
-                { text: "The difference between a country's exports and imports", correct: true },
-                { text: "The total value of a country's financial assets", correct: false },
-                { text: "The equilibrium between government spending and taxation", correct: false },
-                { text: "The net capital inflow and outflow of a country", correct: false },
+                {
+                    text: "The difference between a country's exports and imports",
+                    correct: true,
+                },
+                {
+                    text: "The total value of a country's financial assets",
+                    correct: false,
+                },
+                {
+                    text: "The equilibrium between government spending and taxation",
+                    correct: false,
+                },
+                {
+                    text: "The net capital inflow and outflow of a country",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3148,19 +3520,40 @@ export const economicsData = {
         {
             question: "What is 'comparative advantage'?",
             answers: [
-                { text: "Ability of a country to produce a good at a lower opportunity cost than another country", correct: true },
-                { text: "Ability of a country to produce more of a good than another country", correct: false },
-                { text: "Ability of a country to produce a good without any cost", correct: false },
-                { text: "Ability of a country to produce all goods efficiently", correct: false },
+                {
+                    text: "Ability of a country to produce a good at a lower opportunity cost than another country",
+                    correct: true,
+                },
+                {
+                    text: "Ability of a country to produce more of a good than another country",
+                    correct: false,
+                },
+                {
+                    text: "Ability of a country to produce a good without any cost",
+                    correct: false,
+                },
+                {
+                    text: "Ability of a country to produce all goods efficiently",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'exchange rate' refer to?",
             answers: [
-                { text: "The value of one currency for the purpose of conversion to another", correct: true },
-                { text: "The rate at which goods are exchanged internationally", correct: false },
+                {
+                    text: "The value of one currency for the purpose of conversion to another",
+                    correct: true,
+                },
+                {
+                    text: "The rate at which goods are exchanged internationally",
+                    correct: false,
+                },
                 { text: "The interest rate on foreign loans", correct: false },
-                { text: "The rate of economic growth in a country", correct: false },
+                {
+                    text: "The rate of economic growth in a country",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3177,8 +3570,14 @@ export const economicsData = {
         {
             question: "What is 'Keynesian Economics' primarily concerned with?",
             answers: [
-                { text: "Government intervention to stabilize the economy", correct: true },
-                { text: "Free markets without government interference", correct: false },
+                {
+                    text: "Government intervention to stabilize the economy",
+                    correct: true,
+                },
+                {
+                    text: "Free markets without government interference",
+                    correct: false,
+                },
                 { text: "Labor theory of value", correct: false },
                 { text: "Supply-side policies", correct: false },
             ],
@@ -3195,10 +3594,19 @@ export const economicsData = {
         {
             question: "What does 'supply-side economics' emphasize?",
             answers: [
-                { text: "Increasing production and supply of goods and services", correct: true },
-                { text: "Increasing consumer demand through government spending", correct: false },
+                {
+                    text: "Increasing production and supply of goods and services",
+                    correct: true,
+                },
+                {
+                    text: "Increasing consumer demand through government spending",
+                    correct: false,
+                },
                 { text: "Reducing taxes on the poor", correct: false },
-                { text: "Implementing price controls to stabilize markets", correct: false },
+                {
+                    text: "Implementing price controls to stabilize markets",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3231,8 +3639,14 @@ export const economicsData = {
         {
             question: "What is 'monetary policy'?",
             answers: [
-                { text: "Central bank's actions to control the money supply and interest rates", correct: true },
-                { text: "Government's decisions on taxation and spending", correct: false },
+                {
+                    text: "Central bank's actions to control the money supply and interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Government's decisions on taxation and spending",
+                    correct: false,
+                },
                 { text: "Regulations on international trade", correct: false },
                 { text: "Policies related to labor markets", correct: false },
             ],
@@ -3249,10 +3663,22 @@ export const economicsData = {
         {
             question: "What is 'deflation'?",
             answers: [
-                { text: "A general decrease in prices and increase in the purchasing value of money", correct: true },
-                { text: "A general increase in prices and fall in the purchasing value of money", correct: false },
-                { text: "An increase in the production of goods and services", correct: false },
-                { text: "A decrease in the production of goods and services", correct: false },
+                {
+                    text: "A general decrease in prices and increase in the purchasing value of money",
+                    correct: true,
+                },
+                {
+                    text: "A general increase in prices and fall in the purchasing value of money",
+                    correct: false,
+                },
+                {
+                    text: "An increase in the production of goods and services",
+                    correct: false,
+                },
+                {
+                    text: "A decrease in the production of goods and services",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3355,8 +3781,14 @@ export const englishData = {
         {
             question: "What is a 'metaphor'?",
             answers: [
-                { text: "A figure of speech that compares two unlike things without using 'like' or 'as'", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech that compares two unlike things without using 'like' or 'as'",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A question asked for effect", correct: false },
                 { text: "An exaggeration for emphasis", correct: false },
             ],
@@ -3420,8 +3852,14 @@ export const englishData = {
             answers: [
                 { text: "Their going to the concert tonight.", correct: false },
                 { text: "There going to the concert tonight.", correct: false },
-                { text: "They're going to the concert tonight.", correct: true },
-                { text: "They're going to the concert tonight.", correct: false },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: true,
+                },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3438,7 +3876,10 @@ export const englishData = {
             answers: [
                 { text: "I like pizza.", correct: false },
                 { text: "She reads every night.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
@@ -3510,8 +3951,14 @@ export const englishData = {
         {
             question: "What is a 'simile'?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: true },
-                { text: "An indirect comparison without using 'like' or 'as'", correct: false },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: true,
+                },
+                {
+                    text: "An indirect comparison without using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
                 { text: "A rhetorical question", correct: false },
             ],
@@ -3540,16 +3987,25 @@ export const englishData = {
             question: "Which sentence is written in the passive voice?",
             answers: [
                 { text: "The chef cooked a delicious meal.", correct: false },
-                { text: "A delicious meal was cooked by the chef.", correct: true },
+                {
+                    text: "A delicious meal was cooked by the chef.",
+                    correct: true,
+                },
                 { text: "The chef is cooking a meal.", correct: false },
-                { text: "The meal will be cooked by the chef.", correct: false },
+                {
+                    text: "The meal will be cooked by the chef.",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the purpose of a topic sentence in a paragraph?",
             answers: [
                 { text: "To provide supporting details", correct: false },
-                { text: "To state the main idea of the paragraph", correct: true },
+                {
+                    text: "To state the main idea of the paragraph",
+                    correct: true,
+                },
                 { text: "To conclude the paragraph", correct: false },
                 { text: "To introduce a quote", correct: false },
             ],
@@ -3566,10 +4022,22 @@ export const englishData = {
         {
             question: "What is a 'fragment' in writing?",
             answers: [
-                { text: "A complete sentence with a subject and predicate", correct: false },
-                { text: "An incomplete sentence missing a subject or predicate", correct: true },
-                { text: "A run-on sentence with multiple clauses", correct: false },
-                { text: "A sentence with excessive punctuation", correct: false },
+                {
+                    text: "A complete sentence with a subject and predicate",
+                    correct: false,
+                },
+                {
+                    text: "An incomplete sentence missing a subject or predicate",
+                    correct: true,
+                },
+                {
+                    text: "A run-on sentence with multiple clauses",
+                    correct: false,
+                },
+                {
+                    text: "A sentence with excessive punctuation",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3595,16 +4063,28 @@ export const englishData = {
             answers: [
                 { text: "I went to the store.", correct: false },
                 { text: "She sings beautifully.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
         {
             question: "What is an oxymoron?",
             answers: [
-                { text: "A figure of speech using exaggeration", correct: false },
-                { text: "A figure of speech combining contradictory terms", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech using exaggeration",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech combining contradictory terms",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -3622,8 +4102,14 @@ export const englishData = {
             answers: [
                 { text: "Their going to the concert tonight.", correct: false },
                 { text: "There going to the concert tonight.", correct: false },
-                { text: "They're going to the concert tonight.", correct: true },
-                { text: "They're going to the concert tonight.", correct: false },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: true,
+                },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3631,28 +4117,58 @@ export const englishData = {
         {
             question: "What is the difference between a simile and a metaphor?",
             answers: [
-                { text: "A simile uses 'like' or 'as' to compare, while a metaphor does not.", correct: true },
-                { text: "A metaphor uses 'like' or 'as', while a simile does not.", correct: false },
-                { text: "Both use 'like' or 'as' for comparison.", correct: false },
-                { text: "Neither use 'like' or 'as' for comparison.", correct: false },
+                {
+                    text: "A simile uses 'like' or 'as' to compare, while a metaphor does not.",
+                    correct: true,
+                },
+                {
+                    text: "A metaphor uses 'like' or 'as', while a simile does not.",
+                    correct: false,
+                },
+                {
+                    text: "Both use 'like' or 'as' for comparison.",
+                    correct: false,
+                },
+                {
+                    text: "Neither use 'like' or 'as' for comparison.",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'alliteration'?",
             answers: [
-                { text: "The repetition of vowel sounds in nearby words", correct: false },
-                { text: "The repetition of consonant sounds at the beginning of words", correct: true },
+                {
+                    text: "The repetition of vowel sounds in nearby words",
+                    correct: false,
+                },
+                {
+                    text: "The repetition of consonant sounds at the beginning of words",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
-                { text: "A figure of speech involving a contradiction", correct: false },
+                {
+                    text: "A figure of speech involving a contradiction",
+                    correct: false,
+                },
             ],
         },
         {
             question: "Which sentence contains a dangling modifier?",
             answers: [
-                { text: "Running quickly, the finish line was crossed by her.", correct: true },
+                {
+                    text: "Running quickly, the finish line was crossed by her.",
+                    correct: true,
+                },
                 { text: "She ran quickly to the finish line.", correct: false },
-                { text: "Quickly running, she crossed the finish line.", correct: false },
-                { text: "She was quickly running to the finish line.", correct: false },
+                {
+                    text: "Quickly running, she crossed the finish line.",
+                    correct: false,
+                },
+                {
+                    text: "She was quickly running to the finish line.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3660,7 +4176,10 @@ export const englishData = {
             answers: [
                 { text: "To introduce the topic", correct: false },
                 { text: "To provide supporting evidence", correct: false },
-                { text: "To state the main argument or point of the essay", correct: true },
+                {
+                    text: "To state the main argument or point of the essay",
+                    correct: true,
+                },
                 { text: "To conclude the essay", correct: false },
             ],
         },
@@ -3677,7 +4196,10 @@ export const englishData = {
             question: "What is the function of a semicolon in a sentence?",
             answers: [
                 { text: "To separate items in a list", correct: false },
-                { text: "To join two independent clauses without a conjunction", correct: true },
+                {
+                    text: "To join two independent clauses without a conjunction",
+                    correct: true,
+                },
                 { text: "To introduce a quote", correct: false },
                 { text: "To end a sentence forcefully", correct: false },
             ],
@@ -3694,9 +4216,18 @@ export const englishData = {
         {
             question: "What is 'personification'?",
             answers: [
-                { text: "A figure of speech comparing two unlike things using 'like' or 'as'", correct: false },
-                { text: "Giving human characteristics to non-human entities", correct: true },
-                { text: "An exaggerated statement for emphasis", correct: false },
+                {
+                    text: "A figure of speech comparing two unlike things using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "Giving human characteristics to non-human entities",
+                    correct: true,
+                },
+                {
+                    text: "An exaggerated statement for emphasis",
+                    correct: false,
+                },
                 { text: "A type of rhetorical question", correct: false },
             ],
         },
@@ -3713,7 +4244,10 @@ export const englishData = {
             question: "What is the purpose of a concluding paragraph?",
             answers: [
                 { text: "To introduce new arguments", correct: false },
-                { text: "To summarize the main points and restate the thesis", correct: true },
+                {
+                    text: "To summarize the main points and restate the thesis",
+                    correct: true,
+                },
                 { text: "To provide detailed evidence", correct: false },
                 { text: "To ask rhetorical questions", correct: false },
             ],
@@ -3780,10 +4314,22 @@ export const engineeringData = {
         {
             question: "What is the main purpose of a stress-strain curve in materials engineering?",
             answers: [
-                { text: "To determine the electrical conductivity of a material", correct: false },
-                { text: "To analyze the mechanical properties of a material under load", correct: true },
-                { text: "To measure the thermal expansion of a material", correct: false },
-                { text: "To evaluate the chemical composition of a material", correct: false },
+                {
+                    text: "To determine the electrical conductivity of a material",
+                    correct: false,
+                },
+                {
+                    text: "To analyze the mechanical properties of a material under load",
+                    correct: true,
+                },
+                {
+                    text: "To measure the thermal expansion of a material",
+                    correct: false,
+                },
+                {
+                    text: "To evaluate the chemical composition of a material",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3799,7 +4345,10 @@ export const engineeringData = {
             question: "What is the primary function of a gearbox in mechanical systems?",
             answers: [
                 { text: "To generate electricity", correct: false },
-                { text: "To increase or decrease torque and speed", correct: true },
+                {
+                    text: "To increase or decrease torque and speed",
+                    correct: true,
+                },
                 { text: "To cool mechanical components", correct: false },
                 { text: "To lubricate moving parts", correct: false },
             ],
@@ -3836,8 +4385,14 @@ export const engineeringData = {
         {
             question: "In fluid mechanics, what does Bernoulli's Principle describe?",
             answers: [
-                { text: "The relationship between pressure and velocity in fluid flow", correct: true },
-                { text: "The conservation of mass in fluid flow", correct: false },
+                {
+                    text: "The relationship between pressure and velocity in fluid flow",
+                    correct: true,
+                },
+                {
+                    text: "The conservation of mass in fluid flow",
+                    correct: false,
+                },
                 { text: "The viscosity of a fluid", correct: false },
                 { text: "The density of a fluid", correct: false },
             ],
@@ -3845,10 +4400,22 @@ export const engineeringData = {
         {
             question: "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3864,9 +4431,15 @@ export const engineeringData = {
             question: "What is the purpose of finite element analysis (FEA) in engineering?",
             answers: [
                 { text: "To design electrical circuits", correct: false },
-                { text: "To simulate and analyze the physical behavior of structures and components", correct: true },
+                {
+                    text: "To simulate and analyze the physical behavior of structures and components",
+                    correct: true,
+                },
                 { text: "To manage project schedules", correct: false },
-                { text: "To create detailed architectural drawings", correct: false },
+                {
+                    text: "To create detailed architectural drawings",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3882,9 +4455,15 @@ export const engineeringData = {
             question: "What is the primary function of the heat exchanger in an HVAC system?",
             answers: [
                 { text: "To filter air", correct: false },
-                { text: "To regulate temperature by transferring heat", correct: true },
+                {
+                    text: "To regulate temperature by transferring heat",
+                    correct: true,
+                },
                 { text: "To humidify the air", correct: false },
-                { text: "To circulate air throughout the building", correct: false },
+                {
+                    text: "To circulate air throughout the building",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3899,10 +4478,22 @@ export const engineeringData = {
         {
             question: "What is the purpose of a stress-strain diagram in materials engineering?",
             answers: [
-                { text: "To determine the electrical conductivity of a material", correct: false },
-                { text: "To analyze the mechanical properties and behavior of materials under load", correct: true },
-                { text: "To measure the thermal expansion of a material", correct: false },
-                { text: "To evaluate the chemical composition of a material", correct: false },
+                {
+                    text: "To determine the electrical conductivity of a material",
+                    correct: false,
+                },
+                {
+                    text: "To analyze the mechanical properties and behavior of materials under load",
+                    correct: true,
+                },
+                {
+                    text: "To measure the thermal expansion of a material",
+                    correct: false,
+                },
+                {
+                    text: "To evaluate the chemical composition of a material",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3911,9 +4502,18 @@ export const engineeringData = {
             question: "What is the main purpose of the Internet of Things (IoT) in engineering?",
             answers: [
                 { text: "To design graphic interfaces", correct: false },
-                { text: "To connect and communicate between devices for automation and data exchange", correct: true },
-                { text: "To increase manual labor in manufacturing", correct: false },
-                { text: "To replace electrical systems with mechanical ones", correct: false },
+                {
+                    text: "To connect and communicate between devices for automation and data exchange",
+                    correct: true,
+                },
+                {
+                    text: "To increase manual labor in manufacturing",
+                    correct: false,
+                },
+                {
+                    text: "To replace electrical systems with mechanical ones",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3929,7 +4529,10 @@ export const engineeringData = {
             question: "What is the primary function of a gearbox in mechanical systems?",
             answers: [
                 { text: "To generate electricity", correct: false },
-                { text: "To increase or decrease torque and speed", correct: true },
+                {
+                    text: "To increase or decrease torque and speed",
+                    correct: true,
+                },
                 { text: "To cool mechanical components", correct: false },
                 { text: "To lubricate moving parts", correct: false },
             ],
@@ -3938,7 +4541,10 @@ export const engineeringData = {
             question: "In structural engineering, what is a 'truss' used for?",
             answers: [
                 { text: "To support electrical wiring", correct: false },
-                { text: "To distribute loads and provide structural stability", correct: true },
+                {
+                    text: "To distribute loads and provide structural stability",
+                    correct: true,
+                },
                 { text: "To facilitate fluid flow", correct: false },
                 { text: "To insulate buildings", correct: false },
             ],
@@ -3973,10 +4579,22 @@ export const engineeringData = {
         {
             question: "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3992,9 +4610,15 @@ export const engineeringData = {
             question: "What is the purpose of a heat exchanger in an HVAC system?",
             answers: [
                 { text: "To filter air", correct: false },
-                { text: "To regulate temperature by transferring heat", correct: true },
+                {
+                    text: "To regulate temperature by transferring heat",
+                    correct: true,
+                },
                 { text: "To humidify the air", correct: false },
-                { text: "To circulate air throughout the building", correct: false },
+                {
+                    text: "To circulate air throughout the building",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -4003,9 +4627,15 @@ export const engineeringData = {
             question: "What is the primary purpose of finite element analysis (FEA) in engineering?",
             answers: [
                 { text: "To design electrical circuits", correct: false },
-                { text: "To simulate and analyze the physical behavior of structures and components", correct: true },
+                {
+                    text: "To simulate and analyze the physical behavior of structures and components",
+                    correct: true,
+                },
                 { text: "To manage project schedules", correct: false },
-                { text: "To create detailed architectural drawings", correct: false },
+                {
+                    text: "To create detailed architectural drawings",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4021,7 +4651,10 @@ export const engineeringData = {
             question: "What is the function of a transformer in electrical engineering?",
             answers: [
                 { text: "To convert AC to DC", correct: false },
-                { text: "To increase or decrease voltage levels", correct: true },
+                {
+                    text: "To increase or decrease voltage levels",
+                    correct: true,
+                },
                 { text: "To store electrical energy", correct: false },
                 { text: "To generate electricity", correct: false },
             ],
@@ -4066,7 +4699,10 @@ export const engineeringData = {
             question: "What is the main function of a servo motor in robotics?",
             answers: [
                 { text: "To provide lighting", correct: false },
-                { text: "To control precise movement and positioning", correct: true },
+                {
+                    text: "To control precise movement and positioning",
+                    correct: true,
+                },
                 { text: "To store data", correct: false },
                 { text: "To generate electricity", correct: false },
             ],
@@ -4084,7 +4720,10 @@ export const engineeringData = {
             question: "What is the purpose of a control system in engineering?",
             answers: [
                 { text: "To provide structural support", correct: false },
-                { text: "To manage and regulate the behavior of other devices or systems", correct: true },
+                {
+                    text: "To manage and regulate the behavior of other devices or systems",
+                    correct: true,
+                },
                 { text: "To store energy", correct: false },
                 { text: "To generate mechanical power", correct: false },
             ],
@@ -4094,7 +4733,10 @@ export const engineeringData = {
         {
             question: "What is a 'bridge girder' used for in bridge construction?",
             answers: [
-                { text: "To support the roadway and distribute loads", correct: true },
+                {
+                    text: "To support the roadway and distribute loads",
+                    correct: true,
+                },
                 { text: "To anchor the bridge to the ground", correct: false },
                 { text: "To provide aesthetic appeal", correct: false },
                 { text: "To channel water beneath the bridge", correct: false },
@@ -4112,10 +4754,22 @@ export const engineeringData = {
         {
             question: "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4131,7 +4785,10 @@ export const engineeringData = {
             question: "What is the purpose of a PID controller in engineering systems?",
             answers: [
                 { text: "To measure temperature", correct: false },
-                { text: "To control systems using proportional, integral, and derivative actions", correct: true },
+                {
+                    text: "To control systems using proportional, integral, and derivative actions",
+                    correct: true,
+                },
                 { text: "To generate electrical power", correct: false },
                 { text: "To provide structural support", correct: false },
             ],
@@ -4148,7 +4805,10 @@ export const engineeringData = {
         {
             question: "What does HVAC stand for in building engineering?",
             answers: [
-                { text: "Heating, Ventilation, and Air Conditioning", correct: true },
+                {
+                    text: "Heating, Ventilation, and Air Conditioning",
+                    correct: true,
+                },
                 { text: "Hydraulics, Valves, and Actuators", correct: false },
                 { text: "High Voltage Alternating Current", correct: false },
                 { text: "Heat, Vapor, and Carbon", correct: false },
@@ -4167,7 +4827,10 @@ export const engineeringData = {
             question: "What is the primary function of a gear in mechanical systems?",
             answers: [
                 { text: "To generate electrical power", correct: false },
-                { text: "To transfer and modify rotational motion and torque", correct: true },
+                {
+                    text: "To transfer and modify rotational motion and torque",
+                    correct: true,
+                },
                 { text: "To cool down machinery", correct: false },
                 { text: "To store mechanical energy", correct: false },
             ],
@@ -4216,26 +4879,53 @@ export const financeData = {
         {
             question: "What is diversification in investment?",
             answers: [
-                { text: "Focusing on a single investment to maximize returns", correct: false },
-                { text: "Spreading investments across various assets to reduce risk", correct: true },
-                { text: "Investing only in high-risk securities", correct: false },
-                { text: "Timing the market to buy low and sell high", correct: false },
+                {
+                    text: "Focusing on a single investment to maximize returns",
+                    correct: false,
+                },
+                {
+                    text: "Spreading investments across various assets to reduce risk",
+                    correct: true,
+                },
+                {
+                    text: "Investing only in high-risk securities",
+                    correct: false,
+                },
+                {
+                    text: "Timing the market to buy low and sell high",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the time value of money?",
             answers: [
-                { text: "Money loses value over time due to inflation", correct: true },
-                { text: "Money gains value over time through investments", correct: false },
-                { text: "Money remains the same in value over time", correct: false },
-                { text: "Money's value fluctuates randomly over time", correct: false },
+                {
+                    text: "Money loses value over time due to inflation",
+                    correct: true,
+                },
+                {
+                    text: "Money gains value over time through investments",
+                    correct: false,
+                },
+                {
+                    text: "Money remains the same in value over time",
+                    correct: false,
+                },
+                {
+                    text: "Money's value fluctuates randomly over time",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a bond?",
             answers: [
                 { text: "A type of equity investment", correct: false },
-                { text: "A loan made by an investor to a borrower", correct: true },
+                {
+                    text: "A loan made by an investor to a borrower",
+                    correct: true,
+                },
                 { text: "A derivative contract", correct: false },
                 { text: "A form of insurance", correct: false },
             ],
@@ -4243,17 +4933,32 @@ export const financeData = {
         {
             question: "What does EBITDA stand for?",
             answers: [
-                { text: "Earnings Before Interest, Taxes, Depreciation, and Amortization", correct: true },
-                { text: "Earnings Before Investments, Taxes, Debt, and Assets", correct: false },
-                { text: "Earnings Before Interest, Taxes, Dividends, and Assets", correct: false },
-                { text: "Earnings Before Inflation, Taxes, Depreciation, and Amortization", correct: false },
+                {
+                    text: "Earnings Before Interest, Taxes, Depreciation, and Amortization",
+                    correct: true,
+                },
+                {
+                    text: "Earnings Before Investments, Taxes, Debt, and Assets",
+                    correct: false,
+                },
+                {
+                    text: "Earnings Before Interest, Taxes, Dividends, and Assets",
+                    correct: false,
+                },
+                {
+                    text: "Earnings Before Inflation, Taxes, Depreciation, and Amortization",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary function of the stock market?",
             answers: [
                 { text: "To provide loans to businesses", correct: false },
-                { text: "To facilitate the buying and selling of securities", correct: true },
+                {
+                    text: "To facilitate the buying and selling of securities",
+                    correct: true,
+                },
                 { text: "To regulate banking activities", correct: false },
                 { text: "To set interest rates", correct: false },
             ],
@@ -4261,8 +4966,14 @@ export const financeData = {
         {
             question: "What is a dividend?",
             answers: [
-                { text: "A portion of a company's earnings distributed to shareholders", correct: true },
-                { text: "A fee charged by brokers for transactions", correct: false },
+                {
+                    text: "A portion of a company's earnings distributed to shareholders",
+                    correct: true,
+                },
+                {
+                    text: "A fee charged by brokers for transactions",
+                    correct: false,
+                },
                 { text: "A type of bond", correct: false },
                 { text: "An increase in the price of a stock", correct: false },
             ],
@@ -4282,7 +4993,10 @@ export const financeData = {
             question: "What is 'market capitalization'?",
             answers: [
                 { text: "Total revenue of a company", correct: false },
-                { text: "Total market value of a company's outstanding shares", correct: true },
+                {
+                    text: "Total market value of a company's outstanding shares",
+                    correct: true,
+                },
                 { text: "Total assets of a company", correct: false },
                 { text: "Total liabilities of a company", correct: false },
             ],
@@ -4290,16 +5004,28 @@ export const financeData = {
         {
             question: "What is a 'bull market'?",
             answers: [
-                { text: "A market characterized by falling prices", correct: false },
-                { text: "A market characterized by rising prices", correct: true },
+                {
+                    text: "A market characterized by falling prices",
+                    correct: false,
+                },
+                {
+                    text: "A market characterized by rising prices",
+                    correct: true,
+                },
                 { text: "A market with high volatility", correct: false },
-                { text: "A market dominated by a few large companies", correct: false },
+                {
+                    text: "A market dominated by a few large companies",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does the Capital Asset Pricing Model (CAPM) describe?",
             answers: [
-                { text: "The relationship between risk and expected return", correct: true },
+                {
+                    text: "The relationship between risk and expected return",
+                    correct: true,
+                },
                 { text: "The valuation of bonds", correct: false },
                 { text: "The process of capital budgeting", correct: false },
                 { text: "The structure of capital markets", correct: false },
@@ -4308,8 +5034,14 @@ export const financeData = {
         {
             question: "What is 'leverage' in finance?",
             answers: [
-                { text: "Using borrowed capital to increase the potential return of an investment", correct: true },
-                { text: "Diversifying investments to reduce risk", correct: false },
+                {
+                    text: "Using borrowed capital to increase the potential return of an investment",
+                    correct: true,
+                },
+                {
+                    text: "Diversifying investments to reduce risk",
+                    correct: false,
+                },
                 { text: "Holding a variety of assets", correct: false },
                 { text: "Investing in government securities", correct: false },
             ],
@@ -4326,10 +5058,19 @@ export const financeData = {
         {
             question: "What is the 'efficient market hypothesis'?",
             answers: [
-                { text: "All investors can consistently achieve higher returns than the market average", correct: false },
-                { text: "Stock prices fully reflect all available information", correct: true },
+                {
+                    text: "All investors can consistently achieve higher returns than the market average",
+                    correct: false,
+                },
+                {
+                    text: "Stock prices fully reflect all available information",
+                    correct: true,
+                },
                 { text: "Markets are always irrational", correct: false },
-                { text: "Only insider information affects stock prices", correct: false },
+                {
+                    text: "Only insider information affects stock prices",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4344,9 +5085,18 @@ export const financeData = {
         {
             question: "What is 'amortization'?",
             answers: [
-                { text: "Spreading the cost of an intangible asset over its useful life", correct: true },
-                { text: "Spreading the cost of a tangible asset over its useful life", correct: false },
-                { text: "The process of buying and selling securities", correct: false },
+                {
+                    text: "Spreading the cost of an intangible asset over its useful life",
+                    correct: true,
+                },
+                {
+                    text: "Spreading the cost of a tangible asset over its useful life",
+                    correct: false,
+                },
+                {
+                    text: "The process of buying and selling securities",
+                    correct: false,
+                },
                 { text: "The allocation of overhead costs", correct: false },
             ],
         },
@@ -4362,10 +5112,19 @@ export const financeData = {
         {
             question: "What is 'financial leverage'?",
             answers: [
-                { text: "The use of debt to acquire additional assets", correct: true },
+                {
+                    text: "The use of debt to acquire additional assets",
+                    correct: true,
+                },
                 { text: "The use of equity to finance assets", correct: false },
-                { text: "The total amount of assets held by a company", correct: false },
-                { text: "The process of evaluating financial statements", correct: false },
+                {
+                    text: "The total amount of assets held by a company",
+                    correct: false,
+                },
+                {
+                    text: "The process of evaluating financial statements",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -4373,10 +5132,22 @@ export const financeData = {
         {
             question: "What is 'capital budgeting'?",
             answers: [
-                { text: "The process of planning and managing a firm's long-term investments", correct: true },
-                { text: "The process of managing a firm's short-term assets and liabilities", correct: false },
-                { text: "The process of determining the cost of capital", correct: false },
-                { text: "The process of issuing new securities", correct: false },
+                {
+                    text: "The process of planning and managing a firm's long-term investments",
+                    correct: true,
+                },
+                {
+                    text: "The process of managing a firm's short-term assets and liabilities",
+                    correct: false,
+                },
+                {
+                    text: "The process of determining the cost of capital",
+                    correct: false,
+                },
+                {
+                    text: "The process of issuing new securities",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4391,46 +5162,85 @@ export const financeData = {
         {
             question: "What is 'beta' in the context of the CAPM?",
             answers: [
-                { text: "A measure of a stock's volatility relative to the market", correct: true },
-                { text: "A measure of a company's financial leverage", correct: false },
+                {
+                    text: "A measure of a stock's volatility relative to the market",
+                    correct: true,
+                },
+                {
+                    text: "A measure of a company's financial leverage",
+                    correct: false,
+                },
                 { text: "A measure of a company's liquidity", correct: false },
-                { text: "A measure of a company's profitability", correct: false },
+                {
+                    text: "A measure of a company's profitability",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'liquidity' refer to in finance?",
             answers: [
-                { text: "The ability to convert assets into cash quickly without significant loss in value", correct: true },
+                {
+                    text: "The ability to convert assets into cash quickly without significant loss in value",
+                    correct: true,
+                },
                 { text: "The ability to generate profits", correct: false },
-                { text: "The total value of a company's assets", correct: false },
+                {
+                    text: "The total value of a company's assets",
+                    correct: false,
+                },
                 { text: "The level of debt in a company", correct: false },
             ],
         },
         {
             question: "Which of the following is a primary market activity?",
             answers: [
-                { text: "Buying and selling of existing securities", correct: false },
+                {
+                    text: "Buying and selling of existing securities",
+                    correct: false,
+                },
                 { text: "Issuing new securities to investors", correct: true },
-                { text: "Trading securities on the secondary market", correct: false },
+                {
+                    text: "Trading securities on the secondary market",
+                    correct: false,
+                },
                 { text: "Analyzing stock performance", correct: false },
             ],
         },
         {
             question: "What is 'hedging' in financial terms?",
             answers: [
-                { text: "Investing in high-risk assets for higher returns", correct: false },
-                { text: "Taking an investment position intended to offset potential losses", correct: true },
-                { text: "Diversifying a portfolio to reduce risk", correct: false },
+                {
+                    text: "Investing in high-risk assets for higher returns",
+                    correct: false,
+                },
+                {
+                    text: "Taking an investment position intended to offset potential losses",
+                    correct: true,
+                },
+                {
+                    text: "Diversifying a portfolio to reduce risk",
+                    correct: false,
+                },
                 { text: "Speculating on market movements", correct: false },
             ],
         },
         {
             question: "What is 'Net Present Value (NPV)' used for in finance?",
             answers: [
-                { text: "To measure the profitability of an investment", correct: true },
+                {
+                    text: "To measure the profitability of an investment",
+                    correct: true,
+                },
                 { text: "To calculate the cost of capital", correct: false },
-                { text: "To determine the liquidity of a company", correct: false },
-                { text: "To assess the creditworthiness of a borrower", correct: false },
+                {
+                    text: "To determine the liquidity of a company",
+                    correct: false,
+                },
+                {
+                    text: "To assess the creditworthiness of a borrower",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4445,19 +5255,40 @@ export const financeData = {
         {
             question: "What is the 'Time Value of Money'?",
             answers: [
-                { text: "Money's ability to lose value over time due to inflation", correct: true },
-                { text: "Money's ability to gain value over time through interest or investment", correct: true },
-                { text: "The concept that money has the same value now as it does in the future", correct: false },
-                { text: "Money's ability to remain unchanged in value over time", correct: false },
+                {
+                    text: "Money's ability to lose value over time due to inflation",
+                    correct: true,
+                },
+                {
+                    text: "Money's ability to gain value over time through interest or investment",
+                    correct: true,
+                },
+                {
+                    text: "The concept that money has the same value now as it does in the future",
+                    correct: false,
+                },
+                {
+                    text: "Money's ability to remain unchanged in value over time",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'yield to maturity' (YTM) represent for a bond?",
             answers: [
-                { text: "The total return anticipated on a bond if it is held until it matures", correct: true },
-                { text: "The current market price of the bond", correct: false },
+                {
+                    text: "The total return anticipated on a bond if it is held until it matures",
+                    correct: true,
+                },
+                {
+                    text: "The current market price of the bond",
+                    correct: false,
+                },
                 { text: "The coupon rate of the bond", correct: false },
-                { text: "The total interest paid by the bond issuer", correct: false },
+                {
+                    text: "The total interest paid by the bond issuer",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -4465,10 +5296,22 @@ export const financeData = {
         {
             question: "What is 'systematic risk'?",
             answers: [
-                { text: "Risk specific to a single company or industry", correct: false },
-                { text: "Risk inherent to the entire market or market segment", correct: true },
-                { text: "Risk that can be eliminated through diversification", correct: false },
-                { text: "Risk associated with a particular investment's liquidity", correct: false },
+                {
+                    text: "Risk specific to a single company or industry",
+                    correct: false,
+                },
+                {
+                    text: "Risk inherent to the entire market or market segment",
+                    correct: true,
+                },
+                {
+                    text: "Risk that can be eliminated through diversification",
+                    correct: false,
+                },
+                {
+                    text: "Risk associated with a particular investment's liquidity",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4483,18 +5326,33 @@ export const financeData = {
         {
             question: "What is 'working capital'?",
             answers: [
-                { text: "The difference between a company's current assets and current liabilities", correct: true },
+                {
+                    text: "The difference between a company's current assets and current liabilities",
+                    correct: true,
+                },
                 { text: "The total assets of a company", correct: false },
                 { text: "The total liabilities of a company", correct: false },
-                { text: "The long-term investments of a company", correct: false },
+                {
+                    text: "The long-term investments of a company",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the purpose of a stock's P/E (Price-to-Earnings) ratio?",
             answers: [
-                { text: "To measure a company's profitability relative to its assets", correct: false },
-                { text: "To assess a stock's valuation relative to its earnings", correct: true },
-                { text: "To determine the dividend yield of a stock", correct: false },
+                {
+                    text: "To measure a company's profitability relative to its assets",
+                    correct: false,
+                },
+                {
+                    text: "To assess a stock's valuation relative to its earnings",
+                    correct: true,
+                },
+                {
+                    text: "To determine the dividend yield of a stock",
+                    correct: false,
+                },
                 { text: "To evaluate a company's debt levels", correct: false },
             ],
         },
@@ -4502,9 +5360,18 @@ export const financeData = {
             question: "What is 'leverage' in the context of corporate finance?",
             answers: [
                 { text: "The use of equity to finance assets", correct: false },
-                { text: "The use of borrowed funds to increase potential returns", correct: true },
-                { text: "The process of investing in diversified assets", correct: false },
-                { text: "The ratio of a company's current assets to current liabilities", correct: false },
+                {
+                    text: "The use of borrowed funds to increase potential returns",
+                    correct: true,
+                },
+                {
+                    text: "The process of investing in diversified assets",
+                    correct: false,
+                },
+                {
+                    text: "The ratio of a company's current assets to current liabilities",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4520,25 +5387,49 @@ export const financeData = {
             question: "What is the 'debt-to-equity ratio' used for?",
             answers: [
                 { text: "To assess a company's liquidity", correct: false },
-                { text: "To evaluate a company's financial leverage", correct: true },
-                { text: "To measure a company's profitability", correct: false },
-                { text: "To determine the return on investment", correct: false },
+                {
+                    text: "To evaluate a company's financial leverage",
+                    correct: true,
+                },
+                {
+                    text: "To measure a company's profitability",
+                    correct: false,
+                },
+                {
+                    text: "To determine the return on investment",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'portfolio diversification' aim to achieve?",
             answers: [
-                { text: "Maximizing returns by concentrating investments", correct: false },
-                { text: "Reducing risk by spreading investments across different assets", correct: true },
-                { text: "Minimizing taxes through strategic investments", correct: false },
-                { text: "Increasing liquidity by investing in easily sellable assets", correct: false },
+                {
+                    text: "Maximizing returns by concentrating investments",
+                    correct: false,
+                },
+                {
+                    text: "Reducing risk by spreading investments across different assets",
+                    correct: true,
+                },
+                {
+                    text: "Minimizing taxes through strategic investments",
+                    correct: false,
+                },
+                {
+                    text: "Increasing liquidity by investing in easily sellable assets",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary function of the Securities and Exchange Commission (SEC) in the United States?",
             answers: [
                 { text: "To regulate the banking industry", correct: false },
-                { text: "To oversee and regulate the securities markets", correct: true },
+                {
+                    text: "To oversee and regulate the securities markets",
+                    correct: true,
+                },
                 { text: "To manage the federal budget", correct: false },
                 { text: "To set interest rates", correct: false },
             ],
@@ -4547,7 +5438,10 @@ export const financeData = {
             question: "What is 'cash flow'?",
             answers: [
                 { text: "The total revenue of a company", correct: false },
-                { text: "The net amount of cash being transferred into and out of a business", correct: true },
+                {
+                    text: "The net amount of cash being transferred into and out of a business",
+                    correct: true,
+                },
                 { text: "The total expenses of a company", correct: false },
                 { text: "The profit made by a company", correct: false },
             ],
@@ -4566,10 +5460,22 @@ export const financeData = {
         {
             question: "What is 'behavioral finance'?",
             answers: [
-                { text: "The study of psychological influences on investors and financial markets", correct: true },
-                { text: "The study of financial markets and their movements", correct: false },
-                { text: "The analysis of financial statements", correct: false },
-                { text: "The use of mathematical models in finance", correct: false },
+                {
+                    text: "The study of psychological influences on investors and financial markets",
+                    correct: true,
+                },
+                {
+                    text: "The study of financial markets and their movements",
+                    correct: false,
+                },
+                {
+                    text: "The analysis of financial statements",
+                    correct: false,
+                },
+                {
+                    text: "The use of mathematical models in finance",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4584,9 +5490,18 @@ export const financeData = {
         {
             question: "What is the 'capital asset pricing model' (CAPM) used for?",
             answers: [
-                { text: "To evaluate a company's creditworthiness", correct: false },
-                { text: "To determine the expected return on an investment based on its risk", correct: true },
-                { text: "To analyze the financial statements of a company", correct: false },
+                {
+                    text: "To evaluate a company's creditworthiness",
+                    correct: false,
+                },
+                {
+                    text: "To determine the expected return on an investment based on its risk",
+                    correct: true,
+                },
+                {
+                    text: "To analyze the financial statements of a company",
+                    correct: false,
+                },
                 { text: "To manage a company's cash flow", correct: false },
             ],
         },
@@ -4611,10 +5526,22 @@ export const financeData = {
         {
             question: "What is 'liquidity risk'?",
             answers: [
-                { text: "The risk of a company defaulting on its obligations", correct: false },
-                { text: "The risk that an asset cannot be sold quickly without a significant price concession", correct: true },
-                { text: "The risk of inflation eroding the value of money", correct: false },
-                { text: "The risk of losing money in an investment", correct: false },
+                {
+                    text: "The risk of a company defaulting on its obligations",
+                    correct: false,
+                },
+                {
+                    text: "The risk that an asset cannot be sold quickly without a significant price concession",
+                    correct: true,
+                },
+                {
+                    text: "The risk of inflation eroding the value of money",
+                    correct: false,
+                },
+                {
+                    text: "The risk of losing money in an investment",
+                    correct: false,
+                },
             ],
         },
         {
@@ -4629,17 +5556,35 @@ export const financeData = {
         {
             question: "What is the 'efficient market hypothesis'?",
             answers: [
-                { text: "The idea that stock prices fully reflect all available information", correct: true },
-                { text: "The belief that markets are always efficient in allocating resources", correct: false },
-                { text: "The theory that market prices are always rational", correct: false },
-                { text: "The notion that investors can consistently achieve higher returns through analysis", correct: false },
+                {
+                    text: "The idea that stock prices fully reflect all available information",
+                    correct: true,
+                },
+                {
+                    text: "The belief that markets are always efficient in allocating resources",
+                    correct: false,
+                },
+                {
+                    text: "The theory that market prices are always rational",
+                    correct: false,
+                },
+                {
+                    text: "The notion that investors can consistently achieve higher returns through analysis",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'compound interest'?",
             answers: [
-                { text: "Interest calculated only on the principal amount", correct: false },
-                { text: "Interest calculated on the principal and also on the accumulated interest", correct: true },
+                {
+                    text: "Interest calculated only on the principal amount",
+                    correct: false,
+                },
+                {
+                    text: "Interest calculated on the principal and also on the accumulated interest",
+                    correct: true,
+                },
                 { text: "A fixed rate of interest over time", correct: false },
                 { text: "Interest that decreases over time", correct: false },
             ],
@@ -5254,7 +6199,10 @@ export const healthCareData = {
             answers: [
                 { text: "To digest food", correct: false },
                 { text: "To circulate blood", correct: false },
-                { text: "To exchange gases (oxygen and carbon dioxide)", correct: true },
+                {
+                    text: "To exchange gases (oxygen and carbon dioxide)",
+                    correct: true,
+                },
                 { text: "To produce hormones", correct: false },
             ],
         },
@@ -5539,7 +6487,10 @@ export const healthCareData = {
             answers: [
                 { text: "To transport oxygen", correct: false },
                 { text: "To produce hormones", correct: false },
-                { text: "To break down food and absorb nutrients", correct: true },
+                {
+                    text: "To break down food and absorb nutrients",
+                    correct: true,
+                },
                 { text: "To pump blood", correct: false },
             ],
         },
@@ -5633,7 +6584,10 @@ export const literatureData = {
             question: "What is a haiku?",
             answers: [
                 { text: "A type of novel", correct: false },
-                { text: "A three-line Japanese poem with a 5-7-5 syllable structure", correct: true },
+                {
+                    text: "A three-line Japanese poem with a 5-7-5 syllable structure",
+                    correct: true,
+                },
                 { text: "A long narrative poem", correct: false },
                 { text: "A rhymed couplet", correct: false },
             ],
@@ -5689,7 +6643,10 @@ export const literatureData = {
             question: "What is the climax of a story?",
             answers: [
                 { text: "The introduction of characters", correct: false },
-                { text: "The turning point or most intense moment", correct: true },
+                {
+                    text: "The turning point or most intense moment",
+                    correct: true,
+                },
                 { text: "The resolution of the plot", correct: false },
                 { text: "The background setting", correct: false },
             ],
@@ -5724,8 +6681,14 @@ export const literatureData = {
         {
             question: "What is a metaphor?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "A figure of speech comparing two unlike things without using 'like' or 'as'", correct: true },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech comparing two unlike things without using 'like' or 'as'",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
                 { text: "A question asked for effect", correct: false },
             ],
@@ -5743,7 +6706,10 @@ export const literatureData = {
             question: "What is the main theme of Mary Shelley's 'Frankenstein'?",
             answers: [
                 { text: "Love and romance", correct: false },
-                { text: "The dangers of unchecked ambition and playing God", correct: true },
+                {
+                    text: "The dangers of unchecked ambition and playing God",
+                    correct: true,
+                },
                 { text: "Adventure and exploration", correct: false },
                 { text: "Comedy and satire", correct: false },
             ],
@@ -5809,16 +6775,28 @@ export const literatureData = {
             answers: [
                 { text: "I went to the store.", correct: false },
                 { text: "She sings beautifully.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
         {
             question: "What is an oxymoron?",
             answers: [
-                { text: "A figure of speech using exaggeration", correct: false },
-                { text: "A figure of speech combining contradictory terms", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech using exaggeration",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech combining contradictory terms",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -5844,7 +6822,10 @@ export const literatureData = {
             question: "What is the function of a semicolon in a sentence?",
             answers: [
                 { text: "To separate items in a list", correct: false },
-                { text: "To join two independent clauses without a conjunction", correct: true },
+                {
+                    text: "To join two independent clauses without a conjunction",
+                    correct: true,
+                },
                 { text: "To introduce a quote", correct: false },
                 { text: "To end a sentence forcefully", correct: false },
             ],
@@ -5855,9 +6836,18 @@ export const literatureData = {
             question: "What is a dangling modifier?",
             answers: [
                 { text: "A modifier that is placed correctly", correct: false },
-                { text: "A modifier that is missing the word it is supposed to modify", correct: true },
-                { text: "A modifier that describes the main verb", correct: false },
-                { text: "A modifier that appears in the middle of a sentence", correct: false },
+                {
+                    text: "A modifier that is missing the word it is supposed to modify",
+                    correct: true,
+                },
+                {
+                    text: "A modifier that describes the main verb",
+                    correct: false,
+                },
+                {
+                    text: "A modifier that appears in the middle of a sentence",
+                    correct: false,
+                },
             ],
         },
         {
@@ -5891,8 +6881,14 @@ export const literatureData = {
             question: "What is 'foreshadowing' in literature?",
             answers: [
                 { text: "A sudden plot twist", correct: false },
-                { text: "Hints or clues about what will happen later in the story", correct: true },
-                { text: "A detailed description of the setting", correct: false },
+                {
+                    text: "Hints or clues about what will happen later in the story",
+                    correct: true,
+                },
+                {
+                    text: "A detailed description of the setting",
+                    correct: false,
+                },
                 { text: "A confrontation between characters", correct: false },
             ],
         },
@@ -5908,7 +6904,10 @@ export const literatureData = {
         {
             question: "What is 'stream of consciousness'?",
             answers: [
-                { text: "A narrative mode that attempts to capture the flow of thoughts and feelings", correct: true },
+                {
+                    text: "A narrative mode that attempts to capture the flow of thoughts and feelings",
+                    correct: true,
+                },
                 { text: "A fast-paced action sequence", correct: false },
                 { text: "A detailed descriptive passage", correct: false },
                 { text: "A dialogue-heavy scene", correct: false },
@@ -5946,9 +6945,18 @@ export const literatureData = {
         {
             question: "What is 'allusion' in literature?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "A figure of speech involving a contradiction", correct: false },
-                { text: "An indirect reference to a person, place, event, or literary work", correct: true },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech involving a contradiction",
+                    correct: false,
+                },
+                {
+                    text: "An indirect reference to a person, place, event, or literary work",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
             ],
         },
@@ -5983,7 +6991,10 @@ export const literatureData = {
             question: "What is 'synecdoche' in literature?",
             answers: [
                 { text: "A type of irony", correct: false },
-                { text: "A figure of speech where a part represents the whole or vice versa", correct: true },
+                {
+                    text: "A figure of speech where a part represents the whole or vice versa",
+                    correct: true,
+                },
                 { text: "A narrative technique", correct: false },
                 { text: "An exaggerated statement", correct: false },
             ],
@@ -6001,7 +7012,10 @@ export const literatureData = {
             question: "What is the climax of a story?",
             answers: [
                 { text: "The introduction of characters", correct: false },
-                { text: "The turning point or most intense moment", correct: true },
+                {
+                    text: "The turning point or most intense moment",
+                    correct: true,
+                },
                 { text: "The resolution of the plot", correct: false },
                 { text: "The background setting", correct: false },
             ],
@@ -6009,9 +7023,18 @@ export const literatureData = {
         {
             question: "What is 'personification'?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "Giving human characteristics to non-human entities", correct: true },
-                { text: "An exaggerated statement for emphasis", correct: false },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "Giving human characteristics to non-human entities",
+                    correct: true,
+                },
+                {
+                    text: "An exaggerated statement for emphasis",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -6196,10 +7219,19 @@ export const musicData = {
         {
             question: "What is the primary difference between a concerto and a symphony?",
             answers: [
-                { text: "A concerto features a solo instrument, while a symphony is for an orchestra", correct: true },
-                { text: "A symphony features a solo instrument, while a concerto is for an orchestra", correct: false },
+                {
+                    text: "A concerto features a solo instrument, while a symphony is for an orchestra",
+                    correct: true,
+                },
+                {
+                    text: "A symphony features a solo instrument, while a concerto is for an orchestra",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
-                { text: "A concerto is shorter than a symphony", correct: false },
+                {
+                    text: "A concerto is shorter than a symphony",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6270,9 +7302,18 @@ export const musicData = {
         {
             question: "What is the main difference between a symphony and a concerto?",
             answers: [
-                { text: "A symphony is for a soloist, while a concerto is for an orchestra", correct: false },
-                { text: "A concerto features a solo instrument with orchestral accompaniment, while a symphony is for a full orchestra", correct: true },
-                { text: "A symphony is shorter than a concerto", correct: false },
+                {
+                    text: "A symphony is for a soloist, while a concerto is for an orchestra",
+                    correct: false,
+                },
+                {
+                    text: "A concerto features a solo instrument with orchestral accompaniment, while a symphony is for a full orchestra",
+                    correct: true,
+                },
+                {
+                    text: "A symphony is shorter than a concerto",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -6445,7 +7486,10 @@ export const musicData = {
         {
             question: "What is the primary difference between a minor and a major scale?",
             answers: [
-                { text: "Minor scales have a different sequence of whole and half steps", correct: true },
+                {
+                    text: "Minor scales have a different sequence of whole and half steps",
+                    correct: true,
+                },
                 { text: "Major scales have fewer notes", correct: false },
                 { text: "Minor scales are only used in jazz", correct: false },
                 { text: "There is no difference", correct: false },
@@ -6464,7 +7508,10 @@ export const musicData = {
             question: "What does 'a cappella' mean?",
             answers: [
                 { text: "With instrumental accompaniment", correct: false },
-                { text: "Sung without instrumental accompaniment", correct: true },
+                {
+                    text: "Sung without instrumental accompaniment",
+                    correct: true,
+                },
                 { text: "In a fast tempo", correct: false },
                 { text: "With a choir", correct: false },
             ],
@@ -6514,7 +7561,10 @@ export const philosophyData = {
             question: "What is the main focus of ethics in philosophy?",
             answers: [
                 { text: "The nature of reality", correct: false },
-                { text: "The principles of right and wrong conduct", correct: true },
+                {
+                    text: "The principles of right and wrong conduct",
+                    correct: true,
+                },
                 { text: "The structure of arguments", correct: false },
                 { text: "The existence of God", correct: false },
             ],
@@ -6531,10 +7581,22 @@ export const philosophyData = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6567,10 +7629,22 @@ export const philosophyData = {
         {
             question: "What is 'existentialism'?",
             answers: [
-                { text: "A theory that focuses on social and economic factors", correct: false },
-                { text: "A philosophy that emphasizes individual existence, freedom, and choice", correct: true },
-                { text: "A theory that explores the nature of being and reality", correct: false },
-                { text: "A philosophy that focuses on the beauty and art", correct: false },
+                {
+                    text: "A theory that focuses on social and economic factors",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that emphasizes individual existence, freedom, and choice",
+                    correct: true,
+                },
+                {
+                    text: "A theory that explores the nature of being and reality",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that focuses on the beauty and art",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6586,9 +7660,15 @@ export const philosophyData = {
             question: "What does 'deontology' focus on in ethical theory?",
             answers: [
                 { text: "The consequences of actions", correct: false },
-                { text: "The inherent rightness or wrongness of actions", correct: true },
+                {
+                    text: "The inherent rightness or wrongness of actions",
+                    correct: true,
+                },
                 { text: "The virtues of individuals", correct: false },
-                { text: "The balance between duty and happiness", correct: false },
+                {
+                    text: "The balance between duty and happiness",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6605,7 +7685,10 @@ export const philosophyData = {
         {
             question: "What is 'phenomenology'?",
             answers: [
-                { text: "The study of the structure of experience and consciousness", correct: true },
+                {
+                    text: "The study of the structure of experience and consciousness",
+                    correct: true,
+                },
                 { text: "A branch of ethics", correct: false },
                 { text: "The study of beauty and art", correct: false },
                 { text: "A political philosophy", correct: false },
@@ -6624,9 +7707,15 @@ export const philosophyData = {
             question: "What is 'nihilism'?",
             answers: [
                 { text: "A belief in absolute moral values", correct: false },
-                { text: "A rejection of all religious and moral principles", correct: true },
+                {
+                    text: "A rejection of all religious and moral principles",
+                    correct: true,
+                },
                 { text: "A focus on individual happiness", correct: false },
-                { text: "A belief in the power of human reason", correct: false },
+                {
+                    text: "A belief in the power of human reason",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6660,8 +7749,14 @@ export const philosophyData = {
             question: "What does 'solipsism' assert?",
             answers: [
                 { text: "That only material things exist", correct: false },
-                { text: "That only one's own mind is sure to exist", correct: true },
-                { text: "That reality is socially constructed", correct: false },
+                {
+                    text: "That only one's own mind is sure to exist",
+                    correct: true,
+                },
+                {
+                    text: "That reality is socially constructed",
+                    correct: false,
+                },
                 { text: "That everything is predetermined", correct: false },
             ],
         },
@@ -6677,10 +7772,22 @@ export const philosophyData = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6697,10 +7804,22 @@ export const philosophyData = {
         {
             question: "What is 'dualism' in philosophy?",
             answers: [
-                { text: "The belief that reality is composed of two distinct substances, mind and matter", correct: true },
-                { text: "The belief that everything is connected", correct: false },
-                { text: "The belief that only material things exist", correct: false },
-                { text: "The belief that reality is a single unified substance", correct: false },
+                {
+                    text: "The belief that reality is composed of two distinct substances, mind and matter",
+                    correct: true,
+                },
+                {
+                    text: "The belief that everything is connected",
+                    correct: false,
+                },
+                {
+                    text: "The belief that only material things exist",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is a single unified substance",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6715,10 +7834,22 @@ export const philosophyData = {
         {
             question: "What is 'rationalism'?",
             answers: [
-                { text: "The belief that knowledge comes primarily from sensory experience", correct: false },
-                { text: "The belief that reason is the primary source of knowledge", correct: true },
-                { text: "The belief that emotions guide moral decisions", correct: false },
-                { text: "The belief that society shapes knowledge", correct: false },
+                {
+                    text: "The belief that knowledge comes primarily from sensory experience",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reason is the primary source of knowledge",
+                    correct: true,
+                },
+                {
+                    text: "The belief that emotions guide moral decisions",
+                    correct: false,
+                },
+                {
+                    text: "The belief that society shapes knowledge",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6733,10 +7864,19 @@ export const philosophyData = {
         {
             question: "What is 'empiricism'?",
             answers: [
-                { text: "The theory that knowledge comes primarily from sensory experience", correct: true },
-                { text: "The theory that reason is the primary source of knowledge", correct: false },
+                {
+                    text: "The theory that knowledge comes primarily from sensory experience",
+                    correct: true,
+                },
+                {
+                    text: "The theory that reason is the primary source of knowledge",
+                    correct: false,
+                },
                 { text: "The belief in inherent moral truths", correct: false },
-                { text: "The belief that reality is a social construct", correct: false },
+                {
+                    text: "The belief that reality is a social construct",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6751,9 +7891,18 @@ export const philosophyData = {
         {
             question: "What is 'skepticism' in philosophy?",
             answers: [
-                { text: "The belief that knowledge is certain", correct: false },
-                { text: "The approach of doubting accepted beliefs", correct: true },
-                { text: "The theory that reality is solely mental", correct: false },
+                {
+                    text: "The belief that knowledge is certain",
+                    correct: false,
+                },
+                {
+                    text: "The approach of doubting accepted beliefs",
+                    correct: true,
+                },
+                {
+                    text: "The theory that reality is solely mental",
+                    correct: false,
+                },
                 { text: "The belief that truth is relative", correct: false },
             ],
         },
@@ -6769,10 +7918,19 @@ export const philosophyData = {
         {
             question: "What is 'pragmatism'?",
             answers: [
-                { text: "A philosophical tradition that considers thought an instrument for prediction and problem-solving", correct: true },
+                {
+                    text: "A philosophical tradition that considers thought an instrument for prediction and problem-solving",
+                    correct: true,
+                },
                 { text: "A belief in absolute truths", correct: false },
-                { text: "A theory that knowledge comes from divine revelation", correct: false },
-                { text: "A focus on the beauty and art in philosophy", correct: false },
+                {
+                    text: "A theory that knowledge comes from divine revelation",
+                    correct: false,
+                },
+                {
+                    text: "A focus on the beauty and art in philosophy",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6789,7 +7947,10 @@ export const philosophyData = {
         {
             question: "What is 'teleology'?",
             answers: [
-                { text: "The study of the end or purpose of things", correct: true },
+                {
+                    text: "The study of the end or purpose of things",
+                    correct: true,
+                },
                 { text: "The study of ethical principles", correct: false },
                 { text: "The study of knowledge", correct: false },
                 { text: "The study of political systems", correct: false },
@@ -6807,8 +7968,14 @@ export const philosophyData = {
         {
             question: "What is 'stoicism'?",
             answers: [
-                { text: "A philosophy that emphasizes emotional resilience and virtue", correct: true },
-                { text: "A belief in the inherent evil of mankind", correct: false },
+                {
+                    text: "A philosophy that emphasizes emotional resilience and virtue",
+                    correct: true,
+                },
+                {
+                    text: "A belief in the inherent evil of mankind",
+                    correct: false,
+                },
                 { text: "A theory that knowledge is innate", correct: false },
                 { text: "A focus on aesthetic beauty", correct: false },
             ],
@@ -6825,10 +7992,19 @@ export const philosophyData = {
         {
             question: "What is 'idealism' in philosophy?",
             answers: [
-                { text: "The belief that reality is primarily material", correct: false },
-                { text: "The belief that reality is mentally constructed or immaterial", correct: true },
+                {
+                    text: "The belief that reality is primarily material",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is mentally constructed or immaterial",
+                    correct: true,
+                },
                 { text: "A focus on practical consequences", correct: false },
-                { text: "A theory that knowledge comes from sensory experience", correct: false },
+                {
+                    text: "A theory that knowledge comes from sensory experience",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6843,10 +8019,22 @@ export const philosophyData = {
         {
             question: "What is 'materialism' in philosophy?",
             answers: [
-                { text: "The belief that reality is fundamentally mental", correct: false },
-                { text: "The belief that matter is the fundamental substance of reality", correct: true },
-                { text: "The belief in the existence of multiple worlds", correct: false },
-                { text: "A focus on material wealth as the ultimate goal", correct: false },
+                {
+                    text: "The belief that reality is fundamentally mental",
+                    correct: false,
+                },
+                {
+                    text: "The belief that matter is the fundamental substance of reality",
+                    correct: true,
+                },
+                {
+                    text: "The belief in the existence of multiple worlds",
+                    correct: false,
+                },
+                {
+                    text: "A focus on material wealth as the ultimate goal",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6861,10 +8049,22 @@ export const philosophyData = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6881,10 +8081,22 @@ export const philosophyData = {
         {
             question: "What is 'virtue ethics'?",
             answers: [
-                { text: "An ethical theory that emphasizes the role of character and virtues", correct: true },
-                { text: "An ethical theory that focuses on rules and duties", correct: false },
-                { text: "An ethical theory that emphasizes the consequences of actions", correct: false },
-                { text: "An ethical theory that focuses on societal norms", correct: false },
+                {
+                    text: "An ethical theory that emphasizes the role of character and virtues",
+                    correct: true,
+                },
+                {
+                    text: "An ethical theory that focuses on rules and duties",
+                    correct: false,
+                },
+                {
+                    text: "An ethical theory that emphasizes the consequences of actions",
+                    correct: false,
+                },
+                {
+                    text: "An ethical theory that focuses on societal norms",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6899,10 +8111,22 @@ export const philosophyData = {
         {
             question: "What is 'deontology'?",
             answers: [
-                { text: "A theory that emphasizes the consequences of actions", correct: false },
-                { text: "A theory that focuses on the inherent rightness or wrongness of actions", correct: true },
-                { text: "A theory that promotes the idea of utilitarianism", correct: false },
-                { text: "A theory that focuses on societal well-being", correct: false },
+                {
+                    text: "A theory that emphasizes the consequences of actions",
+                    correct: false,
+                },
+                {
+                    text: "A theory that focuses on the inherent rightness or wrongness of actions",
+                    correct: true,
+                },
+                {
+                    text: "A theory that promotes the idea of utilitarianism",
+                    correct: false,
+                },
+                {
+                    text: "A theory that focuses on societal well-being",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6917,7 +8141,10 @@ export const philosophyData = {
         {
             question: "What is 'dialectic' in philosophy?",
             answers: [
-                { text: "A method of argument involving contradictions and their resolution", correct: true },
+                {
+                    text: "A method of argument involving contradictions and their resolution",
+                    correct: true,
+                },
                 { text: "A type of ethical theory", correct: false },
                 { text: "A branch of metaphysics", correct: false },
                 { text: "A theory about aesthetics", correct: false },
@@ -6935,10 +8162,22 @@ export const philosophyData = {
         {
             question: "What is 'solipsism'?",
             answers: [
-                { text: "The belief that only one's own mind is sure to exist", correct: true },
-                { text: "The belief that all minds are connected", correct: false },
-                { text: "The belief that reality is a social construct", correct: false },
-                { text: "The belief that reality is purely material", correct: false },
+                {
+                    text: "The belief that only one's own mind is sure to exist",
+                    correct: true,
+                },
+                {
+                    text: "The belief that all minds are connected",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is a social construct",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is purely material",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6953,10 +8192,22 @@ export const philosophyData = {
         {
             question: "What is 'existentialism'?",
             answers: [
-                { text: "A philosophy that emphasizes individual existence, freedom, and choice", correct: true },
-                { text: "A philosophy that focuses on the nature of reality", correct: false },
-                { text: "A philosophy that centers on social and economic factors", correct: false },
-                { text: "A philosophy that explores aesthetic beauty", correct: false },
+                {
+                    text: "A philosophy that emphasizes individual existence, freedom, and choice",
+                    correct: true,
+                },
+                {
+                    text: "A philosophy that focuses on the nature of reality",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that centers on social and economic factors",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that explores aesthetic beauty",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6976,10 +8227,22 @@ export const physicsData = {
         {
             question: "What is the speed of light in a vacuum?",
             answers: [
-                { text: "Approximately 3 x 10^8 meters per second", correct: true },
-                { text: "Approximately 3 x 10^6 meters per second", correct: false },
-                { text: "Approximately 3 x 10^5 kilometers per second", correct: false },
-                { text: "Approximately 3 x 10^7 kilometers per second", correct: false },
+                {
+                    text: "Approximately 3 x 10^8 meters per second",
+                    correct: true,
+                },
+                {
+                    text: "Approximately 3 x 10^6 meters per second",
+                    correct: false,
+                },
+                {
+                    text: "Approximately 3 x 10^5 kilometers per second",
+                    correct: false,
+                },
+                {
+                    text: "Approximately 3 x 10^7 kilometers per second",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7030,19 +8293,40 @@ export const physicsData = {
         {
             question: "What is the main difference between speed and velocity?",
             answers: [
-                { text: "Speed is a vector, velocity is a scalar", correct: false },
-                { text: "Velocity includes direction, speed does not", correct: true },
-                { text: "Speed is measured in meters, velocity in kilometers", correct: false },
+                {
+                    text: "Speed is a vector, velocity is a scalar",
+                    correct: false,
+                },
+                {
+                    text: "Velocity includes direction, speed does not",
+                    correct: true,
+                },
+                {
+                    text: "Speed is measured in meters, velocity in kilometers",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What is the first law of thermodynamics?",
             answers: [
-                { text: "Energy cannot be created or destroyed", correct: true },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
-                { text: "The entropy of an isolated system always increases", correct: false },
-                { text: "Force equals mass times acceleration", correct: false },
+                {
+                    text: "Energy cannot be created or destroyed",
+                    correct: true,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
+                {
+                    text: "The entropy of an isolated system always increases",
+                    correct: false,
+                },
+                {
+                    text: "Force equals mass times acceleration",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7160,18 +8444,36 @@ export const physicsData = {
         {
             question: "What is the Heisenberg Uncertainty Principle?",
             answers: [
-                { text: "It is impossible to know both the position and momentum of a particle with absolute certainty", correct: true },
-                { text: "Energy can neither be created nor destroyed", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
+                {
+                    text: "It is impossible to know both the position and momentum of a particle with absolute certainty",
+                    correct: true,
+                },
+                {
+                    text: "Energy can neither be created nor destroyed",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
                 { text: "Objects in motion stay in motion", correct: false },
             ],
         },
         {
             question: "What is the main difference between speed and velocity?",
             answers: [
-                { text: "Speed is a vector, velocity is a scalar", correct: false },
-                { text: "Velocity includes direction, speed does not", correct: true },
-                { text: "Speed is measured in meters, velocity in kilometers", correct: false },
+                {
+                    text: "Speed is a vector, velocity is a scalar",
+                    correct: false,
+                },
+                {
+                    text: "Velocity includes direction, speed does not",
+                    correct: true,
+                },
+                {
+                    text: "Speed is measured in meters, velocity in kilometers",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -7353,18 +8655,36 @@ export const physicsData = {
         {
             question: "What is the primary difference between classical and quantum physics?",
             answers: [
-                { text: "Classical physics deals with large-scale phenomena, while quantum physics deals with atomic and subatomic levels", correct: true },
-                { text: "Quantum physics is less accurate than classical physics", correct: false },
-                { text: "Classical physics includes the study of electricity, quantum physics does not", correct: false },
+                {
+                    text: "Classical physics deals with large-scale phenomena, while quantum physics deals with atomic and subatomic levels",
+                    correct: true,
+                },
+                {
+                    text: "Quantum physics is less accurate than classical physics",
+                    correct: false,
+                },
+                {
+                    text: "Classical physics includes the study of electricity, quantum physics does not",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What is the Heisenberg Uncertainty Principle?",
             answers: [
-                { text: "It is impossible to know both the position and momentum of a particle with absolute certainty", correct: true },
-                { text: "Energy can neither be created nor destroyed", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
+                {
+                    text: "It is impossible to know both the position and momentum of a particle with absolute certainty",
+                    correct: true,
+                },
+                {
+                    text: "Energy can neither be created nor destroyed",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
                 { text: "Objects in motion stay in motion", correct: false },
             ],
         },
@@ -7389,10 +8709,22 @@ export const physicsData = {
         {
             question: "What is the principle of superposition in physics?",
             answers: [
-                { text: "The total energy of an isolated system remains constant", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
-                { text: "When two or more waves overlap, the resulting wave is the sum of the individual waves", correct: true },
-                { text: "Energy cannot be created or destroyed", correct: false },
+                {
+                    text: "The total energy of an isolated system remains constant",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
+                {
+                    text: "When two or more waves overlap, the resulting wave is the sum of the individual waves",
+                    correct: true,
+                },
+                {
+                    text: "Energy cannot be created or destroyed",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7449,7 +8781,10 @@ export const politicsData = {
             question: "What does NATO stand for?",
             answers: [
                 { text: "North Atlantic Treaty Organization", correct: true },
-                { text: "National Alliance of Treaty Officers", correct: false },
+                {
+                    text: "National Alliance of Treaty Officers",
+                    correct: false,
+                },
                 { text: "North American Trade Organization", correct: false },
                 { text: "National Assembly Treaty Order", correct: false },
             ],
@@ -7523,8 +8858,14 @@ export const politicsData = {
             question: "What is the main purpose of the European Union?",
             answers: [
                 { text: "To establish a military alliance", correct: false },
-                { text: "To promote economic and political integration among member states", correct: true },
-                { text: "To create a single European language", correct: false },
+                {
+                    text: "To promote economic and political integration among member states",
+                    correct: true,
+                },
+                {
+                    text: "To create a single European language",
+                    correct: false,
+                },
                 { text: "To regulate global trade", correct: false },
             ],
         },
@@ -7604,8 +8945,14 @@ export const politicsData = {
             question: "What does 'filibuster' refer to in the U.S. Senate?",
             answers: [
                 { text: "A type of voting system", correct: false },
-                { text: "A tactic to delay or block legislative action", correct: true },
-                { text: "A committee responsible for budget oversight", correct: false },
+                {
+                    text: "A tactic to delay or block legislative action",
+                    correct: true,
+                },
+                {
+                    text: "A committee responsible for budget oversight",
+                    correct: false,
+                },
                 { text: "A formal debate session", correct: false },
             ],
         },
@@ -7614,10 +8961,22 @@ export const politicsData = {
         {
             question: "What is 'separation of powers'?",
             answers: [
-                { text: "Dividing government responsibilities into distinct branches", correct: true },
-                { text: "The process of creating new government branches", correct: false },
-                { text: "The alliance between different government entities", correct: false },
-                { text: "The overlap of responsibilities among government branches", correct: false },
+                {
+                    text: "Dividing government responsibilities into distinct branches",
+                    correct: true,
+                },
+                {
+                    text: "The process of creating new government branches",
+                    correct: false,
+                },
+                {
+                    text: "The alliance between different government entities",
+                    correct: false,
+                },
+                {
+                    text: "The overlap of responsibilities among government branches",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7651,9 +9010,15 @@ export const politicsData = {
             question: "What is the main purpose of the United Nations?",
             answers: [
                 { text: "To establish a global currency", correct: false },
-                { text: "To promote international peace and security", correct: true },
+                {
+                    text: "To promote international peace and security",
+                    correct: true,
+                },
                 { text: "To control global trade", correct: false },
-                { text: "To regulate global environmental policies", correct: false },
+                {
+                    text: "To regulate global environmental policies",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7706,10 +9071,19 @@ export const politicsData = {
         {
             question: "What is 'bicameralism' in a legislative system?",
             answers: [
-                { text: "A system with two separate chambers or houses", correct: true },
+                {
+                    text: "A system with two separate chambers or houses",
+                    correct: true,
+                },
                 { text: "A system with one chamber or house", correct: false },
-                { text: "A system with three chambers or houses", correct: false },
-                { text: "A system where chambers have equal power", correct: false },
+                {
+                    text: "A system with three chambers or houses",
+                    correct: false,
+                },
+                {
+                    text: "A system where chambers have equal power",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7742,9 +9116,18 @@ export const politicsData = {
         {
             question: "What is 'gerrymandering'?",
             answers: [
-                { text: "The practice of making agreements between political parties", correct: false },
-                { text: "The manipulation of electoral district boundaries for political gain", correct: true },
-                { text: "The process of running for political office", correct: false },
+                {
+                    text: "The practice of making agreements between political parties",
+                    correct: false,
+                },
+                {
+                    text: "The manipulation of electoral district boundaries for political gain",
+                    correct: true,
+                },
+                {
+                    text: "The process of running for political office",
+                    correct: false,
+                },
                 { text: "The act of campaigning aggressively", correct: false },
             ],
         },
@@ -7778,8 +9161,14 @@ export const politicsData = {
         {
             question: "What is 'caucus' in the context of politics?",
             answers: [
-                { text: "A formal meeting of party members to decide policy or select candidates", correct: true },
-                { text: "A legislative procedure to pass a bill", correct: false },
+                {
+                    text: "A formal meeting of party members to decide policy or select candidates",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass a bill",
+                    correct: false,
+                },
                 { text: "A type of political party", correct: false },
                 { text: "A political protest", correct: false },
             ],
@@ -7798,10 +9187,22 @@ export const politicsData = {
         {
             question: "What is 'pluralism' in political science?",
             answers: [
-                { text: "The belief in a single dominant group", correct: false },
-                { text: "The recognition and affirmation of diversity within a political body", correct: true },
-                { text: "A system where power is concentrated in the hands of a few", correct: false },
-                { text: "The merging of multiple political parties", correct: false },
+                {
+                    text: "The belief in a single dominant group",
+                    correct: false,
+                },
+                {
+                    text: "The recognition and affirmation of diversity within a political body",
+                    correct: true,
+                },
+                {
+                    text: "A system where power is concentrated in the hands of a few",
+                    correct: false,
+                },
+                {
+                    text: "The merging of multiple political parties",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7816,10 +9217,22 @@ export const politicsData = {
         {
             question: "What is 'bicameral legislature'?",
             answers: [
-                { text: "A legislature with two separate chambers or houses", correct: true },
-                { text: "A legislature with one chamber or house", correct: false },
-                { text: "A legislature that meets twice a year", correct: false },
-                { text: "A legislature controlled by two political parties", correct: false },
+                {
+                    text: "A legislature with two separate chambers or houses",
+                    correct: true,
+                },
+                {
+                    text: "A legislature with one chamber or house",
+                    correct: false,
+                },
+                {
+                    text: "A legislature that meets twice a year",
+                    correct: false,
+                },
+                {
+                    text: "A legislature controlled by two political parties",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7845,7 +9258,10 @@ export const politicsData = {
             answers: [
                 { text: "The power to propose laws", correct: false },
                 { text: "The power to approve laws", correct: false },
-                { text: "The power to reject laws passed by the legislature", correct: true },
+                {
+                    text: "The power to reject laws passed by the legislature",
+                    correct: true,
+                },
                 { text: "The power to enforce laws", correct: false },
             ],
         },
@@ -7920,10 +9336,22 @@ export const realEstateData = {
         {
             question: "What is a 'short sale' in real estate?",
             answers: [
-                { text: "Selling a property for more than its mortgage", correct: false },
-                { text: "Selling a property without a real estate agent", correct: false },
-                { text: "Selling a property for less than the mortgage owed", correct: true },
-                { text: "Selling a property quickly at market price", correct: false },
+                {
+                    text: "Selling a property for more than its mortgage",
+                    correct: false,
+                },
+                {
+                    text: "Selling a property without a real estate agent",
+                    correct: false,
+                },
+                {
+                    text: "Selling a property for less than the mortgage owed",
+                    correct: true,
+                },
+                {
+                    text: "Selling a property quickly at market price",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7939,7 +9367,10 @@ export const realEstateData = {
             question: "What does 'escrow' refer to in real estate transactions?",
             answers: [
                 { text: "The final walkthrough of a property", correct: false },
-                { text: "A third-party account holding funds during the transaction", correct: true },
+                {
+                    text: "A third-party account holding funds during the transaction",
+                    correct: true,
+                },
                 { text: "The signing of the contract", correct: false },
                 { text: "The appraisal of the property", correct: false },
             ],
@@ -7948,7 +9379,10 @@ export const realEstateData = {
             question: "What is the purpose of a real estate appraisal?",
             answers: [
                 { text: "To advertise the property", correct: false },
-                { text: "To determine the market value of the property", correct: true },
+                {
+                    text: "To determine the market value of the property",
+                    correct: true,
+                },
                 { text: "To negotiate the sale price", correct: false },
                 { text: "To inspect the property's condition", correct: false },
             ],
@@ -7958,7 +9392,10 @@ export const realEstateData = {
             answers: [
                 { text: "The total value of the property", correct: false },
                 { text: "The amount owed on the mortgage", correct: false },
-                { text: "The difference between the property's market value and the mortgage owed", correct: true },
+                {
+                    text: "The difference between the property's market value and the mortgage owed",
+                    correct: true,
+                },
                 { text: "The rental income from the property", correct: false },
             ],
         },
@@ -7975,7 +9412,10 @@ export const realEstateData = {
             question: "What is the primary role of a real estate agent?",
             answers: [
                 { text: "To provide legal advice", correct: false },
-                { text: "To represent buyers or sellers in real estate transactions", correct: true },
+                {
+                    text: "To represent buyers or sellers in real estate transactions",
+                    correct: true,
+                },
                 { text: "To appraise property values", correct: false },
                 { text: "To finance real estate deals", correct: false },
             ],
@@ -7985,8 +9425,14 @@ export const realEstateData = {
         {
             question: "What is a 'dual agency' in real estate?",
             answers: [
-                { text: "An agent representing both buyer and seller in the same transaction", correct: true },
-                { text: "An agent working in two different states", correct: false },
+                {
+                    text: "An agent representing both buyer and seller in the same transaction",
+                    correct: true,
+                },
+                {
+                    text: "An agent working in two different states",
+                    correct: false,
+                },
                 { text: "Two agents representing the buyer", correct: false },
                 { text: "Two agents representing the seller", correct: false },
             ],
@@ -7994,8 +9440,14 @@ export const realEstateData = {
         {
             question: "What is the purpose of a home inspection?",
             answers: [
-                { text: "To determine the market value of the home", correct: false },
-                { text: "To assess the condition of the property and identify any issues", correct: true },
+                {
+                    text: "To determine the market value of the home",
+                    correct: false,
+                },
+                {
+                    text: "To assess the condition of the property and identify any issues",
+                    correct: true,
+                },
                 { text: "To negotiate the sale price", correct: false },
                 { text: "To verify the seller's ownership", correct: false },
             ],
@@ -8021,55 +9473,115 @@ export const realEstateData = {
         {
             question: "What is the 'listing price'?",
             answers: [
-                { text: "The final sale price of the property", correct: false },
-                { text: "The initial price at which the property is offered for sale", correct: true },
-                { text: "The price agreed upon during negotiation", correct: false },
+                {
+                    text: "The final sale price of the property",
+                    correct: false,
+                },
+                {
+                    text: "The initial price at which the property is offered for sale",
+                    correct: true,
+                },
+                {
+                    text: "The price agreed upon during negotiation",
+                    correct: false,
+                },
                 { text: "The appraised value of the property", correct: false },
             ],
         },
         {
             question: "What is 'amortization' in the context of a mortgage?",
             answers: [
-                { text: "The process of determining the market value of a property", correct: false },
-                { text: "The gradual repayment of a loan over time through regular payments", correct: true },
-                { text: "The initial deposit paid when purchasing a property", correct: false },
-                { text: "The tax deduction on mortgage interest", correct: false },
+                {
+                    text: "The process of determining the market value of a property",
+                    correct: false,
+                },
+                {
+                    text: "The gradual repayment of a loan over time through regular payments",
+                    correct: true,
+                },
+                {
+                    text: "The initial deposit paid when purchasing a property",
+                    correct: false,
+                },
+                {
+                    text: "The tax deduction on mortgage interest",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary difference between a fixed-rate and an adjustable-rate mortgage?",
             answers: [
-                { text: "Fixed-rate mortgages have lower interest rates", correct: false },
-                { text: "Adjustable-rate mortgages offer fixed interest rates", correct: false },
-                { text: "Fixed-rate mortgages have an interest rate that remains constant, while adjustable-rate mortgages have rates that can change", correct: true },
+                {
+                    text: "Fixed-rate mortgages have lower interest rates",
+                    correct: false,
+                },
+                {
+                    text: "Adjustable-rate mortgages offer fixed interest rates",
+                    correct: false,
+                },
+                {
+                    text: "Fixed-rate mortgages have an interest rate that remains constant, while adjustable-rate mortgages have rates that can change",
+                    correct: true,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What does 'closing costs' refer to?",
             answers: [
-                { text: "The commission paid to real estate agents", correct: false },
-                { text: "The fees and expenses paid at the end of a real estate transaction", correct: true },
-                { text: "The cost of repairs made before selling a property", correct: false },
-                { text: "The mortgage interest paid over time", correct: false },
+                {
+                    text: "The commission paid to real estate agents",
+                    correct: false,
+                },
+                {
+                    text: "The fees and expenses paid at the end of a real estate transaction",
+                    correct: true,
+                },
+                {
+                    text: "The cost of repairs made before selling a property",
+                    correct: false,
+                },
+                {
+                    text: "The mortgage interest paid over time",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'zoning' in real estate?",
             answers: [
-                { text: "The process of determining property taxes", correct: false },
-                { text: "The regulation of land use by local governments", correct: true },
-                { text: "The classification of properties based on size", correct: false },
+                {
+                    text: "The process of determining property taxes",
+                    correct: false,
+                },
+                {
+                    text: "The regulation of land use by local governments",
+                    correct: true,
+                },
+                {
+                    text: "The classification of properties based on size",
+                    correct: false,
+                },
                 { text: "The appraisal of property values", correct: false },
             ],
         },
         {
             question: "What is the 'equity multiplier' in real estate investment?",
             answers: [
-                { text: "A ratio that measures financial leverage", correct: true },
-                { text: "A tool to calculate property appreciation", correct: false },
+                {
+                    text: "A ratio that measures financial leverage",
+                    correct: true,
+                },
+                {
+                    text: "A tool to calculate property appreciation",
+                    correct: false,
+                },
                 { text: "A method to determine rental income", correct: false },
-                { text: "A type of loan for purchasing properties", correct: false },
+                {
+                    text: "A type of loan for purchasing properties",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8077,17 +9589,29 @@ export const realEstateData = {
         {
             question: "What is the 'due diligence' period in a real estate transaction?",
             answers: [
-                { text: "The time before signing the contract to conduct inspections and verify information", correct: true },
+                {
+                    text: "The time before signing the contract to conduct inspections and verify information",
+                    correct: true,
+                },
                 { text: "The final stage of closing the sale", correct: false },
-                { text: "The period when the buyer pays the down payment", correct: false },
-                { text: "The time when the property is listed for sale", correct: false },
+                {
+                    text: "The period when the buyer pays the down payment",
+                    correct: false,
+                },
+                {
+                    text: "The time when the property is listed for sale",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'foreclosure'?",
             answers: [
                 { text: "A property that is being renovated", correct: false },
-                { text: "A process where the lender takes back property due to the borrower's failure to pay the mortgage", correct: true },
+                {
+                    text: "A process where the lender takes back property due to the borrower's failure to pay the mortgage",
+                    correct: true,
+                },
                 { text: "A sale conducted by the government", correct: false },
                 { text: "A type of property insurance", correct: false },
             ],
@@ -8095,44 +9619,80 @@ export const realEstateData = {
         {
             question: "What does 'CMBS' stand for in real estate financing?",
             answers: [
-                { text: "Commercial Mortgage-Backed Securities", correct: true },
-                { text: "Certified Mortgage Banking Standards", correct: false },
+                {
+                    text: "Commercial Mortgage-Backed Securities",
+                    correct: true,
+                },
+                {
+                    text: "Certified Mortgage Banking Standards",
+                    correct: false,
+                },
                 { text: "Commercial Mortgage Banking System", correct: false },
-                { text: "Certified Mortgage-Backed Securities", correct: false },
+                {
+                    text: "Certified Mortgage-Backed Securities",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary purpose of a real estate appraisal?",
             answers: [
                 { text: "To negotiate the sale price", correct: false },
-                { text: "To assess the condition of the property", correct: false },
-                { text: "To determine the market value of the property", correct: true },
+                {
+                    text: "To assess the condition of the property",
+                    correct: false,
+                },
+                {
+                    text: "To determine the market value of the property",
+                    correct: true,
+                },
                 { text: "To advertise the property", correct: false },
             ],
         },
         {
             question: "What is 'liquidity' in real estate?",
             answers: [
-                { text: "The ease with which a property can be converted into cash", correct: true },
+                {
+                    text: "The ease with which a property can be converted into cash",
+                    correct: true,
+                },
                 { text: "The amount of debt on a property", correct: false },
-                { text: "The physical condition of a property", correct: false },
-                { text: "The location desirability of a property", correct: false },
+                {
+                    text: "The physical condition of a property",
+                    correct: false,
+                },
+                {
+                    text: "The location desirability of a property",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'cap rate' in real estate investment?",
             answers: [
                 { text: "The rate of mortgage interest", correct: false },
-                { text: "The ratio of net operating income to property value", correct: true },
+                {
+                    text: "The ratio of net operating income to property value",
+                    correct: true,
+                },
                 { text: "The rate of property appreciation", correct: false },
-                { text: "The percentage of property taxes paid annually", correct: false },
+                {
+                    text: "The percentage of property taxes paid annually",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'leasehold' property?",
             answers: [
-                { text: "A property owned outright by the buyer", correct: false },
-                { text: "A property where the buyer has the right to use the land for a specific period", correct: true },
+                {
+                    text: "A property owned outright by the buyer",
+                    correct: false,
+                },
+                {
+                    text: "A property where the buyer has the right to use the land for a specific period",
+                    correct: true,
+                },
                 { text: "A property rented out to tenants", correct: false },
                 { text: "A property under foreclosure", correct: false },
             ],
@@ -8140,19 +9700,40 @@ export const realEstateData = {
         {
             question: "What is the 'short-term rental market' in real estate?",
             answers: [
-                { text: "Renting properties for long-term leases", correct: false },
-                { text: "Renting properties for short periods, typically for vacation or temporary stays", correct: true },
-                { text: "The market for renting commercial spaces", correct: false },
-                { text: "The market for renting out storage units", correct: false },
+                {
+                    text: "Renting properties for long-term leases",
+                    correct: false,
+                },
+                {
+                    text: "Renting properties for short periods, typically for vacation or temporary stays",
+                    correct: true,
+                },
+                {
+                    text: "The market for renting commercial spaces",
+                    correct: false,
+                },
+                {
+                    text: "The market for renting out storage units",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'condo association'?",
             answers: [
-                { text: "A group that manages the communal aspects of a condominium complex", correct: true },
+                {
+                    text: "A group that manages the communal aspects of a condominium complex",
+                    correct: true,
+                },
                 { text: "A real estate investment group", correct: false },
-                { text: "A legal entity that owns all units in a condominium", correct: false },
-                { text: "An association for condominium buyers", correct: false },
+                {
+                    text: "A legal entity that owns all units in a condominium",
+                    correct: false,
+                },
+                {
+                    text: "An association for condominium buyers",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8169,17 +9750,29 @@ export const realEstateData = {
         {
             question: "What is a 'seller's market'?",
             answers: [
-                { text: "A market where there are more buyers than available properties", correct: true },
-                { text: "A market where there are more properties than buyers", correct: false },
+                {
+                    text: "A market where there are more buyers than available properties",
+                    correct: true,
+                },
+                {
+                    text: "A market where there are more properties than buyers",
+                    correct: false,
+                },
                 { text: "A market controlled by sellers only", correct: false },
-                { text: "A market for selling specific types of properties", correct: false },
+                {
+                    text: "A market for selling specific types of properties",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is '1031 exchange' in real estate?",
             answers: [
                 { text: "A type of mortgage loan", correct: false },
-                { text: "A tax-deferred exchange of like-kind properties", correct: true },
+                {
+                    text: "A tax-deferred exchange of like-kind properties",
+                    correct: true,
+                },
                 { text: "A regulation for rental properties", correct: false },
                 { text: "A government housing program", correct: false },
             ],
@@ -8196,9 +9789,18 @@ export const realEstateData = {
         {
             question: "What is a 'balloon mortgage'?",
             answers: [
-                { text: "A mortgage with a large final payment after a series of smaller payments", correct: true },
-                { text: "A mortgage with a fixed interest rate", correct: false },
-                { text: "A mortgage used for purchasing luxury properties", correct: false },
+                {
+                    text: "A mortgage with a large final payment after a series of smaller payments",
+                    correct: true,
+                },
+                {
+                    text: "A mortgage with a fixed interest rate",
+                    correct: false,
+                },
+                {
+                    text: "A mortgage used for purchasing luxury properties",
+                    correct: false,
+                },
                 { text: "A mortgage that increases over time", correct: false },
             ],
         },
@@ -8206,7 +9808,10 @@ export const realEstateData = {
             question: "What is the 'Golden Rule' in real estate?",
             answers: [
                 { text: "Always negotiate the lowest price", correct: false },
-                { text: "Treat others as you would like to be treated", correct: true },
+                {
+                    text: "Treat others as you would like to be treated",
+                    correct: true,
+                },
                 { text: "Never back out of a deal", correct: false },
                 { text: "Invest only in high-demand areas", correct: false },
             ],
@@ -8215,7 +9820,10 @@ export const realEstateData = {
             question: "What is 'MLS' used for in real estate?",
             answers: [
                 { text: "Managing property taxes", correct: false },
-                { text: "Listing and accessing property information across agents and brokers", correct: true },
+                {
+                    text: "Listing and accessing property information across agents and brokers",
+                    correct: true,
+                },
                 { text: "Calculating mortgage payments", correct: false },
                 { text: "Conducting property inspections", correct: false },
             ],
@@ -8223,8 +9831,14 @@ export const realEstateData = {
         {
             question: "What is a 'duplex'?",
             answers: [
-                { text: "A single-family home with two separate living units", correct: true },
-                { text: "A commercial property with two storefronts", correct: false },
+                {
+                    text: "A single-family home with two separate living units",
+                    correct: true,
+                },
+                {
+                    text: "A commercial property with two storefronts",
+                    correct: false,
+                },
                 { text: "A property with two garages", correct: false },
                 { text: "A house with two stories", correct: false },
             ],
@@ -8232,8 +9846,14 @@ export const realEstateData = {
         {
             question: "What is the purpose of 'title insurance'?",
             answers: [
-                { text: "To insure the property's physical condition", correct: false },
-                { text: "To protect against legal claims on the property's title", correct: true },
+                {
+                    text: "To insure the property's physical condition",
+                    correct: false,
+                },
+                {
+                    text: "To protect against legal claims on the property's title",
+                    correct: true,
+                },
                 { text: "To cover mortgage default", correct: false },
                 { text: "To insure rental income", correct: false },
             ],
@@ -8242,7 +9862,10 @@ export const realEstateData = {
             question: "What is 'foreclosure'?",
             answers: [
                 { text: "A property being renovated", correct: false },
-                { text: "The process where a lender takes back property due to the borrower's failure to pay the mortgage", correct: true },
+                {
+                    text: "The process where a lender takes back property due to the borrower's failure to pay the mortgage",
+                    correct: true,
+                },
                 { text: "A property sold below market value", correct: false },
                 { text: "A government seizure of property", correct: false },
             ],
@@ -8261,71 +9884,140 @@ export const realEstateData = {
         {
             question: "What is 'cash flow' in real estate investment?",
             answers: [
-                { text: "The amount of money invested in a property", correct: false },
-                { text: "The net amount of cash being transferred into and out of a property", correct: true },
-                { text: "The appreciation of property value over time", correct: false },
+                {
+                    text: "The amount of money invested in a property",
+                    correct: false,
+                },
+                {
+                    text: "The net amount of cash being transferred into and out of a property",
+                    correct: true,
+                },
+                {
+                    text: "The appreciation of property value over time",
+                    correct: false,
+                },
                 { text: "The cost of maintaining a property", correct: false },
             ],
         },
         {
             question: "What is a 'REO property'?",
             answers: [
-                { text: "A property owned by a real estate agent", correct: false },
-                { text: "A property owned by a lender after foreclosure", correct: true },
-                { text: "A rental property with an existing tenant", correct: false },
+                {
+                    text: "A property owned by a real estate agent",
+                    correct: false,
+                },
+                {
+                    text: "A property owned by a lender after foreclosure",
+                    correct: true,
+                },
+                {
+                    text: "A rental property with an existing tenant",
+                    correct: false,
+                },
                 { text: "A property listed on the MLS", correct: false },
             ],
         },
         {
             question: "What is the 'due-on-sale' clause in a mortgage?",
             answers: [
-                { text: "A clause that allows the lender to demand full repayment if the property is sold", correct: true },
-                { text: "A clause that adjusts the interest rate upon sale", correct: false },
-                { text: "A clause that permits the sale without lender approval", correct: false },
-                { text: "A clause that offers a discount upon sale", correct: false },
+                {
+                    text: "A clause that allows the lender to demand full repayment if the property is sold",
+                    correct: true,
+                },
+                {
+                    text: "A clause that adjusts the interest rate upon sale",
+                    correct: false,
+                },
+                {
+                    text: "A clause that permits the sale without lender approval",
+                    correct: false,
+                },
+                {
+                    text: "A clause that offers a discount upon sale",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'mortgage refinancing'?",
             answers: [
-                { text: "Selling the property and paying off the mortgage", correct: false },
-                { text: "Replacing an existing mortgage with a new one, typically with different terms", correct: true },
-                { text: "Taking out a second mortgage on the property", correct: false },
-                { text: "Consolidating multiple mortgages into one", correct: false },
+                {
+                    text: "Selling the property and paying off the mortgage",
+                    correct: false,
+                },
+                {
+                    text: "Replacing an existing mortgage with a new one, typically with different terms",
+                    correct: true,
+                },
+                {
+                    text: "Taking out a second mortgage on the property",
+                    correct: false,
+                },
+                {
+                    text: "Consolidating multiple mortgages into one",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'buyer’s market'?",
             answers: [
-                { text: "A market where there are more buyers than available properties", correct: false },
-                { text: "A market where there are more properties than buyers", correct: true },
-                { text: "A market dominated by first-time buyers", correct: false },
+                {
+                    text: "A market where there are more buyers than available properties",
+                    correct: false,
+                },
+                {
+                    text: "A market where there are more properties than buyers",
+                    correct: true,
+                },
+                {
+                    text: "A market dominated by first-time buyers",
+                    correct: false,
+                },
                 { text: "A market with high property prices", correct: false },
             ],
         },
         {
             question: "What is 'zoning' in real estate?",
             answers: [
-                { text: "The process of determining property taxes", correct: false },
-                { text: "The regulation of land use by local governments", correct: true },
-                { text: "The classification of properties based on size", correct: false },
+                {
+                    text: "The process of determining property taxes",
+                    correct: false,
+                },
+                {
+                    text: "The regulation of land use by local governments",
+                    correct: true,
+                },
+                {
+                    text: "The classification of properties based on size",
+                    correct: false,
+                },
                 { text: "The appraisal of property values", correct: false },
             ],
         },
         {
             question: "What is a 'bridge loan'?",
             answers: [
-                { text: "A loan used to purchase a new property before selling the old one", correct: true },
+                {
+                    text: "A loan used to purchase a new property before selling the old one",
+                    correct: true,
+                },
                 { text: "A long-term mortgage", correct: false },
                 { text: "A loan for building bridges", correct: false },
-                { text: "A loan with very high interest rates", correct: false },
+                {
+                    text: "A loan with very high interest rates",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'earnest money' in a real estate transaction?",
             answers: [
                 { text: "The final payment made at closing", correct: false },
-                { text: "A deposit made by the buyer to show commitment", correct: true },
+                {
+                    text: "A deposit made by the buyer to show commitment",
+                    correct: true,
+                },
                 { text: "The money paid for the appraisal", correct: false },
                 { text: "The commission paid to the agent", correct: false },
             ],
@@ -8333,18 +10025,36 @@ export const realEstateData = {
         {
             question: "What is 'gross rent multiplier' (GRM)?",
             answers: [
-                { text: "A ratio used to evaluate rental income relative to property price", correct: true },
-                { text: "A multiplier for calculating mortgage payments", correct: false },
+                {
+                    text: "A ratio used to evaluate rental income relative to property price",
+                    correct: true,
+                },
+                {
+                    text: "A multiplier for calculating mortgage payments",
+                    correct: false,
+                },
                 { text: "A measure of property appreciation", correct: false },
-                { text: "A tax incentive for rental properties", correct: false },
+                {
+                    text: "A tax incentive for rental properties",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary difference between commercial and residential real estate?",
             answers: [
-                { text: "Commercial real estate is used for business purposes, while residential real estate is used for living purposes", correct: true },
-                { text: "Residential real estate is always owned outright, while commercial real estate is leased", correct: false },
-                { text: "Commercial real estate has higher taxes", correct: false },
+                {
+                    text: "Commercial real estate is used for business purposes, while residential real estate is used for living purposes",
+                    correct: true,
+                },
+                {
+                    text: "Residential real estate is always owned outright, while commercial real estate is leased",
+                    correct: false,
+                },
+                {
+                    text: "Commercial real estate has higher taxes",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -8367,16 +10077,25 @@ export const psychologyData = {
             answers: [
                 { text: "Unconscious motives", correct: false },
                 { text: "Behavioral conditioning", correct: false },
-                { text: "Mental processes like thinking, memory, and problem-solving", correct: true },
+                {
+                    text: "Mental processes like thinking, memory, and problem-solving",
+                    correct: true,
+                },
                 { text: "Social interactions", correct: false },
             ],
         },
         {
             question: "What does the acronym 'DSM' stand for in psychology?",
             answers: [
-                { text: "Diagnostic and Statistical Manual of Mental Disorders", correct: true },
+                {
+                    text: "Diagnostic and Statistical Manual of Mental Disorders",
+                    correct: true,
+                },
                 { text: "Developmental and Social Models", correct: false },
-                { text: "Diagnostic Standards for Mental Health", correct: false },
+                {
+                    text: "Diagnostic Standards for Mental Health",
+                    correct: false,
+                },
                 { text: "Developmental Statistical Measures", correct: false },
             ],
         },
@@ -8392,8 +10111,14 @@ export const psychologyData = {
         {
             question: "What is 'classical conditioning'?",
             answers: [
-                { text: "Learning through rewards and punishments", correct: false },
-                { text: "Learning through association between stimuli", correct: true },
+                {
+                    text: "Learning through rewards and punishments",
+                    correct: false,
+                },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: true,
+                },
                 { text: "Learning through observation", correct: false },
                 { text: "Learning through trial and error", correct: false },
             ],
@@ -8410,10 +10135,19 @@ export const psychologyData = {
         {
             question: "What is 'attachment theory'?",
             answers: [
-                { text: "A theory about cognitive development", correct: false },
-                { text: "A theory about the bonds between individuals, especially between a child and caregiver", correct: true },
+                {
+                    text: "A theory about cognitive development",
+                    correct: false,
+                },
+                {
+                    text: "A theory about the bonds between individuals, especially between a child and caregiver",
+                    correct: true,
+                },
                 { text: "A theory about social interactions", correct: false },
-                { text: "A theory about personality development", correct: false },
+                {
+                    text: "A theory about personality development",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8421,17 +10155,35 @@ export const psychologyData = {
             answers: [
                 { text: "The rational part of the mind", correct: false },
                 { text: "The moral part of the mind", correct: false },
-                { text: "The instinctual and unconscious part of the mind", correct: true },
-                { text: "The part responsible for decision-making", correct: false },
+                {
+                    text: "The instinctual and unconscious part of the mind",
+                    correct: true,
+                },
+                {
+                    text: "The part responsible for decision-making",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'positive reinforcement'?",
             answers: [
-                { text: "Removing an unpleasant stimulus to increase behavior", correct: false },
-                { text: "Adding a pleasant stimulus to increase behavior", correct: true },
-                { text: "Removing a pleasant stimulus to decrease behavior", correct: false },
-                { text: "Adding an unpleasant stimulus to decrease behavior", correct: false },
+                {
+                    text: "Removing an unpleasant stimulus to increase behavior",
+                    correct: false,
+                },
+                {
+                    text: "Adding a pleasant stimulus to increase behavior",
+                    correct: true,
+                },
+                {
+                    text: "Removing a pleasant stimulus to decrease behavior",
+                    correct: false,
+                },
+                {
+                    text: "Adding an unpleasant stimulus to decrease behavior",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8448,19 +10200,40 @@ export const psychologyData = {
         {
             question: "What is 'social psychology' primarily concerned with?",
             answers: [
-                { text: "Individual behavior and mental processes", correct: false },
-                { text: "The study of how people's thoughts, feelings, and behaviors are influenced by the actual or implied presence of others", correct: true },
-                { text: "Psychological disorders and their treatment", correct: false },
+                {
+                    text: "Individual behavior and mental processes",
+                    correct: false,
+                },
+                {
+                    text: "The study of how people's thoughts, feelings, and behaviors are influenced by the actual or implied presence of others",
+                    correct: true,
+                },
+                {
+                    text: "Psychological disorders and their treatment",
+                    correct: false,
+                },
                 { text: "Biological bases of behavior", correct: false },
             ],
         },
         {
             question: "What does 'operant conditioning' involve?",
             answers: [
-                { text: "Associating two stimuli to trigger a response", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Unconscious associations affecting behavior", correct: false },
+                {
+                    text: "Associating two stimuli to trigger a response",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Unconscious associations affecting behavior",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8475,10 +10248,19 @@ export const psychologyData = {
         {
             question: "What is 'attachment style'?",
             answers: [
-                { text: "A person's preferred method of learning", correct: false },
-                { text: "The way individuals form emotional bonds and interact in relationships", correct: true },
+                {
+                    text: "A person's preferred method of learning",
+                    correct: false,
+                },
+                {
+                    text: "The way individuals form emotional bonds and interact in relationships",
+                    correct: true,
+                },
                 { text: "A type of personality disorder", correct: false },
-                { text: "The level of intelligence in social settings", correct: false },
+                {
+                    text: "The level of intelligence in social settings",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8493,28 +10275,55 @@ export const psychologyData = {
         {
             question: "What is 'self-actualization'?",
             answers: [
-                { text: "Achieving one's full potential and personal growth", correct: true },
-                { text: "The process of forming attachments in childhood", correct: false },
+                {
+                    text: "Achieving one's full potential and personal growth",
+                    correct: true,
+                },
+                {
+                    text: "The process of forming attachments in childhood",
+                    correct: false,
+                },
                 { text: "A state of psychological well-being", correct: false },
-                { text: "The understanding of one's unconscious motives", correct: false },
+                {
+                    text: "The understanding of one's unconscious motives",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'big five' in personality psychology?",
             answers: [
                 { text: "Five stages of development", correct: false },
-                { text: "Five major personality traits: openness, conscientiousness, extraversion, agreeableness, and neuroticism", correct: true },
-                { text: "Five types of psychological disorders", correct: false },
+                {
+                    text: "Five major personality traits: openness, conscientiousness, extraversion, agreeableness, and neuroticism",
+                    correct: true,
+                },
+                {
+                    text: "Five types of psychological disorders",
+                    correct: false,
+                },
                 { text: "Five levels of consciousness", correct: false },
             ],
         },
         {
             question: "What does 'cognitive dissonance' refer to?",
             answers: [
-                { text: "The process of learning through rewards", correct: false },
-                { text: "The mental discomfort experienced when holding contradictory beliefs or attitudes", correct: true },
-                { text: "The ability to understand others' perspectives", correct: false },
-                { text: "The stage of development where individuals form their identity", correct: false },
+                {
+                    text: "The process of learning through rewards",
+                    correct: false,
+                },
+                {
+                    text: "The mental discomfort experienced when holding contradictory beliefs or attitudes",
+                    correct: true,
+                },
+                {
+                    text: "The ability to understand others' perspectives",
+                    correct: false,
+                },
+                {
+                    text: "The stage of development where individuals form their identity",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8529,10 +10338,22 @@ export const psychologyData = {
         {
             question: "What is 'bystander effect' in social psychology?",
             answers: [
-                { text: "The tendency for individuals to perform better in the presence of others", correct: false },
-                { text: "The phenomenon where individuals are less likely to help a victim when other people are present", correct: true },
-                { text: "The influence of a group on an individual's behavior", correct: false },
-                { text: "The preference for group decision-making", correct: false },
+                {
+                    text: "The tendency for individuals to perform better in the presence of others",
+                    correct: false,
+                },
+                {
+                    text: "The phenomenon where individuals are less likely to help a victim when other people are present",
+                    correct: true,
+                },
+                {
+                    text: "The influence of a group on an individual's behavior",
+                    correct: false,
+                },
+                {
+                    text: "The preference for group decision-making",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8541,7 +10362,10 @@ export const psychologyData = {
             question: "What is 'psychometrics'?",
             answers: [
                 { text: "The study of mind-body interactions", correct: false },
-                { text: "The field concerned with the theory and technique of psychological measurement", correct: true },
+                {
+                    text: "The field concerned with the theory and technique of psychological measurement",
+                    correct: true,
+                },
                 { text: "The study of mental disorders", correct: false },
                 { text: "The study of human development", correct: false },
             ],
@@ -8558,8 +10382,14 @@ export const psychologyData = {
         {
             question: "What is 'neuroplasticity'?",
             answers: [
-                { text: "The brain's ability to change and adapt as a result of experience", correct: true },
-                { text: "The deterioration of neural pathways over time", correct: false },
+                {
+                    text: "The brain's ability to change and adapt as a result of experience",
+                    correct: true,
+                },
+                {
+                    text: "The deterioration of neural pathways over time",
+                    correct: false,
+                },
                 { text: "The study of the nervous system", correct: false },
                 { text: "The process of forming new neurons", correct: false },
             ],
@@ -8567,9 +10397,15 @@ export const psychologyData = {
         {
             question: "What is the primary focus of developmental psychology?",
             answers: [
-                { text: "Mental processes like memory and perception", correct: false },
+                {
+                    text: "Mental processes like memory and perception",
+                    correct: false,
+                },
                 { text: "Behavioral conditioning", correct: false },
-                { text: "Changes and growth throughout a person's lifespan", correct: true },
+                {
+                    text: "Changes and growth throughout a person's lifespan",
+                    correct: true,
+                },
                 { text: "Social interactions and influences", correct: false },
             ],
         },
@@ -8577,8 +10413,14 @@ export const psychologyData = {
             question: "What is 'transactional analysis'?",
             answers: [
                 { text: "A type of cognitive therapy", correct: false },
-                { text: "A psychoanalytic method focusing on unconscious motives", correct: false },
-                { text: "A theory that studies social interactions and ego states", correct: true },
+                {
+                    text: "A psychoanalytic method focusing on unconscious motives",
+                    correct: false,
+                },
+                {
+                    text: "A theory that studies social interactions and ego states",
+                    correct: true,
+                },
                 { text: "A behavioral conditioning technique", correct: false },
             ],
         },
@@ -8594,10 +10436,22 @@ export const psychologyData = {
         {
             question: "What is 'confirmation bias'?",
             answers: [
-                { text: "The tendency to seek information that contradicts one's beliefs", correct: false },
-                { text: "The tendency to interpret new evidence as confirmation of one's existing beliefs", correct: true },
-                { text: "The inability to remember past events accurately", correct: false },
-                { text: "The influence of social factors on decision-making", correct: false },
+                {
+                    text: "The tendency to seek information that contradicts one's beliefs",
+                    correct: false,
+                },
+                {
+                    text: "The tendency to interpret new evidence as confirmation of one's existing beliefs",
+                    correct: true,
+                },
+                {
+                    text: "The inability to remember past events accurately",
+                    correct: false,
+                },
+                {
+                    text: "The influence of social factors on decision-making",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8612,19 +10466,37 @@ export const psychologyData = {
         {
             question: "What is 'groupthink'?",
             answers: [
-                { text: "A cognitive bias where individuals strive for consensus without critical evaluation", correct: true },
+                {
+                    text: "A cognitive bias where individuals strive for consensus without critical evaluation",
+                    correct: true,
+                },
                 { text: "The process of learning in groups", correct: false },
-                { text: "The phenomenon of group performance being superior to individual performance", correct: false },
+                {
+                    text: "The phenomenon of group performance being superior to individual performance",
+                    correct: false,
+                },
                 { text: "A form of group therapy", correct: false },
             ],
         },
         {
             question: "What is the 'Big Five' personality traits?",
             answers: [
-                { text: "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism", correct: true },
-                { text: "Introversion, Stability, Kindness, Logic, Creativity", correct: false },
-                { text: "Aggressiveness, Flexibility, Sociability, Intelligence, Honesty", correct: false },
-                { text: "Optimism, Pessimism, Empathy, Assertiveness, Patience", correct: false },
+                {
+                    text: "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism",
+                    correct: true,
+                },
+                {
+                    text: "Introversion, Stability, Kindness, Logic, Creativity",
+                    correct: false,
+                },
+                {
+                    text: "Aggressiveness, Flexibility, Sociability, Intelligence, Honesty",
+                    correct: false,
+                },
+                {
+                    text: "Optimism, Pessimism, Empathy, Assertiveness, Patience",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8632,17 +10504,35 @@ export const psychologyData = {
         {
             question: "What is 'operant conditioning'?",
             answers: [
-                { text: "Learning through association between stimuli", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Learning through subconscious associations", correct: false },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Learning through subconscious associations",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'fight or flight' response?",
             answers: [
-                { text: "A cognitive bias affecting decision-making", correct: false },
-                { text: "The body's physiological reaction to perceived threats", correct: true },
+                {
+                    text: "A cognitive bias affecting decision-making",
+                    correct: false,
+                },
+                {
+                    text: "The body's physiological reaction to perceived threats",
+                    correct: true,
+                },
                 { text: "A type of behavioral therapy", correct: false },
                 { text: "A form of social influence", correct: false },
             ],
@@ -8651,7 +10541,10 @@ export const psychologyData = {
             question: "What is 'cognitive behavioral therapy' (CBT) used for?",
             answers: [
                 { text: "To explore unconscious motives", correct: false },
-                { text: "To change maladaptive thoughts and behaviors", correct: true },
+                {
+                    text: "To change maladaptive thoughts and behaviors",
+                    correct: true,
+                },
                 { text: "To enhance creativity", correct: false },
                 { text: "To strengthen social bonds", correct: false },
             ],
@@ -8660,7 +10553,10 @@ export const psychologyData = {
             question: "What does 'implicit memory' refer to?",
             answers: [
                 { text: "Memory of facts and events", correct: false },
-                { text: "Memory that influences behavior without conscious awareness", correct: true },
+                {
+                    text: "Memory that influences behavior without conscious awareness",
+                    correct: true,
+                },
                 { text: "Short-term memory", correct: false },
                 { text: "Sensory memory", correct: false },
             ],
@@ -8668,35 +10564,62 @@ export const psychologyData = {
         {
             question: "What is 'attachment theory'?",
             answers: [
-                { text: "A theory about cognitive development", correct: false },
-                { text: "A theory about the bonds between individuals, especially between a child and caregiver", correct: true },
+                {
+                    text: "A theory about cognitive development",
+                    correct: false,
+                },
+                {
+                    text: "A theory about the bonds between individuals, especially between a child and caregiver",
+                    correct: true,
+                },
                 { text: "A theory about social interactions", correct: false },
-                { text: "A theory about personality development", correct: false },
+                {
+                    text: "A theory about personality development",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'reaction formation' in psychoanalytic theory?",
             answers: [
-                { text: "Suppressing unacceptable thoughts by focusing on something else", correct: false },
-                { text: "Transforming unwanted impulses into their opposites", correct: true },
-                { text: "Projecting one's own feelings onto others", correct: false },
+                {
+                    text: "Suppressing unacceptable thoughts by focusing on something else",
+                    correct: false,
+                },
+                {
+                    text: "Transforming unwanted impulses into their opposites",
+                    correct: true,
+                },
+                {
+                    text: "Projecting one's own feelings onto others",
+                    correct: false,
+                },
                 { text: "Repressing distressing memories", correct: false },
             ],
         },
         {
             question: "What is 'self-esteem'?",
             answers: [
-                { text: "The belief in one's ability to succeed", correct: false },
+                {
+                    text: "The belief in one's ability to succeed",
+                    correct: false,
+                },
                 { text: "The value one places on oneself", correct: true },
                 { text: "The fear of failure", correct: false },
-                { text: "The ability to empathize with others", correct: false },
+                {
+                    text: "The ability to empathize with others",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'uncanny valley' in psychology?",
             answers: [
                 { text: "A theory about fear of heights", correct: false },
-                { text: "The discomfort people feel when something is almost human-like but not quite", correct: true },
+                {
+                    text: "The discomfort people feel when something is almost human-like but not quite",
+                    correct: true,
+                },
                 { text: "A stage in cognitive development", correct: false },
                 { text: "A measure of social anxiety", correct: false },
             ],
@@ -8705,9 +10628,15 @@ export const psychologyData = {
             question: "What is 'positive psychology'?",
             answers: [
                 { text: "The study of mental disorders", correct: false },
-                { text: "The scientific study of human strengths and virtues that enable individuals and communities to thrive", correct: true },
+                {
+                    text: "The scientific study of human strengths and virtues that enable individuals and communities to thrive",
+                    correct: true,
+                },
                 { text: "A branch of psychoanalysis", correct: false },
-                { text: "The practice of promoting happiness through therapy", correct: false },
+                {
+                    text: "The practice of promoting happiness through therapy",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8725,7 +10654,10 @@ export const psychologyData = {
             question: "What is 'mirror neurons' theory associated with?",
             answers: [
                 { text: "Learning through rewards", correct: false },
-                { text: "Empathy and understanding others' actions", correct: true },
+                {
+                    text: "Empathy and understanding others' actions",
+                    correct: true,
+                },
                 { text: "Memory consolidation", correct: false },
                 { text: "Language acquisition", correct: false },
             ],
@@ -8733,8 +10665,14 @@ export const psychologyData = {
         {
             question: "What does 'Heuristics' refer to in cognitive psychology?",
             answers: [
-                { text: "Systematic methods for solving problems", correct: false },
-                { text: "Mental shortcuts or rules of thumb for decision-making", correct: true },
+                {
+                    text: "Systematic methods for solving problems",
+                    correct: false,
+                },
+                {
+                    text: "Mental shortcuts or rules of thumb for decision-making",
+                    correct: true,
+                },
                 { text: "The study of unconscious processes", correct: false },
                 { text: "Long-term memory storage", correct: false },
             ],
@@ -8742,44 +10680,92 @@ export const psychologyData = {
         {
             question: "What is 'bipolar disorder'?",
             answers: [
-                { text: "A mood disorder characterized by alternating periods of mania and depression", correct: true },
-                { text: "A personality disorder characterized by instability in relationships and self-image", correct: false },
-                { text: "An anxiety disorder characterized by excessive worry", correct: false },
-                { text: "A cognitive disorder affecting memory", correct: false },
+                {
+                    text: "A mood disorder characterized by alternating periods of mania and depression",
+                    correct: true,
+                },
+                {
+                    text: "A personality disorder characterized by instability in relationships and self-image",
+                    correct: false,
+                },
+                {
+                    text: "An anxiety disorder characterized by excessive worry",
+                    correct: false,
+                },
+                {
+                    text: "A cognitive disorder affecting memory",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'operant conditioning'?",
             answers: [
-                { text: "Learning through association between stimuli", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Learning through subconscious associations", correct: false },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Learning through subconscious associations",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'attachment style'?",
             answers: [
-                { text: "A person's preferred method of learning", correct: false },
-                { text: "The way individuals form emotional bonds and interact in relationships", correct: true },
+                {
+                    text: "A person's preferred method of learning",
+                    correct: false,
+                },
+                {
+                    text: "The way individuals form emotional bonds and interact in relationships",
+                    correct: true,
+                },
                 { text: "A type of personality disorder", correct: false },
-                { text: "The level of intelligence in social settings", correct: false },
+                {
+                    text: "The level of intelligence in social settings",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'self-actualization'?",
             answers: [
-                { text: "Achieving one's full potential and personal growth", correct: true },
-                { text: "The process of forming attachments in childhood", correct: false },
+                {
+                    text: "Achieving one's full potential and personal growth",
+                    correct: true,
+                },
+                {
+                    text: "The process of forming attachments in childhood",
+                    correct: false,
+                },
                 { text: "A state of psychological well-being", correct: false },
-                { text: "The understanding of one's unconscious motives", correct: false },
+                {
+                    text: "The understanding of one's unconscious motives",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'procrastination'?",
             answers: [
-                { text: "The act of completing tasks ahead of schedule", correct: false },
-                { text: "The delay or postponement of tasks or decisions", correct: true },
+                {
+                    text: "The act of completing tasks ahead of schedule",
+                    correct: false,
+                },
+                {
+                    text: "The delay or postponement of tasks or decisions",
+                    correct: true,
+                },
                 { text: "The act of multitasking efficiently", correct: false },
                 { text: "The inability to start tasks", correct: false },
             ],
@@ -8788,8 +10774,14 @@ export const psychologyData = {
             question: "What is 'transference' in psychoanalysis?",
             answers: [
                 { text: "A technique for memory enhancement", correct: false },
-                { text: "The redirection of feelings for one person to another", correct: true },
-                { text: "The process of subconscious thinking", correct: false },
+                {
+                    text: "The redirection of feelings for one person to another",
+                    correct: true,
+                },
+                {
+                    text: "The process of subconscious thinking",
+                    correct: false,
+                },
                 { text: "A form of cognitive bias", correct: false },
             ],
         },
@@ -8797,7 +10789,10 @@ export const psychologyData = {
             question: "What is 'cognitive behavioral therapy' (CBT) used for?",
             answers: [
                 { text: "To explore unconscious motives", correct: false },
-                { text: "To change maladaptive thoughts and behaviors", correct: true },
+                {
+                    text: "To change maladaptive thoughts and behaviors",
+                    correct: true,
+                },
                 { text: "To enhance creativity", correct: false },
                 { text: "To strengthen social bonds", correct: false },
             ],
@@ -8805,10 +10800,22 @@ export const psychologyData = {
         {
             question: "What is 'schizophrenia'?",
             answers: [
-                { text: "A mood disorder characterized by depressive episodes", correct: false },
-                { text: "A severe mental disorder characterized by distortions in thinking, perception, emotions, language, sense of self, and behavior", correct: true },
-                { text: "An anxiety disorder characterized by excessive worry", correct: false },
-                { text: "A personality disorder characterized by instability in relationships", correct: false },
+                {
+                    text: "A mood disorder characterized by depressive episodes",
+                    correct: false,
+                },
+                {
+                    text: "A severe mental disorder characterized by distortions in thinking, perception, emotions, language, sense of self, and behavior",
+                    correct: true,
+                },
+                {
+                    text: "An anxiety disorder characterized by excessive worry",
+                    correct: false,
+                },
+                {
+                    text: "A personality disorder characterized by instability in relationships",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8838,7 +10845,10 @@ export const socialStudiesData = {
             question: "What was the primary cause of World War I?",
             answers: [
                 { text: "The rise of fascism", correct: false },
-                { text: "The assassination of Archduke Franz Ferdinand", correct: true },
+                {
+                    text: "The assassination of Archduke Franz Ferdinand",
+                    correct: true,
+                },
                 { text: "The invasion of Poland", correct: false },
                 { text: "The bombing of Pearl Harbor", correct: false },
             ],
@@ -8892,7 +10902,10 @@ export const socialStudiesData = {
             question: "What was the main goal of the Civil Rights Movement in the United States?",
             answers: [
                 { text: "To promote economic development", correct: false },
-                { text: "To end racial segregation and discrimination", correct: true },
+                {
+                    text: "To end racial segregation and discrimination",
+                    correct: true,
+                },
                 { text: "To establish a new political party", correct: false },
                 { text: "To increase military funding", correct: false },
             ],
@@ -8920,9 +10933,18 @@ export const socialStudiesData = {
         {
             question: "What was the primary purpose of the Berlin Wall?",
             answers: [
-                { text: "To protect East Germany from invaders", correct: false },
-                { text: "To prevent East Germans from fleeing to West Berlin", correct: true },
-                { text: "To mark the border between Germany and Poland", correct: false },
+                {
+                    text: "To protect East Germany from invaders",
+                    correct: false,
+                },
+                {
+                    text: "To prevent East Germans from fleeing to West Berlin",
+                    correct: true,
+                },
+                {
+                    text: "To mark the border between Germany and Poland",
+                    correct: false,
+                },
                 { text: "To serve as a tourist attraction", correct: false },
             ],
         },
@@ -8948,7 +10970,10 @@ export const socialStudiesData = {
             question: "What was the main objective of the Cold War?",
             answers: [
                 { text: "To establish colonial empires", correct: false },
-                { text: "To compete for global influence between the USA and the USSR", correct: true },
+                {
+                    text: "To compete for global influence between the USA and the USSR",
+                    correct: true,
+                },
                 { text: "To promote free trade agreements", correct: false },
                 { text: "To unify Europe", correct: false },
             ],
@@ -8966,7 +10991,10 @@ export const socialStudiesData = {
             question: "What is the main function of the United Nations?",
             answers: [
                 { text: "To regulate international trade", correct: false },
-                { text: "To maintain international peace and security", correct: true },
+                {
+                    text: "To maintain international peace and security",
+                    correct: true,
+                },
                 { text: "To establish global taxes", correct: false },
                 { text: "To manage global sports events", correct: false },
             ],
@@ -8974,10 +11002,19 @@ export const socialStudiesData = {
         {
             question: "What was the Renaissance?",
             answers: [
-                { text: "A period of political turmoil in Europe", correct: false },
-                { text: "A cultural rebirth and revival of art and learning in Europe", correct: true },
+                {
+                    text: "A period of political turmoil in Europe",
+                    correct: false,
+                },
+                {
+                    text: "A cultural rebirth and revival of art and learning in Europe",
+                    correct: true,
+                },
                 { text: "A religious movement in Asia", correct: false },
-                { text: "An economic downturn in the 17th century", correct: false },
+                {
+                    text: "An economic downturn in the 17th century",
+                    correct: false,
+                },
             ],
         },
         {
@@ -9021,19 +11058,40 @@ export const socialStudiesData = {
         {
             question: "What is the main difference between a parliamentary and a presidential system?",
             answers: [
-                { text: "A parliamentary system separates the executive and legislative branches", correct: false },
-                { text: "In a presidential system, the executive is separate from the legislature, while in a parliamentary system, the executive derives its legitimacy from the legislature", correct: true },
-                { text: "A presidential system has a ceremonial president", correct: false },
-                { text: "A parliamentary system has a fixed term for the executive", correct: false },
+                {
+                    text: "A parliamentary system separates the executive and legislative branches",
+                    correct: false,
+                },
+                {
+                    text: "In a presidential system, the executive is separate from the legislature, while in a parliamentary system, the executive derives its legitimacy from the legislature",
+                    correct: true,
+                },
+                {
+                    text: "A presidential system has a ceremonial president",
+                    correct: false,
+                },
+                {
+                    text: "A parliamentary system has a fixed term for the executive",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the Marshall Plan?",
             answers: [
                 { text: "A strategy to win World War II", correct: false },
-                { text: "A program to rebuild European economies after World War II", correct: true },
-                { text: "A military alliance during the Cold War", correct: false },
-                { text: "A diplomatic treaty with the Soviet Union", correct: false },
+                {
+                    text: "A program to rebuild European economies after World War II",
+                    correct: true,
+                },
+                {
+                    text: "A military alliance during the Cold War",
+                    correct: false,
+                },
+                {
+                    text: "A diplomatic treaty with the Soviet Union",
+                    correct: false,
+                },
             ],
         },
         {
@@ -9049,16 +11107,28 @@ export const socialStudiesData = {
             question: "What is 'federalism'?",
             answers: [
                 { text: "A system where power is centralized", correct: false },
-                { text: "A system where power is divided between a central authority and constituent units", correct: true },
+                {
+                    text: "A system where power is divided between a central authority and constituent units",
+                    correct: true,
+                },
                 { text: "A system with a single-party rule", correct: false },
-                { text: "A system based on religious governance", correct: false },
+                {
+                    text: "A system based on religious governance",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the main goal of the Marshall Plan?",
             answers: [
-                { text: "To contain the spread of communism in Asia", correct: false },
-                { text: "To rebuild European economies after World War II", correct: true },
+                {
+                    text: "To contain the spread of communism in Asia",
+                    correct: false,
+                },
+                {
+                    text: "To rebuild European economies after World War II",
+                    correct: true,
+                },
                 { text: "To establish the United Nations", correct: false },
                 { text: "To promote nuclear disarmament", correct: false },
             ],
@@ -9095,8 +11165,14 @@ export const socialStudiesData = {
         {
             question: "What is 'totalitarianism'?",
             answers: [
-                { text: "A political system where a single party controls all aspects of life", correct: true },
-                { text: "A democratic system with multiple parties", correct: false },
+                {
+                    text: "A political system where a single party controls all aspects of life",
+                    correct: true,
+                },
+                {
+                    text: "A democratic system with multiple parties",
+                    correct: false,
+                },
                 { text: "A system based on religious laws", correct: false },
                 { text: "A capitalist economic system", correct: false },
             ],
@@ -9105,7 +11181,10 @@ export const socialStudiesData = {
             question: "What does 'bicameral' mean in the context of legislatures?",
             answers: [
                 { text: "Having one legislative chamber", correct: false },
-                { text: "Having two legislative chambers or houses", correct: true },
+                {
+                    text: "Having two legislative chambers or houses",
+                    correct: true,
+                },
                 { text: "Having three legislative chambers", correct: false },
                 { text: "Having no legislative chambers", correct: false },
             ],
@@ -9131,8 +11210,14 @@ export const socialStudiesData = {
         {
             question: "What is 'checks and balances'?",
             answers: [
-                { text: "A system where each branch of government can limit the powers of the others", correct: true },
-                { text: "A method of balancing trade deficits", correct: false },
+                {
+                    text: "A system where each branch of government can limit the powers of the others",
+                    correct: true,
+                },
+                {
+                    text: "A method of balancing trade deficits",
+                    correct: false,
+                },
                 { text: "A financial regulation system", correct: false },
                 { text: "A legislative procedure", correct: false },
             ],
@@ -9159,7 +11244,10 @@ export const socialStudiesData = {
             question: "What is the main purpose of the Electoral College in the United States?",
             answers: [
                 { text: "To directly elect the President", correct: false },
-                { text: "To formally select the President based on state results", correct: true },
+                {
+                    text: "To formally select the President based on state results",
+                    correct: true,
+                },
                 { text: "To count votes from all citizens", correct: false },
                 { text: "To oversee the legislative process", correct: false },
             ],
@@ -9176,8 +11264,14 @@ export const socialStudiesData = {
         {
             question: "What is 'caucus' in the context of politics?",
             answers: [
-                { text: "A formal meeting of party members to decide policy or select candidates", correct: true },
-                { text: "A legislative procedure to pass a bill", correct: false },
+                {
+                    text: "A formal meeting of party members to decide policy or select candidates",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass a bill",
+                    correct: false,
+                },
                 { text: "A type of political party", correct: false },
                 { text: "A political protest", correct: false },
             ],
@@ -9188,18 +11282,33 @@ export const socialStudiesData = {
             question: "What is 'federalism'?",
             answers: [
                 { text: "A system where power is centralized", correct: false },
-                { text: "A system where power is divided between a central authority and constituent units", correct: true },
+                {
+                    text: "A system where power is divided between a central authority and constituent units",
+                    correct: true,
+                },
                 { text: "A system with a single-party rule", correct: false },
-                { text: "A system based on religious governance", correct: false },
+                {
+                    text: "A system based on religious governance",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'social contract theory'?",
             answers: [
                 { text: "A theory about economic markets", correct: false },
-                { text: "A theory that individuals consent to surrender some freedoms in exchange for protection of remaining rights", correct: true },
-                { text: "A theory about the inheritance of traits", correct: false },
-                { text: "A theory about human development stages", correct: false },
+                {
+                    text: "A theory that individuals consent to surrender some freedoms in exchange for protection of remaining rights",
+                    correct: true,
+                },
+                {
+                    text: "A theory about the inheritance of traits",
+                    correct: false,
+                },
+                {
+                    text: "A theory about human development stages",
+                    correct: false,
+                },
             ],
         },
         {
@@ -9214,8 +11323,14 @@ export const socialStudiesData = {
         {
             question: "What is 'impeachment'?",
             answers: [
-                { text: "A process to remove a public official from office", correct: true },
-                { text: "A legislative procedure to pass laws", correct: false },
+                {
+                    text: "A process to remove a public official from office",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass laws",
+                    correct: false,
+                },
                 { text: "A type of political protest", correct: false },
                 { text: "A method of voting", correct: false },
             ],
@@ -9223,9 +11338,15 @@ export const socialStudiesData = {
         {
             question: "What is the 'bill of rights'?",
             answers: [
-                { text: "The first ten amendments to the U.S. Constitution", correct: true },
+                {
+                    text: "The first ten amendments to the U.S. Constitution",
+                    correct: true,
+                },
                 { text: "A list of federal laws", correct: false },
-                { text: "The main body of the U.S. Constitution", correct: false },
+                {
+                    text: "The main body of the U.S. Constitution",
+                    correct: false,
+                },
                 { text: "A declaration of independence", correct: false },
             ],
         },
@@ -9241,28 +11362,64 @@ export const socialStudiesData = {
         {
             question: "What is 'bicameralism'?",
             answers: [
-                { text: "A system with two legislative chambers or houses", correct: true },
-                { text: "A system with one legislative chamber", correct: false },
-                { text: "A system with three legislative chambers", correct: false },
-                { text: "A system where chambers have equal power", correct: false },
+                {
+                    text: "A system with two legislative chambers or houses",
+                    correct: true,
+                },
+                {
+                    text: "A system with one legislative chamber",
+                    correct: false,
+                },
+                {
+                    text: "A system with three legislative chambers",
+                    correct: false,
+                },
+                {
+                    text: "A system where chambers have equal power",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'pluralism' in political science?",
             answers: [
-                { text: "The belief in a single dominant group", correct: false },
-                { text: "The recognition and affirmation of diversity within a political body", correct: true },
-                { text: "A system where power is concentrated in the hands of a few", correct: false },
-                { text: "The merging of multiple political parties", correct: false },
+                {
+                    text: "The belief in a single dominant group",
+                    correct: false,
+                },
+                {
+                    text: "The recognition and affirmation of diversity within a political body",
+                    correct: true,
+                },
+                {
+                    text: "A system where power is concentrated in the hands of a few",
+                    correct: false,
+                },
+                {
+                    text: "The merging of multiple political parties",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'authoritarianism'?",
             answers: [
-                { text: "A democratic system with multiple parties", correct: false },
-                { text: "A political system characterized by strong central power and limited political freedoms", correct: true },
-                { text: "A political ideology that emphasizes individual liberty", correct: false },
-                { text: "A system where all decisions are made by the populace", correct: false },
+                {
+                    text: "A democratic system with multiple parties",
+                    correct: false,
+                },
+                {
+                    text: "A political system characterized by strong central power and limited political freedoms",
+                    correct: true,
+                },
+                {
+                    text: "A political ideology that emphasizes individual liberty",
+                    correct: false,
+                },
+                {
+                    text: "A system where all decisions are made by the populace",
+                    correct: false,
+                },
             ],
         },
         {
@@ -9959,7 +12116,10 @@ export const historyData = {
                 { text: "Storming of the Bastille", correct: true },
                 { text: "The Reign of Terror", correct: false },
                 { text: "Napoleon's Rise to Power", correct: false },
-                { text: "The Declaration of the Rights of Man", correct: false },
+                {
+                    text: "The Declaration of the Rights of Man",
+                    correct: false,
+                },
             ],
         },
         {
@@ -10001,9 +12161,15 @@ export const historyData = {
         {
             question: "What was the primary purpose of the Marshall Plan?",
             answers: [
-                { text: "To aid in the reconstruction of Europe after WWII", correct: true },
+                {
+                    text: "To aid in the reconstruction of Europe after WWII",
+                    correct: true,
+                },
                 { text: "To promote democracy in Asia", correct: false },
-                { text: "To provide military support to allies", correct: false },
+                {
+                    text: "To provide military support to allies",
+                    correct: false,
+                },
                 { text: "To establish the United Nations", correct: false },
             ],
         },
@@ -10058,15 +12224,24 @@ export const historyData = {
             question: "What was the significance of the Magna Carta?",
             answers: [
                 { text: "It limited the powers of the king", correct: true },
-                { text: "It established the Church of England", correct: false },
+                {
+                    text: "It established the Church of England",
+                    correct: false,
+                },
                 { text: "It ended the English Civil War", correct: false },
-                { text: "It declared independence from France", correct: false },
+                {
+                    text: "It declared independence from France",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the main outcome of the Boston Tea Party?",
             answers: [
-                { text: "Increased tensions between Britain and the colonies", correct: true },
+                {
+                    text: "Increased tensions between Britain and the colonies",
+                    correct: true,
+                },
                 { text: "The establishment of independence", correct: false },
                 { text: "The repeal of the Stamp Act", correct: false },
                 { text: "The Boston Massacre", correct: false },
@@ -10084,7 +12259,10 @@ export const historyData = {
         {
             question: "What was the purpose of the Berlin Conference in 1884?",
             answers: [
-                { text: "To divide Africa among European powers", correct: true },
+                {
+                    text: "To divide Africa among European powers",
+                    correct: true,
+                },
                 { text: "To promote trade in Africa", correct: false },
                 { text: "To establish diplomatic relations", correct: false },
                 { text: "To create the League of Nations", correct: false },
@@ -10114,7 +12292,10 @@ export const historyData = {
             question: "What was the primary cause of World War I?",
             answers: [
                 { text: "Economic Crisis", correct: false },
-                { text: "Assassination of Archduke Franz Ferdinand", correct: true },
+                {
+                    text: "Assassination of Archduke Franz Ferdinand",
+                    correct: true,
+                },
                 { text: "Colonial Rivalries", correct: false },
                 { text: "Treaty of Versailles", correct: false },
             ],
@@ -10158,7 +12339,10 @@ export const historyData = {
         {
             question: "What was the significance of the Nuremberg Trials?",
             answers: [
-                { text: "They held Nazi leaders accountable for war crimes", correct: true },
+                {
+                    text: "They held Nazi leaders accountable for war crimes",
+                    correct: true,
+                },
                 { text: "They established the United Nations", correct: false },
                 { text: "They initiated the Marshall Plan", correct: false },
                 { text: "They ended the Cold War", correct: false },
@@ -10185,7 +12369,10 @@ export const historyData = {
         {
             question: "What was the purpose of the U.S. Constitution?",
             answers: [
-                { text: "To establish the framework of the government", correct: true },
+                {
+                    text: "To establish the framework of the government",
+                    correct: true,
+                },
                 { text: "To declare independence", correct: false },
                 { text: "To end slavery", correct: false },
                 { text: "To promote economic growth", correct: false },
@@ -10621,10 +12808,19 @@ export const mathData = {
         {
             question: "What is the fundamental theorem of algebra?",
             answers: [
-                { text: "Every polynomial equation of degree n has n roots.", correct: true },
-                { text: "The roots of a polynomial are complex.", correct: false },
+                {
+                    text: "Every polynomial equation of degree n has n roots.",
+                    correct: true,
+                },
+                {
+                    text: "The roots of a polynomial are complex.",
+                    correct: false,
+                },
                 { text: "All equations have real roots.", correct: false },
-                { text: "The sum of the roots is always zero.", correct: false },
+                {
+                    text: "The sum of the roots is always zero.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -10708,7 +12904,10 @@ export const sociologyData = {
             question: "What is a culture?",
             answers: [
                 { text: "A biological classification", correct: false },
-                { text: "Shared beliefs, values, and practices", correct: true },
+                {
+                    text: "Shared beliefs, values, and practices",
+                    correct: true,
+                },
                 { text: "A social institution", correct: false },
                 { text: "A type of government", correct: false },
             ],
@@ -10725,7 +12924,10 @@ export const sociologyData = {
         {
             question: "What is social stratification?",
             answers: [
-                { text: "The organization of society into hierarchical layers", correct: true },
+                {
+                    text: "The organization of society into hierarchical layers",
+                    correct: true,
+                },
                 { text: "The process of social change", correct: false },
                 { text: "The study of social networks", correct: false },
                 { text: "The analysis of social behavior", correct: false },
@@ -10752,7 +12954,10 @@ export const sociologyData = {
         {
             question: "What is the concept of 'groupthink'?",
             answers: [
-                { text: "A decision-making process where group members conform to a consensus", correct: true },
+                {
+                    text: "A decision-making process where group members conform to a consensus",
+                    correct: true,
+                },
                 { text: "The study of group behavior", correct: false },
                 { text: "A method of conflict resolution", correct: false },
                 { text: "A form of social control", correct: false },
@@ -10762,7 +12967,10 @@ export const sociologyData = {
             question: "What does the term 'social change' refer to?",
             answers: [
                 { text: "Changes in laws and policies", correct: false },
-                { text: "Alterations in social structures and relationships", correct: true },
+                {
+                    text: "Alterations in social structures and relationships",
+                    correct: true,
+                },
                 { text: "Changes in personal beliefs", correct: false },
                 { text: "Changes in economic systems", correct: false },
             ],
@@ -10799,10 +13007,22 @@ export const sociologyData = {
         {
             question: "What is the difference between 'race' and 'ethnicity'?",
             answers: [
-                { text: "Race is based on biological traits; ethnicity is based on cultural traits", correct: true },
-                { text: "Race is a social construct; ethnicity is not", correct: false },
-                { text: "Race refers to nationality; ethnicity refers to skin color", correct: false },
-                { text: "Race is unchangeable; ethnicity can change", correct: false },
+                {
+                    text: "Race is based on biological traits; ethnicity is based on cultural traits",
+                    correct: true,
+                },
+                {
+                    text: "Race is a social construct; ethnicity is not",
+                    correct: false,
+                },
+                {
+                    text: "Race refers to nationality; ethnicity refers to skin color",
+                    correct: false,
+                },
+                {
+                    text: "Race is unchangeable; ethnicity can change",
+                    correct: false,
+                },
             ],
         },
         {
@@ -10817,16 +13037,28 @@ export const sociologyData = {
         {
             question: "What does the term 'normative behavior' refer to?",
             answers: [
-                { text: "Behavior that is statistically average", correct: false },
-                { text: "Behavior that aligns with societal norms", correct: true },
+                {
+                    text: "Behavior that is statistically average",
+                    correct: false,
+                },
+                {
+                    text: "Behavior that aligns with societal norms",
+                    correct: true,
+                },
                 { text: "Behavior that is deviant", correct: false },
-                { text: "Behavior that is biologically determined", correct: false },
+                {
+                    text: "Behavior that is biologically determined",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'role conflict'?",
             answers: [
-                { text: "When an individual has multiple roles that conflict", correct: true },
+                {
+                    text: "When an individual has multiple roles that conflict",
+                    correct: true,
+                },
                 { text: "When a role is poorly defined", correct: false },
                 { text: "When roles change over time", correct: false },
                 { text: "When roles are socially constructed", correct: false },
@@ -10853,8 +13085,14 @@ export const sociologyData = {
         {
             question: "What is the significance of 'social capital'?",
             answers: [
-                { text: "The resources available to individuals through their social networks", correct: true },
-                { text: "The economic resources of a community", correct: false },
+                {
+                    text: "The resources available to individuals through their social networks",
+                    correct: true,
+                },
+                {
+                    text: "The economic resources of a community",
+                    correct: false,
+                },
                 { text: "The level of education in a society", correct: false },
                 { text: "The political power of individuals", correct: false },
             ],
@@ -10876,13 +13114,19 @@ export const sociologyData = {
                 { text: "It emphasizes gender inequality", correct: true },
                 { text: "It focuses solely on women's issues", correct: false },
                 { text: "It ignores intersectionality", correct: false },
-                { text: "It promotes traditional gender roles", correct: false },
+                {
+                    text: "It promotes traditional gender roles",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does the term 'socialization' refer to?",
             answers: [
-                { text: "The process of learning and internalizing norms", correct: true },
+                {
+                    text: "The process of learning and internalizing norms",
+                    correct: true,
+                },
                 { text: "The creation of social structures", correct: false },
                 { text: "The breakdown of social norms", correct: false },
                 { text: "The promotion of individualism", correct: false },
@@ -10894,7 +13138,10 @@ export const sociologyData = {
                 { text: "They provide emotional support", correct: true },
                 { text: "They are temporary groupings", correct: false },
                 { text: "They reinforce societal norms", correct: false },
-                { text: "They are focused on larger societal issues", correct: false },
+                {
+                    text: "They are focused on larger societal issues",
+                    correct: false,
+                },
             ],
         },
         {
@@ -10918,8 +13165,14 @@ export const sociologyData = {
         {
             question: "What does the term 'deviance' refer to?",
             answers: [
-                { text: "Behavior that aligns with social norms", correct: false },
-                { text: "Behavior that violates societal norms", correct: true },
+                {
+                    text: "Behavior that aligns with social norms",
+                    correct: false,
+                },
+                {
+                    text: "Behavior that violates societal norms",
+                    correct: true,
+                },
                 { text: "Behavior that is accepted", correct: false },
                 { text: "Behavior that is expected", correct: false },
             ],
@@ -10928,7 +13181,10 @@ export const sociologyData = {
             question: "What is the significance of social institutions?",
             answers: [
                 { text: "They create inequalities", correct: false },
-                { text: "They organize society and provide structure", correct: true },
+                {
+                    text: "They organize society and provide structure",
+                    correct: true,
+                },
                 { text: "They hinder social change", correct: false },
                 { text: "They focus on individual behavior", correct: false },
             ],
@@ -10946,7 +13202,10 @@ export const sociologyData = {
             question: "What is the concept of 'role strain'?",
             answers: [
                 { text: "Conflicts between different roles", correct: false },
-                { text: "Inability to meet the demands of a single role", correct: true },
+                {
+                    text: "Inability to meet the demands of a single role",
+                    correct: true,
+                },
                 { text: "Absence of roles in society", correct: false },
                 { text: "Disruption of social order", correct: false },
             ],
@@ -10956,8 +13215,14 @@ export const sociologyData = {
         {
             question: "What is the concept of 'cultural relativism'?",
             answers: [
-                { text: "The belief that one's culture is superior", correct: false },
-                { text: "The understanding that cultures must be understood in their own context", correct: true },
+                {
+                    text: "The belief that one's culture is superior",
+                    correct: false,
+                },
+                {
+                    text: "The understanding that cultures must be understood in their own context",
+                    correct: true,
+                },
                 { text: "The rejection of all cultures", correct: false },
                 { text: "The promotion of global cultures", correct: false },
             ],
@@ -10975,7 +13240,10 @@ export const sociologyData = {
             question: "What is the main focus of structural functionalism?",
             answers: [
                 { text: "Social conflict", correct: false },
-                { text: "The functions of each part of society", correct: true },
+                {
+                    text: "The functions of each part of society",
+                    correct: true,
+                },
                 { text: "Individual behavior", correct: false },
                 { text: "Social change", correct: false },
             ],
@@ -10984,7 +13252,10 @@ export const sociologyData = {
             question: "What does the term 'social construct' mean?",
             answers: [
                 { text: "Something that exists physically", correct: false },
-                { text: "An idea or concept created by society", correct: true },
+                {
+                    text: "An idea or concept created by society",
+                    correct: true,
+                },
                 { text: "A natural phenomenon", correct: false },
                 { text: "A law or policy", correct: false },
             ],
@@ -10993,7 +13264,10 @@ export const sociologyData = {
             question: "What does the term 'institutionalized discrimination' refer to?",
             answers: [
                 { text: "Discrimination that is illegal", correct: false },
-                { text: "Discrimination that is part of social structures", correct: true },
+                {
+                    text: "Discrimination that is part of social structures",
+                    correct: true,
+                },
                 { text: "Discrimination that is personal", correct: false },
                 { text: "Discrimination that is random", correct: false },
             ],
@@ -11002,7 +13276,10 @@ export const sociologyData = {
             question: "What is the significance of social networks?",
             answers: [
                 { text: "They limit social interactions", correct: false },
-                { text: "They facilitate connections and resource sharing", correct: true },
+                {
+                    text: "They facilitate connections and resource sharing",
+                    correct: true,
+                },
                 { text: "They promote isolation", correct: false },
                 { text: "They hinder relationships", correct: false },
             ],
@@ -11020,7 +13297,10 @@ export const sociologyData = {
             question: "What is the role of culture in shaping identity?",
             answers: [
                 { text: "It has no role", correct: false },
-                { text: "It shapes beliefs, values, and behaviors", correct: true },
+                {
+                    text: "It shapes beliefs, values, and behaviors",
+                    correct: true,
+                },
                 { text: "It only affects behavior", correct: false },
                 { text: "It is a minor influence", correct: false },
             ],
@@ -11029,7 +13309,10 @@ export const sociologyData = {
             question: "What is the primary focus of postmodern sociology?",
             answers: [
                 { text: "Social structures", correct: false },
-                { text: "Diversity of perspectives and experiences", correct: true },
+                {
+                    text: "Diversity of perspectives and experiences",
+                    correct: true,
+                },
                 { text: "Historical analysis", correct: false },
                 { text: "Norms and values", correct: false },
             ],
@@ -11037,7 +13320,10 @@ export const sociologyData = {
         {
             question: "What does the term 'social stratification' refer to?",
             answers: [
-                { text: "The hierarchical arrangement of individuals in society", correct: true },
+                {
+                    text: "The hierarchical arrangement of individuals in society",
+                    correct: true,
+                },
                 { text: "The study of social networks", correct: false },
                 { text: "The analysis of social behavior", correct: false },
                 { text: "The promotion of equality", correct: false },
@@ -11049,7 +13335,10 @@ export const sociologyData = {
             question: "What is the significance of 'critical theory' in sociology?",
             answers: [
                 { text: "It seeks to understand social norms", correct: false },
-                { text: "It aims to critique and change society", correct: true },
+                {
+                    text: "It aims to critique and change society",
+                    correct: true,
+                },
                 { text: "It promotes social stability", correct: false },
                 { text: "It ignores power dynamics", correct: false },
             ],
@@ -11058,7 +13347,10 @@ export const sociologyData = {
             question: "What is 'intersectionality' in sociology?",
             answers: [
                 { text: "The study of single identities", correct: false },
-                { text: "How various forms of identity overlap and interact", correct: true },
+                {
+                    text: "How various forms of identity overlap and interact",
+                    correct: true,
+                },
                 { text: "A concept used in biology", correct: false },
                 { text: "A technique for social research", correct: false },
             ],
@@ -11067,7 +13359,10 @@ export const sociologyData = {
             question: "What does the term 'cultural capital' refer to?",
             answers: [
                 { text: "Economic resources", correct: false },
-                { text: "Knowledge, skills, and education that promote social mobility", correct: true },
+                {
+                    text: "Knowledge, skills, and education that promote social mobility",
+                    correct: true,
+                },
                 { text: "Social status", correct: false },
                 { text: "Political power", correct: false },
             ],
@@ -11084,8 +13379,14 @@ export const sociologyData = {
         {
             question: "What is the concept of 'socialization'?",
             answers: [
-                { text: "The process of becoming an individual", correct: false },
-                { text: "The lifelong process of learning social norms and values", correct: true },
+                {
+                    text: "The process of becoming an individual",
+                    correct: false,
+                },
+                {
+                    text: "The lifelong process of learning social norms and values",
+                    correct: true,
+                },
                 { text: "The promotion of equality", correct: false },
                 { text: "The analysis of social structures", correct: false },
             ],
@@ -11093,7 +13394,10 @@ export const sociologyData = {
         {
             question: "What is the primary goal of sociological research?",
             answers: [
-                { text: "To describe and explain social phenomena", correct: true },
+                {
+                    text: "To describe and explain social phenomena",
+                    correct: true,
+                },
                 { text: "To promote social change", correct: false },
                 { text: "To validate existing theories", correct: false },
                 { text: "To study individual behavior", correct: false },
@@ -11112,7 +13416,10 @@ export const sociologyData = {
             question: "What does the term 'social exclusion' refer to?",
             answers: [
                 { text: "Inclusion in society", correct: false },
-                { text: "The process of being marginalized and denied access to resources", correct: true },
+                {
+                    text: "The process of being marginalized and denied access to resources",
+                    correct: true,
+                },
                 { text: "A concept of integration", correct: false },
                 { text: "The breakdown of social bonds", correct: false },
             ],
@@ -11121,7 +13428,10 @@ export const sociologyData = {
             question: "What is the role of rituals in society?",
             answers: [
                 { text: "To promote individuality", correct: false },
-                { text: "To reinforce social bonds and cultural values", correct: true },
+                {
+                    text: "To reinforce social bonds and cultural values",
+                    correct: true,
+                },
                 { text: "To create social hierarchy", correct: false },
                 { text: "To encourage competition", correct: false },
             ],
@@ -11130,7 +13440,10 @@ export const sociologyData = {
             question: "What does the term 'urban sociology' focus on?",
             answers: [
                 { text: "Rural communities", correct: false },
-                { text: "The study of social life in urban areas", correct: true },
+                {
+                    text: "The study of social life in urban areas",
+                    correct: true,
+                },
                 { text: "Globalization", correct: false },
                 { text: "Environmental sociology", correct: false },
             ],
@@ -11243,7 +13556,10 @@ export const warfareData = {
             question: "What does the term 'War of Attrition' refer to?",
             answers: [
                 { text: "A war based on guerrilla tactics", correct: false },
-                { text: "A war aimed at wearing down the enemy", correct: true },
+                {
+                    text: "A war aimed at wearing down the enemy",
+                    correct: true,
+                },
                 { text: "A type of psychological warfare", correct: false },
                 { text: "A naval blockade", correct: false },
             ],
@@ -11309,7 +13625,10 @@ export const warfareData = {
             answers: [
                 { text: "To recruit volunteers", correct: false },
                 { text: "To maintain a standing army", correct: false },
-                { text: "To conscript citizens for military service", correct: true },
+                {
+                    text: "To conscript citizens for military service",
+                    correct: true,
+                },
                 { text: "To train soldiers", correct: false },
             ],
         },
@@ -11334,7 +13653,10 @@ export const warfareData = {
         {
             question: "What does the term 'scorched earth' refer to?",
             answers: [
-                { text: "A military tactic that destroys anything useful", correct: true },
+                {
+                    text: "A military tactic that destroys anything useful",
+                    correct: true,
+                },
                 { text: "A type of weapon", correct: false },
                 { text: "A geographical region", correct: false },
                 { text: "A peace treaty", correct: false },
@@ -11344,7 +13666,10 @@ export const warfareData = {
             question: "What was the significance of the Battle of Stalingrad?",
             answers: [
                 { text: "It was a major German victory", correct: false },
-                { text: "It marked the turning point in the Eastern Front", correct: true },
+                {
+                    text: "It marked the turning point in the Eastern Front",
+                    correct: true,
+                },
                 { text: "It ended the war", correct: false },
                 { text: "It was a naval battle", correct: false },
             ],
@@ -11445,7 +13770,10 @@ export const warfareData = {
             question: "What was the goal of the Normandy invasion during WWII?",
             answers: [
                 { text: "To invade Italy", correct: false },
-                { text: "To liberate Western Europe from Nazi control", correct: true },
+                {
+                    text: "To liberate Western Europe from Nazi control",
+                    correct: true,
+                },
                 { text: "To defeat Japan", correct: false },
                 { text: "To establish a foothold in Africa", correct: false },
             ],
@@ -11510,7 +13838,10 @@ export const warfareData = {
             question: "What is the main objective of counterinsurgency operations?",
             answers: [
                 { text: "To defeat regular armies", correct: false },
-                { text: "To gain the support of the local population", correct: true },
+                {
+                    text: "To gain the support of the local population",
+                    correct: true,
+                },
                 { text: "To seize territory", correct: false },
                 { text: "To engage in conventional warfare", correct: false },
             ],
@@ -11528,7 +13859,10 @@ export const warfareData = {
             question: "What is the primary purpose of military logistics?",
             answers: [
                 { text: "To train soldiers", correct: false },
-                { text: "To provide supplies and support to forces", correct: true },
+                {
+                    text: "To provide supplies and support to forces",
+                    correct: true,
+                },
                 { text: "To engage in combat", correct: false },
                 { text: "To negotiate treaties", correct: false },
             ],
@@ -11548,7 +13882,10 @@ export const warfareData = {
                 { text: "Warfare between equal powers", correct: false },
                 { text: "Warfare involving unequal forces", correct: true },
                 { text: "Warfare focused on air superiority", correct: false },
-                { text: "Warfare without conventional battles", correct: false },
+                {
+                    text: "Warfare without conventional battles",
+                    correct: false,
+                },
             ],
         },
         {
@@ -11628,8 +13965,14 @@ export const warfareData = {
         {
             question: "What was the purpose of the Berlin Wall?",
             answers: [
-                { text: "To prevent East Germans from fleeing to the West", correct: true },
-                { text: "To divide Germany into East and West", correct: false },
+                {
+                    text: "To prevent East Germans from fleeing to the West",
+                    correct: true,
+                },
+                {
+                    text: "To divide Germany into East and West",
+                    correct: false,
+                },
                 { text: "To symbolize peace", correct: false },
                 { text: "To separate military zones", correct: false },
             ],
@@ -11727,6 +14070,6 @@ export const quizData = [
     { id: "sportsQuiz", data: sportsData },
 ];
 export function isQuizDataKey(key) {
-    return quizData.some(quiz => quiz.id === key);
+    return quizData.some((quiz) => quiz.id === key);
 }
 //# sourceMappingURL=quizData.js.map

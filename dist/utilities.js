@@ -89,7 +89,7 @@ export function initializePasswordPopover(passwordInput) {
     const popperInstance = Popper.createPopper(passwordInput, popover, {
         modifiers: [
             {
-                name: 'offset',
+                name: "offset",
                 options: {
                     offset: [0, 8],
                 },
@@ -97,15 +97,15 @@ export function initializePasswordPopover(passwordInput) {
         ],
     });
     // Show popover when password field is focused
-    passwordInput.addEventListener('focus', () => {
-        popover.classList.remove('invisible', 'opacity-0');
-        popover.classList.add('visible', 'opacity-100');
+    passwordInput.addEventListener("focus", () => {
+        popover.classList.remove("invisible", "opacity-0");
+        popover.classList.add("visible", "opacity-100");
         popperInstance.update();
     });
     // Hide popover when password field loses focus
-    passwordInput.addEventListener('blur', () => {
-        popover.classList.remove('visible', 'opacity-100');
-        popover.classList.add('invisible', 'opacity-0');
+    passwordInput.addEventListener("blur", () => {
+        popover.classList.remove("visible", "opacity-100");
+        popover.classList.add("invisible", "opacity-0");
     });
 }
 export function isValidPassword(password) {

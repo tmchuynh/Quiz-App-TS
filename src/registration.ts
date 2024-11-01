@@ -1,6 +1,11 @@
-import { hashPassword, removeAllSections, showError, initializePasswordPopover, isValidPassword } from "./utilities.js";
+import {
+    hashPassword,
+    removeAllSections,
+    showError,
+    initializePasswordPopover,
+    isValidPassword,
+} from "./utilities.js";
 import { User } from "./interfaces";
-
 
 // export function to create and append the registration form dynamically
 export function createRegisterSection(): void {
@@ -159,7 +164,9 @@ export function createRegisterSection(): void {
         field.addEventListener( "input", clearErrorStyles );
     } );
 
-    const passwordInput = document.getElementById( "registerPassword" ) as HTMLInputElement;
+    const passwordInput = document.getElementById(
+        "registerPassword"
+    ) as HTMLInputElement;
 
     // Initialize Popover
     initializePasswordPopover( passwordInput );
@@ -295,10 +302,7 @@ export async function validateRegistrationForm(): Promise<void> {
     const password = registerPassword.value.trim();
     const confirmPwd = confirmPassword.value.trim();
     if ( !isValidPassword( password ) ) {
-        showError(
-            "Password does not meet all requirements.",
-            registerPassword
-        );
+        showError( "Password does not meet all requirements.", registerPassword );
         return;
     }
 
@@ -325,11 +329,10 @@ export async function validateRegistrationForm(): Promise<void> {
     await registerUser( fields );
 }
 
-
 export function toTitleCase( str: string ): string {
     return str.replace(
         /\w\S*/g,
-        text => text.charAt( 0 ).toUpperCase() + text.substring( 1 ).toLowerCase()
+        ( text ) => text.charAt( 0 ).toUpperCase() + text.substring( 1 ).toLowerCase()
     );
 }
 
@@ -337,7 +340,6 @@ export function toTitleCase( str: string ): string {
 export function generateUniqueId(): string {
     return getRandomLetter() + getRandomLetter() + "_" + uuidv4();
 }
-
 
 // Generates a random uppercase letter from the English alphabet.
 export function getRandomLetter(): string {
@@ -393,8 +395,9 @@ export async function registerUser(
     loginSection.style.display = "block"; // Go to login after registration
 }
 
-
-export function resetErrorStyles( fields: { element: HTMLInputElement; }[] ): void {
+export function resetErrorStyles(
+    fields: { element: HTMLInputElement; }[]
+): void {
     fields.forEach( ( field ) => {
         field.element.classList.remove( "text-md" );
         field.element.classList.remove( "text-red-600" );
@@ -405,7 +408,6 @@ export function resetErrorStyles( fields: { element: HTMLInputElement; }[] ): vo
 export function isUsernameTaken( username: string, users: User[] ): boolean {
     return users.some( ( user ) => user.username === username );
 }
-
 
 export function isEmailTaken( email: string, users: User[] ): boolean {
     return users.some( ( user ) => user.email === email );
@@ -462,5 +464,3 @@ export function updateRequirementItem( itemId: string, isValid: boolean ): void 
         }
     }
 }
-
-

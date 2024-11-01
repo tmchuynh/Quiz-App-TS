@@ -6,10 +6,22 @@ export const quizOptions: QuizOption[] = [
     { id: "artQuiz", label: "Art Quiz", category: "humanities" },
     { id: "biologyQuiz", label: "Biology Quiz", category: "sciences" },
     { id: "chemistryQuiz", label: "Chemistry Quiz", category: "sciences" },
-    { id: "computerScienceQuiz", label: "Computer Science Quiz", category: "technology" },
-    { id: "economicsQuiz", label: "Economics Quiz", category: "social-studies" },
+    {
+        id: "computerScienceQuiz",
+        label: "Computer Science Quiz",
+        category: "technology",
+    },
+    {
+        id: "economicsQuiz",
+        label: "Economics Quiz",
+        category: "social-studies",
+    },
     { id: "englishQuiz", label: "English Quiz", category: "humanities" },
-    { id: "engineeringQuiz", label: "Engineering Quiz", category: "technology" },
+    {
+        id: "engineeringQuiz",
+        label: "Engineering Quiz",
+        category: "technology",
+    },
     { id: "financeQuiz", label: "Finance Quiz", category: "social-studies" },
     { id: "geographyQuiz", label: "Geography Quiz", category: "humanities" },
     { id: "healthCareQuiz", label: "Health Care Quiz", category: "sciences" },
@@ -20,10 +32,22 @@ export const quizOptions: QuizOption[] = [
     { id: "philosophyQuiz", label: "Philosophy Quiz", category: "humanities" },
     { id: "physicsQuiz", label: "Physics Quiz", category: "sciences" },
     { id: "politicsQuiz", label: "Politics Quiz", category: "social-studies" },
-    { id: "realEstateQuiz", label: "Real Estate Quiz", category: "social-studies" },
+    {
+        id: "realEstateQuiz",
+        label: "Real Estate Quiz",
+        category: "social-studies",
+    },
     { id: "psychologyQuiz", label: "Psychology Quiz", category: "sciences" },
-    { id: "socialStudiesQuiz", label: "Social Studies Quiz", category: "humanities" },
-    { id: "sociologyQuiz", label: "Sociology Quiz", category: "social-studies" },
+    {
+        id: "socialStudiesQuiz",
+        label: "Social Studies Quiz",
+        category: "humanities",
+    },
+    {
+        id: "sociologyQuiz",
+        label: "Sociology Quiz",
+        category: "social-studies",
+    },
     { id: "sportsQuiz", label: "Sports Quiz", category: "entertainment" },
     { id: "warfareQuiz", label: "Warfare Quiz", category: "humanities" },
 ];
@@ -95,7 +119,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which marine animal is known for its intelligence and playful behavior?",
+            question:
+                "Which marine animal is known for its intelligence and playful behavior?",
             answers: [
                 { text: "Dolphin", correct: true },
                 { text: "Whale", correct: false },
@@ -113,7 +138,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which reptile is known for its ability to change colors?",
+            question:
+                "Which reptile is known for its ability to change colors?",
             answers: [
                 { text: "Chameleon", correct: true },
                 { text: "Crocodile", correct: false },
@@ -243,7 +269,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is known for having black and white stripes?",
+            question:
+                "Which animal is known for having black and white stripes?",
             answers: [
                 { text: "Zebra", correct: true },
                 { text: "Tiger", correct: false },
@@ -317,7 +344,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which mammal is known to have the highest blood pressure?",
+            question:
+                "Which mammal is known to have the highest blood pressure?",
             answers: [
                 { text: "Giraffe", correct: true },
                 { text: "Elephant", correct: false },
@@ -335,7 +363,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is known for its ability to regenerate lost body parts?",
+            question:
+                "Which animal is known for its ability to regenerate lost body parts?",
             answers: [
                 { text: "Starfish", correct: true },
                 { text: "Lizard", correct: false },
@@ -371,7 +400,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is known for its incredible camouflage abilities?",
+            question:
+                "Which animal is known for its incredible camouflage abilities?",
             answers: [
                 { text: "Chameleon", correct: true },
                 { text: "Elephant", correct: false },
@@ -400,7 +430,8 @@ export const animalData: Quiz = {
     ],
     5: [
         {
-            question: "Which animal is known for its ability to hold its breath the longest?",
+            question:
+                "Which animal is known for its ability to hold its breath the longest?",
             answers: [
                 { text: "Elephant Seal", correct: true },
                 { text: "Dolphin", correct: false },
@@ -454,7 +485,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is known for its ability to regenerate lost body parts?",
+            question:
+                "Which animal is known for its ability to regenerate lost body parts?",
             answers: [
                 { text: "Starfish", correct: true },
                 { text: "Lizard", correct: false },
@@ -472,7 +504,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is known for its distinctive black and white stripes?",
+            question:
+                "Which animal is known for its distinctive black and white stripes?",
             answers: [
                 { text: "Zebra", correct: true },
                 { text: "Tiger", correct: false },
@@ -481,7 +514,8 @@ export const animalData: Quiz = {
             ],
         },
         {
-            question: "Which animal is capable of regenerating its entire body from just a small piece?",
+            question:
+                "Which animal is capable of regenerating its entire body from just a small piece?",
             answers: [
                 { text: "Starfish", correct: true },
                 { text: "Axolotl", correct: false },
@@ -523,7 +557,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for being detail-oriented and analytical?",
+            question:
+                "Which zodiac sign is known for being detail-oriented and analytical?",
             answers: [
                 { text: "Scorpio", correct: false },
                 { text: "Virgo", correct: true },
@@ -559,7 +594,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its strong sense of justice and leadership?",
+            question:
+                "Which zodiac sign is known for its strong sense of justice and leadership?",
             answers: [
                 { text: "Aries", correct: false },
                 { text: "Libra", correct: true },
@@ -588,7 +624,8 @@ export const astrologyData: Quiz = {
     ],
     2: [
         {
-            question: "Which element is associated with Aries, Leo, and Sagittarius?",
+            question:
+                "Which element is associated with Aries, Leo, and Sagittarius?",
             answers: [
                 { text: "Fire", correct: true },
                 { text: "Earth", correct: false },
@@ -597,7 +634,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which element do Taurus, Virgo, and Capricorn belong to?",
+            question:
+                "Which element do Taurus, Virgo, and Capricorn belong to?",
             answers: [
                 { text: "Fire", correct: false },
                 { text: "Earth", correct: true },
@@ -615,7 +653,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which element is associated with Cancer, Scorpio, and Pisces?",
+            question:
+                "Which element is associated with Cancer, Scorpio, and Pisces?",
             answers: [
                 { text: "Fire", correct: false },
                 { text: "Earth", correct: false },
@@ -624,7 +663,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign does not belong to any of the four elements?",
+            question:
+                "Which zodiac sign does not belong to any of the four elements?",
             answers: [
                 { text: "None, all signs belong to an element", correct: true },
                 { text: "Libra", correct: false },
@@ -633,7 +673,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "What element is associated with adaptability and communication?",
+            question:
+                "What element is associated with adaptability and communication?",
             answers: [
                 { text: "Fire", correct: false },
                 { text: "Earth", correct: false },
@@ -669,7 +710,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which element corresponds to intellect and social interaction?",
+            question:
+                "Which element corresponds to intellect and social interaction?",
             answers: [
                 { text: "Fire", correct: false },
                 { text: "Earth", correct: false },
@@ -689,7 +731,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which planet is associated with communication and intellect?",
+            question:
+                "Which planet is associated with communication and intellect?",
             answers: [
                 { text: "Venus", correct: false },
                 { text: "Mercury", correct: true },
@@ -734,7 +777,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which planet is associated with transformation and rebirth?",
+            question:
+                "Which planet is associated with transformation and rebirth?",
             answers: [
                 { text: "Pluto", correct: true },
                 { text: "Neptune", correct: false },
@@ -752,7 +796,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which planet is known as the planet of expansion and luck?",
+            question:
+                "Which planet is known as the planet of expansion and luck?",
             answers: [
                 { text: "Jupiter", correct: true },
                 { text: "Saturn", correct: false },
@@ -761,7 +806,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which planet influences discipline and responsibility in astrology?",
+            question:
+                "Which planet influences discipline and responsibility in astrology?",
             answers: [
                 { text: "Saturn", correct: true },
                 { text: "Venus", correct: false },
@@ -781,7 +827,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its diplomatic nature and desire for harmony?",
+            question:
+                "Which zodiac sign is known for its diplomatic nature and desire for harmony?",
             answers: [
                 { text: "Libra", correct: true },
                 { text: "Aries", correct: false },
@@ -790,7 +837,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is often considered the most adventurous?",
+            question:
+                "Which zodiac sign is often considered the most adventurous?",
             answers: [
                 { text: "Sagittarius", correct: true },
                 { text: "Taurus", correct: false },
@@ -808,7 +856,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its emotional depth and intuition?",
+            question:
+                "Which zodiac sign is known for its emotional depth and intuition?",
             answers: [
                 { text: "Pisces", correct: true },
                 { text: "Gemini", correct: false },
@@ -817,7 +866,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is associated with practicality and reliability?",
+            question:
+                "Which zodiac sign is associated with practicality and reliability?",
             answers: [
                 { text: "Virgo", correct: false },
                 { text: "Taurus", correct: true },
@@ -835,7 +885,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its strong leadership qualities?",
+            question:
+                "Which zodiac sign is known for its strong leadership qualities?",
             answers: [
                 { text: "Leo", correct: true },
                 { text: "Cancer", correct: false },
@@ -853,7 +904,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its transformative nature?",
+            question:
+                "Which zodiac sign is known for its transformative nature?",
             answers: [
                 { text: "Scorpio", correct: true },
                 { text: "Taurus", correct: false },
@@ -884,10 +936,19 @@ export const astrologyData: Quiz = {
         {
             question: "What is a natal chart?",
             answers: [
-                { text: "A chart showing current planetary positions", correct: false },
-                { text: "A horoscope based on your birth time and location", correct: true },
+                {
+                    text: "A chart showing current planetary positions",
+                    correct: false,
+                },
+                {
+                    text: "A horoscope based on your birth time and location",
+                    correct: true,
+                },
                 { text: "A chart of future predictions", correct: false },
-                { text: "A compatibility chart with another person", correct: false },
+                {
+                    text: "A compatibility chart with another person",
+                    correct: false,
+                },
             ],
         },
         {
@@ -902,14 +963,18 @@ export const astrologyData: Quiz = {
         {
             question: "What does retrograde motion signify in astrology?",
             answers: [
-                { text: "A planet moving forward in its orbit", correct: false },
+                {
+                    text: "A planet moving forward in its orbit",
+                    correct: false,
+                },
                 { text: "A planet appearing to move backward", correct: true },
                 { text: "A planet entering a new house", correct: false },
                 { text: "A planet increasing in speed", correct: false },
             ],
         },
         {
-            question: "Which zodiac sign is associated with the element of Water?",
+            question:
+                "Which zodiac sign is associated with the element of Water?",
             answers: [
                 { text: "Leo", correct: false },
                 { text: "Cancer", correct: true },
@@ -921,13 +986,23 @@ export const astrologyData: Quiz = {
             question: "What is synastry in astrology?",
             answers: [
                 { text: "The study of planetary retrogrades", correct: false },
-                { text: "Comparing two natal charts for compatibility", correct: true },
-                { text: "Predicting future events based on stars", correct: false },
-                { text: "Analyzing career prospects through astrology", correct: false },
+                {
+                    text: "Comparing two natal charts for compatibility",
+                    correct: true,
+                },
+                {
+                    text: "Predicting future events based on stars",
+                    correct: false,
+                },
+                {
+                    text: "Analyzing career prospects through astrology",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which planet is associated with love and beauty in astrology?",
+            question:
+                "Which planet is associated with love and beauty in astrology?",
             answers: [
                 { text: "Mars", correct: false },
                 { text: "Venus", correct: true },
@@ -945,7 +1020,8 @@ export const astrologyData: Quiz = {
             ],
         },
         {
-            question: "Which zodiac sign is known for its intellectual and innovative nature?",
+            question:
+                "Which zodiac sign is known for its intellectual and innovative nature?",
             answers: [
                 { text: "Aquarius", correct: true },
                 { text: "Cancer", correct: false },
@@ -969,7 +1045,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the primary medium used in Renaissance painting?",
+            question:
+                "What is the primary medium used in Renaissance painting?",
             answers: [
                 { text: "Oil paint", correct: true },
                 { text: "Watercolor", correct: false },
@@ -996,7 +1073,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the technique of painting on wet plaster called?",
+            question:
+                "What is the technique of painting on wet plaster called?",
             answers: [
                 { text: "Fresco", correct: true },
                 { text: "Tempera", correct: false },
@@ -1005,7 +1083,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which art movement focuses on spontaneous, automatic, or subconscious creation?",
+            question:
+                "Which art movement focuses on spontaneous, automatic, or subconscious creation?",
             answers: [
                 { text: "Abstract Expressionism", correct: false },
                 { text: "Surrealism", correct: true },
@@ -1023,7 +1102,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a painting executed entirely by dripping or splattering paint?",
+            question:
+                "What is the term for a painting executed entirely by dripping or splattering paint?",
             answers: [
                 { text: "Pointillism", correct: false },
                 { text: "Action Painting", correct: true },
@@ -1041,7 +1121,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the art of creating three-dimensional works by carving or modeling materials?",
+            question:
+                "What is the art of creating three-dimensional works by carving or modeling materials?",
             answers: [
                 { text: "Painting", correct: false },
                 { text: "Sculpture", correct: true },
@@ -1052,7 +1133,8 @@ export const artData: Quiz = {
     ],
     2: [
         {
-            question: "Which art movement is characterized by an emphasis on light and its changing qualities?",
+            question:
+                "Which art movement is characterized by an emphasis on light and its changing qualities?",
             answers: [
                 { text: "Impressionism", correct: true },
                 { text: "Cubism", correct: false },
@@ -1088,7 +1170,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What art technique involves using small dots of color to create an image?",
+            question:
+                "What art technique involves using small dots of color to create an image?",
             answers: [
                 { text: "Pointillism", correct: true },
                 { text: "Fresco", correct: false },
@@ -1106,7 +1189,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which art movement sought to capture the essence of modern life and urban environments?",
+            question:
+                "Which art movement sought to capture the essence of modern life and urban environments?",
             answers: [
                 { text: "Impressionism", correct: false },
                 { text: "Realism", correct: true },
@@ -1115,7 +1199,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the term for artworks created by assembling different forms or materials?",
+            question:
+                "What is the term for artworks created by assembling different forms or materials?",
             answers: [
                 { text: "Assemblage", correct: true },
                 { text: "Mosaic", correct: false },
@@ -1124,7 +1209,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which artist is famous for the painting 'The Persistence of Memory'?",
+            question:
+                "Which artist is famous for the painting 'The Persistence of Memory'?",
             answers: [
                 { text: "Salvador Dalí", correct: true },
                 { text: "Pablo Picasso", correct: false },
@@ -1153,7 +1239,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the technique of applying thick layers of paint called?",
+            question:
+                "What is the technique of applying thick layers of paint called?",
             answers: [
                 { text: "Glazing", correct: false },
                 { text: "Impasto", correct: true },
@@ -1162,7 +1249,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which artist is famous for the painting 'Girl with a Pearl Earring'?",
+            question:
+                "Which artist is famous for the painting 'Girl with a Pearl Earring'?",
             answers: [
                 { text: "Johannes Vermeer", correct: true },
                 { text: "Rembrandt", correct: false },
@@ -1180,7 +1268,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which art form uses light and color to create visual effects?",
+            question:
+                "Which art form uses light and color to create visual effects?",
             answers: [
                 { text: "Sculpture", correct: false },
                 { text: "Photography", correct: true },
@@ -1198,10 +1287,14 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the primary characteristic of Impressionist art?",
+            question:
+                "What is the primary characteristic of Impressionist art?",
             answers: [
                 { text: "Sharp lines and geometric shapes", correct: false },
-                { text: "Emphasis on light and its changing qualities", correct: true },
+                {
+                    text: "Emphasis on light and its changing qualities",
+                    correct: true,
+                },
                 { text: "Use of dark, muted colors", correct: false },
                 { text: "Depiction of mythical subjects", correct: false },
             ],
@@ -1216,7 +1309,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the art technique of layering colors to create depth called?",
+            question:
+                "What is the art technique of layering colors to create depth called?",
             answers: [
                 { text: "Glazing", correct: true },
                 { text: "Impasto", correct: false },
@@ -1254,7 +1348,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which artist is famous for the work 'The Persistence of Memory'?",
+            question:
+                "Which artist is famous for the work 'The Persistence of Memory'?",
             answers: [
                 { text: "Salvador Dalí", correct: true },
                 { text: "Pablo Picasso", correct: false },
@@ -1272,7 +1367,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which art movement emphasizes the emotional and psychological expression?",
+            question:
+                "Which art movement emphasizes the emotional and psychological expression?",
             answers: [
                 { text: "Impressionism", correct: false },
                 { text: "Expressionism", correct: true },
@@ -1290,7 +1386,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the technique of painting on dry plaster called?",
+            question:
+                "What is the technique of painting on dry plaster called?",
             answers: [
                 { text: "Fresco", correct: false },
                 { text: "Secco", correct: true },
@@ -1317,7 +1414,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which artist is known for the installation art piece 'The Weather Project'?",
+            question:
+                "Which artist is known for the installation art piece 'The Weather Project'?",
             answers: [
                 { text: "Damien Hirst", correct: false },
                 { text: "Olafur Eliasson", correct: true },
@@ -1328,7 +1426,8 @@ export const artData: Quiz = {
     ],
     5: [
         {
-            question: "Which art movement is characterized by the use of vivid colors and bold brushwork?",
+            question:
+                "Which art movement is characterized by the use of vivid colors and bold brushwork?",
             answers: [
                 { text: "Fauvism", correct: true },
                 { text: "Surrealism", correct: false },
@@ -1337,7 +1436,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the technique of blending colors seamlessly called?",
+            question:
+                "What is the technique of blending colors seamlessly called?",
             answers: [
                 { text: "Glazing", correct: false },
                 { text: "Sfumato", correct: true },
@@ -1355,7 +1455,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the name of the art technique that involves creating images using small, distinct dots?",
+            question:
+                "What is the name of the art technique that involves creating images using small, distinct dots?",
             answers: [
                 { text: "Pointillism", correct: true },
                 { text: "Fresco", correct: false },
@@ -1382,7 +1483,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which artist is known for the painting 'The Last Supper'?",
+            question:
+                "Which artist is known for the painting 'The Last Supper'?",
             answers: [
                 { text: "Leonardo da Vinci", correct: true },
                 { text: "Michelangelo", correct: false },
@@ -1391,7 +1493,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the term for art created by arranging materials into a cohesive whole?",
+            question:
+                "What is the term for art created by arranging materials into a cohesive whole?",
             answers: [
                 { text: "Assemblage", correct: true },
                 { text: "Mosaic", correct: false },
@@ -1400,7 +1503,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "Which art movement is associated with Salvador Dalí and René Magritte?",
+            question:
+                "Which art movement is associated with Salvador Dalí and René Magritte?",
             answers: [
                 { text: "Cubism", correct: false },
                 { text: "Surrealism", correct: true },
@@ -1409,7 +1513,8 @@ export const artData: Quiz = {
             ],
         },
         {
-            question: "What is the technique of applying paint thickly so that it stands out from the surface called?",
+            question:
+                "What is the technique of applying paint thickly so that it stands out from the surface called?",
             answers: [
                 { text: "Glazing", correct: false },
                 { text: "Impasto", correct: true },
@@ -1442,7 +1547,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What process do plants use to convert sunlight into chemical energy?",
+            question:
+                "What process do plants use to convert sunlight into chemical energy?",
             answers: [
                 { text: "Photosynthesis", correct: true },
                 { text: "Respiration", correct: false },
@@ -1460,7 +1566,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which cells divide into two identical daughter cells?",
+            question:
+                "What is the process by which cells divide into two identical daughter cells?",
             answers: [
                 { text: "Mitosis", correct: true },
                 { text: "Meiosis", correct: false },
@@ -1469,7 +1576,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which blood cells are responsible for fighting infections?",
+            question:
+                "Which blood cells are responsible for fighting infections?",
             answers: [
                 { text: "White blood cells", correct: true },
                 { text: "Red blood cells", correct: false },
@@ -1487,7 +1595,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which part of the brain controls balance and coordination?",
+            question:
+                "Which part of the brain controls balance and coordination?",
             answers: [
                 { text: "Cerebellum", correct: true },
                 { text: "Cerebrum", correct: false },
@@ -1496,7 +1605,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What term describes the variety of life in the world or a particular ecosystem?",
+            question:
+                "What term describes the variety of life in the world or a particular ecosystem?",
             answers: [
                 { text: "Biodiversity", correct: true },
                 { text: "Ecology", correct: false },
@@ -1525,7 +1635,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which biomolecule is primarily used for long-term energy storage?",
+            question:
+                "Which biomolecule is primarily used for long-term energy storage?",
             answers: [
                 { text: "Lipids", correct: true },
                 { text: "Proteins", correct: false },
@@ -1543,7 +1654,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which kingdom includes multicellular, photosynthetic organisms?",
+            question:
+                "Which kingdom includes multicellular, photosynthetic organisms?",
             answers: [
                 { text: "Plantae", correct: true },
                 { text: "Fungi", correct: false },
@@ -1552,7 +1664,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the main structural component of plant cell walls?",
+            question:
+                "What is the main structural component of plant cell walls?",
             answers: [
                 { text: "Cellulose", correct: true },
                 { text: "Chitin", correct: false },
@@ -1561,7 +1674,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which process describes the movement of water across a semipermeable membrane?",
+            question:
+                "Which process describes the movement of water across a semipermeable membrane?",
             answers: [
                 { text: "Osmosis", correct: true },
                 { text: "Diffusion", correct: false },
@@ -1588,7 +1702,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which hormone regulates blood sugar levels by lowering them?",
+            question:
+                "Which hormone regulates blood sugar levels by lowering them?",
             answers: [
                 { text: "Insulin", correct: true },
                 { text: "Glucagon", correct: false },
@@ -1608,7 +1723,8 @@ export const biologyData: Quiz = {
     ],
     3: [
         {
-            question: "What is the study of heredity and the variation of inherited characteristics?",
+            question:
+                "What is the study of heredity and the variation of inherited characteristics?",
             answers: [
                 { text: "Genetics", correct: true },
                 { text: "Ecology", correct: false },
@@ -1617,7 +1733,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which process describes the production of RNA from a DNA template?",
+            question:
+                "Which process describes the production of RNA from a DNA template?",
             answers: [
                 { text: "Transcription", correct: true },
                 { text: "Translation", correct: false },
@@ -1626,7 +1743,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a trait that masks the presence of another trait in genetics?",
+            question:
+                "What is the term for a trait that masks the presence of another trait in genetics?",
             answers: [
                 { text: "Dominant", correct: true },
                 { text: "Recessive", correct: false },
@@ -1653,7 +1771,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which part of the cell cycle is characterized by cell growth and DNA replication?",
+            question:
+                "Which part of the cell cycle is characterized by cell growth and DNA replication?",
             answers: [
                 { text: "Interphase", correct: true },
                 { text: "Prophase", correct: false },
@@ -1662,7 +1781,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which gas is produced as a waste product during photosynthesis?",
+            question:
+                "Which gas is produced as a waste product during photosynthesis?",
             answers: [
                 { text: "Oxygen", correct: true },
                 { text: "Carbon dioxide", correct: false },
@@ -1671,7 +1791,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the name of the process by which organisms maintain a stable internal environment?",
+            question:
+                "What is the name of the process by which organisms maintain a stable internal environment?",
             answers: [
                 { text: "Homeostasis", correct: true },
                 { text: "Metabolism", correct: false },
@@ -1689,7 +1810,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which vitamin is produced when the skin is exposed to sunlight?",
+            question:
+                "Which vitamin is produced when the skin is exposed to sunlight?",
             answers: [
                 { text: "Vitamin D", correct: true },
                 { text: "Vitamin A", correct: false },
@@ -1727,7 +1849,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which type of cell division results in four non-identical daughter cells?",
+            question:
+                "Which type of cell division results in four non-identical daughter cells?",
             answers: [
                 { text: "Meiosis", correct: true },
                 { text: "Mitosis", correct: false },
@@ -1745,7 +1868,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which molecule is responsible for storing and transmitting genetic information?",
+            question:
+                "Which molecule is responsible for storing and transmitting genetic information?",
             answers: [
                 { text: "DNA", correct: true },
                 { text: "RNA", correct: false },
@@ -1781,7 +1905,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which process involves the uptake of water by plant roots?",
+            question:
+                "Which process involves the uptake of water by plant roots?",
             answers: [
                 { text: "Transpiration", correct: false },
                 { text: "Osmosis", correct: true },
@@ -1801,7 +1926,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which molecule is the primary carrier of genetic information?",
+            question:
+                "Which molecule is the primary carrier of genetic information?",
             answers: [
                 { text: "DNA", correct: true },
                 { text: "RNA", correct: false },
@@ -1819,7 +1945,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which type of blood vessel carries blood away from the heart?",
+            question:
+                "Which type of blood vessel carries blood away from the heart?",
             answers: [
                 { text: "Arteries", correct: true },
                 { text: "Veins", correct: false },
@@ -1828,7 +1955,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the powerhouse of the cell responsible for energy production?",
+            question:
+                "What is the powerhouse of the cell responsible for energy production?",
             answers: [
                 { text: "Mitochondria", correct: true },
                 { text: "Nucleus", correct: false },
@@ -1837,7 +1965,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which process describes the movement of molecules from an area of higher concentration to lower concentration?",
+            question:
+                "Which process describes the movement of molecules from an area of higher concentration to lower concentration?",
             answers: [
                 { text: "Diffusion", correct: true },
                 { text: "Active transport", correct: false },
@@ -1855,7 +1984,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which hormone is primarily responsible for regulating metabolism?",
+            question:
+                "Which hormone is primarily responsible for regulating metabolism?",
             answers: [
                 { text: "Thyroxine", correct: true },
                 { text: "Insulin", correct: false },
@@ -1864,7 +1994,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which plants lose water vapor through their leaves?",
+            question:
+                "What is the process by which plants lose water vapor through their leaves?",
             answers: [
                 { text: "Transpiration", correct: true },
                 { text: "Photosynthesis", correct: false },
@@ -1873,7 +2004,8 @@ export const biologyData: Quiz = {
             ],
         },
         {
-            question: "Which part of the neuron receives signals from other neurons?",
+            question:
+                "Which part of the neuron receives signals from other neurons?",
             answers: [
                 { text: "Dendrites", correct: true },
                 { text: "Axon", correct: false },
@@ -1897,7 +2029,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which language is primarily used for web development alongside HTML and CSS?",
+            question:
+                "Which language is primarily used for web development alongside HTML and CSS?",
             answers: [
                 { text: "JavaScript", correct: true },
                 { text: "Python", correct: false },
@@ -1915,7 +2048,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which data structure uses FIFO (First In, First Out) methodology?",
+            question:
+                "Which data structure uses FIFO (First In, First Out) methodology?",
             answers: [
                 { text: "Queue", correct: true },
                 { text: "Stack", correct: false },
@@ -1924,7 +2058,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "What is the time complexity of binary search in a sorted array?",
+            question:
+                "What is the time complexity of binary search in a sorted array?",
             answers: [
                 { text: "O(log n)", correct: true },
                 { text: "O(n)", correct: false },
@@ -1933,7 +2068,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which protocol is used for secure communication over a computer network?",
+            question:
+                "Which protocol is used for secure communication over a computer network?",
             answers: [
                 { text: "HTTPS", correct: true },
                 { text: "HTTP", correct: false },
@@ -1962,14 +2098,21 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the main function of an operating system?",
             answers: [
-                { text: "Manage computer hardware and software resources", correct: true },
-                { text: "Compile code into executable programs", correct: false },
+                {
+                    text: "Manage computer hardware and software resources",
+                    correct: true,
+                },
+                {
+                    text: "Compile code into executable programs",
+                    correct: false,
+                },
                 { text: "Provide antivirus protection", correct: false },
                 { text: "Edit text documents", correct: false },
             ],
         },
         {
-            question: "Which sorting algorithm has the best average-case time complexity?",
+            question:
+                "Which sorting algorithm has the best average-case time complexity?",
             answers: [
                 { text: "Merge Sort", correct: true },
                 { text: "Bubble Sort", correct: false },
@@ -1982,14 +2125,18 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the primary purpose of DNS in networking?",
             answers: [
-                { text: "Translate domain names to IP addresses", correct: true },
+                {
+                    text: "Translate domain names to IP addresses",
+                    correct: true,
+                },
                 { text: "Secure network communications", correct: false },
                 { text: "Route data packets", correct: false },
                 { text: "Provide network storage", correct: false },
             ],
         },
         {
-            question: "Which of the following is a compiled programming language?",
+            question:
+                "Which of the following is a compiled programming language?",
             answers: [
                 { text: "C++", correct: true },
                 { text: "Python", correct: false },
@@ -2000,7 +2147,10 @@ export const computerScienceData: Quiz = {
         {
             question: "What is an algorithm?",
             answers: [
-                { text: "A step-by-step procedure for solving a problem", correct: true },
+                {
+                    text: "A step-by-step procedure for solving a problem",
+                    correct: true,
+                },
                 { text: "A type of software", correct: false },
                 { text: "A programming language", correct: false },
                 { text: "A computer hardware component", correct: false },
@@ -2034,7 +2184,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which data structure uses LIFO (Last In, First Out) methodology?",
+            question:
+                "Which data structure uses LIFO (Last In, First Out) methodology?",
             answers: [
                 { text: "Stack", correct: true },
                 { text: "Queue", correct: false },
@@ -2052,7 +2203,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which principle is NOT part of the SOLID principles in software engineering?",
+            question:
+                "Which principle is NOT part of the SOLID principles in software engineering?",
             answers: [
                 { text: "Open/Closed Principle", correct: false },
                 { text: "Single Responsibility Principle", correct: false },
@@ -2063,9 +2215,15 @@ export const computerScienceData: Quiz = {
         {
             question: "What is Big O notation used for?",
             answers: [
-                { text: "Describing the performance of an algorithm", correct: true },
+                {
+                    text: "Describing the performance of an algorithm",
+                    correct: true,
+                },
                 { text: "Measuring disk storage capacity", correct: false },
-                { text: "Defining programming language syntax", correct: false },
+                {
+                    text: "Defining programming language syntax",
+                    correct: false,
+                },
                 { text: "Optimizing network throughput", correct: false },
             ],
         },
@@ -2074,14 +2232,27 @@ export const computerScienceData: Quiz = {
         {
             question: "What is polymorphism in Object-Oriented Programming?",
             answers: [
-                { text: "Ability of different objects to respond to the same function call in different ways", correct: true },
-                { text: "Process of hiding internal states of objects", correct: false },
-                { text: "Mechanism of bundling data with methods", correct: false },
-                { text: "Creating new classes from existing ones", correct: false },
+                {
+                    text: "Ability of different objects to respond to the same function call in different ways",
+                    correct: true,
+                },
+                {
+                    text: "Process of hiding internal states of objects",
+                    correct: false,
+                },
+                {
+                    text: "Mechanism of bundling data with methods",
+                    correct: false,
+                },
+                {
+                    text: "Creating new classes from existing ones",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which design pattern ensures a class has only one instance and provides a global point of access to it?",
+            question:
+                "Which design pattern ensures a class has only one instance and provides a global point of access to it?",
             answers: [
                 { text: "Singleton", correct: true },
                 { text: "Factory", correct: false },
@@ -2090,16 +2261,21 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "What is the primary purpose of a version control system?",
+            question:
+                "What is the primary purpose of a version control system?",
             answers: [
-                { text: "To manage changes to source code over time", correct: true },
+                {
+                    text: "To manage changes to source code over time",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To deploy applications to servers", correct: false },
                 { text: "To design software architectures", correct: false },
             ],
         },
         {
-            question: "Which of the following is a client-side scripting language?",
+            question:
+                "Which of the following is a client-side scripting language?",
             answers: [
                 { text: "PHP", correct: false },
                 { text: "JavaScript", correct: true },
@@ -2117,7 +2293,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which HTTP method is used to retrieve data from a server?",
+            question:
+                "Which HTTP method is used to retrieve data from a server?",
             answers: [
                 { text: "POST", correct: false },
                 { text: "GET", correct: true },
@@ -2128,10 +2305,22 @@ export const computerScienceData: Quiz = {
         {
             question: "In databases, what does 'ACID' stand for?",
             answers: [
-                { text: "Atomicity, Consistency, Isolation, Durability", correct: true },
-                { text: "Accessibility, Control, Integration, Durability", correct: false },
-                { text: "Atomicity, Control, Isolation, Durability", correct: false },
-                { text: "Accessibility, Consistency, Integration, Durability", correct: false },
+                {
+                    text: "Atomicity, Consistency, Isolation, Durability",
+                    correct: true,
+                },
+                {
+                    text: "Accessibility, Control, Integration, Durability",
+                    correct: false,
+                },
+                {
+                    text: "Atomicity, Control, Isolation, Durability",
+                    correct: false,
+                },
+                {
+                    text: "Accessibility, Consistency, Integration, Durability",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2139,8 +2328,14 @@ export const computerScienceData: Quiz = {
             answers: [
                 { text: "A function that calls itself", correct: true },
                 { text: "A loop that runs indefinitely", correct: false },
-                { text: "A variable that holds multiple values", correct: false },
-                { text: "A conditional statement that never executes", correct: false },
+                {
+                    text: "A variable that holds multiple values",
+                    correct: false,
+                },
+                {
+                    text: "A conditional statement that never executes",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2166,14 +2361,18 @@ export const computerScienceData: Quiz = {
         {
             question: "What is a binary tree in computer science?",
             answers: [
-                { text: "A tree data structure in which each node has at most two children", correct: true },
+                {
+                    text: "A tree data structure in which each node has at most two children",
+                    correct: true,
+                },
                 { text: "A tree with two roots", correct: false },
                 { text: "A tree that stores binary data", correct: false },
                 { text: "A tree used for binary search", correct: false },
             ],
         },
         {
-            question: "Which sorting algorithm is considered the most efficient for large datasets?",
+            question:
+                "Which sorting algorithm is considered the most efficient for large datasets?",
             answers: [
                 { text: "Bubble Sort", correct: false },
                 { text: "Quick Sort", correct: true },
@@ -2182,16 +2381,30 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "What is the primary difference between compiled and interpreted languages?",
+            question:
+                "What is the primary difference between compiled and interpreted languages?",
             answers: [
-                { text: "Compiled languages are executed directly by the CPU, while interpreted languages are executed by an interpreter", correct: true },
-                { text: "Interpreted languages are faster than compiled languages", correct: false },
-                { text: "Compiled languages do not require a compiler", correct: false },
-                { text: "Interpreted languages cannot be used for web development", correct: false },
+                {
+                    text: "Compiled languages are executed directly by the CPU, while interpreted languages are executed by an interpreter",
+                    correct: true,
+                },
+                {
+                    text: "Interpreted languages are faster than compiled languages",
+                    correct: false,
+                },
+                {
+                    text: "Compiled languages do not require a compiler",
+                    correct: false,
+                },
+                {
+                    text: "Interpreted languages cannot be used for web development",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which of the following is an example of a high-level programming language?",
+            question:
+                "Which of the following is an example of a high-level programming language?",
             answers: [
                 { text: "Assembly", correct: false },
                 { text: "C", correct: false },
@@ -2200,16 +2413,21 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "What is the main purpose of the Git version control system?",
+            question:
+                "What is the main purpose of the Git version control system?",
             answers: [
                 { text: "To manage project dependencies", correct: false },
-                { text: "To track changes in source code during software development", correct: true },
+                {
+                    text: "To track changes in source code during software development",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To deploy applications to servers", correct: false },
             ],
         },
         {
-            question: "Which of the following is a feature of object-oriented programming?",
+            question:
+                "Which of the following is a feature of object-oriented programming?",
             answers: [
                 { text: "Inheritance", correct: true },
                 { text: "Procedural abstraction", correct: false },
@@ -2227,7 +2445,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which of the following is NOT a type of machine learning?",
+            question:
+                "Which of the following is NOT a type of machine learning?",
             answers: [
                 { text: "Supervised Learning", correct: false },
                 { text: "Unsupervised Learning", correct: false },
@@ -2238,14 +2457,18 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the primary function of an operating system?",
             answers: [
-                { text: "To manage computer hardware and software resources", correct: true },
+                {
+                    text: "To manage computer hardware and software resources",
+                    correct: true,
+                },
                 { text: "To compile code into executables", correct: false },
                 { text: "To provide antivirus protection", correct: false },
                 { text: "To edit text documents", correct: false },
             ],
         },
         {
-            question: "Which data structure is used in breadth-first search (BFS) algorithm?",
+            question:
+                "Which data structure is used in breadth-first search (BFS) algorithm?",
             answers: [
                 { text: "Stack", correct: false },
                 { text: "Queue", correct: true },
@@ -2258,10 +2481,16 @@ export const computerScienceData: Quiz = {
         {
             question: "What is a deadlock in operating systems?",
             answers: [
-                { text: "When two or more processes are unable to proceed because each is waiting for the other to release resources", correct: true },
+                {
+                    text: "When two or more processes are unable to proceed because each is waiting for the other to release resources",
+                    correct: true,
+                },
                 { text: "When a process uses too much memory", correct: false },
                 { text: "When the CPU is overloaded", correct: false },
-                { text: "When a process finishes execution unexpectedly", correct: false },
+                {
+                    text: "When a process finishes execution unexpectedly",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2276,14 +2505,18 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the primary purpose of DNS?",
             answers: [
-                { text: "Translate domain names to IP addresses", correct: true },
+                {
+                    text: "Translate domain names to IP addresses",
+                    correct: true,
+                },
                 { text: "Secure network communications", correct: false },
                 { text: "Route data packets", correct: false },
                 { text: "Provide network storage", correct: false },
             ],
         },
         {
-            question: "Which algorithm is used for finding the shortest path in a graph?",
+            question:
+                "Which algorithm is used for finding the shortest path in a graph?",
             answers: [
                 { text: "Dijkstra's Algorithm", correct: true },
                 { text: "Bubble Sort", correct: false },
@@ -2294,14 +2527,21 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the main purpose of the HTTP protocol?",
             answers: [
-                { text: "To transfer hypertext requests and information on the internet", correct: true },
-                { text: "To secure communications over a network", correct: false },
+                {
+                    text: "To transfer hypertext requests and information on the internet",
+                    correct: true,
+                },
+                {
+                    text: "To secure communications over a network",
+                    correct: false,
+                },
                 { text: "To route data packets", correct: false },
                 { text: "To manage email transmissions", correct: false },
             ],
         },
         {
-            question: "Which of the following is a functional programming language?",
+            question:
+                "Which of the following is a functional programming language?",
             answers: [
                 { text: "Haskell", correct: true },
                 { text: "Java", correct: false },
@@ -2312,19 +2552,35 @@ export const computerScienceData: Quiz = {
         {
             question: "What is the purpose of a compiler in programming?",
             answers: [
-                { text: "To convert high-level code into machine code", correct: true },
+                {
+                    text: "To convert high-level code into machine code",
+                    correct: true,
+                },
                 { text: "To execute code line by line", correct: false },
                 { text: "To manage memory allocation", correct: false },
                 { text: "To debug code", correct: false },
             ],
         },
         {
-            question: "Which of the following is an example of a binary search tree property?",
+            question:
+                "Which of the following is an example of a binary search tree property?",
             answers: [
-                { text: "Left child nodes are greater than the parent node", correct: false },
-                { text: "Right child nodes are less than the parent node", correct: false },
-                { text: "All left child nodes are less than the parent node and all right child nodes are greater", correct: true },
-                { text: "All child nodes are equal to the parent node", correct: false },
+                {
+                    text: "Left child nodes are greater than the parent node",
+                    correct: false,
+                },
+                {
+                    text: "Right child nodes are less than the parent node",
+                    correct: false,
+                },
+                {
+                    text: "All left child nodes are less than the parent node and all right child nodes are greater",
+                    correct: true,
+                },
+                {
+                    text: "All child nodes are equal to the parent node",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2337,7 +2593,8 @@ export const computerScienceData: Quiz = {
             ],
         },
         {
-            question: "Which of the following is NOT a type of machine learning?",
+            question:
+                "Which of the following is NOT a type of machine learning?",
             answers: [
                 { text: "Supervised Learning", correct: false },
                 { text: "Unsupervised Learning", correct: false },
@@ -2397,7 +2654,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the main gas that plants absorb from the atmosphere?",
+            question:
+                "What is the main gas that plants absorb from the atmosphere?",
             answers: [
                 { text: "Oxygen", correct: false },
                 { text: "Carbon Dioxide", correct: true },
@@ -2424,7 +2682,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the most common state of matter in the universe?",
+            question:
+                "What is the most common state of matter in the universe?",
             answers: [
                 { text: "Solid", correct: false },
                 { text: "Liquid", correct: false },
@@ -2453,7 +2712,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the most abundant gas in the Earth's atmosphere?",
+            question:
+                "What is the most abundant gas in the Earth's atmosphere?",
             answers: [
                 { text: "Oxygen", correct: false },
                 { text: "Carbon Dioxide", correct: false },
@@ -2462,7 +2722,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What type of bond involves the sharing of electron pairs between atoms?",
+            question:
+                "What type of bond involves the sharing of electron pairs between atoms?",
             answers: [
                 { text: "Ionic bond", correct: false },
                 { text: "Covalent bond", correct: true },
@@ -2489,7 +2750,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What type of reaction is represented by the equation: A + B → AB?",
+            question:
+                "What type of reaction is represented by the equation: A + B → AB?",
             answers: [
                 { text: "Decomposition", correct: false },
                 { text: "Synthesis", correct: true },
@@ -2498,7 +2760,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "Which type of reaction occurs when an acid reacts with a base?",
+            question:
+                "Which type of reaction occurs when an acid reacts with a base?",
             answers: [
                 { text: "Neutralization", correct: true },
                 { text: "Combustion", correct: false },
@@ -2536,7 +2799,8 @@ export const chemistryData: Quiz = {
     ],
     3: [
         {
-            question: "What is the process of a solid turning directly into a gas called?",
+            question:
+                "What is the process of a solid turning directly into a gas called?",
             answers: [
                 { text: "Condensation", correct: false },
                 { text: "Sublimation", correct: true },
@@ -2563,7 +2827,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "Which reaction type is characterized by the transfer of electrons?",
+            question:
+                "Which reaction type is characterized by the transfer of electrons?",
             answers: [
                 { text: "Synthesis", correct: false },
                 { text: "Decomposition", correct: false },
@@ -2576,7 +2841,10 @@ export const chemistryData: Quiz = {
             answers: [
                 { text: "Indicates the size of the orbital", correct: true },
                 { text: "Indicates the shape of the orbital", correct: false },
-                { text: "Indicates the orientation of the orbital", correct: false },
+                {
+                    text: "Indicates the orientation of the orbital",
+                    correct: false,
+                },
                 { text: "Indicates the spin of the electron", correct: false },
             ],
         },
@@ -2623,8 +2891,14 @@ export const chemistryData: Quiz = {
             answers: [
                 { text: "Mass cannot be created or destroyed", correct: true },
                 { text: "Mass can be converted to energy", correct: false },
-                { text: "Mass increases in chemical reactions", correct: false },
-                { text: "Mass decreases in chemical reactions", correct: false },
+                {
+                    text: "Mass increases in chemical reactions",
+                    correct: false,
+                },
+                {
+                    text: "Mass decreases in chemical reactions",
+                    correct: false,
+                },
             ],
         },
         {
@@ -2646,7 +2920,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "In what state of matter are the particles most closely packed?",
+            question:
+                "In what state of matter are the particles most closely packed?",
             answers: [
                 { text: "Gas", correct: false },
                 { text: "Liquid", correct: false },
@@ -2655,7 +2930,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the process of a liquid turning into a gas called?",
+            question:
+                "What is the process of a liquid turning into a gas called?",
             answers: [
                 { text: "Condensation", correct: false },
                 { text: "Sublimation", correct: false },
@@ -2673,7 +2949,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the primary factor that affects the rate of a chemical reaction?",
+            question:
+                "What is the primary factor that affects the rate of a chemical reaction?",
             answers: [
                 { text: "Temperature", correct: true },
                 { text: "Pressure", correct: false },
@@ -2691,7 +2968,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the main purpose of a catalyst in a chemical reaction?",
+            question:
+                "What is the main purpose of a catalyst in a chemical reaction?",
             answers: [
                 { text: "To increase the temperature", correct: false },
                 { text: "To speed up the reaction", correct: true },
@@ -2723,7 +3001,10 @@ export const chemistryData: Quiz = {
             question: "What is the function of the cell membrane?",
             answers: [
                 { text: "To store genetic information", correct: false },
-                { text: "To control what enters and exits the cell", correct: true },
+                {
+                    text: "To control what enters and exits the cell",
+                    correct: true,
+                },
                 { text: "To produce energy", correct: false },
                 { text: "To transport substances", correct: false },
             ],
@@ -2731,14 +3012,18 @@ export const chemistryData: Quiz = {
         {
             question: "What is the process of photosynthesis?",
             answers: [
-                { text: "Conversion of light energy into chemical energy", correct: true },
+                {
+                    text: "Conversion of light energy into chemical energy",
+                    correct: true,
+                },
                 { text: "Breaking down glucose for energy", correct: false },
                 { text: "Using oxygen to produce energy", correct: false },
                 { text: "Absorbing nutrients from soil", correct: false },
             ],
         },
         {
-            question: "What is the law of thermodynamics that states energy cannot be created or destroyed?",
+            question:
+                "What is the law of thermodynamics that states energy cannot be created or destroyed?",
             answers: [
                 { text: "First Law", correct: true },
                 { text: "Second Law", correct: false },
@@ -2747,7 +3032,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the relationship between pressure and volume of a gas at constant temperature called?",
+            question:
+                "What is the relationship between pressure and volume of a gas at constant temperature called?",
             answers: [
                 { text: "Boyle's Law", correct: true },
                 { text: "Charles's Law", correct: false },
@@ -2756,7 +3042,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a substance that speeds up a chemical reaction without being consumed?",
+            question:
+                "What is the term for a substance that speeds up a chemical reaction without being consumed?",
             answers: [
                 { text: "Catalyst", correct: true },
                 { text: "Reagent", correct: false },
@@ -2765,7 +3052,8 @@ export const chemistryData: Quiz = {
             ],
         },
         {
-            question: "Which reaction type is characterized by the release of energy?",
+            question:
+                "Which reaction type is characterized by the release of energy?",
             answers: [
                 { text: "Exothermic", correct: true },
                 { text: "Endothermic", correct: false },
@@ -2809,14 +3097,24 @@ export const economicsData: Quiz = {
         {
             question: "What is the basic economic problem every society faces?",
             answers: [
-                { text: "Unlimited wants and limited resources", correct: true },
-                { text: "Limited wants and unlimited resources", correct: false },
-                { text: "Unlimited resources and unlimited wants", correct: false },
+                {
+                    text: "Unlimited wants and limited resources",
+                    correct: true,
+                },
+                {
+                    text: "Limited wants and unlimited resources",
+                    correct: false,
+                },
+                {
+                    text: "Unlimited resources and unlimited wants",
+                    correct: false,
+                },
                 { text: "Limited resources and limited wants", correct: false },
             ],
         },
         {
-            question: "Which term refers to the total value of all goods and services produced within a country?",
+            question:
+                "Which term refers to the total value of all goods and services produced within a country?",
             answers: [
                 { text: "Gross Domestic Product (GDP)", correct: true },
                 { text: "Gross National Product (GNP)", correct: false },
@@ -2825,16 +3123,27 @@ export const economicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary role of the Federal Reserve in the United States?",
+            question:
+                "What is the primary role of the Federal Reserve in the United States?",
             answers: [
-                { text: "Control the money supply and manage interest rates", correct: true },
-                { text: "Set fiscal policy and government spending", correct: false },
-                { text: "Regulate international trade agreements", correct: false },
+                {
+                    text: "Control the money supply and manage interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Set fiscal policy and government spending",
+                    correct: false,
+                },
+                {
+                    text: "Regulate international trade agreements",
+                    correct: false,
+                },
                 { text: "Manage the national budget", correct: false },
             ],
         },
         {
-            question: "Which economic system is characterized by private ownership and free markets?",
+            question:
+                "Which economic system is characterized by private ownership and free markets?",
             answers: [
                 { text: "Capitalism", correct: true },
                 { text: "Socialism", correct: false },
@@ -2845,23 +3154,48 @@ export const economicsData: Quiz = {
         {
             question: "What does 'inflation' refer to in economics?",
             answers: [
-                { text: "A general increase in prices and fall in the purchasing value of money", correct: true },
-                { text: "A general decrease in prices and increase in the purchasing value of money", correct: false },
-                { text: "An increase in the production of goods and services", correct: false },
-                { text: "A decrease in the production of goods and services", correct: false },
+                {
+                    text: "A general increase in prices and fall in the purchasing value of money",
+                    correct: true,
+                },
+                {
+                    text: "A general decrease in prices and increase in the purchasing value of money",
+                    correct: false,
+                },
+                {
+                    text: "An increase in the production of goods and services",
+                    correct: false,
+                },
+                {
+                    text: "A decrease in the production of goods and services",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'opportunity cost'?",
             answers: [
-                { text: "The cost of the next best alternative foregone", correct: true },
-                { text: "The total monetary cost of all resources used", correct: false },
-                { text: "The cost incurred when a business decides to produce a good", correct: false },
-                { text: "The cost associated with borrowing money", correct: false },
+                {
+                    text: "The cost of the next best alternative foregone",
+                    correct: true,
+                },
+                {
+                    text: "The total monetary cost of all resources used",
+                    correct: false,
+                },
+                {
+                    text: "The cost incurred when a business decides to produce a good",
+                    correct: false,
+                },
+                {
+                    text: "The cost associated with borrowing money",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which of the following is a type of market structure with many sellers and identical products?",
+            question:
+                "Which of the following is a type of market structure with many sellers and identical products?",
             answers: [
                 { text: "Perfect Competition", correct: true },
                 { text: "Monopoly", correct: false },
@@ -2872,14 +3206,24 @@ export const economicsData: Quiz = {
         {
             question: "What is the main purpose of fiscal policy?",
             answers: [
-                { text: "To influence economic activity through government spending and taxation", correct: true },
-                { text: "To control the money supply and interest rates", correct: false },
+                {
+                    text: "To influence economic activity through government spending and taxation",
+                    correct: true,
+                },
+                {
+                    text: "To control the money supply and interest rates",
+                    correct: false,
+                },
                 { text: "To regulate international trade", correct: false },
-                { text: "To manage public transportation systems", correct: false },
+                {
+                    text: "To manage public transportation systems",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which curve represents the relationship between the price level and the quantity of goods and services demanded?",
+            question:
+                "Which curve represents the relationship between the price level and the quantity of goods and services demanded?",
             answers: [
                 { text: "Aggregate Demand (AD) Curve", correct: true },
                 { text: "Aggregate Supply (AS) Curve", correct: false },
@@ -2890,10 +3234,22 @@ export const economicsData: Quiz = {
         {
             question: "What is 'unemployment rate'?",
             answers: [
-                { text: "The percentage of the labor force that is jobless and actively seeking employment", correct: true },
-                { text: "The total number of people without jobs", correct: false },
-                { text: "The rate at which jobs are being created", correct: false },
-                { text: "The percentage of people employed part-time", correct: false },
+                {
+                    text: "The percentage of the labor force that is jobless and actively seeking employment",
+                    correct: true,
+                },
+                {
+                    text: "The total number of people without jobs",
+                    correct: false,
+                },
+                {
+                    text: "The rate at which jobs are being created",
+                    correct: false,
+                },
+                {
+                    text: "The percentage of people employed part-time",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -2901,14 +3257,24 @@ export const economicsData: Quiz = {
         {
             question: "What is 'microeconomics' primarily concerned with?",
             answers: [
-                { text: "Individual and business decisions regarding the allocation of resources", correct: true },
-                { text: "Overall economic factors affecting the entire economy", correct: false },
+                {
+                    text: "Individual and business decisions regarding the allocation of resources",
+                    correct: true,
+                },
+                {
+                    text: "Overall economic factors affecting the entire economy",
+                    correct: false,
+                },
                 { text: "International trade and finance", correct: false },
-                { text: "Government policies and their impact on the economy", correct: false },
+                {
+                    text: "Government policies and their impact on the economy",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which concept explains how consumers maximize their satisfaction?",
+            question:
+                "Which concept explains how consumers maximize their satisfaction?",
             answers: [
                 { text: "Utility Maximization", correct: true },
                 { text: "Profit Maximization", correct: false },
@@ -2919,35 +3285,73 @@ export const economicsData: Quiz = {
         {
             question: "What is 'price elasticity of demand'?",
             answers: [
-                { text: "A measure of how much the quantity demanded responds to a change in price", correct: true },
-                { text: "A measure of the total revenue at different price levels", correct: false },
-                { text: "A measure of the change in supply when price changes", correct: false },
-                { text: "A measure of consumer preferences for different goods", correct: false },
+                {
+                    text: "A measure of how much the quantity demanded responds to a change in price",
+                    correct: true,
+                },
+                {
+                    text: "A measure of the total revenue at different price levels",
+                    correct: false,
+                },
+                {
+                    text: "A measure of the change in supply when price changes",
+                    correct: false,
+                },
+                {
+                    text: "A measure of consumer preferences for different goods",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which factor can cause the demand curve to shift to the right?",
+            question:
+                "Which factor can cause the demand curve to shift to the right?",
             answers: [
-                { text: "Increase in consumer income for a normal good", correct: true },
-                { text: "Decrease in the price of the good itself", correct: false },
-                { text: "Decrease in consumer income for a normal good", correct: false },
-                { text: "Increase in the price of a substitute good", correct: false },
+                {
+                    text: "Increase in consumer income for a normal good",
+                    correct: true,
+                },
+                {
+                    text: "Decrease in the price of the good itself",
+                    correct: false,
+                },
+                {
+                    text: "Decrease in consumer income for a normal good",
+                    correct: false,
+                },
+                {
+                    text: "Increase in the price of a substitute good",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'marginal cost'?",
             answers: [
-                { text: "The cost of producing one additional unit of a good", correct: true },
-                { text: "The total cost divided by the number of units produced", correct: false },
+                {
+                    text: "The cost of producing one additional unit of a good",
+                    correct: true,
+                },
+                {
+                    text: "The total cost divided by the number of units produced",
+                    correct: false,
+                },
                 { text: "The fixed cost of production", correct: false },
                 { text: "The average variable cost", correct: false },
             ],
         },
         {
-            question: "In perfect competition, firms are price takers. What does this mean?",
+            question:
+                "In perfect competition, firms are price takers. What does this mean?",
             answers: [
-                { text: "They accept the market price and cannot influence it", correct: true },
-                { text: "They set their own prices based on costs", correct: false },
+                {
+                    text: "They accept the market price and cannot influence it",
+                    correct: true,
+                },
+                {
+                    text: "They set their own prices based on costs",
+                    correct: false,
+                },
                 { text: "They collaborate to set prices", correct: false },
                 { text: "They follow government-set prices", correct: false },
             ],
@@ -2955,14 +3359,27 @@ export const economicsData: Quiz = {
         {
             question: "What is 'consumer surplus'?",
             answers: [
-                { text: "The difference between what consumers are willing to pay and what they actually pay", correct: true },
-                { text: "The total amount consumers spend on a good", correct: false },
-                { text: "The additional satisfaction from consuming one more unit of a good", correct: false },
-                { text: "The cost of goods purchased by consumers", correct: false },
+                {
+                    text: "The difference between what consumers are willing to pay and what they actually pay",
+                    correct: true,
+                },
+                {
+                    text: "The total amount consumers spend on a good",
+                    correct: false,
+                },
+                {
+                    text: "The additional satisfaction from consuming one more unit of a good",
+                    correct: false,
+                },
+                {
+                    text: "The cost of goods purchased by consumers",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which market structure is characterized by a single seller with no close substitutes?",
+            question:
+                "Which market structure is characterized by a single seller with no close substitutes?",
             answers: [
                 { text: "Monopoly", correct: true },
                 { text: "Perfect Competition", correct: false },
@@ -2973,7 +3390,10 @@ export const economicsData: Quiz = {
         {
             question: "What is 'game theory' used for in economics?",
             answers: [
-                { text: "Analyzing competitive strategies among firms", correct: true },
+                {
+                    text: "Analyzing competitive strategies among firms",
+                    correct: true,
+                },
                 { text: "Calculating national GDP", correct: false },
                 { text: "Measuring consumer satisfaction", correct: false },
                 { text: "Determining tax rates", correct: false },
@@ -2993,7 +3413,10 @@ export const economicsData: Quiz = {
         {
             question: "What does 'macroeconomics' study?",
             answers: [
-                { text: "The economy as a whole, including inflation, unemployment, and GDP", correct: true },
+                {
+                    text: "The economy as a whole, including inflation, unemployment, and GDP",
+                    correct: true,
+                },
                 { text: "Individual consumer behavior", correct: false },
                 { text: "Business pricing strategies", correct: false },
                 { text: "Local market structures", correct: false },
@@ -3002,14 +3425,21 @@ export const economicsData: Quiz = {
         {
             question: "What is 'fiscal policy'?",
             answers: [
-                { text: "Government spending and taxation policies", correct: true },
-                { text: "Central bank's control of the money supply", correct: false },
+                {
+                    text: "Government spending and taxation policies",
+                    correct: true,
+                },
+                {
+                    text: "Central bank's control of the money supply",
+                    correct: false,
+                },
                 { text: "Regulations on international trade", correct: false },
                 { text: "Policies related to labor markets", correct: false },
             ],
         },
         {
-            question: "Which indicator measures the overall health of the economy?",
+            question:
+                "Which indicator measures the overall health of the economy?",
             answers: [
                 { text: "Gross Domestic Product (GDP)", correct: true },
                 { text: "Consumer Price Index (CPI)", correct: false },
@@ -3020,32 +3450,60 @@ export const economicsData: Quiz = {
         {
             question: "What is 'monetary policy'?",
             answers: [
-                { text: "Central bank's actions to control the money supply and interest rates", correct: true },
-                { text: "Government's decisions on taxation and spending", correct: false },
-                { text: "Regulations on businesses and industries", correct: false },
-                { text: "Policies related to environmental protection", correct: false },
+                {
+                    text: "Central bank's actions to control the money supply and interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Government's decisions on taxation and spending",
+                    correct: false,
+                },
+                {
+                    text: "Regulations on businesses and industries",
+                    correct: false,
+                },
+                {
+                    text: "Policies related to environmental protection",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does the 'Phillips Curve' illustrate?",
             answers: [
-                { text: "The inverse relationship between inflation and unemployment", correct: true },
-                { text: "The relationship between GDP and investment", correct: false },
+                {
+                    text: "The inverse relationship between inflation and unemployment",
+                    correct: true,
+                },
+                {
+                    text: "The relationship between GDP and investment",
+                    correct: false,
+                },
                 { text: "The supply and demand for labor", correct: false },
-                { text: "The effect of taxation on consumer spending", correct: false },
+                {
+                    text: "The effect of taxation on consumer spending",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'stagflation'?",
             answers: [
-                { text: "High inflation combined with high unemployment", correct: true },
+                {
+                    text: "High inflation combined with high unemployment",
+                    correct: true,
+                },
                 { text: "Low inflation and low unemployment", correct: false },
-                { text: "High economic growth with low inflation", correct: false },
+                {
+                    text: "High economic growth with low inflation",
+                    correct: false,
+                },
                 { text: "Deflation and increasing GDP", correct: false },
             ],
         },
         {
-            question: "Which international organization aims to promote free trade and economic cooperation?",
+            question:
+                "Which international organization aims to promote free trade and economic cooperation?",
             answers: [
                 { text: "World Trade Organization (WTO)", correct: true },
                 { text: "International Monetary Fund (IMF)", correct: false },
@@ -3056,14 +3514,27 @@ export const economicsData: Quiz = {
         {
             question: "What is the 'balance of payments'?",
             answers: [
-                { text: "A record of all economic transactions between residents of a country and the rest of the world", correct: true },
-                { text: "The difference between a country's exports and imports", correct: false },
-                { text: "The total amount of foreign investment in a country", correct: false },
-                { text: "The government's budget surplus or deficit", correct: false },
+                {
+                    text: "A record of all economic transactions between residents of a country and the rest of the world",
+                    correct: true,
+                },
+                {
+                    text: "The difference between a country's exports and imports",
+                    correct: false,
+                },
+                {
+                    text: "The total amount of foreign investment in a country",
+                    correct: false,
+                },
+                {
+                    text: "The government's budget surplus or deficit",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which theory suggests that countries should specialize in producing goods where they have a comparative advantage?",
+            question:
+                "Which theory suggests that countries should specialize in producing goods where they have a comparative advantage?",
             answers: [
                 { text: "Comparative Advantage Theory", correct: true },
                 { text: "Absolute Advantage Theory", correct: false },
@@ -3075,7 +3546,10 @@ export const economicsData: Quiz = {
             question: "What does 'GDP per capita' measure?",
             answers: [
                 { text: "Average economic output per person", correct: true },
-                { text: "Total GDP divided by the number of businesses", correct: false },
+                {
+                    text: "Total GDP divided by the number of businesses",
+                    correct: false,
+                },
                 { text: "Government spending per person", correct: false },
                 { text: "Total exports per person", correct: false },
             ],
@@ -3085,14 +3559,18 @@ export const economicsData: Quiz = {
         {
             question: "What is 'international trade'?",
             answers: [
-                { text: "Exchange of goods and services between countries", correct: true },
+                {
+                    text: "Exchange of goods and services between countries",
+                    correct: true,
+                },
                 { text: "Trade within a single country", correct: false },
                 { text: "Bartering goods without using money", correct: false },
                 { text: "Exchange of currencies only", correct: false },
             ],
         },
         {
-            question: "Which policy aims to reduce trade barriers and encourage free trade?",
+            question:
+                "Which policy aims to reduce trade barriers and encourage free trade?",
             answers: [
                 { text: "Liberalization", correct: true },
                 { text: "Protectionism", correct: false },
@@ -3105,12 +3583,16 @@ export const economicsData: Quiz = {
             answers: [
                 { text: "A tax on imported goods", correct: true },
                 { text: "A subsidy for domestic industries", correct: false },
-                { text: "A quota limiting the number of goods that can be imported", correct: false },
+                {
+                    text: "A quota limiting the number of goods that can be imported",
+                    correct: false,
+                },
                 { text: "A type of trade agreement", correct: false },
             ],
         },
         {
-            question: "Which term refers to the total value of goods and services a country imports?",
+            question:
+                "Which term refers to the total value of goods and services a country imports?",
             answers: [
                 { text: "Imports", correct: true },
                 { text: "Exports", correct: false },
@@ -3121,32 +3603,61 @@ export const economicsData: Quiz = {
         {
             question: "What is 'foreign direct investment' (FDI)?",
             answers: [
-                { text: "Investment made by a firm or individual in one country into business interests in another country", correct: true },
-                { text: "Investment in foreign stocks and bonds", correct: false },
-                { text: "Investment in domestic industries to export goods", correct: false },
-                { text: "Investment by foreign governments in local infrastructure", correct: false },
+                {
+                    text: "Investment made by a firm or individual in one country into business interests in another country",
+                    correct: true,
+                },
+                {
+                    text: "Investment in foreign stocks and bonds",
+                    correct: false,
+                },
+                {
+                    text: "Investment in domestic industries to export goods",
+                    correct: false,
+                },
+                {
+                    text: "Investment by foreign governments in local infrastructure",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which agreement established the World Trade Organization (WTO)?",
+            question:
+                "Which agreement established the World Trade Organization (WTO)?",
             answers: [
                 { text: "Uruguay Round Agreements", correct: true },
                 { text: "Nash Equilibrium", correct: false },
                 { text: "Bretton Woods Agreement", correct: false },
-                { text: "General Agreement on Tariffs and Trade (GATT)", correct: false },
+                {
+                    text: "General Agreement on Tariffs and Trade (GATT)",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'balance of trade' signify?",
             answers: [
-                { text: "The difference between a country's exports and imports", correct: true },
-                { text: "The total value of a country's financial assets", correct: false },
-                { text: "The equilibrium between government spending and taxation", correct: false },
-                { text: "The net capital inflow and outflow of a country", correct: false },
+                {
+                    text: "The difference between a country's exports and imports",
+                    correct: true,
+                },
+                {
+                    text: "The total value of a country's financial assets",
+                    correct: false,
+                },
+                {
+                    text: "The equilibrium between government spending and taxation",
+                    correct: false,
+                },
+                {
+                    text: "The net capital inflow and outflow of a country",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which currency is commonly used as the world's reserve currency?",
+            question:
+                "Which currency is commonly used as the world's reserve currency?",
             answers: [
                 { text: "US Dollar", correct: true },
                 { text: "Euro", correct: false },
@@ -3157,19 +3668,40 @@ export const economicsData: Quiz = {
         {
             question: "What is 'comparative advantage'?",
             answers: [
-                { text: "Ability of a country to produce a good at a lower opportunity cost than another country", correct: true },
-                { text: "Ability of a country to produce more of a good than another country", correct: false },
-                { text: "Ability of a country to produce a good without any cost", correct: false },
-                { text: "Ability of a country to produce all goods efficiently", correct: false },
+                {
+                    text: "Ability of a country to produce a good at a lower opportunity cost than another country",
+                    correct: true,
+                },
+                {
+                    text: "Ability of a country to produce more of a good than another country",
+                    correct: false,
+                },
+                {
+                    text: "Ability of a country to produce a good without any cost",
+                    correct: false,
+                },
+                {
+                    text: "Ability of a country to produce all goods efficiently",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'exchange rate' refer to?",
             answers: [
-                { text: "The value of one currency for the purpose of conversion to another", correct: true },
-                { text: "The rate at which goods are exchanged internationally", correct: false },
+                {
+                    text: "The value of one currency for the purpose of conversion to another",
+                    correct: true,
+                },
+                {
+                    text: "The rate at which goods are exchanged internationally",
+                    correct: false,
+                },
                 { text: "The interest rate on foreign loans", correct: false },
-                { text: "The rate of economic growth in a country", correct: false },
+                {
+                    text: "The rate of economic growth in a country",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3186,14 +3718,21 @@ export const economicsData: Quiz = {
         {
             question: "What is 'Keynesian Economics' primarily concerned with?",
             answers: [
-                { text: "Government intervention to stabilize the economy", correct: true },
-                { text: "Free markets without government interference", correct: false },
+                {
+                    text: "Government intervention to stabilize the economy",
+                    correct: true,
+                },
+                {
+                    text: "Free markets without government interference",
+                    correct: false,
+                },
                 { text: "Labor theory of value", correct: false },
                 { text: "Supply-side policies", correct: false },
             ],
         },
         {
-            question: "Which economist developed the theory of comparative advantage?",
+            question:
+                "Which economist developed the theory of comparative advantage?",
             answers: [
                 { text: "David Ricardo", correct: true },
                 { text: "Adam Smith", correct: false },
@@ -3204,14 +3743,24 @@ export const economicsData: Quiz = {
         {
             question: "What does 'supply-side economics' emphasize?",
             answers: [
-                { text: "Increasing production and supply of goods and services", correct: true },
-                { text: "Increasing consumer demand through government spending", correct: false },
+                {
+                    text: "Increasing production and supply of goods and services",
+                    correct: true,
+                },
+                {
+                    text: "Increasing consumer demand through government spending",
+                    correct: false,
+                },
                 { text: "Reducing taxes on the poor", correct: false },
-                { text: "Implementing price controls to stabilize markets", correct: false },
+                {
+                    text: "Implementing price controls to stabilize markets",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which term refers to the total amount of goods and services demanded across all levels of an economy?",
+            question:
+                "Which term refers to the total amount of goods and services demanded across all levels of an economy?",
             answers: [
                 { text: "Aggregate Demand", correct: true },
                 { text: "Marginal Demand", correct: false },
@@ -3229,7 +3778,8 @@ export const economicsData: Quiz = {
             ],
         },
         {
-            question: "Which economist is associated with the concept of 'invisible hand'?",
+            question:
+                "Which economist is associated with the concept of 'invisible hand'?",
             answers: [
                 { text: "Adam Smith", correct: true },
                 { text: "John Maynard Keynes", correct: false },
@@ -3240,14 +3790,21 @@ export const economicsData: Quiz = {
         {
             question: "What is 'monetary policy'?",
             answers: [
-                { text: "Central bank's actions to control the money supply and interest rates", correct: true },
-                { text: "Government's decisions on taxation and spending", correct: false },
+                {
+                    text: "Central bank's actions to control the money supply and interest rates",
+                    correct: true,
+                },
+                {
+                    text: "Government's decisions on taxation and spending",
+                    correct: false,
+                },
                 { text: "Regulations on international trade", correct: false },
                 { text: "Policies related to labor markets", correct: false },
             ],
         },
         {
-            question: "Which type of unemployment occurs when workers are temporarily between jobs?",
+            question:
+                "Which type of unemployment occurs when workers are temporarily between jobs?",
             answers: [
                 { text: "Frictional Unemployment", correct: true },
                 { text: "Structural Unemployment", correct: false },
@@ -3258,10 +3815,22 @@ export const economicsData: Quiz = {
         {
             question: "What is 'deflation'?",
             answers: [
-                { text: "A general decrease in prices and increase in the purchasing value of money", correct: true },
-                { text: "A general increase in prices and fall in the purchasing value of money", correct: false },
-                { text: "An increase in the production of goods and services", correct: false },
-                { text: "A decrease in the production of goods and services", correct: false },
+                {
+                    text: "A general decrease in prices and increase in the purchasing value of money",
+                    correct: true,
+                },
+                {
+                    text: "A general increase in prices and fall in the purchasing value of money",
+                    correct: false,
+                },
+                {
+                    text: "An increase in the production of goods and services",
+                    correct: false,
+                },
+                {
+                    text: "A decrease in the production of goods and services",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3280,7 +3849,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Identify the adjective in the following sentence: 'The quick brown fox jumps over the lazy dog.'",
+            question:
+                "Identify the adjective in the following sentence: 'The quick brown fox jumps over the lazy dog.'",
             answers: [
                 { text: "Fox", correct: false },
                 { text: "Jumps", correct: false },
@@ -3298,7 +3868,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Choose the correct form of the verb: 'She ______ to the store yesterday.'",
+            question:
+                "Choose the correct form of the verb: 'She ______ to the store yesterday.'",
             answers: [
                 { text: "Go", correct: false },
                 { text: "Goes", correct: false },
@@ -3334,7 +3905,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Choose the correct preposition: 'She is interested ______ learning French.'",
+            question:
+                "Choose the correct preposition: 'She is interested ______ learning French.'",
             answers: [
                 { text: "In", correct: true },
                 { text: "On", correct: false },
@@ -3343,7 +3915,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "What is the main theme of William Shakespeare's play 'Romeo and Juliet'?",
+            question:
+                "What is the main theme of William Shakespeare's play 'Romeo and Juliet'?",
             answers: [
                 { text: "Adventure", correct: false },
                 { text: "Tragedy of forbidden love", correct: true },
@@ -3365,14 +3938,21 @@ export const englishData: Quiz = {
         {
             question: "What is a 'metaphor'?",
             answers: [
-                { text: "A figure of speech that compares two unlike things without using 'like' or 'as'", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech that compares two unlike things without using 'like' or 'as'",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A question asked for effect", correct: false },
                 { text: "An exaggeration for emphasis", correct: false },
             ],
         },
         {
-            question: "Choose the correct homophone: 'Their/There/They're ______ going to join us for dinner.'",
+            question:
+                "Choose the correct homophone: 'Their/There/They're ______ going to join us for dinner.'",
             answers: [
                 { text: "Their", correct: false },
                 { text: "There", correct: false },
@@ -3390,7 +3970,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Identify the adverb in the sentence: 'She sings beautifully.'",
+            question:
+                "Identify the adverb in the sentence: 'She sings beautifully.'",
             answers: [
                 { text: "She", correct: false },
                 { text: "Sings", correct: false },
@@ -3408,7 +3989,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Choose the correct form: 'If I ______ you, I would apologize.'",
+            question:
+                "Choose the correct form: 'If I ______ you, I would apologize.'",
             answers: [
                 { text: "Am", correct: false },
                 { text: "Was", correct: true },
@@ -3417,7 +3999,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "What is the subject in the sentence: 'The cat chased the mouse.'?",
+            question:
+                "What is the subject in the sentence: 'The cat chased the mouse.'?",
             answers: [
                 { text: "The", correct: false },
                 { text: "Cat", correct: true },
@@ -3426,12 +4009,19 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Which sentence uses the correct form of 'their/there/they're'?",
+            question:
+                "Which sentence uses the correct form of 'their/there/they're'?",
             answers: [
                 { text: "Their going to the concert tonight.", correct: false },
                 { text: "There going to the concert tonight.", correct: false },
-                { text: "They're going to the concert tonight.", correct: true },
-                { text: "They're going to the concert tonight.", correct: false },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: true,
+                },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3448,7 +4038,10 @@ export const englishData: Quiz = {
             answers: [
                 { text: "I like pizza.", correct: false },
                 { text: "She reads every night.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
@@ -3473,7 +4066,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Identify the type of irony in the statement: 'A fire station burns down.'",
+            question:
+                "Identify the type of irony in the statement: 'A fire station burns down.'",
             answers: [
                 { text: "Verbal Irony", correct: false },
                 { text: "Situational Irony", correct: true },
@@ -3491,7 +4085,8 @@ export const englishData: Quiz = {
             ],
         },
         {
-            question: "Which literary device involves giving human traits to non-human objects?",
+            question:
+                "Which literary device involves giving human traits to non-human objects?",
             answers: [
                 { text: "Alliteration", correct: false },
                 { text: "Personification", correct: true },
@@ -3520,8 +4115,14 @@ export const englishData: Quiz = {
         {
             question: "What is a 'simile'?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: true },
-                { text: "An indirect comparison without using 'like' or 'as'", correct: false },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: true,
+                },
+                {
+                    text: "An indirect comparison without using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
                 { text: "A rhetorical question", correct: false },
             ],
@@ -3550,16 +4151,25 @@ export const englishData: Quiz = {
             question: "Which sentence is written in the passive voice?",
             answers: [
                 { text: "The chef cooked a delicious meal.", correct: false },
-                { text: "A delicious meal was cooked by the chef.", correct: true },
+                {
+                    text: "A delicious meal was cooked by the chef.",
+                    correct: true,
+                },
                 { text: "The chef is cooking a meal.", correct: false },
-                { text: "The meal will be cooked by the chef.", correct: false },
+                {
+                    text: "The meal will be cooked by the chef.",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the purpose of a topic sentence in a paragraph?",
             answers: [
                 { text: "To provide supporting details", correct: false },
-                { text: "To state the main idea of the paragraph", correct: true },
+                {
+                    text: "To state the main idea of the paragraph",
+                    correct: true,
+                },
                 { text: "To conclude the paragraph", correct: false },
                 { text: "To introduce a quote", correct: false },
             ],
@@ -3576,10 +4186,22 @@ export const englishData: Quiz = {
         {
             question: "What is a 'fragment' in writing?",
             answers: [
-                { text: "A complete sentence with a subject and predicate", correct: false },
-                { text: "An incomplete sentence missing a subject or predicate", correct: true },
-                { text: "A run-on sentence with multiple clauses", correct: false },
-                { text: "A sentence with excessive punctuation", correct: false },
+                {
+                    text: "A complete sentence with a subject and predicate",
+                    correct: false,
+                },
+                {
+                    text: "An incomplete sentence missing a subject or predicate",
+                    correct: true,
+                },
+                {
+                    text: "A run-on sentence with multiple clauses",
+                    correct: false,
+                },
+                {
+                    text: "A sentence with excessive punctuation",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3605,16 +4227,28 @@ export const englishData: Quiz = {
             answers: [
                 { text: "I went to the store.", correct: false },
                 { text: "She sings beautifully.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
         {
             question: "What is an oxymoron?",
             answers: [
-                { text: "A figure of speech using exaggeration", correct: false },
-                { text: "A figure of speech combining contradictory terms", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech using exaggeration",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech combining contradictory terms",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -3632,8 +4266,14 @@ export const englishData: Quiz = {
             answers: [
                 { text: "Their going to the concert tonight.", correct: false },
                 { text: "There going to the concert tonight.", correct: false },
-                { text: "They're going to the concert tonight.", correct: true },
-                { text: "They're going to the concert tonight.", correct: false },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: true,
+                },
+                {
+                    text: "They're going to the concert tonight.",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -3641,28 +4281,58 @@ export const englishData: Quiz = {
         {
             question: "What is the difference between a simile and a metaphor?",
             answers: [
-                { text: "A simile uses 'like' or 'as' to compare, while a metaphor does not.", correct: true },
-                { text: "A metaphor uses 'like' or 'as', while a simile does not.", correct: false },
-                { text: "Both use 'like' or 'as' for comparison.", correct: false },
-                { text: "Neither use 'like' or 'as' for comparison.", correct: false },
+                {
+                    text: "A simile uses 'like' or 'as' to compare, while a metaphor does not.",
+                    correct: true,
+                },
+                {
+                    text: "A metaphor uses 'like' or 'as', while a simile does not.",
+                    correct: false,
+                },
+                {
+                    text: "Both use 'like' or 'as' for comparison.",
+                    correct: false,
+                },
+                {
+                    text: "Neither use 'like' or 'as' for comparison.",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'alliteration'?",
             answers: [
-                { text: "The repetition of vowel sounds in nearby words", correct: false },
-                { text: "The repetition of consonant sounds at the beginning of words", correct: true },
+                {
+                    text: "The repetition of vowel sounds in nearby words",
+                    correct: false,
+                },
+                {
+                    text: "The repetition of consonant sounds at the beginning of words",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
-                { text: "A figure of speech involving a contradiction", correct: false },
+                {
+                    text: "A figure of speech involving a contradiction",
+                    correct: false,
+                },
             ],
         },
         {
             question: "Which sentence contains a dangling modifier?",
             answers: [
-                { text: "Running quickly, the finish line was crossed by her.", correct: true },
+                {
+                    text: "Running quickly, the finish line was crossed by her.",
+                    correct: true,
+                },
                 { text: "She ran quickly to the finish line.", correct: false },
-                { text: "Quickly running, she crossed the finish line.", correct: false },
-                { text: "She was quickly running to the finish line.", correct: false },
+                {
+                    text: "Quickly running, she crossed the finish line.",
+                    correct: false,
+                },
+                {
+                    text: "She was quickly running to the finish line.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -3670,12 +4340,16 @@ export const englishData: Quiz = {
             answers: [
                 { text: "To introduce the topic", correct: false },
                 { text: "To provide supporting evidence", correct: false },
-                { text: "To state the main argument or point of the essay", correct: true },
+                {
+                    text: "To state the main argument or point of the essay",
+                    correct: true,
+                },
                 { text: "To conclude the essay", correct: false },
             ],
         },
         {
-            question: "Which term refers to the underlying message or big idea of a literary work?",
+            question:
+                "Which term refers to the underlying message or big idea of a literary work?",
             answers: [
                 { text: "Theme", correct: true },
                 { text: "Plot", correct: false },
@@ -3687,7 +4361,10 @@ export const englishData: Quiz = {
             question: "What is the function of a semicolon in a sentence?",
             answers: [
                 { text: "To separate items in a list", correct: false },
-                { text: "To join two independent clauses without a conjunction", correct: true },
+                {
+                    text: "To join two independent clauses without a conjunction",
+                    correct: true,
+                },
                 { text: "To introduce a quote", correct: false },
                 { text: "To end a sentence forcefully", correct: false },
             ],
@@ -3704,9 +4381,18 @@ export const englishData: Quiz = {
         {
             question: "What is 'personification'?",
             answers: [
-                { text: "A figure of speech comparing two unlike things using 'like' or 'as'", correct: false },
-                { text: "Giving human characteristics to non-human entities", correct: true },
-                { text: "An exaggerated statement for emphasis", correct: false },
+                {
+                    text: "A figure of speech comparing two unlike things using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "Giving human characteristics to non-human entities",
+                    correct: true,
+                },
+                {
+                    text: "An exaggerated statement for emphasis",
+                    correct: false,
+                },
                 { text: "A type of rhetorical question", correct: false },
             ],
         },
@@ -3723,7 +4409,10 @@ export const englishData: Quiz = {
             question: "What is the purpose of a concluding paragraph?",
             answers: [
                 { text: "To introduce new arguments", correct: false },
-                { text: "To summarize the main points and restate the thesis", correct: true },
+                {
+                    text: "To summarize the main points and restate the thesis",
+                    correct: true,
+                },
                 { text: "To provide detailed evidence", correct: false },
                 { text: "To ask rhetorical questions", correct: false },
             ],
@@ -3735,7 +4424,8 @@ export const englishData: Quiz = {
 export const engineeringData: Quiz = {
     1: [
         {
-            question: "What is the branch of engineering that deals with the design, construction, and maintenance of the physical and naturally built environment?",
+            question:
+                "What is the branch of engineering that deals with the design, construction, and maintenance of the physical and naturally built environment?",
             answers: [
                 { text: "Civil Engineering", correct: true },
                 { text: "Mechanical Engineering", correct: false },
@@ -3744,7 +4434,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the fundamental principle behind the operation of a lever?",
+            question:
+                "What is the fundamental principle behind the operation of a lever?",
             answers: [
                 { text: "Law of Conservation of Energy", correct: false },
                 { text: "Principle of Moments", correct: true },
@@ -3753,7 +4444,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "Which material is commonly used in electrical wiring due to its excellent conductivity?",
+            question:
+                "Which material is commonly used in electrical wiring due to its excellent conductivity?",
             answers: [
                 { text: "Aluminum", correct: false },
                 { text: "Copper", correct: true },
@@ -3780,7 +4472,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "Which engineering discipline focuses on the behavior of electrons and the design of electronic circuits?",
+            question:
+                "Which engineering discipline focuses on the behavior of electrons and the design of electronic circuits?",
             answers: [
                 { text: "Mechanical Engineering", correct: false },
                 { text: "Chemical Engineering", correct: false },
@@ -3789,16 +4482,30 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the main purpose of a stress-strain curve in materials engineering?",
+            question:
+                "What is the main purpose of a stress-strain curve in materials engineering?",
             answers: [
-                { text: "To determine the electrical conductivity of a material", correct: false },
-                { text: "To analyze the mechanical properties of a material under load", correct: true },
-                { text: "To measure the thermal expansion of a material", correct: false },
-                { text: "To evaluate the chemical composition of a material", correct: false },
+                {
+                    text: "To determine the electrical conductivity of a material",
+                    correct: false,
+                },
+                {
+                    text: "To analyze the mechanical properties of a material under load",
+                    correct: true,
+                },
+                {
+                    text: "To measure the thermal expansion of a material",
+                    correct: false,
+                },
+                {
+                    text: "To evaluate the chemical composition of a material",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which process involves the transformation of raw materials into finished products?",
+            question:
+                "Which process involves the transformation of raw materials into finished products?",
             answers: [
                 { text: "Manufacturing", correct: true },
                 { text: "Designing", correct: false },
@@ -3807,16 +4514,21 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary function of a gearbox in mechanical systems?",
+            question:
+                "What is the primary function of a gearbox in mechanical systems?",
             answers: [
                 { text: "To generate electricity", correct: false },
-                { text: "To increase or decrease torque and speed", correct: true },
+                {
+                    text: "To increase or decrease torque and speed",
+                    correct: true,
+                },
                 { text: "To cool mechanical components", correct: false },
                 { text: "To lubricate moving parts", correct: false },
             ],
         },
         {
-            question: "Which type of bridge uses cables suspended between towers to support the bridge deck?",
+            question:
+                "Which type of bridge uses cables suspended between towers to support the bridge deck?",
             answers: [
                 { text: "Arch Bridge", correct: false },
                 { text: "Suspension Bridge", correct: true },
@@ -3836,7 +4548,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "Which material is known for its high tensile strength and is commonly used in construction?",
+            question:
+                "Which material is known for its high tensile strength and is commonly used in construction?",
             answers: [
                 { text: "Concrete", correct: false },
                 { text: "Steel", correct: true },
@@ -3845,25 +4558,46 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "In fluid mechanics, what does Bernoulli's Principle describe?",
+            question:
+                "In fluid mechanics, what does Bernoulli's Principle describe?",
             answers: [
-                { text: "The relationship between pressure and velocity in fluid flow", correct: true },
-                { text: "The conservation of mass in fluid flow", correct: false },
+                {
+                    text: "The relationship between pressure and velocity in fluid flow",
+                    correct: true,
+                },
+                {
+                    text: "The conservation of mass in fluid flow",
+                    correct: false,
+                },
                 { text: "The viscosity of a fluid", correct: false },
                 { text: "The density of a fluid", correct: false },
             ],
         },
         {
-            question: "What is the primary purpose of a catalyst in a chemical reaction?",
+            question:
+                "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which CAD software is widely used for 3D modeling and design in engineering?",
+            question:
+                "Which CAD software is widely used for 3D modeling and design in engineering?",
             answers: [
                 { text: "Microsoft Excel", correct: false },
                 { text: "AutoCAD", correct: true },
@@ -3872,16 +4606,24 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the purpose of finite element analysis (FEA) in engineering?",
+            question:
+                "What is the purpose of finite element analysis (FEA) in engineering?",
             answers: [
                 { text: "To design electrical circuits", correct: false },
-                { text: "To simulate and analyze the physical behavior of structures and components", correct: true },
+                {
+                    text: "To simulate and analyze the physical behavior of structures and components",
+                    correct: true,
+                },
                 { text: "To manage project schedules", correct: false },
-                { text: "To create detailed architectural drawings", correct: false },
+                {
+                    text: "To create detailed architectural drawings",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of energy conversion takes place in a hydroelectric power plant?",
+            question:
+                "Which type of energy conversion takes place in a hydroelectric power plant?",
             answers: [
                 { text: "Chemical to electrical", correct: false },
                 { text: "Mechanical to electrical", correct: true },
@@ -3890,16 +4632,24 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary function of the heat exchanger in an HVAC system?",
+            question:
+                "What is the primary function of the heat exchanger in an HVAC system?",
             answers: [
                 { text: "To filter air", correct: false },
-                { text: "To regulate temperature by transferring heat", correct: true },
+                {
+                    text: "To regulate temperature by transferring heat",
+                    correct: true,
+                },
                 { text: "To humidify the air", correct: false },
-                { text: "To circulate air throughout the building", correct: false },
+                {
+                    text: "To circulate air throughout the building",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which engineering discipline is primarily concerned with the design and operation of machinery?",
+            question:
+                "Which engineering discipline is primarily concerned with the design and operation of machinery?",
             answers: [
                 { text: "Electrical Engineering", correct: false },
                 { text: "Mechanical Engineering", correct: true },
@@ -3908,27 +4658,51 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the purpose of a stress-strain diagram in materials engineering?",
+            question:
+                "What is the purpose of a stress-strain diagram in materials engineering?",
             answers: [
-                { text: "To determine the electrical conductivity of a material", correct: false },
-                { text: "To analyze the mechanical properties and behavior of materials under load", correct: true },
-                { text: "To measure the thermal expansion of a material", correct: false },
-                { text: "To evaluate the chemical composition of a material", correct: false },
+                {
+                    text: "To determine the electrical conductivity of a material",
+                    correct: false,
+                },
+                {
+                    text: "To analyze the mechanical properties and behavior of materials under load",
+                    correct: true,
+                },
+                {
+                    text: "To measure the thermal expansion of a material",
+                    correct: false,
+                },
+                {
+                    text: "To evaluate the chemical composition of a material",
+                    correct: false,
+                },
             ],
         },
     ],
     3: [
         {
-            question: "What is the main purpose of the Internet of Things (IoT) in engineering?",
+            question:
+                "What is the main purpose of the Internet of Things (IoT) in engineering?",
             answers: [
                 { text: "To design graphic interfaces", correct: false },
-                { text: "To connect and communicate between devices for automation and data exchange", correct: true },
-                { text: "To increase manual labor in manufacturing", correct: false },
-                { text: "To replace electrical systems with mechanical ones", correct: false },
+                {
+                    text: "To connect and communicate between devices for automation and data exchange",
+                    correct: true,
+                },
+                {
+                    text: "To increase manual labor in manufacturing",
+                    correct: false,
+                },
+                {
+                    text: "To replace electrical systems with mechanical ones",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of engineering focuses on the design and development of software and hardware systems?",
+            question:
+                "Which type of engineering focuses on the design and development of software and hardware systems?",
             answers: [
                 { text: "Chemical Engineering", correct: false },
                 { text: "Software Engineering", correct: true },
@@ -3937,10 +4711,14 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary function of a gearbox in mechanical systems?",
+            question:
+                "What is the primary function of a gearbox in mechanical systems?",
             answers: [
                 { text: "To generate electricity", correct: false },
-                { text: "To increase or decrease torque and speed", correct: true },
+                {
+                    text: "To increase or decrease torque and speed",
+                    correct: true,
+                },
                 { text: "To cool mechanical components", correct: false },
                 { text: "To lubricate moving parts", correct: false },
             ],
@@ -3949,13 +4727,17 @@ export const engineeringData: Quiz = {
             question: "In structural engineering, what is a 'truss' used for?",
             answers: [
                 { text: "To support electrical wiring", correct: false },
-                { text: "To distribute loads and provide structural stability", correct: true },
+                {
+                    text: "To distribute loads and provide structural stability",
+                    correct: true,
+                },
                 { text: "To facilitate fluid flow", correct: false },
                 { text: "To insulate buildings", correct: false },
             ],
         },
         {
-            question: "Which material is commonly used in aerospace engineering for its high strength-to-weight ratio?",
+            question:
+                "Which material is commonly used in aerospace engineering for its high strength-to-weight ratio?",
             answers: [
                 { text: "Steel", correct: false },
                 { text: "Titanium", correct: true },
@@ -3973,7 +4755,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "Which process involves the removal of material to create a desired shape?",
+            question:
+                "Which process involves the removal of material to create a desired shape?",
             answers: [
                 { text: "Casting", correct: false },
                 { text: "Additive Manufacturing", correct: false },
@@ -3982,16 +4765,30 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary purpose of a catalyst in a chemical reaction?",
+            question:
+                "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of engineering involves the design and management of infrastructure projects?",
+            question:
+                "Which type of engineering involves the design and management of infrastructure projects?",
             answers: [
                 { text: "Electrical Engineering", correct: false },
                 { text: "Civil Engineering", correct: true },
@@ -4000,27 +4797,42 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the purpose of a heat exchanger in an HVAC system?",
+            question:
+                "What is the purpose of a heat exchanger in an HVAC system?",
             answers: [
                 { text: "To filter air", correct: false },
-                { text: "To regulate temperature by transferring heat", correct: true },
+                {
+                    text: "To regulate temperature by transferring heat",
+                    correct: true,
+                },
                 { text: "To humidify the air", correct: false },
-                { text: "To circulate air throughout the building", correct: false },
+                {
+                    text: "To circulate air throughout the building",
+                    correct: false,
+                },
             ],
         },
     ],
     4: [
         {
-            question: "What is the primary purpose of finite element analysis (FEA) in engineering?",
+            question:
+                "What is the primary purpose of finite element analysis (FEA) in engineering?",
             answers: [
                 { text: "To design electrical circuits", correct: false },
-                { text: "To simulate and analyze the physical behavior of structures and components", correct: true },
+                {
+                    text: "To simulate and analyze the physical behavior of structures and components",
+                    correct: true,
+                },
                 { text: "To manage project schedules", correct: false },
-                { text: "To create detailed architectural drawings", correct: false },
+                {
+                    text: "To create detailed architectural drawings",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of load is constant and does not change over time?",
+            question:
+                "Which type of load is constant and does not change over time?",
             answers: [
                 { text: "Dynamic Load", correct: false },
                 { text: "Static Load", correct: true },
@@ -4029,16 +4841,21 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the function of a transformer in electrical engineering?",
+            question:
+                "What is the function of a transformer in electrical engineering?",
             answers: [
                 { text: "To convert AC to DC", correct: false },
-                { text: "To increase or decrease voltage levels", correct: true },
+                {
+                    text: "To increase or decrease voltage levels",
+                    correct: true,
+                },
                 { text: "To store electrical energy", correct: false },
                 { text: "To generate electricity", correct: false },
             ],
         },
         {
-            question: "Which engineering discipline is concerned with the design and analysis of algorithms?",
+            question:
+                "Which engineering discipline is concerned with the design and analysis of algorithms?",
             answers: [
                 { text: "Software Engineering", correct: false },
                 { text: "Computer Engineering", correct: true },
@@ -4047,7 +4864,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary advantage of using composite materials in engineering?",
+            question:
+                "What is the primary advantage of using composite materials in engineering?",
             answers: [
                 { text: "High electrical conductivity", correct: false },
                 { text: "High strength-to-weight ratio", correct: true },
@@ -4065,7 +4883,8 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "Which process involves adding material layer by layer to create a three-dimensional object?",
+            question:
+                "Which process involves adding material layer by layer to create a three-dimensional object?",
             answers: [
                 { text: "Subtractive Manufacturing", correct: false },
                 { text: "Casting", correct: false },
@@ -4077,13 +4896,17 @@ export const engineeringData: Quiz = {
             question: "What is the main function of a servo motor in robotics?",
             answers: [
                 { text: "To provide lighting", correct: false },
-                { text: "To control precise movement and positioning", correct: true },
+                {
+                    text: "To control precise movement and positioning",
+                    correct: true,
+                },
                 { text: "To store data", correct: false },
                 { text: "To generate electricity", correct: false },
             ],
         },
         {
-            question: "Which engineering principle is used to design safe and efficient buildings?",
+            question:
+                "Which engineering principle is used to design safe and efficient buildings?",
             answers: [
                 { text: "Thermodynamics", correct: false },
                 { text: "Statics and Dynamics", correct: true },
@@ -4095,7 +4918,10 @@ export const engineeringData: Quiz = {
             question: "What is the purpose of a control system in engineering?",
             answers: [
                 { text: "To provide structural support", correct: false },
-                { text: "To manage and regulate the behavior of other devices or systems", correct: true },
+                {
+                    text: "To manage and regulate the behavior of other devices or systems",
+                    correct: true,
+                },
                 { text: "To store energy", correct: false },
                 { text: "To generate mechanical power", correct: false },
             ],
@@ -4103,16 +4929,21 @@ export const engineeringData: Quiz = {
     ],
     5: [
         {
-            question: "What is a 'bridge girder' used for in bridge construction?",
+            question:
+                "What is a 'bridge girder' used for in bridge construction?",
             answers: [
-                { text: "To support the roadway and distribute loads", correct: true },
+                {
+                    text: "To support the roadway and distribute loads",
+                    correct: true,
+                },
                 { text: "To anchor the bridge to the ground", correct: false },
                 { text: "To provide aesthetic appeal", correct: false },
                 { text: "To channel water beneath the bridge", correct: false },
             ],
         },
         {
-            question: "Which law in electrical engineering relates voltage, current, and resistance?",
+            question:
+                "Which law in electrical engineering relates voltage, current, and resistance?",
             answers: [
                 { text: "Newton's Second Law", correct: false },
                 { text: "Ohm's Law", correct: true },
@@ -4121,16 +4952,30 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary purpose of a catalyst in a chemical reaction?",
+            question:
+                "What is the primary purpose of a catalyst in a chemical reaction?",
             answers: [
-                { text: "To increase the energy of the reactants", correct: false },
-                { text: "To decrease the energy barrier and speed up the reaction", correct: true },
-                { text: "To provide a medium for the reaction", correct: false },
-                { text: "To alter the products of the reaction", correct: false },
+                {
+                    text: "To increase the energy of the reactants",
+                    correct: false,
+                },
+                {
+                    text: "To decrease the energy barrier and speed up the reaction",
+                    correct: true,
+                },
+                {
+                    text: "To provide a medium for the reaction",
+                    correct: false,
+                },
+                {
+                    text: "To alter the products of the reaction",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of engineering involves the design and development of medical devices?",
+            question:
+                "Which type of engineering involves the design and development of medical devices?",
             answers: [
                 { text: "Biomedical Engineering", correct: true },
                 { text: "Chemical Engineering", correct: false },
@@ -4139,16 +4984,21 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the purpose of a PID controller in engineering systems?",
+            question:
+                "What is the purpose of a PID controller in engineering systems?",
             answers: [
                 { text: "To measure temperature", correct: false },
-                { text: "To control systems using proportional, integral, and derivative actions", correct: true },
+                {
+                    text: "To control systems using proportional, integral, and derivative actions",
+                    correct: true,
+                },
                 { text: "To generate electrical power", correct: false },
                 { text: "To provide structural support", correct: false },
             ],
         },
         {
-            question: "Which material is known for its lightweight and high strength, commonly used in aerospace engineering?",
+            question:
+                "Which material is known for its lightweight and high strength, commonly used in aerospace engineering?",
             answers: [
                 { text: "Titanium", correct: true },
                 { text: "Steel", correct: false },
@@ -4159,14 +5009,18 @@ export const engineeringData: Quiz = {
         {
             question: "What does HVAC stand for in building engineering?",
             answers: [
-                { text: "Heating, Ventilation, and Air Conditioning", correct: true },
+                {
+                    text: "Heating, Ventilation, and Air Conditioning",
+                    correct: true,
+                },
                 { text: "Hydraulics, Valves, and Actuators", correct: false },
                 { text: "High Voltage Alternating Current", correct: false },
                 { text: "Heat, Vapor, and Carbon", correct: false },
             ],
         },
         {
-            question: "Which principle explains why aircraft wings generate lift?",
+            question:
+                "Which principle explains why aircraft wings generate lift?",
             answers: [
                 { text: "Newton's Third Law", correct: true },
                 { text: "Ohm's Law", correct: false },
@@ -4175,16 +5029,21 @@ export const engineeringData: Quiz = {
             ],
         },
         {
-            question: "What is the primary function of a gear in mechanical systems?",
+            question:
+                "What is the primary function of a gear in mechanical systems?",
             answers: [
                 { text: "To generate electrical power", correct: false },
-                { text: "To transfer and modify rotational motion and torque", correct: true },
+                {
+                    text: "To transfer and modify rotational motion and torque",
+                    correct: true,
+                },
                 { text: "To cool down machinery", correct: false },
                 { text: "To store mechanical energy", correct: false },
             ],
         },
         {
-            question: "Which engineering discipline focuses on the flow and control of fluids?",
+            question:
+                "Which engineering discipline focuses on the flow and control of fluids?",
             answers: [
                 { text: "Electrical Engineering", correct: false },
                 { text: "Chemical Engineering", correct: false },
@@ -4217,7 +5076,8 @@ export const financeData: Quiz = {
             ],
         },
         {
-            question: "Which financial statement shows a company's assets, liabilities, and equity at a specific point in time?",
+            question:
+                "Which financial statement shows a company's assets, liabilities, and equity at a specific point in time?",
             answers: [
                 { text: "Income Statement", correct: false },
                 { text: "Balance Sheet", correct: true },
@@ -4228,26 +5088,53 @@ export const financeData: Quiz = {
         {
             question: "What is diversification in investment?",
             answers: [
-                { text: "Focusing on a single investment to maximize returns", correct: false },
-                { text: "Spreading investments across various assets to reduce risk", correct: true },
-                { text: "Investing only in high-risk securities", correct: false },
-                { text: "Timing the market to buy low and sell high", correct: false },
+                {
+                    text: "Focusing on a single investment to maximize returns",
+                    correct: false,
+                },
+                {
+                    text: "Spreading investments across various assets to reduce risk",
+                    correct: true,
+                },
+                {
+                    text: "Investing only in high-risk securities",
+                    correct: false,
+                },
+                {
+                    text: "Timing the market to buy low and sell high",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the time value of money?",
             answers: [
-                { text: "Money loses value over time due to inflation", correct: true },
-                { text: "Money gains value over time through investments", correct: false },
-                { text: "Money remains the same in value over time", correct: false },
-                { text: "Money's value fluctuates randomly over time", correct: false },
+                {
+                    text: "Money loses value over time due to inflation",
+                    correct: true,
+                },
+                {
+                    text: "Money gains value over time through investments",
+                    correct: false,
+                },
+                {
+                    text: "Money remains the same in value over time",
+                    correct: false,
+                },
+                {
+                    text: "Money's value fluctuates randomly over time",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a bond?",
             answers: [
                 { text: "A type of equity investment", correct: false },
-                { text: "A loan made by an investor to a borrower", correct: true },
+                {
+                    text: "A loan made by an investor to a borrower",
+                    correct: true,
+                },
                 { text: "A derivative contract", correct: false },
                 { text: "A form of insurance", correct: false },
             ],
@@ -4255,17 +5142,32 @@ export const financeData: Quiz = {
         {
             question: "What does EBITDA stand for?",
             answers: [
-                { text: "Earnings Before Interest, Taxes, Depreciation, and Amortization", correct: true },
-                { text: "Earnings Before Investments, Taxes, Debt, and Assets", correct: false },
-                { text: "Earnings Before Interest, Taxes, Dividends, and Assets", correct: false },
-                { text: "Earnings Before Inflation, Taxes, Depreciation, and Amortization", correct: false },
+                {
+                    text: "Earnings Before Interest, Taxes, Depreciation, and Amortization",
+                    correct: true,
+                },
+                {
+                    text: "Earnings Before Investments, Taxes, Debt, and Assets",
+                    correct: false,
+                },
+                {
+                    text: "Earnings Before Interest, Taxes, Dividends, and Assets",
+                    correct: false,
+                },
+                {
+                    text: "Earnings Before Inflation, Taxes, Depreciation, and Amortization",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary function of the stock market?",
             answers: [
                 { text: "To provide loans to businesses", correct: false },
-                { text: "To facilitate the buying and selling of securities", correct: true },
+                {
+                    text: "To facilitate the buying and selling of securities",
+                    correct: true,
+                },
                 { text: "To regulate banking activities", correct: false },
                 { text: "To set interest rates", correct: false },
             ],
@@ -4273,14 +5175,21 @@ export const financeData: Quiz = {
         {
             question: "What is a dividend?",
             answers: [
-                { text: "A portion of a company's earnings distributed to shareholders", correct: true },
-                { text: "A fee charged by brokers for transactions", correct: false },
+                {
+                    text: "A portion of a company's earnings distributed to shareholders",
+                    correct: true,
+                },
+                {
+                    text: "A fee charged by brokers for transactions",
+                    correct: false,
+                },
                 { text: "A type of bond", correct: false },
                 { text: "An increase in the price of a stock", correct: false },
             ],
         },
         {
-            question: "Which ratio measures a company's ability to meet its short-term obligations?",
+            question:
+                "Which ratio measures a company's ability to meet its short-term obligations?",
             answers: [
                 { text: "Debt-to-Equity Ratio", correct: false },
                 { text: "Current Ratio", correct: true },
@@ -4294,7 +5203,10 @@ export const financeData: Quiz = {
             question: "What is 'market capitalization'?",
             answers: [
                 { text: "Total revenue of a company", correct: false },
-                { text: "Total market value of a company's outstanding shares", correct: true },
+                {
+                    text: "Total market value of a company's outstanding shares",
+                    correct: true,
+                },
                 { text: "Total assets of a company", correct: false },
                 { text: "Total liabilities of a company", correct: false },
             ],
@@ -4302,16 +5214,29 @@ export const financeData: Quiz = {
         {
             question: "What is a 'bull market'?",
             answers: [
-                { text: "A market characterized by falling prices", correct: false },
-                { text: "A market characterized by rising prices", correct: true },
+                {
+                    text: "A market characterized by falling prices",
+                    correct: false,
+                },
+                {
+                    text: "A market characterized by rising prices",
+                    correct: true,
+                },
                 { text: "A market with high volatility", correct: false },
-                { text: "A market dominated by a few large companies", correct: false },
+                {
+                    text: "A market dominated by a few large companies",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What does the Capital Asset Pricing Model (CAPM) describe?",
+            question:
+                "What does the Capital Asset Pricing Model (CAPM) describe?",
             answers: [
-                { text: "The relationship between risk and expected return", correct: true },
+                {
+                    text: "The relationship between risk and expected return",
+                    correct: true,
+                },
                 { text: "The valuation of bonds", correct: false },
                 { text: "The process of capital budgeting", correct: false },
                 { text: "The structure of capital markets", correct: false },
@@ -4320,14 +5245,21 @@ export const financeData: Quiz = {
         {
             question: "What is 'leverage' in finance?",
             answers: [
-                { text: "Using borrowed capital to increase the potential return of an investment", correct: true },
-                { text: "Diversifying investments to reduce risk", correct: false },
+                {
+                    text: "Using borrowed capital to increase the potential return of an investment",
+                    correct: true,
+                },
+                {
+                    text: "Diversifying investments to reduce risk",
+                    correct: false,
+                },
                 { text: "Holding a variety of assets", correct: false },
                 { text: "Investing in government securities", correct: false },
             ],
         },
         {
-            question: "Which financial instrument represents ownership in a company?",
+            question:
+                "Which financial instrument represents ownership in a company?",
             answers: [
                 { text: "Bond", correct: false },
                 { text: "Stock", correct: true },
@@ -4338,14 +5270,24 @@ export const financeData: Quiz = {
         {
             question: "What is the 'efficient market hypothesis'?",
             answers: [
-                { text: "All investors can consistently achieve higher returns than the market average", correct: false },
-                { text: "Stock prices fully reflect all available information", correct: true },
+                {
+                    text: "All investors can consistently achieve higher returns than the market average",
+                    correct: false,
+                },
+                {
+                    text: "Stock prices fully reflect all available information",
+                    correct: true,
+                },
                 { text: "Markets are always irrational", correct: false },
-                { text: "Only insider information affects stock prices", correct: false },
+                {
+                    text: "Only insider information affects stock prices",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What does 'diversification' help to achieve in a portfolio?",
+            question:
+                "What does 'diversification' help to achieve in a portfolio?",
             answers: [
                 { text: "Maximizing returns", correct: false },
                 { text: "Minimizing taxes", correct: false },
@@ -4356,14 +5298,24 @@ export const financeData: Quiz = {
         {
             question: "What is 'amortization'?",
             answers: [
-                { text: "Spreading the cost of an intangible asset over its useful life", correct: true },
-                { text: "Spreading the cost of a tangible asset over its useful life", correct: false },
-                { text: "The process of buying and selling securities", correct: false },
+                {
+                    text: "Spreading the cost of an intangible asset over its useful life",
+                    correct: true,
+                },
+                {
+                    text: "Spreading the cost of a tangible asset over its useful life",
+                    correct: false,
+                },
+                {
+                    text: "The process of buying and selling securities",
+                    correct: false,
+                },
                 { text: "The allocation of overhead costs", correct: false },
             ],
         },
         {
-            question: "Which index is known as the benchmark for the U.S. stock market?",
+            question:
+                "Which index is known as the benchmark for the U.S. stock market?",
             answers: [
                 { text: "NASDAQ Composite", correct: false },
                 { text: "S&P 500", correct: true },
@@ -4374,10 +5326,19 @@ export const financeData: Quiz = {
         {
             question: "What is 'financial leverage'?",
             answers: [
-                { text: "The use of debt to acquire additional assets", correct: true },
+                {
+                    text: "The use of debt to acquire additional assets",
+                    correct: true,
+                },
                 { text: "The use of equity to finance assets", correct: false },
-                { text: "The total amount of assets held by a company", correct: false },
-                { text: "The process of evaluating financial statements", correct: false },
+                {
+                    text: "The total amount of assets held by a company",
+                    correct: false,
+                },
+                {
+                    text: "The process of evaluating financial statements",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -4385,14 +5346,27 @@ export const financeData: Quiz = {
         {
             question: "What is 'capital budgeting'?",
             answers: [
-                { text: "The process of planning and managing a firm's long-term investments", correct: true },
-                { text: "The process of managing a firm's short-term assets and liabilities", correct: false },
-                { text: "The process of determining the cost of capital", correct: false },
-                { text: "The process of issuing new securities", correct: false },
+                {
+                    text: "The process of planning and managing a firm's long-term investments",
+                    correct: true,
+                },
+                {
+                    text: "The process of managing a firm's short-term assets and liabilities",
+                    correct: false,
+                },
+                {
+                    text: "The process of determining the cost of capital",
+                    correct: false,
+                },
+                {
+                    text: "The process of issuing new securities",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which of the following is a measure of a company's profitability?",
+            question:
+                "Which of the following is a measure of a company's profitability?",
             answers: [
                 { text: "Current Ratio", correct: false },
                 { text: "Return on Equity (ROE)", correct: true },
@@ -4403,50 +5377,90 @@ export const financeData: Quiz = {
         {
             question: "What is 'beta' in the context of the CAPM?",
             answers: [
-                { text: "A measure of a stock's volatility relative to the market", correct: true },
-                { text: "A measure of a company's financial leverage", correct: false },
+                {
+                    text: "A measure of a stock's volatility relative to the market",
+                    correct: true,
+                },
+                {
+                    text: "A measure of a company's financial leverage",
+                    correct: false,
+                },
                 { text: "A measure of a company's liquidity", correct: false },
-                { text: "A measure of a company's profitability", correct: false },
+                {
+                    text: "A measure of a company's profitability",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'liquidity' refer to in finance?",
             answers: [
-                { text: "The ability to convert assets into cash quickly without significant loss in value", correct: true },
+                {
+                    text: "The ability to convert assets into cash quickly without significant loss in value",
+                    correct: true,
+                },
                 { text: "The ability to generate profits", correct: false },
-                { text: "The total value of a company's assets", correct: false },
+                {
+                    text: "The total value of a company's assets",
+                    correct: false,
+                },
                 { text: "The level of debt in a company", correct: false },
             ],
         },
         {
             question: "Which of the following is a primary market activity?",
             answers: [
-                { text: "Buying and selling of existing securities", correct: false },
+                {
+                    text: "Buying and selling of existing securities",
+                    correct: false,
+                },
                 { text: "Issuing new securities to investors", correct: true },
-                { text: "Trading securities on the secondary market", correct: false },
+                {
+                    text: "Trading securities on the secondary market",
+                    correct: false,
+                },
                 { text: "Analyzing stock performance", correct: false },
             ],
         },
         {
             question: "What is 'hedging' in financial terms?",
             answers: [
-                { text: "Investing in high-risk assets for higher returns", correct: false },
-                { text: "Taking an investment position intended to offset potential losses", correct: true },
-                { text: "Diversifying a portfolio to reduce risk", correct: false },
+                {
+                    text: "Investing in high-risk assets for higher returns",
+                    correct: false,
+                },
+                {
+                    text: "Taking an investment position intended to offset potential losses",
+                    correct: true,
+                },
+                {
+                    text: "Diversifying a portfolio to reduce risk",
+                    correct: false,
+                },
                 { text: "Speculating on market movements", correct: false },
             ],
         },
         {
             question: "What is 'Net Present Value (NPV)' used for in finance?",
             answers: [
-                { text: "To measure the profitability of an investment", correct: true },
+                {
+                    text: "To measure the profitability of an investment",
+                    correct: true,
+                },
                 { text: "To calculate the cost of capital", correct: false },
-                { text: "To determine the liquidity of a company", correct: false },
-                { text: "To assess the creditworthiness of a borrower", correct: false },
+                {
+                    text: "To determine the liquidity of a company",
+                    correct: false,
+                },
+                {
+                    text: "To assess the creditworthiness of a borrower",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which of the following is considered a short-term financial instrument?",
+            question:
+                "Which of the following is considered a short-term financial instrument?",
             answers: [
                 { text: "Bonds", correct: false },
                 { text: "Certificates of Deposit (CDs)", correct: true },
@@ -4457,19 +5471,41 @@ export const financeData: Quiz = {
         {
             question: "What is the 'Time Value of Money'?",
             answers: [
-                { text: "Money's ability to lose value over time due to inflation", correct: true },
-                { text: "Money's ability to gain value over time through interest or investment", correct: true },
-                { text: "The concept that money has the same value now as it does in the future", correct: false },
-                { text: "Money's ability to remain unchanged in value over time", correct: false },
+                {
+                    text: "Money's ability to lose value over time due to inflation",
+                    correct: true,
+                },
+                {
+                    text: "Money's ability to gain value over time through interest or investment",
+                    correct: true,
+                },
+                {
+                    text: "The concept that money has the same value now as it does in the future",
+                    correct: false,
+                },
+                {
+                    text: "Money's ability to remain unchanged in value over time",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What does 'yield to maturity' (YTM) represent for a bond?",
+            question:
+                "What does 'yield to maturity' (YTM) represent for a bond?",
             answers: [
-                { text: "The total return anticipated on a bond if it is held until it matures", correct: true },
-                { text: "The current market price of the bond", correct: false },
+                {
+                    text: "The total return anticipated on a bond if it is held until it matures",
+                    correct: true,
+                },
+                {
+                    text: "The current market price of the bond",
+                    correct: false,
+                },
                 { text: "The coupon rate of the bond", correct: false },
-                { text: "The total interest paid by the bond issuer", correct: false },
+                {
+                    text: "The total interest paid by the bond issuer",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -4477,14 +5513,27 @@ export const financeData: Quiz = {
         {
             question: "What is 'systematic risk'?",
             answers: [
-                { text: "Risk specific to a single company or industry", correct: false },
-                { text: "Risk inherent to the entire market or market segment", correct: true },
-                { text: "Risk that can be eliminated through diversification", correct: false },
-                { text: "Risk associated with a particular investment's liquidity", correct: false },
+                {
+                    text: "Risk specific to a single company or industry",
+                    correct: false,
+                },
+                {
+                    text: "Risk inherent to the entire market or market segment",
+                    correct: true,
+                },
+                {
+                    text: "Risk that can be eliminated through diversification",
+                    correct: false,
+                },
+                {
+                    text: "Risk associated with a particular investment's liquidity",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which financial statement shows a company's revenues and expenses over a specific period?",
+            question:
+                "Which financial statement shows a company's revenues and expenses over a specific period?",
             answers: [
                 { text: "Balance Sheet", correct: false },
                 { text: "Income Statement", correct: true },
@@ -4495,18 +5544,34 @@ export const financeData: Quiz = {
         {
             question: "What is 'working capital'?",
             answers: [
-                { text: "The difference between a company's current assets and current liabilities", correct: true },
+                {
+                    text: "The difference between a company's current assets and current liabilities",
+                    correct: true,
+                },
                 { text: "The total assets of a company", correct: false },
                 { text: "The total liabilities of a company", correct: false },
-                { text: "The long-term investments of a company", correct: false },
+                {
+                    text: "The long-term investments of a company",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the purpose of a stock's P/E (Price-to-Earnings) ratio?",
+            question:
+                "What is the purpose of a stock's P/E (Price-to-Earnings) ratio?",
             answers: [
-                { text: "To measure a company's profitability relative to its assets", correct: false },
-                { text: "To assess a stock's valuation relative to its earnings", correct: true },
-                { text: "To determine the dividend yield of a stock", correct: false },
+                {
+                    text: "To measure a company's profitability relative to its assets",
+                    correct: false,
+                },
+                {
+                    text: "To assess a stock's valuation relative to its earnings",
+                    correct: true,
+                },
+                {
+                    text: "To determine the dividend yield of a stock",
+                    correct: false,
+                },
                 { text: "To evaluate a company's debt levels", correct: false },
             ],
         },
@@ -4514,13 +5579,23 @@ export const financeData: Quiz = {
             question: "What is 'leverage' in the context of corporate finance?",
             answers: [
                 { text: "The use of equity to finance assets", correct: false },
-                { text: "The use of borrowed funds to increase potential returns", correct: true },
-                { text: "The process of investing in diversified assets", correct: false },
-                { text: "The ratio of a company's current assets to current liabilities", correct: false },
+                {
+                    text: "The use of borrowed funds to increase potential returns",
+                    correct: true,
+                },
+                {
+                    text: "The process of investing in diversified assets",
+                    correct: false,
+                },
+                {
+                    text: "The ratio of a company's current assets to current liabilities",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which type of analysis evaluates a company's financial statements to make investment decisions?",
+            question:
+                "Which type of analysis evaluates a company's financial statements to make investment decisions?",
             answers: [
                 { text: "Technical Analysis", correct: false },
                 { text: "Fundamental Analysis", correct: true },
@@ -4532,25 +5607,50 @@ export const financeData: Quiz = {
             question: "What is the 'debt-to-equity ratio' used for?",
             answers: [
                 { text: "To assess a company's liquidity", correct: false },
-                { text: "To evaluate a company's financial leverage", correct: true },
-                { text: "To measure a company's profitability", correct: false },
-                { text: "To determine the return on investment", correct: false },
+                {
+                    text: "To evaluate a company's financial leverage",
+                    correct: true,
+                },
+                {
+                    text: "To measure a company's profitability",
+                    correct: false,
+                },
+                {
+                    text: "To determine the return on investment",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does 'portfolio diversification' aim to achieve?",
             answers: [
-                { text: "Maximizing returns by concentrating investments", correct: false },
-                { text: "Reducing risk by spreading investments across different assets", correct: true },
-                { text: "Minimizing taxes through strategic investments", correct: false },
-                { text: "Increasing liquidity by investing in easily sellable assets", correct: false },
+                {
+                    text: "Maximizing returns by concentrating investments",
+                    correct: false,
+                },
+                {
+                    text: "Reducing risk by spreading investments across different assets",
+                    correct: true,
+                },
+                {
+                    text: "Minimizing taxes through strategic investments",
+                    correct: false,
+                },
+                {
+                    text: "Increasing liquidity by investing in easily sellable assets",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the primary function of the Securities and Exchange Commission (SEC) in the United States?",
+            question:
+                "What is the primary function of the Securities and Exchange Commission (SEC) in the United States?",
             answers: [
                 { text: "To regulate the banking industry", correct: false },
-                { text: "To oversee and regulate the securities markets", correct: true },
+                {
+                    text: "To oversee and regulate the securities markets",
+                    correct: true,
+                },
                 { text: "To manage the federal budget", correct: false },
                 { text: "To set interest rates", correct: false },
             ],
@@ -4559,7 +5659,10 @@ export const financeData: Quiz = {
             question: "What is 'cash flow'?",
             answers: [
                 { text: "The total revenue of a company", correct: false },
-                { text: "The net amount of cash being transferred into and out of a business", correct: true },
+                {
+                    text: "The net amount of cash being transferred into and out of a business",
+                    correct: true,
+                },
                 { text: "The total expenses of a company", correct: false },
                 { text: "The profit made by a company", correct: false },
             ],
@@ -4578,14 +5681,27 @@ export const financeData: Quiz = {
         {
             question: "What is 'behavioral finance'?",
             answers: [
-                { text: "The study of psychological influences on investors and financial markets", correct: true },
-                { text: "The study of financial markets and their movements", correct: false },
-                { text: "The analysis of financial statements", correct: false },
-                { text: "The use of mathematical models in finance", correct: false },
+                {
+                    text: "The study of psychological influences on investors and financial markets",
+                    correct: true,
+                },
+                {
+                    text: "The study of financial markets and their movements",
+                    correct: false,
+                },
+                {
+                    text: "The analysis of financial statements",
+                    correct: false,
+                },
+                {
+                    text: "The use of mathematical models in finance",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which economist is associated with the concept of 'comparative advantage'?",
+            question:
+                "Which economist is associated with the concept of 'comparative advantage'?",
             answers: [
                 { text: "Adam Smith", correct: false },
                 { text: "David Ricardo", correct: true },
@@ -4594,11 +5710,21 @@ export const financeData: Quiz = {
             ],
         },
         {
-            question: "What is the 'capital asset pricing model' (CAPM) used for?",
+            question:
+                "What is the 'capital asset pricing model' (CAPM) used for?",
             answers: [
-                { text: "To evaluate a company's creditworthiness", correct: false },
-                { text: "To determine the expected return on an investment based on its risk", correct: true },
-                { text: "To analyze the financial statements of a company", correct: false },
+                {
+                    text: "To evaluate a company's creditworthiness",
+                    correct: false,
+                },
+                {
+                    text: "To determine the expected return on an investment based on its risk",
+                    correct: true,
+                },
+                {
+                    text: "To analyze the financial statements of a company",
+                    correct: false,
+                },
                 { text: "To manage a company's cash flow", correct: false },
             ],
         },
@@ -4612,7 +5738,8 @@ export const financeData: Quiz = {
             ],
         },
         {
-            question: "What is the main advantage of a Roth IRA over a traditional IRA?",
+            question:
+                "What is the main advantage of a Roth IRA over a traditional IRA?",
             answers: [
                 { text: "Tax-free withdrawals in retirement", correct: true },
                 { text: "Higher contribution limits", correct: false },
@@ -4623,14 +5750,27 @@ export const financeData: Quiz = {
         {
             question: "What is 'liquidity risk'?",
             answers: [
-                { text: "The risk of a company defaulting on its obligations", correct: false },
-                { text: "The risk that an asset cannot be sold quickly without a significant price concession", correct: true },
-                { text: "The risk of inflation eroding the value of money", correct: false },
-                { text: "The risk of losing money in an investment", correct: false },
+                {
+                    text: "The risk of a company defaulting on its obligations",
+                    correct: false,
+                },
+                {
+                    text: "The risk that an asset cannot be sold quickly without a significant price concession",
+                    correct: true,
+                },
+                {
+                    text: "The risk of inflation eroding the value of money",
+                    correct: false,
+                },
+                {
+                    text: "The risk of losing money in an investment",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which investment vehicle pools money from many investors to purchase securities?",
+            question:
+                "Which investment vehicle pools money from many investors to purchase securities?",
             answers: [
                 { text: "Mutual Fund", correct: true },
                 { text: "Bond", correct: false },
@@ -4641,17 +5781,35 @@ export const financeData: Quiz = {
         {
             question: "What is the 'efficient market hypothesis'?",
             answers: [
-                { text: "The idea that stock prices fully reflect all available information", correct: true },
-                { text: "The belief that markets are always efficient in allocating resources", correct: false },
-                { text: "The theory that market prices are always rational", correct: false },
-                { text: "The notion that investors can consistently achieve higher returns through analysis", correct: false },
+                {
+                    text: "The idea that stock prices fully reflect all available information",
+                    correct: true,
+                },
+                {
+                    text: "The belief that markets are always efficient in allocating resources",
+                    correct: false,
+                },
+                {
+                    text: "The theory that market prices are always rational",
+                    correct: false,
+                },
+                {
+                    text: "The notion that investors can consistently achieve higher returns through analysis",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'compound interest'?",
             answers: [
-                { text: "Interest calculated only on the principal amount", correct: false },
-                { text: "Interest calculated on the principal and also on the accumulated interest", correct: true },
+                {
+                    text: "Interest calculated only on the principal amount",
+                    correct: false,
+                },
+                {
+                    text: "Interest calculated on the principal and also on the accumulated interest",
+                    correct: true,
+                },
                 { text: "A fixed rate of interest over time", correct: false },
                 { text: "Interest that decreases over time", correct: false },
             ],
@@ -4883,7 +6041,8 @@ export const geographyData: Quiz = {
             ],
         },
         {
-            question: "Which ocean lies on the eastern coast of the United States?",
+            question:
+                "Which ocean lies on the eastern coast of the United States?",
             answers: [
                 { text: "Pacific Ocean", correct: false },
                 { text: "Atlantic Ocean", correct: true },
@@ -4939,7 +6098,8 @@ export const geographyData: Quiz = {
     ],
     4: [
         {
-            question: "Which country has the highest number of UNESCO World Heritage Sites?",
+            question:
+                "Which country has the highest number of UNESCO World Heritage Sites?",
             answers: [
                 { text: "Italy", correct: true },
                 { text: "China", correct: false },
@@ -4948,7 +6108,8 @@ export const geographyData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a narrow strip of land connecting two larger land areas?",
+            question:
+                "What is the term for a narrow strip of land connecting two larger land areas?",
             answers: [
                 { text: "Isthmus", correct: true },
                 { text: "Peninsula", correct: false },
@@ -5076,7 +6237,8 @@ export const geographyData: Quiz = {
             ],
         },
         {
-            question: "Which country is both the smallest by land area and has no military?",
+            question:
+                "Which country is both the smallest by land area and has no military?",
             answers: [
                 { text: "Vatican City", correct: true },
                 { text: "Monaco", correct: false },
@@ -5136,7 +6298,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which vitamin is primarily obtained through sunlight exposure?",
+            question:
+                "Which vitamin is primarily obtained through sunlight exposure?",
             answers: [
                 { text: "Vitamin A", correct: false },
                 { text: "Vitamin B12", correct: false },
@@ -5172,7 +6335,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which system of the body is responsible for transporting blood?",
+            question:
+                "Which system of the body is responsible for transporting blood?",
             answers: [
                 { text: "Respiratory System", correct: false },
                 { text: "Digestive System", correct: false },
@@ -5199,7 +6363,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which the body breaks down food to produce energy?",
+            question:
+                "What is the process by which the body breaks down food to produce energy?",
             answers: [
                 { text: "Photosynthesis", correct: false },
                 { text: "Respiration", correct: true },
@@ -5208,7 +6373,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which part of the brain is responsible for coordination and balance?",
+            question:
+                "Which part of the brain is responsible for coordination and balance?",
             answers: [
                 { text: "Cerebrum", correct: false },
                 { text: "Cerebellum", correct: true },
@@ -5268,7 +6434,10 @@ export const healthCareData: Quiz = {
             answers: [
                 { text: "To digest food", correct: false },
                 { text: "To circulate blood", correct: false },
-                { text: "To exchange gases (oxygen and carbon dioxide)", correct: true },
+                {
+                    text: "To exchange gases (oxygen and carbon dioxide)",
+                    correct: true,
+                },
                 { text: "To produce hormones", correct: false },
             ],
         },
@@ -5282,7 +6451,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the normal range of body temperature?",
+            question:
+                "What is the term for the normal range of body temperature?",
             answers: [
                 { text: "Homeostasis", correct: false },
                 { text: "Euthermia", correct: true },
@@ -5291,7 +6461,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which system of the body is responsible for producing hormones?",
+            question:
+                "Which system of the body is responsible for producing hormones?",
             answers: [
                 { text: "Digestive System", correct: false },
                 { text: "Endocrine System", correct: true },
@@ -5320,7 +6491,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which organ is responsible for filtering blood in the human body?",
+            question:
+                "Which organ is responsible for filtering blood in the human body?",
             answers: [
                 { text: "Liver", correct: false },
                 { text: "Heart", correct: false },
@@ -5338,7 +6510,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which type of joint allows for the widest range of motion?",
+            question:
+                "Which type of joint allows for the widest range of motion?",
             answers: [
                 { text: "Hinge Joint", correct: false },
                 { text: "Ball and Socket Joint", correct: true },
@@ -5347,7 +6520,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a disease that spreads from one person to another?",
+            question:
+                "What is the term for a disease that spreads from one person to another?",
             answers: [
                 { text: "Chronic Disease", correct: false },
                 { text: "Non-communicable Disease", correct: false },
@@ -5383,7 +6557,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which cells divide to produce gametes?",
+            question:
+                "What is the process by which cells divide to produce gametes?",
             answers: [
                 { text: "Mitosis", correct: false },
                 { text: "Meiosis", correct: true },
@@ -5421,7 +6596,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the ability of the body to maintain a stable internal environment?",
+            question:
+                "What is the term for the ability of the body to maintain a stable internal environment?",
             answers: [
                 { text: "Metabolism", correct: false },
                 { text: "Homeostasis", correct: true },
@@ -5430,7 +6606,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which system of the body is responsible for producing movement?",
+            question:
+                "Which system of the body is responsible for producing movement?",
             answers: [
                 { text: "Nervous System", correct: false },
                 { text: "Muscular System", correct: true },
@@ -5448,7 +6625,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which blood cells are responsible for transporting oxygen?",
+            question:
+                "Which blood cells are responsible for transporting oxygen?",
             answers: [
                 { text: "White blood cells", correct: false },
                 { text: "Red blood cells", correct: true },
@@ -5466,7 +6644,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which vitamin is essential for the absorption of calcium?",
+            question:
+                "Which vitamin is essential for the absorption of calcium?",
             answers: [
                 { text: "Vitamin A", correct: false },
                 { text: "Vitamin B12", correct: false },
@@ -5484,7 +6663,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which part of the eye controls the amount of light that enters?",
+            question:
+                "Which part of the eye controls the amount of light that enters?",
             answers: [
                 { text: "Cornea", correct: false },
                 { text: "Pupil", correct: true },
@@ -5495,7 +6675,8 @@ export const healthCareData: Quiz = {
     ],
     5: [
         {
-            question: "What is the term for the process of creating new blood cells?",
+            question:
+                "What is the term for the process of creating new blood cells?",
             answers: [
                 { text: "Metabolism", correct: false },
                 { text: "Hemopoiesis", correct: true },
@@ -5522,7 +6703,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which type of blood vessel carries blood away from the heart?",
+            question:
+                "Which type of blood vessel carries blood away from the heart?",
             answers: [
                 { text: "Veins", correct: false },
                 { text: "Capillaries", correct: false },
@@ -5531,7 +6713,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a deficiency of red blood cells or hemoglobin?",
+            question:
+                "What is the term for a deficiency of red blood cells or hemoglobin?",
             answers: [
                 { text: "Anemia", correct: true },
                 { text: "Leukemia", correct: false },
@@ -5540,7 +6723,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which part of the nervous system controls voluntary movements?",
+            question:
+                "Which part of the nervous system controls voluntary movements?",
             answers: [
                 { text: "Autonomic Nervous System", correct: false },
                 { text: "Somatic Nervous System", correct: true },
@@ -5553,7 +6737,10 @@ export const healthCareData: Quiz = {
             answers: [
                 { text: "To transport oxygen", correct: false },
                 { text: "To produce hormones", correct: false },
-                { text: "To break down food and absorb nutrients", correct: true },
+                {
+                    text: "To break down food and absorb nutrients",
+                    correct: true,
+                },
                 { text: "To pump blood", correct: false },
             ],
         },
@@ -5576,7 +6763,8 @@ export const healthCareData: Quiz = {
             ],
         },
         {
-            question: "Which organ is responsible for detoxifying chemicals and metabolizing drugs?",
+            question:
+                "Which organ is responsible for detoxifying chemicals and metabolizing drugs?",
             answers: [
                 { text: "Kidney", correct: false },
                 { text: "Liver", correct: true },
@@ -5627,7 +6815,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "What literary device involves giving human traits to non-human objects?",
+            question:
+                "What literary device involves giving human traits to non-human objects?",
             answers: [
                 { text: "Alliteration", correct: false },
                 { text: "Personification", correct: true },
@@ -5636,7 +6825,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "Which novel is known for the phrase 'Big Brother is watching you'?",
+            question:
+                "Which novel is known for the phrase 'Big Brother is watching you'?",
             answers: [
                 { text: "'Brave New World'", correct: false },
                 { text: "'1984'", correct: true },
@@ -5648,7 +6838,10 @@ export const literatureData: Quiz = {
             question: "What is a haiku?",
             answers: [
                 { text: "A type of novel", correct: false },
-                { text: "A three-line Japanese poem with a 5-7-5 syllable structure", correct: true },
+                {
+                    text: "A three-line Japanese poem with a 5-7-5 syllable structure",
+                    correct: true,
+                },
                 { text: "A long narrative poem", correct: false },
                 { text: "A rhymed couplet", correct: false },
             ],
@@ -5663,7 +6856,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a play with a serious theme and a sad ending?",
+            question:
+                "What is the term for a play with a serious theme and a sad ending?",
             answers: [
                 { text: "Comedy", correct: false },
                 { text: "Tragedy", correct: true },
@@ -5683,7 +6877,8 @@ export const literatureData: Quiz = {
     ],
     2: [
         {
-            question: "What is the term for a repeated beginning sound in two or more words?",
+            question:
+                "What is the term for a repeated beginning sound in two or more words?",
             answers: [
                 { text: "Assonance", correct: false },
                 { text: "Consonance", correct: false },
@@ -5704,7 +6899,10 @@ export const literatureData: Quiz = {
             question: "What is the climax of a story?",
             answers: [
                 { text: "The introduction of characters", correct: false },
-                { text: "The turning point or most intense moment", correct: true },
+                {
+                    text: "The turning point or most intense moment",
+                    correct: true,
+                },
                 { text: "The resolution of the plot", correct: false },
                 { text: "The background setting", correct: false },
             ],
@@ -5739,8 +6937,14 @@ export const literatureData: Quiz = {
         {
             question: "What is a metaphor?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "A figure of speech comparing two unlike things without using 'like' or 'as'", correct: true },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech comparing two unlike things without using 'like' or 'as'",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
                 { text: "A question asked for effect", correct: false },
             ],
@@ -5755,10 +6959,14 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "What is the main theme of Mary Shelley's 'Frankenstein'?",
+            question:
+                "What is the main theme of Mary Shelley's 'Frankenstein'?",
             answers: [
                 { text: "Love and romance", correct: false },
-                { text: "The dangers of unchecked ambition and playing God", correct: true },
+                {
+                    text: "The dangers of unchecked ambition and playing God",
+                    correct: true,
+                },
                 { text: "Adventure and exploration", correct: false },
                 { text: "Comedy and satire", correct: false },
             ],
@@ -5775,7 +6983,8 @@ export const literatureData: Quiz = {
     ],
     3: [
         {
-            question: "Which literary device involves a sharp contrast between expectations and reality?",
+            question:
+                "Which literary device involves a sharp contrast between expectations and reality?",
             answers: [
                 { text: "Irony", correct: true },
                 { text: "Allusion", correct: false },
@@ -5824,16 +7033,28 @@ export const literatureData: Quiz = {
             answers: [
                 { text: "I went to the store.", correct: false },
                 { text: "She sings beautifully.", correct: false },
-                { text: "Although it was raining, we went for a walk.", correct: true },
+                {
+                    text: "Although it was raining, we went for a walk.",
+                    correct: true,
+                },
                 { text: "They are happy.", correct: false },
             ],
         },
         {
             question: "What is an oxymoron?",
             answers: [
-                { text: "A figure of speech using exaggeration", correct: false },
-                { text: "A figure of speech combining contradictory terms", correct: true },
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
+                {
+                    text: "A figure of speech using exaggeration",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech combining contradictory terms",
+                    correct: true,
+                },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -5859,7 +7080,10 @@ export const literatureData: Quiz = {
             question: "What is the function of a semicolon in a sentence?",
             answers: [
                 { text: "To separate items in a list", correct: false },
-                { text: "To join two independent clauses without a conjunction", correct: true },
+                {
+                    text: "To join two independent clauses without a conjunction",
+                    correct: true,
+                },
                 { text: "To introduce a quote", correct: false },
                 { text: "To end a sentence forcefully", correct: false },
             ],
@@ -5870,13 +7094,23 @@ export const literatureData: Quiz = {
             question: "What is a dangling modifier?",
             answers: [
                 { text: "A modifier that is placed correctly", correct: false },
-                { text: "A modifier that is missing the word it is supposed to modify", correct: true },
-                { text: "A modifier that describes the main verb", correct: false },
-                { text: "A modifier that appears in the middle of a sentence", correct: false },
+                {
+                    text: "A modifier that is missing the word it is supposed to modify",
+                    correct: true,
+                },
+                {
+                    text: "A modifier that describes the main verb",
+                    correct: false,
+                },
+                {
+                    text: "A modifier that appears in the middle of a sentence",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which literary device involves an exaggeration for emphasis?",
+            question:
+                "Which literary device involves an exaggeration for emphasis?",
             answers: [
                 { text: "Metaphor", correct: false },
                 { text: "Simile", correct: false },
@@ -5894,7 +7128,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "Which narrative technique involves the author speaking directly to the reader?",
+            question:
+                "Which narrative technique involves the author speaking directly to the reader?",
             answers: [
                 { text: "First-person narration", correct: false },
                 { text: "Third-person omniscient", correct: false },
@@ -5906,8 +7141,14 @@ export const literatureData: Quiz = {
             question: "What is 'foreshadowing' in literature?",
             answers: [
                 { text: "A sudden plot twist", correct: false },
-                { text: "Hints or clues about what will happen later in the story", correct: true },
-                { text: "A detailed description of the setting", correct: false },
+                {
+                    text: "Hints or clues about what will happen later in the story",
+                    correct: true,
+                },
+                {
+                    text: "A detailed description of the setting",
+                    correct: false,
+                },
                 { text: "A confrontation between characters", correct: false },
             ],
         },
@@ -5923,14 +7164,18 @@ export const literatureData: Quiz = {
         {
             question: "What is 'stream of consciousness'?",
             answers: [
-                { text: "A narrative mode that attempts to capture the flow of thoughts and feelings", correct: true },
+                {
+                    text: "A narrative mode that attempts to capture the flow of thoughts and feelings",
+                    correct: true,
+                },
                 { text: "A fast-paced action sequence", correct: false },
                 { text: "A detailed descriptive passage", correct: false },
                 { text: "A dialogue-heavy scene", correct: false },
             ],
         },
         {
-            question: "Which Shakespeare play features the characters Oberon and Titania?",
+            question:
+                "Which Shakespeare play features the characters Oberon and Titania?",
             answers: [
                 { text: "'Macbeth'", correct: false },
                 { text: "'A Midsummer Night's Dream'", correct: true },
@@ -5948,7 +7193,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "Which poet is known for the collection 'Leaves of Grass'?",
+            question:
+                "Which poet is known for the collection 'Leaves of Grass'?",
             answers: [
                 { text: "Robert Frost", correct: false },
                 { text: "Walt Whitman", correct: true },
@@ -5961,14 +7207,24 @@ export const literatureData: Quiz = {
         {
             question: "What is 'allusion' in literature?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "A figure of speech involving a contradiction", correct: false },
-                { text: "An indirect reference to a person, place, event, or literary work", correct: true },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "A figure of speech involving a contradiction",
+                    correct: false,
+                },
+                {
+                    text: "An indirect reference to a person, place, event, or literary work",
+                    correct: true,
+                },
                 { text: "An exaggerated statement for effect", correct: false },
             ],
         },
         {
-            question: "Which novel is considered a dystopian work by Aldous Huxley?",
+            question:
+                "Which novel is considered a dystopian work by Aldous Huxley?",
             answers: [
                 { text: "'Brave New World'", correct: true },
                 { text: "'1984'", correct: false },
@@ -5977,7 +7233,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the repetition of vowel sounds in nearby words?",
+            question:
+                "What is the term for the repetition of vowel sounds in nearby words?",
             answers: [
                 { text: "Alliteration", correct: false },
                 { text: "Assonance", correct: true },
@@ -5998,13 +7255,17 @@ export const literatureData: Quiz = {
             question: "What is 'synecdoche' in literature?",
             answers: [
                 { text: "A type of irony", correct: false },
-                { text: "A figure of speech where a part represents the whole or vice versa", correct: true },
+                {
+                    text: "A figure of speech where a part represents the whole or vice versa",
+                    correct: true,
+                },
                 { text: "A narrative technique", correct: false },
                 { text: "An exaggerated statement", correct: false },
             ],
         },
         {
-            question: "Which Shakespeare play features the characters Macbeth and Lady Macbeth?",
+            question:
+                "Which Shakespeare play features the characters Macbeth and Lady Macbeth?",
             answers: [
                 { text: "'Romeo and Juliet'", correct: false },
                 { text: "'Hamlet'", correct: false },
@@ -6016,7 +7277,10 @@ export const literatureData: Quiz = {
             question: "What is the climax of a story?",
             answers: [
                 { text: "The introduction of characters", correct: false },
-                { text: "The turning point or most intense moment", correct: true },
+                {
+                    text: "The turning point or most intense moment",
+                    correct: true,
+                },
                 { text: "The resolution of the plot", correct: false },
                 { text: "The background setting", correct: false },
             ],
@@ -6024,9 +7288,18 @@ export const literatureData: Quiz = {
         {
             question: "What is 'personification'?",
             answers: [
-                { text: "A direct comparison using 'like' or 'as'", correct: false },
-                { text: "Giving human characteristics to non-human entities", correct: true },
-                { text: "An exaggerated statement for emphasis", correct: false },
+                {
+                    text: "A direct comparison using 'like' or 'as'",
+                    correct: false,
+                },
+                {
+                    text: "Giving human characteristics to non-human entities",
+                    correct: true,
+                },
+                {
+                    text: "An exaggerated statement for emphasis",
+                    correct: false,
+                },
                 { text: "A rhetorical question", correct: false },
             ],
         },
@@ -6040,7 +7313,8 @@ export const literatureData: Quiz = {
             ],
         },
         {
-            question: "What is the main theme of John Steinbeck's 'Of Mice and Men'?",
+            question:
+                "What is the main theme of John Steinbeck's 'Of Mice and Men'?",
             answers: [
                 { text: "Love and romance", correct: false },
                 { text: "Friendship and dreams", correct: true },
@@ -6109,7 +7383,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a chord built on the first degree of a scale?",
+            question:
+                "What is the term for a chord built on the first degree of a scale?",
             answers: [
                 { text: "Dominant Chord", correct: false },
                 { text: "Subdominant Chord", correct: false },
@@ -6127,7 +7402,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which music theory term describes the speed at which a piece of music is played?",
+            question:
+                "Which music theory term describes the speed at which a piece of music is played?",
             answers: [
                 { text: "Dynamics", correct: false },
                 { text: "Tempo", correct: true },
@@ -6192,7 +7468,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a series of chords played in a sequence?",
+            question:
+                "What is the term for a series of chords played in a sequence?",
             answers: [
                 { text: "Melody", correct: false },
                 { text: "Harmony", correct: true },
@@ -6210,16 +7487,27 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the primary difference between a concerto and a symphony?",
+            question:
+                "What is the primary difference between a concerto and a symphony?",
             answers: [
-                { text: "A concerto features a solo instrument, while a symphony is for an orchestra", correct: true },
-                { text: "A symphony features a solo instrument, while a concerto is for an orchestra", correct: false },
+                {
+                    text: "A concerto features a solo instrument, while a symphony is for an orchestra",
+                    correct: true,
+                },
+                {
+                    text: "A symphony features a solo instrument, while a concerto is for an orchestra",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
-                { text: "A concerto is shorter than a symphony", correct: false },
+                {
+                    text: "A concerto is shorter than a symphony",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which instrument is NOT part of a standard brass section?",
+            question:
+                "Which instrument is NOT part of a standard brass section?",
             answers: [
                 { text: "Trumpet", correct: false },
                 { text: "Trombone", correct: false },
@@ -6239,7 +7527,8 @@ export const musicData: Quiz = {
     ],
     3: [
         {
-            question: "Which composer is known for the opera 'The Marriage of Figaro'?",
+            question:
+                "Which composer is known for the opera 'The Marriage of Figaro'?",
             answers: [
                 { text: "Wolfgang Amadeus Mozart", correct: true },
                 { text: "Giuseppe Verdi", correct: false },
@@ -6275,7 +7564,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which instrument is typically used in a woodwind section?",
+            question:
+                "Which instrument is typically used in a woodwind section?",
             answers: [
                 { text: "Trumpet", correct: false },
                 { text: "Clarinet", correct: true },
@@ -6284,11 +7574,21 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the main difference between a symphony and a concerto?",
+            question:
+                "What is the main difference between a symphony and a concerto?",
             answers: [
-                { text: "A symphony is for a soloist, while a concerto is for an orchestra", correct: false },
-                { text: "A concerto features a solo instrument with orchestral accompaniment, while a symphony is for a full orchestra", correct: true },
-                { text: "A symphony is shorter than a concerto", correct: false },
+                {
+                    text: "A symphony is for a soloist, while a concerto is for an orchestra",
+                    correct: false,
+                },
+                {
+                    text: "A concerto features a solo instrument with orchestral accompaniment, while a symphony is for a full orchestra",
+                    correct: true,
+                },
+                {
+                    text: "A symphony is shorter than a concerto",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -6302,7 +7602,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a group of strings played together in an orchestra?",
+            question:
+                "What is the term for a group of strings played together in an orchestra?",
             answers: [
                 { text: "Woodwinds", correct: false },
                 { text: "Brass", correct: false },
@@ -6367,7 +7668,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which band is known for the album 'Dark Side of the Moon'?",
+            question:
+                "Which band is known for the album 'Dark Side of the Moon'?",
             answers: [
                 { text: "Pink Floyd", correct: true },
                 { text: "The Beatles", correct: false },
@@ -6376,7 +7678,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the main melody in a piece of music?",
+            question:
+                "What is the term for the main melody in a piece of music?",
             answers: [
                 { text: "Harmony", correct: false },
                 { text: "Rhythm", correct: false },
@@ -6412,7 +7715,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which genre is characterized by improvisation and swing rhythms?",
+            question:
+                "Which genre is characterized by improvisation and swing rhythms?",
             answers: [
                 { text: "Rock", correct: false },
                 { text: "Jazz", correct: true },
@@ -6423,7 +7727,8 @@ export const musicData: Quiz = {
     ],
     5: [
         {
-            question: "What is the term for a piece of music written for a solo instrument accompanied by an orchestra?",
+            question:
+                "What is the term for a piece of music written for a solo instrument accompanied by an orchestra?",
             answers: [
                 { text: "Symphony", correct: false },
                 { text: "Concerto", correct: true },
@@ -6432,7 +7737,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which composer is known for his operas 'Rigoletto' and 'La Traviata'?",
+            question:
+                "Which composer is known for his operas 'Rigoletto' and 'La Traviata'?",
             answers: [
                 { text: "Gioachino Rossini", correct: false },
                 { text: "Giuseppe Verdi", correct: true },
@@ -6441,7 +7747,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a group of singers performing together?",
+            question:
+                "What is the term for a group of singers performing together?",
             answers: [
                 { text: "Orchestra", correct: false },
                 { text: "Choir", correct: true },
@@ -6459,9 +7766,13 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the primary difference between a minor and a major scale?",
+            question:
+                "What is the primary difference between a minor and a major scale?",
             answers: [
-                { text: "Minor scales have a different sequence of whole and half steps", correct: true },
+                {
+                    text: "Minor scales have a different sequence of whole and half steps",
+                    correct: true,
+                },
                 { text: "Major scales have fewer notes", correct: false },
                 { text: "Minor scales are only used in jazz", correct: false },
                 { text: "There is no difference", correct: false },
@@ -6480,7 +7791,10 @@ export const musicData: Quiz = {
             question: "What does 'a cappella' mean?",
             answers: [
                 { text: "With instrumental accompaniment", correct: false },
-                { text: "Sung without instrumental accompaniment", correct: true },
+                {
+                    text: "Sung without instrumental accompaniment",
+                    correct: true,
+                },
                 { text: "In a fast tempo", correct: false },
                 { text: "With a choir", correct: false },
             ],
@@ -6495,7 +7809,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a musical composition with several movements?",
+            question:
+                "What is the term for a musical composition with several movements?",
             answers: [
                 { text: "Sonata", correct: false },
                 { text: "Concerto", correct: false },
@@ -6504,7 +7819,8 @@ export const musicData: Quiz = {
             ],
         },
         {
-            question: "Which composer is famous for the ballet 'The Rite of Spring'?",
+            question:
+                "Which composer is famous for the ballet 'The Rite of Spring'?",
             answers: [
                 { text: "Igor Stravinsky", correct: true },
                 { text: "Sergei Prokofiev", correct: false },
@@ -6531,13 +7847,17 @@ export const philosophyData: Quiz = {
             question: "What is the main focus of ethics in philosophy?",
             answers: [
                 { text: "The nature of reality", correct: false },
-                { text: "The principles of right and wrong conduct", correct: true },
+                {
+                    text: "The principles of right and wrong conduct",
+                    correct: true,
+                },
                 { text: "The structure of arguments", correct: false },
                 { text: "The existence of God", correct: false },
             ],
         },
         {
-            question: "Which philosopher is famous for the phrase 'I think, therefore I am'?",
+            question:
+                "Which philosopher is famous for the phrase 'I think, therefore I am'?",
             answers: [
                 { text: "René Descartes", correct: true },
                 { text: "David Hume", correct: false },
@@ -6548,10 +7868,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6564,7 +7896,8 @@ export const philosophyData: Quiz = {
             ],
         },
         {
-            question: "What branch of philosophy deals with the nature of knowledge?",
+            question:
+                "What branch of philosophy deals with the nature of knowledge?",
             answers: [
                 { text: "Metaphysics", correct: false },
                 { text: "Epistemology", correct: true },
@@ -6573,7 +7906,8 @@ export const philosophyData: Quiz = {
             ],
         },
         {
-            question: "Which philosopher is associated with the concept of 'the will to power'?",
+            question:
+                "Which philosopher is associated with the concept of 'the will to power'?",
             answers: [
                 { text: "Karl Marx", correct: false },
                 { text: "Friedrich Nietzsche", correct: true },
@@ -6584,10 +7918,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'existentialism'?",
             answers: [
-                { text: "A theory that focuses on social and economic factors", correct: false },
-                { text: "A philosophy that emphasizes individual existence, freedom, and choice", correct: true },
-                { text: "A theory that explores the nature of being and reality", correct: false },
-                { text: "A philosophy that focuses on the beauty and art", correct: false },
+                {
+                    text: "A theory that focuses on social and economic factors",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that emphasizes individual existence, freedom, and choice",
+                    correct: true,
+                },
+                {
+                    text: "A theory that explores the nature of being and reality",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that focuses on the beauty and art",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6603,15 +7949,22 @@ export const philosophyData: Quiz = {
             question: "What does 'deontology' focus on in ethical theory?",
             answers: [
                 { text: "The consequences of actions", correct: false },
-                { text: "The inherent rightness or wrongness of actions", correct: true },
+                {
+                    text: "The inherent rightness or wrongness of actions",
+                    correct: true,
+                },
                 { text: "The virtues of individuals", correct: false },
-                { text: "The balance between duty and happiness", correct: false },
+                {
+                    text: "The balance between duty and happiness",
+                    correct: false,
+                },
             ],
         },
     ],
     2: [
         {
-            question: "Which philosopher developed the concept of 'tabula rasa'?",
+            question:
+                "Which philosopher developed the concept of 'tabula rasa'?",
             answers: [
                 { text: "René Descartes", correct: false },
                 { text: "John Locke", correct: true },
@@ -6622,7 +7975,10 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'phenomenology'?",
             answers: [
-                { text: "The study of the structure of experience and consciousness", correct: true },
+                {
+                    text: "The study of the structure of experience and consciousness",
+                    correct: true,
+                },
                 { text: "A branch of ethics", correct: false },
                 { text: "The study of beauty and art", correct: false },
                 { text: "A political philosophy", correct: false },
@@ -6641,13 +7997,20 @@ export const philosophyData: Quiz = {
             question: "What is 'nihilism'?",
             answers: [
                 { text: "A belief in absolute moral values", correct: false },
-                { text: "A rejection of all religious and moral principles", correct: true },
+                {
+                    text: "A rejection of all religious and moral principles",
+                    correct: true,
+                },
                 { text: "A focus on individual happiness", correct: false },
-                { text: "A belief in the power of human reason", correct: false },
+                {
+                    text: "A belief in the power of human reason",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which philosopher is associated with the 'categorical imperative'?",
+            question:
+                "Which philosopher is associated with the 'categorical imperative'?",
             answers: [
                 { text: "Immanuel Kant", correct: true },
                 { text: "John Stuart Mill", correct: false },
@@ -6677,8 +8040,14 @@ export const philosophyData: Quiz = {
             question: "What does 'solipsism' assert?",
             answers: [
                 { text: "That only material things exist", correct: false },
-                { text: "That only one's own mind is sure to exist", correct: true },
-                { text: "That reality is socially constructed", correct: false },
+                {
+                    text: "That only one's own mind is sure to exist",
+                    correct: true,
+                },
+                {
+                    text: "That reality is socially constructed",
+                    correct: false,
+                },
                 { text: "That everything is predetermined", correct: false },
             ],
         },
@@ -6694,16 +8063,29 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
     ],
     3: [
         {
-            question: "Which philosopher is known for the concept of 'the banality of evil'?",
+            question:
+                "Which philosopher is known for the concept of 'the banality of evil'?",
             answers: [
                 { text: "Hannah Arendt", correct: true },
                 { text: "Simone de Beauvoir", correct: false },
@@ -6714,10 +8096,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'dualism' in philosophy?",
             answers: [
-                { text: "The belief that reality is composed of two distinct substances, mind and matter", correct: true },
-                { text: "The belief that everything is connected", correct: false },
-                { text: "The belief that only material things exist", correct: false },
-                { text: "The belief that reality is a single unified substance", correct: false },
+                {
+                    text: "The belief that reality is composed of two distinct substances, mind and matter",
+                    correct: true,
+                },
+                {
+                    text: "The belief that everything is connected",
+                    correct: false,
+                },
+                {
+                    text: "The belief that only material things exist",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is a single unified substance",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6732,14 +8126,27 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'rationalism'?",
             answers: [
-                { text: "The belief that knowledge comes primarily from sensory experience", correct: false },
-                { text: "The belief that reason is the primary source of knowledge", correct: true },
-                { text: "The belief that emotions guide moral decisions", correct: false },
-                { text: "The belief that society shapes knowledge", correct: false },
+                {
+                    text: "The belief that knowledge comes primarily from sensory experience",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reason is the primary source of knowledge",
+                    correct: true,
+                },
+                {
+                    text: "The belief that emotions guide moral decisions",
+                    correct: false,
+                },
+                {
+                    text: "The belief that society shapes knowledge",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which philosopher is known for the 'veil of ignorance' concept?",
+            question:
+                "Which philosopher is known for the 'veil of ignorance' concept?",
             answers: [
                 { text: "John Rawls", correct: true },
                 { text: "John Locke", correct: false },
@@ -6750,14 +8157,24 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'empiricism'?",
             answers: [
-                { text: "The theory that knowledge comes primarily from sensory experience", correct: true },
-                { text: "The theory that reason is the primary source of knowledge", correct: false },
+                {
+                    text: "The theory that knowledge comes primarily from sensory experience",
+                    correct: true,
+                },
+                {
+                    text: "The theory that reason is the primary source of knowledge",
+                    correct: false,
+                },
                 { text: "The belief in inherent moral truths", correct: false },
-                { text: "The belief that reality is a social construct", correct: false },
+                {
+                    text: "The belief that reality is a social construct",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which philosopher is associated with 'The Social Contract'?",
+            question:
+                "Which philosopher is associated with 'The Social Contract'?",
             answers: [
                 { text: "Immanuel Kant", correct: false },
                 { text: "Jean-Jacques Rousseau", correct: true },
@@ -6768,9 +8185,18 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'skepticism' in philosophy?",
             answers: [
-                { text: "The belief that knowledge is certain", correct: false },
-                { text: "The approach of doubting accepted beliefs", correct: true },
-                { text: "The theory that reality is solely mental", correct: false },
+                {
+                    text: "The belief that knowledge is certain",
+                    correct: false,
+                },
+                {
+                    text: "The approach of doubting accepted beliefs",
+                    correct: true,
+                },
+                {
+                    text: "The theory that reality is solely mental",
+                    correct: false,
+                },
                 { text: "The belief that truth is relative", correct: false },
             ],
         },
@@ -6786,10 +8212,19 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'pragmatism'?",
             answers: [
-                { text: "A philosophical tradition that considers thought an instrument for prediction and problem-solving", correct: true },
+                {
+                    text: "A philosophical tradition that considers thought an instrument for prediction and problem-solving",
+                    correct: true,
+                },
                 { text: "A belief in absolute truths", correct: false },
-                { text: "A theory that knowledge comes from divine revelation", correct: false },
-                { text: "A focus on the beauty and art in philosophy", correct: false },
+                {
+                    text: "A theory that knowledge comes from divine revelation",
+                    correct: false,
+                },
+                {
+                    text: "A focus on the beauty and art in philosophy",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6806,7 +8241,10 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'teleology'?",
             answers: [
-                { text: "The study of the end or purpose of things", correct: true },
+                {
+                    text: "The study of the end or purpose of things",
+                    correct: true,
+                },
                 { text: "The study of ethical principles", correct: false },
                 { text: "The study of knowledge", correct: false },
                 { text: "The study of political systems", correct: false },
@@ -6824,14 +8262,21 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'stoicism'?",
             answers: [
-                { text: "A philosophy that emphasizes emotional resilience and virtue", correct: true },
-                { text: "A belief in the inherent evil of mankind", correct: false },
+                {
+                    text: "A philosophy that emphasizes emotional resilience and virtue",
+                    correct: true,
+                },
+                {
+                    text: "A belief in the inherent evil of mankind",
+                    correct: false,
+                },
                 { text: "A theory that knowledge is innate", correct: false },
                 { text: "A focus on aesthetic beauty", correct: false },
             ],
         },
         {
-            question: "Which philosopher is associated with 'justice as fairness'?",
+            question:
+                "Which philosopher is associated with 'justice as fairness'?",
             answers: [
                 { text: "John Rawls", correct: true },
                 { text: "Thomas Hobbes", correct: false },
@@ -6842,14 +8287,24 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'idealism' in philosophy?",
             answers: [
-                { text: "The belief that reality is primarily material", correct: false },
-                { text: "The belief that reality is mentally constructed or immaterial", correct: true },
+                {
+                    text: "The belief that reality is primarily material",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is mentally constructed or immaterial",
+                    correct: true,
+                },
                 { text: "A focus on practical consequences", correct: false },
-                { text: "A theory that knowledge comes from sensory experience", correct: false },
+                {
+                    text: "A theory that knowledge comes from sensory experience",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which philosopher is known for the statement 'God is dead'?",
+            question:
+                "Which philosopher is known for the statement 'God is dead'?",
             answers: [
                 { text: "Friedrich Nietzsche", correct: true },
                 { text: "Karl Marx", correct: false },
@@ -6860,10 +8315,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'materialism' in philosophy?",
             answers: [
-                { text: "The belief that reality is fundamentally mental", correct: false },
-                { text: "The belief that matter is the fundamental substance of reality", correct: true },
-                { text: "The belief in the existence of multiple worlds", correct: false },
-                { text: "A focus on material wealth as the ultimate goal", correct: false },
+                {
+                    text: "The belief that reality is fundamentally mental",
+                    correct: false,
+                },
+                {
+                    text: "The belief that matter is the fundamental substance of reality",
+                    correct: true,
+                },
+                {
+                    text: "The belief in the existence of multiple worlds",
+                    correct: false,
+                },
+                {
+                    text: "A focus on material wealth as the ultimate goal",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6878,16 +8345,29 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'utilitarianism'?",
             answers: [
-                { text: "A theory that emphasizes individual rights", correct: false },
-                { text: "A theory that actions are right if they benefit the majority", correct: true },
-                { text: "A theory that focuses on the inherent meaning of life", correct: false },
-                { text: "A theory that promotes the idea of absolute moral truths", correct: false },
+                {
+                    text: "A theory that emphasizes individual rights",
+                    correct: false,
+                },
+                {
+                    text: "A theory that actions are right if they benefit the majority",
+                    correct: true,
+                },
+                {
+                    text: "A theory that focuses on the inherent meaning of life",
+                    correct: false,
+                },
+                {
+                    text: "A theory that promotes the idea of absolute moral truths",
+                    correct: false,
+                },
             ],
         },
     ],
     5: [
         {
-            question: "Which philosopher is known for the 'categorical imperative'?",
+            question:
+                "Which philosopher is known for the 'categorical imperative'?",
             answers: [
                 { text: "Immanuel Kant", correct: true },
                 { text: "John Stuart Mill", correct: false },
@@ -6898,10 +8378,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'virtue ethics'?",
             answers: [
-                { text: "An ethical theory that emphasizes the role of character and virtues", correct: true },
-                { text: "An ethical theory that focuses on rules and duties", correct: false },
-                { text: "An ethical theory that emphasizes the consequences of actions", correct: false },
-                { text: "An ethical theory that focuses on societal norms", correct: false },
+                {
+                    text: "An ethical theory that emphasizes the role of character and virtues",
+                    correct: true,
+                },
+                {
+                    text: "An ethical theory that focuses on rules and duties",
+                    correct: false,
+                },
+                {
+                    text: "An ethical theory that emphasizes the consequences of actions",
+                    correct: false,
+                },
+                {
+                    text: "An ethical theory that focuses on societal norms",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6916,10 +8408,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'deontology'?",
             answers: [
-                { text: "A theory that emphasizes the consequences of actions", correct: false },
-                { text: "A theory that focuses on the inherent rightness or wrongness of actions", correct: true },
-                { text: "A theory that promotes the idea of utilitarianism", correct: false },
-                { text: "A theory that focuses on societal well-being", correct: false },
+                {
+                    text: "A theory that emphasizes the consequences of actions",
+                    correct: false,
+                },
+                {
+                    text: "A theory that focuses on the inherent rightness or wrongness of actions",
+                    correct: true,
+                },
+                {
+                    text: "A theory that promotes the idea of utilitarianism",
+                    correct: false,
+                },
+                {
+                    text: "A theory that focuses on societal well-being",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6934,14 +8438,18 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'dialectic' in philosophy?",
             answers: [
-                { text: "A method of argument involving contradictions and their resolution", correct: true },
+                {
+                    text: "A method of argument involving contradictions and their resolution",
+                    correct: true,
+                },
                 { text: "A type of ethical theory", correct: false },
                 { text: "A branch of metaphysics", correct: false },
                 { text: "A theory about aesthetics", correct: false },
             ],
         },
         {
-            question: "Which philosopher is associated with the 'veil of ignorance'?",
+            question:
+                "Which philosopher is associated with the 'veil of ignorance'?",
             answers: [
                 { text: "John Rawls", correct: true },
                 { text: "John Locke", correct: false },
@@ -6952,10 +8460,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'solipsism'?",
             answers: [
-                { text: "The belief that only one's own mind is sure to exist", correct: true },
-                { text: "The belief that all minds are connected", correct: false },
-                { text: "The belief that reality is a social construct", correct: false },
-                { text: "The belief that reality is purely material", correct: false },
+                {
+                    text: "The belief that only one's own mind is sure to exist",
+                    correct: true,
+                },
+                {
+                    text: "The belief that all minds are connected",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is a social construct",
+                    correct: false,
+                },
+                {
+                    text: "The belief that reality is purely material",
+                    correct: false,
+                },
             ],
         },
         {
@@ -6970,10 +8490,22 @@ export const philosophyData: Quiz = {
         {
             question: "What is 'existentialism'?",
             answers: [
-                { text: "A philosophy that emphasizes individual existence, freedom, and choice", correct: true },
-                { text: "A philosophy that focuses on the nature of reality", correct: false },
-                { text: "A philosophy that centers on social and economic factors", correct: false },
-                { text: "A philosophy that explores aesthetic beauty", correct: false },
+                {
+                    text: "A philosophy that emphasizes individual existence, freedom, and choice",
+                    correct: true,
+                },
+                {
+                    text: "A philosophy that focuses on the nature of reality",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that centers on social and economic factors",
+                    correct: false,
+                },
+                {
+                    text: "A philosophy that explores aesthetic beauty",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -6983,7 +8515,8 @@ export const philosophyData: Quiz = {
 export const physicsData: Quiz = {
     1: [
         {
-            question: "What is the unit of force in the International System of Units (SI)?",
+            question:
+                "What is the unit of force in the International System of Units (SI)?",
             answers: [
                 { text: "Newton", correct: true },
                 { text: "Joule", correct: false },
@@ -6994,10 +8527,22 @@ export const physicsData: Quiz = {
         {
             question: "What is the speed of light in a vacuum?",
             answers: [
-                { text: "Approximately 3 x 10^8 meters per second", correct: true },
-                { text: "Approximately 3 x 10^6 meters per second", correct: false },
-                { text: "Approximately 3 x 10^5 kilometers per second", correct: false },
-                { text: "Approximately 3 x 10^7 kilometers per second", correct: false },
+                {
+                    text: "Approximately 3 x 10^8 meters per second",
+                    correct: true,
+                },
+                {
+                    text: "Approximately 3 x 10^6 meters per second",
+                    correct: false,
+                },
+                {
+                    text: "Approximately 3 x 10^5 kilometers per second",
+                    correct: false,
+                },
+                {
+                    text: "Approximately 3 x 10^7 kilometers per second",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7010,7 +8555,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the measure of an object's resistance to acceleration?",
+            question:
+                "What is the measure of an object's resistance to acceleration?",
             answers: [
                 { text: "Mass", correct: true },
                 { text: "Weight", correct: false },
@@ -7019,7 +8565,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for energy stored in an object due to its position?",
+            question:
+                "What is the term for energy stored in an object due to its position?",
             answers: [
                 { text: "Kinetic Energy", correct: false },
                 { text: "Potential Energy", correct: true },
@@ -7028,7 +8575,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary gas found in the Earth's atmosphere?",
+            question:
+                "What is the primary gas found in the Earth's atmosphere?",
             answers: [
                 { text: "Oxygen", correct: false },
                 { text: "Carbon Dioxide", correct: false },
@@ -7037,7 +8585,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which water changes from a liquid to a gas?",
+            question:
+                "What is the process by which water changes from a liquid to a gas?",
             answers: [
                 { text: "Condensation", correct: false },
                 { text: "Evaporation", correct: true },
@@ -7048,19 +8597,40 @@ export const physicsData: Quiz = {
         {
             question: "What is the main difference between speed and velocity?",
             answers: [
-                { text: "Speed is a vector, velocity is a scalar", correct: false },
-                { text: "Velocity includes direction, speed does not", correct: true },
-                { text: "Speed is measured in meters, velocity in kilometers", correct: false },
+                {
+                    text: "Speed is a vector, velocity is a scalar",
+                    correct: false,
+                },
+                {
+                    text: "Velocity includes direction, speed does not",
+                    correct: true,
+                },
+                {
+                    text: "Speed is measured in meters, velocity in kilometers",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What is the first law of thermodynamics?",
             answers: [
-                { text: "Energy cannot be created or destroyed", correct: true },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
-                { text: "The entropy of an isolated system always increases", correct: false },
-                { text: "Force equals mass times acceleration", correct: false },
+                {
+                    text: "Energy cannot be created or destroyed",
+                    correct: true,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
+                {
+                    text: "The entropy of an isolated system always increases",
+                    correct: false,
+                },
+                {
+                    text: "Force equals mass times acceleration",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7111,7 +8681,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a material's ability to conduct electric current?",
+            question:
+                "What is the term for a material's ability to conduct electric current?",
             answers: [
                 { text: "Resistance", correct: false },
                 { text: "Conductivity", correct: true },
@@ -7120,7 +8691,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary force that holds protons and neutrons together in an atomic nucleus?",
+            question:
+                "What is the primary force that holds protons and neutrons together in an atomic nucleus?",
             answers: [
                 { text: "Electromagnetic Force", correct: false },
                 { text: "Weak Nuclear Force", correct: false },
@@ -7147,7 +8719,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the bending of light as it passes from one medium to another?",
+            question:
+                "What is the term for the bending of light as it passes from one medium to another?",
             answers: [
                 { text: "Reflection", correct: false },
                 { text: "Refraction", correct: true },
@@ -7167,7 +8740,8 @@ export const physicsData: Quiz = {
     ],
     3: [
         {
-            question: "What is the term for a wave with electric and magnetic fields oscillating perpendicular to each other?",
+            question:
+                "What is the term for a wave with electric and magnetic fields oscillating perpendicular to each other?",
             answers: [
                 { text: "Longitudinal Wave", correct: false },
                 { text: "Transverse Wave", correct: true },
@@ -7178,18 +8752,36 @@ export const physicsData: Quiz = {
         {
             question: "What is the Heisenberg Uncertainty Principle?",
             answers: [
-                { text: "It is impossible to know both the position and momentum of a particle with absolute certainty", correct: true },
-                { text: "Energy can neither be created nor destroyed", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
+                {
+                    text: "It is impossible to know both the position and momentum of a particle with absolute certainty",
+                    correct: true,
+                },
+                {
+                    text: "Energy can neither be created nor destroyed",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
                 { text: "Objects in motion stay in motion", correct: false },
             ],
         },
         {
             question: "What is the main difference between speed and velocity?",
             answers: [
-                { text: "Speed is a vector, velocity is a scalar", correct: false },
-                { text: "Velocity includes direction, speed does not", correct: true },
-                { text: "Speed is measured in meters, velocity in kilometers", correct: false },
+                {
+                    text: "Speed is a vector, velocity is a scalar",
+                    correct: false,
+                },
+                {
+                    text: "Velocity includes direction, speed does not",
+                    correct: true,
+                },
+                {
+                    text: "Speed is measured in meters, velocity in kilometers",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -7203,7 +8795,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the phenomenon of light bending around obstacles called?",
+            question:
+                "What is the phenomenon of light bending around obstacles called?",
             answers: [
                 { text: "Reflection", correct: false },
                 { text: "Refraction", correct: false },
@@ -7212,7 +8805,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary source of energy for the Earth's weather systems?",
+            question:
+                "What is the primary source of energy for the Earth's weather systems?",
             answers: [
                 { text: "The Moon", correct: false },
                 { text: "The Sun", correct: true },
@@ -7230,7 +8824,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the amount of space an object occupies?",
+            question:
+                "What is the term for the amount of space an object occupies?",
             answers: [
                 { text: "Mass", correct: false },
                 { text: "Volume", correct: true },
@@ -7248,7 +8843,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the process by which a solid turns directly into a gas called?",
+            question:
+                "What is the process by which a solid turns directly into a gas called?",
             answers: [
                 { text: "Evaporation", correct: false },
                 { text: "Condensation", correct: false },
@@ -7259,7 +8855,8 @@ export const physicsData: Quiz = {
     ],
     4: [
         {
-            question: "What is the name of the largest planet in our solar system?",
+            question:
+                "What is the name of the largest planet in our solar system?",
             answers: [
                 { text: "Earth", correct: false },
                 { text: "Jupiter", correct: true },
@@ -7268,7 +8865,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary force responsible for binding electrons to the nucleus?",
+            question:
+                "What is the primary force responsible for binding electrons to the nucleus?",
             answers: [
                 { text: "Gravitational Force", correct: false },
                 { text: "Electromagnetic Force", correct: true },
@@ -7286,7 +8884,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "Which law states that energy cannot be created or destroyed?",
+            question:
+                "Which law states that energy cannot be created or destroyed?",
             answers: [
                 { text: "Newton's First Law", correct: false },
                 { text: "Law of Conservation of Energy", correct: true },
@@ -7295,7 +8894,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the rate at which work is done or energy is transferred?",
+            question:
+                "What is the term for the rate at which work is done or energy is transferred?",
             answers: [
                 { text: "Force", correct: false },
                 { text: "Power", correct: true },
@@ -7304,7 +8904,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the name of the force that opposes motion between two surfaces in contact?",
+            question:
+                "What is the name of the force that opposes motion between two surfaces in contact?",
             answers: [
                 { text: "Gravity", correct: false },
                 { text: "Magnetism", correct: false },
@@ -7340,7 +8941,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the phase of matter with a definite volume but no definite shape?",
+            question:
+                "What is the phase of matter with a definite volume but no definite shape?",
             answers: [
                 { text: "Solid", correct: false },
                 { text: "Liquid", correct: true },
@@ -7351,7 +8953,8 @@ export const physicsData: Quiz = {
     ],
     5: [
         {
-            question: "What is Schrödinger's cat a thought experiment in which theory?",
+            question:
+                "What is Schrödinger's cat a thought experiment in which theory?",
             answers: [
                 { text: "Classical Mechanics", correct: false },
                 { text: "Quantum Mechanics", correct: true },
@@ -7360,7 +8963,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the curvature of spacetime caused by mass and energy?",
+            question:
+                "What is the term for the curvature of spacetime caused by mass and energy?",
             answers: [
                 { text: "Quantum Flux", correct: false },
                 { text: "Gravitational Waves", correct: false },
@@ -7369,20 +8973,39 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the primary difference between classical and quantum physics?",
+            question:
+                "What is the primary difference between classical and quantum physics?",
             answers: [
-                { text: "Classical physics deals with large-scale phenomena, while quantum physics deals with atomic and subatomic levels", correct: true },
-                { text: "Quantum physics is less accurate than classical physics", correct: false },
-                { text: "Classical physics includes the study of electricity, quantum physics does not", correct: false },
+                {
+                    text: "Classical physics deals with large-scale phenomena, while quantum physics deals with atomic and subatomic levels",
+                    correct: true,
+                },
+                {
+                    text: "Quantum physics is less accurate than classical physics",
+                    correct: false,
+                },
+                {
+                    text: "Classical physics includes the study of electricity, quantum physics does not",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What is the Heisenberg Uncertainty Principle?",
             answers: [
-                { text: "It is impossible to know both the position and momentum of a particle with absolute certainty", correct: true },
-                { text: "Energy can neither be created nor destroyed", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
+                {
+                    text: "It is impossible to know both the position and momentum of a particle with absolute certainty",
+                    correct: true,
+                },
+                {
+                    text: "Energy can neither be created nor destroyed",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
                 { text: "Objects in motion stay in motion", correct: false },
             ],
         },
@@ -7396,7 +9019,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the bending of light around the edges of an object?",
+            question:
+                "What is the term for the bending of light around the edges of an object?",
             answers: [
                 { text: "Reflection", correct: false },
                 { text: "Refraction", correct: false },
@@ -7407,10 +9031,22 @@ export const physicsData: Quiz = {
         {
             question: "What is the principle of superposition in physics?",
             answers: [
-                { text: "The total energy of an isolated system remains constant", correct: false },
-                { text: "For every action, there is an equal and opposite reaction", correct: false },
-                { text: "When two or more waves overlap, the resulting wave is the sum of the individual waves", correct: true },
-                { text: "Energy cannot be created or destroyed", correct: false },
+                {
+                    text: "The total energy of an isolated system remains constant",
+                    correct: false,
+                },
+                {
+                    text: "For every action, there is an equal and opposite reaction",
+                    correct: false,
+                },
+                {
+                    text: "When two or more waves overlap, the resulting wave is the sum of the individual waves",
+                    correct: true,
+                },
+                {
+                    text: "Energy cannot be created or destroyed",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7423,7 +9059,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a particle with no electric charge?",
+            question:
+                "What is the term for a particle with no electric charge?",
             answers: [
                 { text: "Proton", correct: false },
                 { text: "Electron", correct: false },
@@ -7432,7 +9069,8 @@ export const physicsData: Quiz = {
             ],
         },
         {
-            question: "What is the fundamental force that causes attraction between masses?",
+            question:
+                "What is the fundamental force that causes attraction between masses?",
             answers: [
                 { text: "Electromagnetic Force", correct: false },
                 { text: "Strong Nuclear Force", correct: false },
@@ -7447,7 +9085,8 @@ export const physicsData: Quiz = {
 export const politicsData: Quiz = {
     1: [
         {
-            question: "What is the primary function of the legislative branch in the United States government?",
+            question:
+                "What is the primary function of the legislative branch in the United States government?",
             answers: [
                 { text: "To interpret laws", correct: false },
                 { text: "To enforce laws", correct: false },
@@ -7468,13 +9107,17 @@ export const politicsData: Quiz = {
             question: "What does NATO stand for?",
             answers: [
                 { text: "North Atlantic Treaty Organization", correct: true },
-                { text: "National Alliance of Treaty Officers", correct: false },
+                {
+                    text: "National Alliance of Treaty Officers",
+                    correct: false,
+                },
                 { text: "North American Trade Organization", correct: false },
                 { text: "National Assembly Treaty Order", correct: false },
             ],
         },
         {
-            question: "Which political ideology emphasizes minimal state intervention in personal and economic matters?",
+            question:
+                "Which political ideology emphasizes minimal state intervention in personal and economic matters?",
             answers: [
                 { text: "Socialism", correct: false },
                 { text: "Liberalism", correct: false },
@@ -7483,7 +9126,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a system of government where power is divided between a central authority and constituent units?",
+            question:
+                "What is the term for a system of government where power is divided between a central authority and constituent units?",
             answers: [
                 { text: "Unitary", correct: false },
                 { text: "Confederation", correct: false },
@@ -7492,7 +9136,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Who was the first female Prime Minister of the United Kingdom?",
+            question:
+                "Who was the first female Prime Minister of the United Kingdom?",
             answers: [
                 { text: "Theresa May", correct: false },
                 { text: "Margaret Thatcher", correct: true },
@@ -7510,7 +9155,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which political system is characterized by a single-party state and centralized control?",
+            question:
+                "Which political system is characterized by a single-party state and centralized control?",
             answers: [
                 { text: "Democracy", correct: false },
                 { text: "Monarchy", correct: false },
@@ -7519,7 +9165,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a political philosophy that advocates for the abolition of all government?",
+            question:
+                "What is the term for a political philosophy that advocates for the abolition of all government?",
             answers: [
                 { text: "Anarchism", correct: true },
                 { text: "Totalitarianism", correct: false },
@@ -7528,7 +9175,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Who is the current Secretary-General of the United Nations? (As of 2024)",
+            question:
+                "Who is the current Secretary-General of the United Nations? (As of 2024)",
             answers: [
                 { text: "António Guterres", correct: true },
                 { text: "Ban Ki-moon", correct: false },
@@ -7542,13 +9190,20 @@ export const politicsData: Quiz = {
             question: "What is the main purpose of the European Union?",
             answers: [
                 { text: "To establish a military alliance", correct: false },
-                { text: "To promote economic and political integration among member states", correct: true },
-                { text: "To create a single European language", correct: false },
+                {
+                    text: "To promote economic and political integration among member states",
+                    correct: true,
+                },
+                {
+                    text: "To create a single European language",
+                    correct: false,
+                },
                 { text: "To regulate global trade", correct: false },
             ],
         },
         {
-            question: "Who was the leader of the Soviet Union during World War II?",
+            question:
+                "Who was the leader of the Soviet Union during World War II?",
             answers: [
                 { text: "Vladimir Lenin", correct: false },
                 { text: "Joseph Stalin", correct: true },
@@ -7557,7 +9212,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a political system where citizens vote for their leaders?",
+            question:
+                "What is the term for a political system where citizens vote for their leaders?",
             answers: [
                 { text: "Oligarchy", correct: false },
                 { text: "Democracy", correct: true },
@@ -7566,7 +9222,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which amendment to the U.S. Constitution guarantees freedom of speech?",
+            question:
+                "Which amendment to the U.S. Constitution guarantees freedom of speech?",
             answers: [
                 { text: "First Amendment", correct: true },
                 { text: "Second Amendment", correct: false },
@@ -7584,7 +9241,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Who is the author of 'The Prince', a political treatise?",
+            question:
+                "Who is the author of 'The Prince', a political treatise?",
             answers: [
                 { text: "Niccolò Machiavelli", correct: true },
                 { text: "Thomas Hobbes", correct: false },
@@ -7593,7 +9251,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a political leader with absolute power?",
+            question:
+                "What is the term for a political leader with absolute power?",
             answers: [
                 { text: "Democrat", correct: false },
                 { text: "Autocrat", correct: true },
@@ -7602,7 +9261,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which country is known for its parliamentary system and constitutional monarchy?",
+            question:
+                "Which country is known for its parliamentary system and constitutional monarchy?",
             answers: [
                 { text: "United States", correct: false },
                 { text: "Germany", correct: false },
@@ -7611,7 +9271,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the main role of the executive branch in the U.S. government?",
+            question:
+                "What is the main role of the executive branch in the U.S. government?",
             answers: [
                 { text: "To make laws", correct: false },
                 { text: "To interpret laws", correct: false },
@@ -7623,8 +9284,14 @@ export const politicsData: Quiz = {
             question: "What does 'filibuster' refer to in the U.S. Senate?",
             answers: [
                 { text: "A type of voting system", correct: false },
-                { text: "A tactic to delay or block legislative action", correct: true },
-                { text: "A committee responsible for budget oversight", correct: false },
+                {
+                    text: "A tactic to delay or block legislative action",
+                    correct: true,
+                },
+                {
+                    text: "A committee responsible for budget oversight",
+                    correct: false,
+                },
                 { text: "A formal debate session", correct: false },
             ],
         },
@@ -7633,10 +9300,22 @@ export const politicsData: Quiz = {
         {
             question: "What is 'separation of powers'?",
             answers: [
-                { text: "Dividing government responsibilities into distinct branches", correct: true },
-                { text: "The process of creating new government branches", correct: false },
-                { text: "The alliance between different government entities", correct: false },
-                { text: "The overlap of responsibilities among government branches", correct: false },
+                {
+                    text: "Dividing government responsibilities into distinct branches",
+                    correct: true,
+                },
+                {
+                    text: "The process of creating new government branches",
+                    correct: false,
+                },
+                {
+                    text: "The alliance between different government entities",
+                    correct: false,
+                },
+                {
+                    text: "The overlap of responsibilities among government branches",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7649,7 +9328,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a government ruled by a king or queen?",
+            question:
+                "What is the term for a government ruled by a king or queen?",
             answers: [
                 { text: "Republic", correct: false },
                 { text: "Oligarchy", correct: false },
@@ -7658,7 +9338,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which political theory advocates for a classless society and the abolition of private property?",
+            question:
+                "Which political theory advocates for a classless society and the abolition of private property?",
             answers: [
                 { text: "Capitalism", correct: false },
                 { text: "Socialism", correct: false },
@@ -7670,9 +9351,15 @@ export const politicsData: Quiz = {
             question: "What is the main purpose of the United Nations?",
             answers: [
                 { text: "To establish a global currency", correct: false },
-                { text: "To promote international peace and security", correct: true },
+                {
+                    text: "To promote international peace and security",
+                    correct: true,
+                },
                 { text: "To control global trade", correct: false },
-                { text: "To regulate global environmental policies", correct: false },
+                {
+                    text: "To regulate global environmental policies",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7685,7 +9372,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a system where power is held by a small group of people?",
+            question:
+                "What is the term for a system where power is held by a small group of people?",
             answers: [
                 { text: "Democracy", correct: false },
                 { text: "Oligarchy", correct: true },
@@ -7694,7 +9382,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which amendment to the U.S. Constitution abolished slavery?",
+            question:
+                "Which amendment to the U.S. Constitution abolished slavery?",
             answers: [
                 { text: "13th Amendment", correct: true },
                 { text: "14th Amendment", correct: false },
@@ -7703,7 +9392,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a government where citizens have the power to elect their leaders?",
+            question:
+                "What is the term for a government where citizens have the power to elect their leaders?",
             answers: [
                 { text: "Dictatorship", correct: false },
                 { text: "Oligarchy", correct: false },
@@ -7712,7 +9402,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Who wrote 'The Prince', a fundamental work in political theory?",
+            question:
+                "Who wrote 'The Prince', a fundamental work in political theory?",
             answers: [
                 { text: "Niccolò Machiavelli", correct: true },
                 { text: "Thomas More", correct: false },
@@ -7725,14 +9416,24 @@ export const politicsData: Quiz = {
         {
             question: "What is 'bicameralism' in a legislative system?",
             answers: [
-                { text: "A system with two separate chambers or houses", correct: true },
+                {
+                    text: "A system with two separate chambers or houses",
+                    correct: true,
+                },
                 { text: "A system with one chamber or house", correct: false },
-                { text: "A system with three chambers or houses", correct: false },
-                { text: "A system where chambers have equal power", correct: false },
+                {
+                    text: "A system with three chambers or houses",
+                    correct: false,
+                },
+                {
+                    text: "A system where chambers have equal power",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which political ideology emphasizes the importance of tradition and social stability?",
+            question:
+                "Which political ideology emphasizes the importance of tradition and social stability?",
             answers: [
                 { text: "Liberalism", correct: false },
                 { text: "Conservatism", correct: true },
@@ -7741,7 +9442,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the principle that government power is limited by law?",
+            question:
+                "What is the term for the principle that government power is limited by law?",
             answers: [
                 { text: "Sovereignty", correct: false },
                 { text: "Rule of Law", correct: true },
@@ -7761,14 +9463,24 @@ export const politicsData: Quiz = {
         {
             question: "What is 'gerrymandering'?",
             answers: [
-                { text: "The practice of making agreements between political parties", correct: false },
-                { text: "The manipulation of electoral district boundaries for political gain", correct: true },
-                { text: "The process of running for political office", correct: false },
+                {
+                    text: "The practice of making agreements between political parties",
+                    correct: false,
+                },
+                {
+                    text: "The manipulation of electoral district boundaries for political gain",
+                    correct: true,
+                },
+                {
+                    text: "The process of running for political office",
+                    correct: false,
+                },
                 { text: "The act of campaigning aggressively", correct: false },
             ],
         },
         {
-            question: "Which document outlines the fundamental laws and principles of the United States government?",
+            question:
+                "Which document outlines the fundamental laws and principles of the United States government?",
             answers: [
                 { text: "'The Declaration of Independence'", correct: false },
                 { text: "'The Bill of Rights'", correct: false },
@@ -7777,7 +9489,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a government controlled by religious leaders?",
+            question:
+                "What is the term for a government controlled by religious leaders?",
             answers: [
                 { text: "Theocracy", correct: true },
                 { text: "Oligarchy", correct: false },
@@ -7786,7 +9499,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Who is known for the theory of 'checks and balances' in government?",
+            question:
+                "Who is known for the theory of 'checks and balances' in government?",
             answers: [
                 { text: "Thomas Jefferson", correct: false },
                 { text: "James Madison", correct: true },
@@ -7797,14 +9511,21 @@ export const politicsData: Quiz = {
         {
             question: "What is 'caucus' in the context of politics?",
             answers: [
-                { text: "A formal meeting of party members to decide policy or select candidates", correct: true },
-                { text: "A legislative procedure to pass a bill", correct: false },
+                {
+                    text: "A formal meeting of party members to decide policy or select candidates",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass a bill",
+                    correct: false,
+                },
                 { text: "A type of political party", correct: false },
                 { text: "A political protest", correct: false },
             ],
         },
         {
-            question: "Which political system combines elements of democracy and oligarchy?",
+            question:
+                "Which political system combines elements of democracy and oligarchy?",
             answers: [
                 { text: "Aristocracy", correct: false },
                 { text: "Plutocracy", correct: false },
@@ -7817,10 +9538,22 @@ export const politicsData: Quiz = {
         {
             question: "What is 'pluralism' in political science?",
             answers: [
-                { text: "The belief in a single dominant group", correct: false },
-                { text: "The recognition and affirmation of diversity within a political body", correct: true },
-                { text: "A system where power is concentrated in the hands of a few", correct: false },
-                { text: "The merging of multiple political parties", correct: false },
+                {
+                    text: "The belief in a single dominant group",
+                    correct: false,
+                },
+                {
+                    text: "The recognition and affirmation of diversity within a political body",
+                    correct: true,
+                },
+                {
+                    text: "A system where power is concentrated in the hands of a few",
+                    correct: false,
+                },
+                {
+                    text: "The merging of multiple political parties",
+                    correct: false,
+                },
             ],
         },
         {
@@ -7835,14 +9568,27 @@ export const politicsData: Quiz = {
         {
             question: "What is 'bicameral legislature'?",
             answers: [
-                { text: "A legislature with two separate chambers or houses", correct: true },
-                { text: "A legislature with one chamber or house", correct: false },
-                { text: "A legislature that meets twice a year", correct: false },
-                { text: "A legislature controlled by two political parties", correct: false },
+                {
+                    text: "A legislature with two separate chambers or houses",
+                    correct: true,
+                },
+                {
+                    text: "A legislature with one chamber or house",
+                    correct: false,
+                },
+                {
+                    text: "A legislature that meets twice a year",
+                    correct: false,
+                },
+                {
+                    text: "A legislature controlled by two political parties",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the primary role of the judiciary branch in the U.S. government?",
+            question:
+                "What is the primary role of the judiciary branch in the U.S. government?",
             answers: [
                 { text: "To create laws", correct: false },
                 { text: "To enforce laws", correct: false },
@@ -7851,7 +9597,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which political ideology advocates for state ownership of the means of production?",
+            question:
+                "Which political ideology advocates for state ownership of the means of production?",
             answers: [
                 { text: "Capitalism", correct: false },
                 { text: "Socialism", correct: true },
@@ -7864,12 +9611,16 @@ export const politicsData: Quiz = {
             answers: [
                 { text: "The power to propose laws", correct: false },
                 { text: "The power to approve laws", correct: false },
-                { text: "The power to reject laws passed by the legislature", correct: true },
+                {
+                    text: "The power to reject laws passed by the legislature",
+                    correct: true,
+                },
                 { text: "The power to enforce laws", correct: false },
             ],
         },
         {
-            question: "Which amendment to the U.S. Constitution guarantees freedom of religion?",
+            question:
+                "Which amendment to the U.S. Constitution guarantees freedom of religion?",
             answers: [
                 { text: "First Amendment", correct: true },
                 { text: "Second Amendment", correct: false },
@@ -7878,7 +9629,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a temporary suspension of a law or government action?",
+            question:
+                "What is the term for a temporary suspension of a law or government action?",
             answers: [
                 { text: "Amendment", correct: false },
                 { text: "Veto", correct: false },
@@ -7887,7 +9639,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "Which political system features a supreme leader with absolute authority?",
+            question:
+                "Which political system features a supreme leader with absolute authority?",
             answers: [
                 { text: "Democracy", correct: false },
                 { text: "Monarchy", correct: false },
@@ -7896,7 +9649,8 @@ export const politicsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the political philosophy that prioritizes individual liberty and limited government?",
+            question:
+                "What is the term for the political philosophy that prioritizes individual liberty and limited government?",
             answers: [
                 { text: "Socialism", correct: false },
                 { text: "Liberalism", correct: false },
@@ -7911,7 +9665,8 @@ export const politicsData: Quiz = {
 export const realEstateData: Quiz = {
     1: [
         {
-            question: "What is the term for the legal right to use another's land for a specific purpose?",
+            question:
+                "What is the term for the legal right to use another's land for a specific purpose?",
             answers: [
                 { text: "Easement", correct: true },
                 { text: "Lien", correct: false },
@@ -7929,7 +9684,8 @@ export const realEstateData: Quiz = {
             ],
         },
         {
-            question: "What is the primary difference between a condominium and a co-op?",
+            question:
+                "What is the primary difference between a condominium and a co-op?",
             answers: [
                 { text: "Ownership structure", correct: true },
                 { text: "Location", correct: false },
@@ -7940,14 +9696,27 @@ export const realEstateData: Quiz = {
         {
             question: "What is a 'short sale' in real estate?",
             answers: [
-                { text: "Selling a property for more than its mortgage", correct: false },
-                { text: "Selling a property without a real estate agent", correct: false },
-                { text: "Selling a property for less than the mortgage owed", correct: true },
-                { text: "Selling a property quickly at market price", correct: false },
+                {
+                    text: "Selling a property for more than its mortgage",
+                    correct: false,
+                },
+                {
+                    text: "Selling a property without a real estate agent",
+                    correct: false,
+                },
+                {
+                    text: "Selling a property for less than the mortgage owed",
+                    correct: true,
+                },
+                {
+                    text: "Selling a property quickly at market price",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the term for the gradual wear and tear on a property over time?",
+            question:
+                "What is the term for the gradual wear and tear on a property over time?",
             answers: [
                 { text: "Depreciation", correct: true },
                 { text: "Appreciation", correct: false },
@@ -7956,10 +9725,14 @@ export const realEstateData: Quiz = {
             ],
         },
         {
-            question: "What does 'escrow' refer to in real estate transactions?",
+            question:
+                "What does 'escrow' refer to in real estate transactions?",
             answers: [
                 { text: "The final walkthrough of a property", correct: false },
-                { text: "A third-party account holding funds during the transaction", correct: true },
+                {
+                    text: "A third-party account holding funds during the transaction",
+                    correct: true,
+                },
                 { text: "The signing of the contract", correct: false },
                 { text: "The appraisal of the property", correct: false },
             ],
@@ -7968,7 +9741,10 @@ export const realEstateData: Quiz = {
             question: "What is the purpose of a real estate appraisal?",
             answers: [
                 { text: "To advertise the property", correct: false },
-                { text: "To determine the market value of the property", correct: true },
+                {
+                    text: "To determine the market value of the property",
+                    correct: true,
+                },
                 { text: "To negotiate the sale price", correct: false },
                 { text: "To inspect the property's condition", correct: false },
             ],
@@ -7978,7 +9754,10 @@ export const realEstateData: Quiz = {
             answers: [
                 { text: "The total value of the property", correct: false },
                 { text: "The amount owed on the mortgage", correct: false },
-                { text: "The difference between the property's market value and the mortgage owed", correct: true },
+                {
+                    text: "The difference between the property's market value and the mortgage owed",
+                    correct: true,
+                },
                 { text: "The rental income from the property", correct: false },
             ],
         },
@@ -7995,7 +9774,10 @@ export const realEstateData: Quiz = {
             question: "What is the primary role of a real estate agent?",
             answers: [
                 { text: "To provide legal advice", correct: false },
-                { text: "To represent buyers or sellers in real estate transactions", correct: true },
+                {
+                    text: "To represent buyers or sellers in real estate transactions",
+                    correct: true,
+                },
                 { text: "To appraise property values", correct: false },
                 { text: "To finance real estate deals", correct: false },
             ],
@@ -8005,8 +9787,14 @@ export const realEstateData: Quiz = {
         {
             question: "What is a 'dual agency' in real estate?",
             answers: [
-                { text: "An agent representing both buyer and seller in the same transaction", correct: true },
-                { text: "An agent working in two different states", correct: false },
+                {
+                    text: "An agent representing both buyer and seller in the same transaction",
+                    correct: true,
+                },
+                {
+                    text: "An agent working in two different states",
+                    correct: false,
+                },
                 { text: "Two agents representing the buyer", correct: false },
                 { text: "Two agents representing the seller", correct: false },
             ],
@@ -8014,8 +9802,14 @@ export const realEstateData: Quiz = {
         {
             question: "What is the purpose of a home inspection?",
             answers: [
-                { text: "To determine the market value of the home", correct: false },
-                { text: "To assess the condition of the property and identify any issues", correct: true },
+                {
+                    text: "To determine the market value of the home",
+                    correct: false,
+                },
+                {
+                    text: "To assess the condition of the property and identify any issues",
+                    correct: true,
+                },
                 { text: "To negotiate the sale price", correct: false },
                 { text: "To verify the seller's ownership", correct: false },
             ],
@@ -8041,73 +9835,148 @@ export const realEstateData: Quiz = {
         {
             question: "What is the 'listing price'?",
             answers: [
-                { text: "The final sale price of the property", correct: false },
-                { text: "The initial price at which the property is offered for sale", correct: true },
-                { text: "The price agreed upon during negotiation", correct: false },
+                {
+                    text: "The final sale price of the property",
+                    correct: false,
+                },
+                {
+                    text: "The initial price at which the property is offered for sale",
+                    correct: true,
+                },
+                {
+                    text: "The price agreed upon during negotiation",
+                    correct: false,
+                },
                 { text: "The appraised value of the property", correct: false },
             ],
         },
         {
             question: "What is 'amortization' in the context of a mortgage?",
             answers: [
-                { text: "The process of determining the market value of a property", correct: false },
-                { text: "The gradual repayment of a loan over time through regular payments", correct: true },
-                { text: "The initial deposit paid when purchasing a property", correct: false },
-                { text: "The tax deduction on mortgage interest", correct: false },
+                {
+                    text: "The process of determining the market value of a property",
+                    correct: false,
+                },
+                {
+                    text: "The gradual repayment of a loan over time through regular payments",
+                    correct: true,
+                },
+                {
+                    text: "The initial deposit paid when purchasing a property",
+                    correct: false,
+                },
+                {
+                    text: "The tax deduction on mortgage interest",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the primary difference between a fixed-rate and an adjustable-rate mortgage?",
+            question:
+                "What is the primary difference between a fixed-rate and an adjustable-rate mortgage?",
             answers: [
-                { text: "Fixed-rate mortgages have lower interest rates", correct: false },
-                { text: "Adjustable-rate mortgages offer fixed interest rates", correct: false },
-                { text: "Fixed-rate mortgages have an interest rate that remains constant, while adjustable-rate mortgages have rates that can change", correct: true },
+                {
+                    text: "Fixed-rate mortgages have lower interest rates",
+                    correct: false,
+                },
+                {
+                    text: "Adjustable-rate mortgages offer fixed interest rates",
+                    correct: false,
+                },
+                {
+                    text: "Fixed-rate mortgages have an interest rate that remains constant, while adjustable-rate mortgages have rates that can change",
+                    correct: true,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
         {
             question: "What does 'closing costs' refer to?",
             answers: [
-                { text: "The commission paid to real estate agents", correct: false },
-                { text: "The fees and expenses paid at the end of a real estate transaction", correct: true },
-                { text: "The cost of repairs made before selling a property", correct: false },
-                { text: "The mortgage interest paid over time", correct: false },
+                {
+                    text: "The commission paid to real estate agents",
+                    correct: false,
+                },
+                {
+                    text: "The fees and expenses paid at the end of a real estate transaction",
+                    correct: true,
+                },
+                {
+                    text: "The cost of repairs made before selling a property",
+                    correct: false,
+                },
+                {
+                    text: "The mortgage interest paid over time",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'zoning' in real estate?",
             answers: [
-                { text: "The process of determining property taxes", correct: false },
-                { text: "The regulation of land use by local governments", correct: true },
-                { text: "The classification of properties based on size", correct: false },
+                {
+                    text: "The process of determining property taxes",
+                    correct: false,
+                },
+                {
+                    text: "The regulation of land use by local governments",
+                    correct: true,
+                },
+                {
+                    text: "The classification of properties based on size",
+                    correct: false,
+                },
                 { text: "The appraisal of property values", correct: false },
             ],
         },
         {
-            question: "What is the 'equity multiplier' in real estate investment?",
+            question:
+                "What is the 'equity multiplier' in real estate investment?",
             answers: [
-                { text: "A ratio that measures financial leverage", correct: true },
-                { text: "A tool to calculate property appreciation", correct: false },
+                {
+                    text: "A ratio that measures financial leverage",
+                    correct: true,
+                },
+                {
+                    text: "A tool to calculate property appreciation",
+                    correct: false,
+                },
                 { text: "A method to determine rental income", correct: false },
-                { text: "A type of loan for purchasing properties", correct: false },
+                {
+                    text: "A type of loan for purchasing properties",
+                    correct: false,
+                },
             ],
         },
     ],
     3: [
         {
-            question: "What is the 'due diligence' period in a real estate transaction?",
+            question:
+                "What is the 'due diligence' period in a real estate transaction?",
             answers: [
-                { text: "The time before signing the contract to conduct inspections and verify information", correct: true },
+                {
+                    text: "The time before signing the contract to conduct inspections and verify information",
+                    correct: true,
+                },
                 { text: "The final stage of closing the sale", correct: false },
-                { text: "The period when the buyer pays the down payment", correct: false },
-                { text: "The time when the property is listed for sale", correct: false },
+                {
+                    text: "The period when the buyer pays the down payment",
+                    correct: false,
+                },
+                {
+                    text: "The time when the property is listed for sale",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'foreclosure'?",
             answers: [
                 { text: "A property that is being renovated", correct: false },
-                { text: "A process where the lender takes back property due to the borrower's failure to pay the mortgage", correct: true },
+                {
+                    text: "A process where the lender takes back property due to the borrower's failure to pay the mortgage",
+                    correct: true,
+                },
                 { text: "A sale conducted by the government", correct: false },
                 { text: "A type of property insurance", correct: false },
             ],
@@ -8115,44 +9984,80 @@ export const realEstateData: Quiz = {
         {
             question: "What does 'CMBS' stand for in real estate financing?",
             answers: [
-                { text: "Commercial Mortgage-Backed Securities", correct: true },
-                { text: "Certified Mortgage Banking Standards", correct: false },
+                {
+                    text: "Commercial Mortgage-Backed Securities",
+                    correct: true,
+                },
+                {
+                    text: "Certified Mortgage Banking Standards",
+                    correct: false,
+                },
                 { text: "Commercial Mortgage Banking System", correct: false },
-                { text: "Certified Mortgage-Backed Securities", correct: false },
+                {
+                    text: "Certified Mortgage-Backed Securities",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the primary purpose of a real estate appraisal?",
             answers: [
                 { text: "To negotiate the sale price", correct: false },
-                { text: "To assess the condition of the property", correct: false },
-                { text: "To determine the market value of the property", correct: true },
+                {
+                    text: "To assess the condition of the property",
+                    correct: false,
+                },
+                {
+                    text: "To determine the market value of the property",
+                    correct: true,
+                },
                 { text: "To advertise the property", correct: false },
             ],
         },
         {
             question: "What is 'liquidity' in real estate?",
             answers: [
-                { text: "The ease with which a property can be converted into cash", correct: true },
+                {
+                    text: "The ease with which a property can be converted into cash",
+                    correct: true,
+                },
                 { text: "The amount of debt on a property", correct: false },
-                { text: "The physical condition of a property", correct: false },
-                { text: "The location desirability of a property", correct: false },
+                {
+                    text: "The physical condition of a property",
+                    correct: false,
+                },
+                {
+                    text: "The location desirability of a property",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'cap rate' in real estate investment?",
             answers: [
                 { text: "The rate of mortgage interest", correct: false },
-                { text: "The ratio of net operating income to property value", correct: true },
+                {
+                    text: "The ratio of net operating income to property value",
+                    correct: true,
+                },
                 { text: "The rate of property appreciation", correct: false },
-                { text: "The percentage of property taxes paid annually", correct: false },
+                {
+                    text: "The percentage of property taxes paid annually",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'leasehold' property?",
             answers: [
-                { text: "A property owned outright by the buyer", correct: false },
-                { text: "A property where the buyer has the right to use the land for a specific period", correct: true },
+                {
+                    text: "A property owned outright by the buyer",
+                    correct: false,
+                },
+                {
+                    text: "A property where the buyer has the right to use the land for a specific period",
+                    correct: true,
+                },
                 { text: "A property rented out to tenants", correct: false },
                 { text: "A property under foreclosure", correct: false },
             ],
@@ -8160,19 +10065,40 @@ export const realEstateData: Quiz = {
         {
             question: "What is the 'short-term rental market' in real estate?",
             answers: [
-                { text: "Renting properties for long-term leases", correct: false },
-                { text: "Renting properties for short periods, typically for vacation or temporary stays", correct: true },
-                { text: "The market for renting commercial spaces", correct: false },
-                { text: "The market for renting out storage units", correct: false },
+                {
+                    text: "Renting properties for long-term leases",
+                    correct: false,
+                },
+                {
+                    text: "Renting properties for short periods, typically for vacation or temporary stays",
+                    correct: true,
+                },
+                {
+                    text: "The market for renting commercial spaces",
+                    correct: false,
+                },
+                {
+                    text: "The market for renting out storage units",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'condo association'?",
             answers: [
-                { text: "A group that manages the communal aspects of a condominium complex", correct: true },
+                {
+                    text: "A group that manages the communal aspects of a condominium complex",
+                    correct: true,
+                },
                 { text: "A real estate investment group", correct: false },
-                { text: "A legal entity that owns all units in a condominium", correct: false },
-                { text: "An association for condominium buyers", correct: false },
+                {
+                    text: "A legal entity that owns all units in a condominium",
+                    correct: false,
+                },
+                {
+                    text: "An association for condominium buyers",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8189,23 +10115,36 @@ export const realEstateData: Quiz = {
         {
             question: "What is a 'seller's market'?",
             answers: [
-                { text: "A market where there are more buyers than available properties", correct: true },
-                { text: "A market where there are more properties than buyers", correct: false },
+                {
+                    text: "A market where there are more buyers than available properties",
+                    correct: true,
+                },
+                {
+                    text: "A market where there are more properties than buyers",
+                    correct: false,
+                },
                 { text: "A market controlled by sellers only", correct: false },
-                { text: "A market for selling specific types of properties", correct: false },
+                {
+                    text: "A market for selling specific types of properties",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is '1031 exchange' in real estate?",
             answers: [
                 { text: "A type of mortgage loan", correct: false },
-                { text: "A tax-deferred exchange of like-kind properties", correct: true },
+                {
+                    text: "A tax-deferred exchange of like-kind properties",
+                    correct: true,
+                },
                 { text: "A regulation for rental properties", correct: false },
                 { text: "A government housing program", correct: false },
             ],
         },
         {
-            question: "What is the term for the cost of owning a property, excluding mortgage payments?",
+            question:
+                "What is the term for the cost of owning a property, excluding mortgage payments?",
             answers: [
                 { text: "Gross Rent Multiplier", correct: false },
                 { text: "Operating Expenses", correct: true },
@@ -8216,9 +10155,18 @@ export const realEstateData: Quiz = {
         {
             question: "What is a 'balloon mortgage'?",
             answers: [
-                { text: "A mortgage with a large final payment after a series of smaller payments", correct: true },
-                { text: "A mortgage with a fixed interest rate", correct: false },
-                { text: "A mortgage used for purchasing luxury properties", correct: false },
+                {
+                    text: "A mortgage with a large final payment after a series of smaller payments",
+                    correct: true,
+                },
+                {
+                    text: "A mortgage with a fixed interest rate",
+                    correct: false,
+                },
+                {
+                    text: "A mortgage used for purchasing luxury properties",
+                    correct: false,
+                },
                 { text: "A mortgage that increases over time", correct: false },
             ],
         },
@@ -8226,7 +10174,10 @@ export const realEstateData: Quiz = {
             question: "What is the 'Golden Rule' in real estate?",
             answers: [
                 { text: "Always negotiate the lowest price", correct: false },
-                { text: "Treat others as you would like to be treated", correct: true },
+                {
+                    text: "Treat others as you would like to be treated",
+                    correct: true,
+                },
                 { text: "Never back out of a deal", correct: false },
                 { text: "Invest only in high-demand areas", correct: false },
             ],
@@ -8235,7 +10186,10 @@ export const realEstateData: Quiz = {
             question: "What is 'MLS' used for in real estate?",
             answers: [
                 { text: "Managing property taxes", correct: false },
-                { text: "Listing and accessing property information across agents and brokers", correct: true },
+                {
+                    text: "Listing and accessing property information across agents and brokers",
+                    correct: true,
+                },
                 { text: "Calculating mortgage payments", correct: false },
                 { text: "Conducting property inspections", correct: false },
             ],
@@ -8243,8 +10197,14 @@ export const realEstateData: Quiz = {
         {
             question: "What is a 'duplex'?",
             answers: [
-                { text: "A single-family home with two separate living units", correct: true },
-                { text: "A commercial property with two storefronts", correct: false },
+                {
+                    text: "A single-family home with two separate living units",
+                    correct: true,
+                },
+                {
+                    text: "A commercial property with two storefronts",
+                    correct: false,
+                },
                 { text: "A property with two garages", correct: false },
                 { text: "A house with two stories", correct: false },
             ],
@@ -8252,8 +10212,14 @@ export const realEstateData: Quiz = {
         {
             question: "What is the purpose of 'title insurance'?",
             answers: [
-                { text: "To insure the property's physical condition", correct: false },
-                { text: "To protect against legal claims on the property's title", correct: true },
+                {
+                    text: "To insure the property's physical condition",
+                    correct: false,
+                },
+                {
+                    text: "To protect against legal claims on the property's title",
+                    correct: true,
+                },
                 { text: "To cover mortgage default", correct: false },
                 { text: "To insure rental income", correct: false },
             ],
@@ -8262,7 +10228,10 @@ export const realEstateData: Quiz = {
             question: "What is 'foreclosure'?",
             answers: [
                 { text: "A property being renovated", correct: false },
-                { text: "The process where a lender takes back property due to the borrower's failure to pay the mortgage", correct: true },
+                {
+                    text: "The process where a lender takes back property due to the borrower's failure to pay the mortgage",
+                    correct: true,
+                },
                 { text: "A property sold below market value", correct: false },
                 { text: "A government seizure of property", correct: false },
             ],
@@ -8281,71 +10250,140 @@ export const realEstateData: Quiz = {
         {
             question: "What is 'cash flow' in real estate investment?",
             answers: [
-                { text: "The amount of money invested in a property", correct: false },
-                { text: "The net amount of cash being transferred into and out of a property", correct: true },
-                { text: "The appreciation of property value over time", correct: false },
+                {
+                    text: "The amount of money invested in a property",
+                    correct: false,
+                },
+                {
+                    text: "The net amount of cash being transferred into and out of a property",
+                    correct: true,
+                },
+                {
+                    text: "The appreciation of property value over time",
+                    correct: false,
+                },
                 { text: "The cost of maintaining a property", correct: false },
             ],
         },
         {
             question: "What is a 'REO property'?",
             answers: [
-                { text: "A property owned by a real estate agent", correct: false },
-                { text: "A property owned by a lender after foreclosure", correct: true },
-                { text: "A rental property with an existing tenant", correct: false },
+                {
+                    text: "A property owned by a real estate agent",
+                    correct: false,
+                },
+                {
+                    text: "A property owned by a lender after foreclosure",
+                    correct: true,
+                },
+                {
+                    text: "A rental property with an existing tenant",
+                    correct: false,
+                },
                 { text: "A property listed on the MLS", correct: false },
             ],
         },
         {
             question: "What is the 'due-on-sale' clause in a mortgage?",
             answers: [
-                { text: "A clause that allows the lender to demand full repayment if the property is sold", correct: true },
-                { text: "A clause that adjusts the interest rate upon sale", correct: false },
-                { text: "A clause that permits the sale without lender approval", correct: false },
-                { text: "A clause that offers a discount upon sale", correct: false },
+                {
+                    text: "A clause that allows the lender to demand full repayment if the property is sold",
+                    correct: true,
+                },
+                {
+                    text: "A clause that adjusts the interest rate upon sale",
+                    correct: false,
+                },
+                {
+                    text: "A clause that permits the sale without lender approval",
+                    correct: false,
+                },
+                {
+                    text: "A clause that offers a discount upon sale",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'mortgage refinancing'?",
             answers: [
-                { text: "Selling the property and paying off the mortgage", correct: false },
-                { text: "Replacing an existing mortgage with a new one, typically with different terms", correct: true },
-                { text: "Taking out a second mortgage on the property", correct: false },
-                { text: "Consolidating multiple mortgages into one", correct: false },
+                {
+                    text: "Selling the property and paying off the mortgage",
+                    correct: false,
+                },
+                {
+                    text: "Replacing an existing mortgage with a new one, typically with different terms",
+                    correct: true,
+                },
+                {
+                    text: "Taking out a second mortgage on the property",
+                    correct: false,
+                },
+                {
+                    text: "Consolidating multiple mortgages into one",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is a 'buyer’s market'?",
             answers: [
-                { text: "A market where there are more buyers than available properties", correct: false },
-                { text: "A market where there are more properties than buyers", correct: true },
-                { text: "A market dominated by first-time buyers", correct: false },
+                {
+                    text: "A market where there are more buyers than available properties",
+                    correct: false,
+                },
+                {
+                    text: "A market where there are more properties than buyers",
+                    correct: true,
+                },
+                {
+                    text: "A market dominated by first-time buyers",
+                    correct: false,
+                },
                 { text: "A market with high property prices", correct: false },
             ],
         },
         {
             question: "What is 'zoning' in real estate?",
             answers: [
-                { text: "The process of determining property taxes", correct: false },
-                { text: "The regulation of land use by local governments", correct: true },
-                { text: "The classification of properties based on size", correct: false },
+                {
+                    text: "The process of determining property taxes",
+                    correct: false,
+                },
+                {
+                    text: "The regulation of land use by local governments",
+                    correct: true,
+                },
+                {
+                    text: "The classification of properties based on size",
+                    correct: false,
+                },
                 { text: "The appraisal of property values", correct: false },
             ],
         },
         {
             question: "What is a 'bridge loan'?",
             answers: [
-                { text: "A loan used to purchase a new property before selling the old one", correct: true },
+                {
+                    text: "A loan used to purchase a new property before selling the old one",
+                    correct: true,
+                },
                 { text: "A long-term mortgage", correct: false },
                 { text: "A loan for building bridges", correct: false },
-                { text: "A loan with very high interest rates", correct: false },
+                {
+                    text: "A loan with very high interest rates",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'earnest money' in a real estate transaction?",
             answers: [
                 { text: "The final payment made at closing", correct: false },
-                { text: "A deposit made by the buyer to show commitment", correct: true },
+                {
+                    text: "A deposit made by the buyer to show commitment",
+                    correct: true,
+                },
                 { text: "The money paid for the appraisal", correct: false },
                 { text: "The commission paid to the agent", correct: false },
             ],
@@ -8353,18 +10391,37 @@ export const realEstateData: Quiz = {
         {
             question: "What is 'gross rent multiplier' (GRM)?",
             answers: [
-                { text: "A ratio used to evaluate rental income relative to property price", correct: true },
-                { text: "A multiplier for calculating mortgage payments", correct: false },
+                {
+                    text: "A ratio used to evaluate rental income relative to property price",
+                    correct: true,
+                },
+                {
+                    text: "A multiplier for calculating mortgage payments",
+                    correct: false,
+                },
                 { text: "A measure of property appreciation", correct: false },
-                { text: "A tax incentive for rental properties", correct: false },
+                {
+                    text: "A tax incentive for rental properties",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the primary difference between commercial and residential real estate?",
+            question:
+                "What is the primary difference between commercial and residential real estate?",
             answers: [
-                { text: "Commercial real estate is used for business purposes, while residential real estate is used for living purposes", correct: true },
-                { text: "Residential real estate is always owned outright, while commercial real estate is leased", correct: false },
-                { text: "Commercial real estate has higher taxes", correct: false },
+                {
+                    text: "Commercial real estate is used for business purposes, while residential real estate is used for living purposes",
+                    correct: true,
+                },
+                {
+                    text: "Residential real estate is always owned outright, while commercial real estate is leased",
+                    correct: false,
+                },
+                {
+                    text: "Commercial real estate has higher taxes",
+                    correct: false,
+                },
                 { text: "There is no difference", correct: false },
             ],
         },
@@ -8388,21 +10445,31 @@ export const psychologyData: Quiz = {
             answers: [
                 { text: "Unconscious motives", correct: false },
                 { text: "Behavioral conditioning", correct: false },
-                { text: "Mental processes like thinking, memory, and problem-solving", correct: true },
+                {
+                    text: "Mental processes like thinking, memory, and problem-solving",
+                    correct: true,
+                },
                 { text: "Social interactions", correct: false },
             ],
         },
         {
             question: "What does the acronym 'DSM' stand for in psychology?",
             answers: [
-                { text: "Diagnostic and Statistical Manual of Mental Disorders", correct: true },
+                {
+                    text: "Diagnostic and Statistical Manual of Mental Disorders",
+                    correct: true,
+                },
                 { text: "Developmental and Social Models", correct: false },
-                { text: "Diagnostic Standards for Mental Health", correct: false },
+                {
+                    text: "Diagnostic Standards for Mental Health",
+                    correct: false,
+                },
                 { text: "Developmental Statistical Measures", correct: false },
             ],
         },
         {
-            question: "Which psychologist is associated with the hierarchy of needs?",
+            question:
+                "Which psychologist is associated with the hierarchy of needs?",
             answers: [
                 { text: "Abraham Maslow", correct: true },
                 { text: "Carl Rogers", correct: false },
@@ -8413,8 +10480,14 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'classical conditioning'?",
             answers: [
-                { text: "Learning through rewards and punishments", correct: false },
-                { text: "Learning through association between stimuli", correct: true },
+                {
+                    text: "Learning through rewards and punishments",
+                    correct: false,
+                },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: true,
+                },
                 { text: "Learning through observation", correct: false },
                 { text: "Learning through trial and error", correct: false },
             ],
@@ -8431,32 +10504,61 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'attachment theory'?",
             answers: [
-                { text: "A theory about cognitive development", correct: false },
-                { text: "A theory about the bonds between individuals, especially between a child and caregiver", correct: true },
+                {
+                    text: "A theory about cognitive development",
+                    correct: false,
+                },
+                {
+                    text: "A theory about the bonds between individuals, especially between a child and caregiver",
+                    correct: true,
+                },
                 { text: "A theory about social interactions", correct: false },
-                { text: "A theory about personality development", correct: false },
+                {
+                    text: "A theory about personality development",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the 'id' in Freud's structural model of the psyche?",
+            question:
+                "What is the 'id' in Freud's structural model of the psyche?",
             answers: [
                 { text: "The rational part of the mind", correct: false },
                 { text: "The moral part of the mind", correct: false },
-                { text: "The instinctual and unconscious part of the mind", correct: true },
-                { text: "The part responsible for decision-making", correct: false },
+                {
+                    text: "The instinctual and unconscious part of the mind",
+                    correct: true,
+                },
+                {
+                    text: "The part responsible for decision-making",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'positive reinforcement'?",
             answers: [
-                { text: "Removing an unpleasant stimulus to increase behavior", correct: false },
-                { text: "Adding a pleasant stimulus to increase behavior", correct: true },
-                { text: "Removing a pleasant stimulus to decrease behavior", correct: false },
-                { text: "Adding an unpleasant stimulus to decrease behavior", correct: false },
+                {
+                    text: "Removing an unpleasant stimulus to increase behavior",
+                    correct: false,
+                },
+                {
+                    text: "Adding a pleasant stimulus to increase behavior",
+                    correct: true,
+                },
+                {
+                    text: "Removing a pleasant stimulus to decrease behavior",
+                    correct: false,
+                },
+                {
+                    text: "Adding an unpleasant stimulus to decrease behavior",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who developed the stages of cognitive development in children?",
+            question:
+                "Who developed the stages of cognitive development in children?",
             answers: [
                 { text: "Jean Piaget", correct: true },
                 { text: "Lev Vygotsky", correct: false },
@@ -8469,23 +10571,45 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'social psychology' primarily concerned with?",
             answers: [
-                { text: "Individual behavior and mental processes", correct: false },
-                { text: "The study of how people's thoughts, feelings, and behaviors are influenced by the actual or implied presence of others", correct: true },
-                { text: "Psychological disorders and their treatment", correct: false },
+                {
+                    text: "Individual behavior and mental processes",
+                    correct: false,
+                },
+                {
+                    text: "The study of how people's thoughts, feelings, and behaviors are influenced by the actual or implied presence of others",
+                    correct: true,
+                },
+                {
+                    text: "Psychological disorders and their treatment",
+                    correct: false,
+                },
                 { text: "Biological bases of behavior", correct: false },
             ],
         },
         {
             question: "What does 'operant conditioning' involve?",
             answers: [
-                { text: "Associating two stimuli to trigger a response", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Unconscious associations affecting behavior", correct: false },
+                {
+                    text: "Associating two stimuli to trigger a response",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Unconscious associations affecting behavior",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which therapy focuses on changing maladaptive thoughts and behaviors?",
+            question:
+                "Which therapy focuses on changing maladaptive thoughts and behaviors?",
             answers: [
                 { text: "Psychoanalytic Therapy", correct: false },
                 { text: "Humanistic Therapy", correct: false },
@@ -8496,14 +10620,24 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'attachment style'?",
             answers: [
-                { text: "A person's preferred method of learning", correct: false },
-                { text: "The way individuals form emotional bonds and interact in relationships", correct: true },
+                {
+                    text: "A person's preferred method of learning",
+                    correct: false,
+                },
+                {
+                    text: "The way individuals form emotional bonds and interact in relationships",
+                    correct: true,
+                },
                 { text: "A type of personality disorder", correct: false },
-                { text: "The level of intelligence in social settings", correct: false },
+                {
+                    text: "The level of intelligence in social settings",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who is associated with the concept of 'collective unconscious'?",
+            question:
+                "Who is associated with the concept of 'collective unconscious'?",
             answers: [
                 { text: "Carl Jung", correct: true },
                 { text: "Sigmund Freud", correct: false },
@@ -8514,28 +10648,55 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'self-actualization'?",
             answers: [
-                { text: "Achieving one's full potential and personal growth", correct: true },
-                { text: "The process of forming attachments in childhood", correct: false },
+                {
+                    text: "Achieving one's full potential and personal growth",
+                    correct: true,
+                },
+                {
+                    text: "The process of forming attachments in childhood",
+                    correct: false,
+                },
                 { text: "A state of psychological well-being", correct: false },
-                { text: "The understanding of one's unconscious motives", correct: false },
+                {
+                    text: "The understanding of one's unconscious motives",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'big five' in personality psychology?",
             answers: [
                 { text: "Five stages of development", correct: false },
-                { text: "Five major personality traits: openness, conscientiousness, extraversion, agreeableness, and neuroticism", correct: true },
-                { text: "Five types of psychological disorders", correct: false },
+                {
+                    text: "Five major personality traits: openness, conscientiousness, extraversion, agreeableness, and neuroticism",
+                    correct: true,
+                },
+                {
+                    text: "Five types of psychological disorders",
+                    correct: false,
+                },
                 { text: "Five levels of consciousness", correct: false },
             ],
         },
         {
             question: "What does 'cognitive dissonance' refer to?",
             answers: [
-                { text: "The process of learning through rewards", correct: false },
-                { text: "The mental discomfort experienced when holding contradictory beliefs or attitudes", correct: true },
-                { text: "The ability to understand others' perspectives", correct: false },
-                { text: "The stage of development where individuals form their identity", correct: false },
+                {
+                    text: "The process of learning through rewards",
+                    correct: false,
+                },
+                {
+                    text: "The mental discomfort experienced when holding contradictory beliefs or attitudes",
+                    correct: true,
+                },
+                {
+                    text: "The ability to understand others' perspectives",
+                    correct: false,
+                },
+                {
+                    text: "The stage of development where individuals form their identity",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8550,10 +10711,22 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'bystander effect' in social psychology?",
             answers: [
-                { text: "The tendency for individuals to perform better in the presence of others", correct: false },
-                { text: "The phenomenon where individuals are less likely to help a victim when other people are present", correct: true },
-                { text: "The influence of a group on an individual's behavior", correct: false },
-                { text: "The preference for group decision-making", correct: false },
+                {
+                    text: "The tendency for individuals to perform better in the presence of others",
+                    correct: false,
+                },
+                {
+                    text: "The phenomenon where individuals are less likely to help a victim when other people are present",
+                    correct: true,
+                },
+                {
+                    text: "The influence of a group on an individual's behavior",
+                    correct: false,
+                },
+                {
+                    text: "The preference for group decision-making",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8562,13 +10735,17 @@ export const psychologyData: Quiz = {
             question: "What is 'psychometrics'?",
             answers: [
                 { text: "The study of mind-body interactions", correct: false },
-                { text: "The field concerned with the theory and technique of psychological measurement", correct: true },
+                {
+                    text: "The field concerned with the theory and technique of psychological measurement",
+                    correct: true,
+                },
                 { text: "The study of mental disorders", correct: false },
                 { text: "The study of human development", correct: false },
             ],
         },
         {
-            question: "Which psychologist is known for classical conditioning with dogs?",
+            question:
+                "Which psychologist is known for classical conditioning with dogs?",
             answers: [
                 { text: "Ivan Pavlov", correct: true },
                 { text: "B.F. Skinner", correct: false },
@@ -8579,8 +10756,14 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'neuroplasticity'?",
             answers: [
-                { text: "The brain's ability to change and adapt as a result of experience", correct: true },
-                { text: "The deterioration of neural pathways over time", correct: false },
+                {
+                    text: "The brain's ability to change and adapt as a result of experience",
+                    correct: true,
+                },
+                {
+                    text: "The deterioration of neural pathways over time",
+                    correct: false,
+                },
                 { text: "The study of the nervous system", correct: false },
                 { text: "The process of forming new neurons", correct: false },
             ],
@@ -8588,9 +10771,15 @@ export const psychologyData: Quiz = {
         {
             question: "What is the primary focus of developmental psychology?",
             answers: [
-                { text: "Mental processes like memory and perception", correct: false },
+                {
+                    text: "Mental processes like memory and perception",
+                    correct: false,
+                },
                 { text: "Behavioral conditioning", correct: false },
-                { text: "Changes and growth throughout a person's lifespan", correct: true },
+                {
+                    text: "Changes and growth throughout a person's lifespan",
+                    correct: true,
+                },
                 { text: "Social interactions and influences", correct: false },
             ],
         },
@@ -8598,8 +10787,14 @@ export const psychologyData: Quiz = {
             question: "What is 'transactional analysis'?",
             answers: [
                 { text: "A type of cognitive therapy", correct: false },
-                { text: "A psychoanalytic method focusing on unconscious motives", correct: false },
-                { text: "A theory that studies social interactions and ego states", correct: true },
+                {
+                    text: "A psychoanalytic method focusing on unconscious motives",
+                    correct: false,
+                },
+                {
+                    text: "A theory that studies social interactions and ego states",
+                    correct: true,
+                },
                 { text: "A behavioral conditioning technique", correct: false },
             ],
         },
@@ -8615,10 +10810,22 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'confirmation bias'?",
             answers: [
-                { text: "The tendency to seek information that contradicts one's beliefs", correct: false },
-                { text: "The tendency to interpret new evidence as confirmation of one's existing beliefs", correct: true },
-                { text: "The inability to remember past events accurately", correct: false },
-                { text: "The influence of social factors on decision-making", correct: false },
+                {
+                    text: "The tendency to seek information that contradicts one's beliefs",
+                    correct: false,
+                },
+                {
+                    text: "The tendency to interpret new evidence as confirmation of one's existing beliefs",
+                    correct: true,
+                },
+                {
+                    text: "The inability to remember past events accurately",
+                    correct: false,
+                },
+                {
+                    text: "The influence of social factors on decision-making",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8633,19 +10840,37 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'groupthink'?",
             answers: [
-                { text: "A cognitive bias where individuals strive for consensus without critical evaluation", correct: true },
+                {
+                    text: "A cognitive bias where individuals strive for consensus without critical evaluation",
+                    correct: true,
+                },
                 { text: "The process of learning in groups", correct: false },
-                { text: "The phenomenon of group performance being superior to individual performance", correct: false },
+                {
+                    text: "The phenomenon of group performance being superior to individual performance",
+                    correct: false,
+                },
                 { text: "A form of group therapy", correct: false },
             ],
         },
         {
             question: "What is the 'Big Five' personality traits?",
             answers: [
-                { text: "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism", correct: true },
-                { text: "Introversion, Stability, Kindness, Logic, Creativity", correct: false },
-                { text: "Aggressiveness, Flexibility, Sociability, Intelligence, Honesty", correct: false },
-                { text: "Optimism, Pessimism, Empathy, Assertiveness, Patience", correct: false },
+                {
+                    text: "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism",
+                    correct: true,
+                },
+                {
+                    text: "Introversion, Stability, Kindness, Logic, Creativity",
+                    correct: false,
+                },
+                {
+                    text: "Aggressiveness, Flexibility, Sociability, Intelligence, Honesty",
+                    correct: false,
+                },
+                {
+                    text: "Optimism, Pessimism, Empathy, Assertiveness, Patience",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8653,17 +10878,35 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'operant conditioning'?",
             answers: [
-                { text: "Learning through association between stimuli", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Learning through subconscious associations", correct: false },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Learning through subconscious associations",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'fight or flight' response?",
             answers: [
-                { text: "A cognitive bias affecting decision-making", correct: false },
-                { text: "The body's physiological reaction to perceived threats", correct: true },
+                {
+                    text: "A cognitive bias affecting decision-making",
+                    correct: false,
+                },
+                {
+                    text: "The body's physiological reaction to perceived threats",
+                    correct: true,
+                },
                 { text: "A type of behavioral therapy", correct: false },
                 { text: "A form of social influence", correct: false },
             ],
@@ -8672,7 +10915,10 @@ export const psychologyData: Quiz = {
             question: "What is 'cognitive behavioral therapy' (CBT) used for?",
             answers: [
                 { text: "To explore unconscious motives", correct: false },
-                { text: "To change maladaptive thoughts and behaviors", correct: true },
+                {
+                    text: "To change maladaptive thoughts and behaviors",
+                    correct: true,
+                },
                 { text: "To enhance creativity", correct: false },
                 { text: "To strengthen social bonds", correct: false },
             ],
@@ -8681,7 +10927,10 @@ export const psychologyData: Quiz = {
             question: "What does 'implicit memory' refer to?",
             answers: [
                 { text: "Memory of facts and events", correct: false },
-                { text: "Memory that influences behavior without conscious awareness", correct: true },
+                {
+                    text: "Memory that influences behavior without conscious awareness",
+                    correct: true,
+                },
                 { text: "Short-term memory", correct: false },
                 { text: "Sensory memory", correct: false },
             ],
@@ -8689,35 +10938,62 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'attachment theory'?",
             answers: [
-                { text: "A theory about cognitive development", correct: false },
-                { text: "A theory about the bonds between individuals, especially between a child and caregiver", correct: true },
+                {
+                    text: "A theory about cognitive development",
+                    correct: false,
+                },
+                {
+                    text: "A theory about the bonds between individuals, especially between a child and caregiver",
+                    correct: true,
+                },
                 { text: "A theory about social interactions", correct: false },
-                { text: "A theory about personality development", correct: false },
+                {
+                    text: "A theory about personality development",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'reaction formation' in psychoanalytic theory?",
             answers: [
-                { text: "Suppressing unacceptable thoughts by focusing on something else", correct: false },
-                { text: "Transforming unwanted impulses into their opposites", correct: true },
-                { text: "Projecting one's own feelings onto others", correct: false },
+                {
+                    text: "Suppressing unacceptable thoughts by focusing on something else",
+                    correct: false,
+                },
+                {
+                    text: "Transforming unwanted impulses into their opposites",
+                    correct: true,
+                },
+                {
+                    text: "Projecting one's own feelings onto others",
+                    correct: false,
+                },
                 { text: "Repressing distressing memories", correct: false },
             ],
         },
         {
             question: "What is 'self-esteem'?",
             answers: [
-                { text: "The belief in one's ability to succeed", correct: false },
+                {
+                    text: "The belief in one's ability to succeed",
+                    correct: false,
+                },
                 { text: "The value one places on oneself", correct: true },
                 { text: "The fear of failure", correct: false },
-                { text: "The ability to empathize with others", correct: false },
+                {
+                    text: "The ability to empathize with others",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is the 'uncanny valley' in psychology?",
             answers: [
                 { text: "A theory about fear of heights", correct: false },
-                { text: "The discomfort people feel when something is almost human-like but not quite", correct: true },
+                {
+                    text: "The discomfort people feel when something is almost human-like but not quite",
+                    correct: true,
+                },
                 { text: "A stage in cognitive development", correct: false },
                 { text: "A measure of social anxiety", correct: false },
             ],
@@ -8726,9 +11002,15 @@ export const psychologyData: Quiz = {
             question: "What is 'positive psychology'?",
             answers: [
                 { text: "The study of mental disorders", correct: false },
-                { text: "The scientific study of human strengths and virtues that enable individuals and communities to thrive", correct: true },
+                {
+                    text: "The scientific study of human strengths and virtues that enable individuals and communities to thrive",
+                    correct: true,
+                },
                 { text: "A branch of psychoanalysis", correct: false },
-                { text: "The practice of promoting happiness through therapy", correct: false },
+                {
+                    text: "The practice of promoting happiness through therapy",
+                    correct: false,
+                },
             ],
         },
         {
@@ -8746,16 +11028,26 @@ export const psychologyData: Quiz = {
             question: "What is 'mirror neurons' theory associated with?",
             answers: [
                 { text: "Learning through rewards", correct: false },
-                { text: "Empathy and understanding others' actions", correct: true },
+                {
+                    text: "Empathy and understanding others' actions",
+                    correct: true,
+                },
                 { text: "Memory consolidation", correct: false },
                 { text: "Language acquisition", correct: false },
             ],
         },
         {
-            question: "What does 'Heuristics' refer to in cognitive psychology?",
+            question:
+                "What does 'Heuristics' refer to in cognitive psychology?",
             answers: [
-                { text: "Systematic methods for solving problems", correct: false },
-                { text: "Mental shortcuts or rules of thumb for decision-making", correct: true },
+                {
+                    text: "Systematic methods for solving problems",
+                    correct: false,
+                },
+                {
+                    text: "Mental shortcuts or rules of thumb for decision-making",
+                    correct: true,
+                },
                 { text: "The study of unconscious processes", correct: false },
                 { text: "Long-term memory storage", correct: false },
             ],
@@ -8763,44 +11055,92 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'bipolar disorder'?",
             answers: [
-                { text: "A mood disorder characterized by alternating periods of mania and depression", correct: true },
-                { text: "A personality disorder characterized by instability in relationships and self-image", correct: false },
-                { text: "An anxiety disorder characterized by excessive worry", correct: false },
-                { text: "A cognitive disorder affecting memory", correct: false },
+                {
+                    text: "A mood disorder characterized by alternating periods of mania and depression",
+                    correct: true,
+                },
+                {
+                    text: "A personality disorder characterized by instability in relationships and self-image",
+                    correct: false,
+                },
+                {
+                    text: "An anxiety disorder characterized by excessive worry",
+                    correct: false,
+                },
+                {
+                    text: "A cognitive disorder affecting memory",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'operant conditioning'?",
             answers: [
-                { text: "Learning through association between stimuli", correct: false },
-                { text: "Learning through rewards and punishments to influence behavior", correct: true },
-                { text: "Learning through observation and imitation", correct: false },
-                { text: "Learning through subconscious associations", correct: false },
+                {
+                    text: "Learning through association between stimuli",
+                    correct: false,
+                },
+                {
+                    text: "Learning through rewards and punishments to influence behavior",
+                    correct: true,
+                },
+                {
+                    text: "Learning through observation and imitation",
+                    correct: false,
+                },
+                {
+                    text: "Learning through subconscious associations",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'attachment style'?",
             answers: [
-                { text: "A person's preferred method of learning", correct: false },
-                { text: "The way individuals form emotional bonds and interact in relationships", correct: true },
+                {
+                    text: "A person's preferred method of learning",
+                    correct: false,
+                },
+                {
+                    text: "The way individuals form emotional bonds and interact in relationships",
+                    correct: true,
+                },
                 { text: "A type of personality disorder", correct: false },
-                { text: "The level of intelligence in social settings", correct: false },
+                {
+                    text: "The level of intelligence in social settings",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'self-actualization'?",
             answers: [
-                { text: "Achieving one's full potential and personal growth", correct: true },
-                { text: "The process of forming attachments in childhood", correct: false },
+                {
+                    text: "Achieving one's full potential and personal growth",
+                    correct: true,
+                },
+                {
+                    text: "The process of forming attachments in childhood",
+                    correct: false,
+                },
                 { text: "A state of psychological well-being", correct: false },
-                { text: "The understanding of one's unconscious motives", correct: false },
+                {
+                    text: "The understanding of one's unconscious motives",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'procrastination'?",
             answers: [
-                { text: "The act of completing tasks ahead of schedule", correct: false },
-                { text: "The delay or postponement of tasks or decisions", correct: true },
+                {
+                    text: "The act of completing tasks ahead of schedule",
+                    correct: false,
+                },
+                {
+                    text: "The delay or postponement of tasks or decisions",
+                    correct: true,
+                },
                 { text: "The act of multitasking efficiently", correct: false },
                 { text: "The inability to start tasks", correct: false },
             ],
@@ -8809,8 +11149,14 @@ export const psychologyData: Quiz = {
             question: "What is 'transference' in psychoanalysis?",
             answers: [
                 { text: "A technique for memory enhancement", correct: false },
-                { text: "The redirection of feelings for one person to another", correct: true },
-                { text: "The process of subconscious thinking", correct: false },
+                {
+                    text: "The redirection of feelings for one person to another",
+                    correct: true,
+                },
+                {
+                    text: "The process of subconscious thinking",
+                    correct: false,
+                },
                 { text: "A form of cognitive bias", correct: false },
             ],
         },
@@ -8818,7 +11164,10 @@ export const psychologyData: Quiz = {
             question: "What is 'cognitive behavioral therapy' (CBT) used for?",
             answers: [
                 { text: "To explore unconscious motives", correct: false },
-                { text: "To change maladaptive thoughts and behaviors", correct: true },
+                {
+                    text: "To change maladaptive thoughts and behaviors",
+                    correct: true,
+                },
                 { text: "To enhance creativity", correct: false },
                 { text: "To strengthen social bonds", correct: false },
             ],
@@ -8826,10 +11175,22 @@ export const psychologyData: Quiz = {
         {
             question: "What is 'schizophrenia'?",
             answers: [
-                { text: "A mood disorder characterized by depressive episodes", correct: false },
-                { text: "A severe mental disorder characterized by distortions in thinking, perception, emotions, language, sense of self, and behavior", correct: true },
-                { text: "An anxiety disorder characterized by excessive worry", correct: false },
-                { text: "A personality disorder characterized by instability in relationships", correct: false },
+                {
+                    text: "A mood disorder characterized by depressive episodes",
+                    correct: false,
+                },
+                {
+                    text: "A severe mental disorder characterized by distortions in thinking, perception, emotions, language, sense of self, and behavior",
+                    correct: true,
+                },
+                {
+                    text: "An anxiety disorder characterized by excessive worry",
+                    correct: false,
+                },
+                {
+                    text: "A personality disorder characterized by instability in relationships",
+                    correct: false,
+                },
             ],
         },
     ],
@@ -8860,7 +11221,10 @@ export const socialStudiesData: Quiz = {
             question: "What was the primary cause of World War I?",
             answers: [
                 { text: "The rise of fascism", correct: false },
-                { text: "The assassination of Archduke Franz Ferdinand", correct: true },
+                {
+                    text: "The assassination of Archduke Franz Ferdinand",
+                    correct: true,
+                },
                 { text: "The invasion of Poland", correct: false },
                 { text: "The bombing of Pearl Harbor", correct: false },
             ],
@@ -8884,7 +11248,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What economic system is characterized by private ownership and free markets?",
+            question:
+                "What economic system is characterized by private ownership and free markets?",
             answers: [
                 { text: "Socialism", correct: false },
                 { text: "Communism", correct: false },
@@ -8911,16 +11276,21 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What was the main goal of the Civil Rights Movement in the United States?",
+            question:
+                "What was the main goal of the Civil Rights Movement in the United States?",
             answers: [
                 { text: "To promote economic development", correct: false },
-                { text: "To end racial segregation and discrimination", correct: true },
+                {
+                    text: "To end racial segregation and discrimination",
+                    correct: true,
+                },
                 { text: "To establish a new political party", correct: false },
                 { text: "To increase military funding", correct: false },
             ],
         },
         {
-            question: "What is the term for a government ruled by a king or queen?",
+            question:
+                "What is the term for a government ruled by a king or queen?",
             answers: [
                 { text: "Democracy", correct: false },
                 { text: "Oligarchy", correct: false },
@@ -8931,7 +11301,8 @@ export const socialStudiesData: Quiz = {
     ],
     2: [
         {
-            question: "Which ancient civilization developed the first writing system?",
+            question:
+                "Which ancient civilization developed the first writing system?",
             answers: [
                 { text: "Egyptians", correct: false },
                 { text: "Sumerians", correct: true },
@@ -8942,14 +11313,24 @@ export const socialStudiesData: Quiz = {
         {
             question: "What was the primary purpose of the Berlin Wall?",
             answers: [
-                { text: "To protect East Germany from invaders", correct: false },
-                { text: "To prevent East Germans from fleeing to West Berlin", correct: true },
-                { text: "To mark the border between Germany and Poland", correct: false },
+                {
+                    text: "To protect East Germany from invaders",
+                    correct: false,
+                },
+                {
+                    text: "To prevent East Germans from fleeing to West Berlin",
+                    correct: true,
+                },
+                {
+                    text: "To mark the border between Germany and Poland",
+                    correct: false,
+                },
                 { text: "To serve as a tourist attraction", correct: false },
             ],
         },
         {
-            question: "Who was the British Prime Minister during most of World War II?",
+            question:
+                "Who was the British Prime Minister during most of World War II?",
             answers: [
                 { text: "Winston Churchill", correct: true },
                 { text: "Neville Chamberlain", correct: false },
@@ -8958,7 +11339,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the study of human societies and cultures called?",
+            question:
+                "What is the study of human societies and cultures called?",
             answers: [
                 { text: "Biology", correct: false },
                 { text: "Anthropology", correct: true },
@@ -8970,7 +11352,10 @@ export const socialStudiesData: Quiz = {
             question: "What was the main objective of the Cold War?",
             answers: [
                 { text: "To establish colonial empires", correct: false },
-                { text: "To compete for global influence between the USA and the USSR", correct: true },
+                {
+                    text: "To compete for global influence between the USA and the USSR",
+                    correct: true,
+                },
                 { text: "To promote free trade agreements", correct: false },
                 { text: "To unify Europe", correct: false },
             ],
@@ -8988,7 +11373,10 @@ export const socialStudiesData: Quiz = {
             question: "What is the main function of the United Nations?",
             answers: [
                 { text: "To regulate international trade", correct: false },
-                { text: "To maintain international peace and security", correct: true },
+                {
+                    text: "To maintain international peace and security",
+                    correct: true,
+                },
                 { text: "To establish global taxes", correct: false },
                 { text: "To manage global sports events", correct: false },
             ],
@@ -8996,14 +11384,24 @@ export const socialStudiesData: Quiz = {
         {
             question: "What was the Renaissance?",
             answers: [
-                { text: "A period of political turmoil in Europe", correct: false },
-                { text: "A cultural rebirth and revival of art and learning in Europe", correct: true },
+                {
+                    text: "A period of political turmoil in Europe",
+                    correct: false,
+                },
+                {
+                    text: "A cultural rebirth and revival of art and learning in Europe",
+                    correct: true,
+                },
                 { text: "A religious movement in Asia", correct: false },
-                { text: "An economic downturn in the 17th century", correct: false },
+                {
+                    text: "An economic downturn in the 17th century",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+            question:
+                "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
             answers: [
                 { text: "Joseph Stalin", correct: false },
                 { text: "Nikita Khrushchev", correct: true },
@@ -9012,7 +11410,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a political and economic system where the means of production are owned by the state?",
+            question:
+                "What is the term for a political and economic system where the means of production are owned by the state?",
             answers: [
                 { text: "Capitalism", correct: false },
                 { text: "Socialism", correct: true },
@@ -9023,7 +11422,8 @@ export const socialStudiesData: Quiz = {
     ],
     3: [
         {
-            question: "What event is commonly considered the start of the French Revolution?",
+            question:
+                "What event is commonly considered the start of the French Revolution?",
             answers: [
                 { text: "The storming of the Bastille", correct: true },
                 { text: "The signing of the Magna Carta", correct: false },
@@ -9032,7 +11432,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "Who was the first Chancellor of Germany after World War II?",
+            question:
+                "Who was the first Chancellor of Germany after World War II?",
             answers: [
                 { text: "Konrad Adenauer", correct: true },
                 { text: "Angela Merkel", correct: false },
@@ -9041,25 +11442,48 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the main difference between a parliamentary and a presidential system?",
+            question:
+                "What is the main difference between a parliamentary and a presidential system?",
             answers: [
-                { text: "A parliamentary system separates the executive and legislative branches", correct: false },
-                { text: "In a presidential system, the executive is separate from the legislature, while in a parliamentary system, the executive derives its legitimacy from the legislature", correct: true },
-                { text: "A presidential system has a ceremonial president", correct: false },
-                { text: "A parliamentary system has a fixed term for the executive", correct: false },
+                {
+                    text: "A parliamentary system separates the executive and legislative branches",
+                    correct: false,
+                },
+                {
+                    text: "In a presidential system, the executive is separate from the legislature, while in a parliamentary system, the executive derives its legitimacy from the legislature",
+                    correct: true,
+                },
+                {
+                    text: "A presidential system has a ceremonial president",
+                    correct: false,
+                },
+                {
+                    text: "A parliamentary system has a fixed term for the executive",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the Marshall Plan?",
             answers: [
                 { text: "A strategy to win World War II", correct: false },
-                { text: "A program to rebuild European economies after World War II", correct: true },
-                { text: "A military alliance during the Cold War", correct: false },
-                { text: "A diplomatic treaty with the Soviet Union", correct: false },
+                {
+                    text: "A program to rebuild European economies after World War II",
+                    correct: true,
+                },
+                {
+                    text: "A military alliance during the Cold War",
+                    correct: false,
+                },
+                {
+                    text: "A diplomatic treaty with the Soviet Union",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who was the leader of India during its independence from British rule?",
+            question:
+                "Who was the leader of India during its independence from British rule?",
             answers: [
                 { text: "Jawaharlal Nehru", correct: false },
                 { text: "Mahatma Gandhi", correct: true },
@@ -9071,22 +11495,35 @@ export const socialStudiesData: Quiz = {
             question: "What is 'federalism'?",
             answers: [
                 { text: "A system where power is centralized", correct: false },
-                { text: "A system where power is divided between a central authority and constituent units", correct: true },
+                {
+                    text: "A system where power is divided between a central authority and constituent units",
+                    correct: true,
+                },
                 { text: "A system with a single-party rule", correct: false },
-                { text: "A system based on religious governance", correct: false },
+                {
+                    text: "A system based on religious governance",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the main goal of the Marshall Plan?",
             answers: [
-                { text: "To contain the spread of communism in Asia", correct: false },
-                { text: "To rebuild European economies after World War II", correct: true },
+                {
+                    text: "To contain the spread of communism in Asia",
+                    correct: false,
+                },
+                {
+                    text: "To rebuild European economies after World War II",
+                    correct: true,
+                },
                 { text: "To establish the United Nations", correct: false },
                 { text: "To promote nuclear disarmament", correct: false },
             ],
         },
         {
-            question: "Which amendment to the U.S. Constitution abolished slavery?",
+            question:
+                "Which amendment to the U.S. Constitution abolished slavery?",
             answers: [
                 { text: "13th Amendment", correct: true },
                 { text: "14th Amendment", correct: false },
@@ -9095,7 +11532,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the term for the political ideology that seeks to limit government intervention in both personal and economic matters?",
+            question:
+                "What is the term for the political ideology that seeks to limit government intervention in both personal and economic matters?",
             answers: [
                 { text: "Liberalism", correct: false },
                 { text: "Conservatism", correct: false },
@@ -9104,7 +11542,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "Who was the British Prime Minister during the majority of World War II?",
+            question:
+                "Who was the British Prime Minister during the majority of World War II?",
             answers: [
                 { text: "Neville Chamberlain", correct: false },
                 { text: "Winston Churchill", correct: true },
@@ -9117,17 +11556,27 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is 'totalitarianism'?",
             answers: [
-                { text: "A political system where a single party controls all aspects of life", correct: true },
-                { text: "A democratic system with multiple parties", correct: false },
+                {
+                    text: "A political system where a single party controls all aspects of life",
+                    correct: true,
+                },
+                {
+                    text: "A democratic system with multiple parties",
+                    correct: false,
+                },
                 { text: "A system based on religious laws", correct: false },
                 { text: "A capitalist economic system", correct: false },
             ],
         },
         {
-            question: "What does 'bicameral' mean in the context of legislatures?",
+            question:
+                "What does 'bicameral' mean in the context of legislatures?",
             answers: [
                 { text: "Having one legislative chamber", correct: false },
-                { text: "Having two legislative chambers or houses", correct: true },
+                {
+                    text: "Having two legislative chambers or houses",
+                    correct: true,
+                },
                 { text: "Having three legislative chambers", correct: false },
                 { text: "Having no legislative chambers", correct: false },
             ],
@@ -9142,7 +11591,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the primary function of the executive branch in the U.S. government?",
+            question:
+                "What is the primary function of the executive branch in the U.S. government?",
             answers: [
                 { text: "To make laws", correct: false },
                 { text: "To interpret laws", correct: false },
@@ -9153,8 +11603,14 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is 'checks and balances'?",
             answers: [
-                { text: "A system where each branch of government can limit the powers of the others", correct: true },
-                { text: "A method of balancing trade deficits", correct: false },
+                {
+                    text: "A system where each branch of government can limit the powers of the others",
+                    correct: true,
+                },
+                {
+                    text: "A method of balancing trade deficits",
+                    correct: false,
+                },
                 { text: "A financial regulation system", correct: false },
                 { text: "A legislative procedure", correct: false },
             ],
@@ -9169,7 +11625,8 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a government's ability to change laws without public approval?",
+            question:
+                "What is the term for a government's ability to change laws without public approval?",
             answers: [
                 { text: "Judicial Review", correct: false },
                 { text: "Executive Privilege", correct: false },
@@ -9178,16 +11635,21 @@ export const socialStudiesData: Quiz = {
             ],
         },
         {
-            question: "What is the main purpose of the Electoral College in the United States?",
+            question:
+                "What is the main purpose of the Electoral College in the United States?",
             answers: [
                 { text: "To directly elect the President", correct: false },
-                { text: "To formally select the President based on state results", correct: true },
+                {
+                    text: "To formally select the President based on state results",
+                    correct: true,
+                },
                 { text: "To count votes from all citizens", correct: false },
                 { text: "To oversee the legislative process", correct: false },
             ],
         },
         {
-            question: "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+            question:
+                "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
             answers: [
                 { text: "Joseph Stalin", correct: false },
                 { text: "Nikita Khrushchev", correct: true },
@@ -9198,8 +11660,14 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is 'caucus' in the context of politics?",
             answers: [
-                { text: "A formal meeting of party members to decide policy or select candidates", correct: true },
-                { text: "A legislative procedure to pass a bill", correct: false },
+                {
+                    text: "A formal meeting of party members to decide policy or select candidates",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass a bill",
+                    correct: false,
+                },
                 { text: "A type of political party", correct: false },
                 { text: "A political protest", correct: false },
             ],
@@ -9210,22 +11678,38 @@ export const socialStudiesData: Quiz = {
             question: "What is 'federalism'?",
             answers: [
                 { text: "A system where power is centralized", correct: false },
-                { text: "A system where power is divided between a central authority and constituent units", correct: true },
+                {
+                    text: "A system where power is divided between a central authority and constituent units",
+                    correct: true,
+                },
                 { text: "A system with a single-party rule", correct: false },
-                { text: "A system based on religious governance", correct: false },
+                {
+                    text: "A system based on religious governance",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'social contract theory'?",
             answers: [
                 { text: "A theory about economic markets", correct: false },
-                { text: "A theory that individuals consent to surrender some freedoms in exchange for protection of remaining rights", correct: true },
-                { text: "A theory about the inheritance of traits", correct: false },
-                { text: "A theory about human development stages", correct: false },
+                {
+                    text: "A theory that individuals consent to surrender some freedoms in exchange for protection of remaining rights",
+                    correct: true,
+                },
+                {
+                    text: "A theory about the inheritance of traits",
+                    correct: false,
+                },
+                {
+                    text: "A theory about human development stages",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which amendment guarantees the right to bear arms in the United States?",
+            question:
+                "Which amendment guarantees the right to bear arms in the United States?",
             answers: [
                 { text: "First Amendment", correct: false },
                 { text: "Second Amendment", correct: true },
@@ -9236,8 +11720,14 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is 'impeachment'?",
             answers: [
-                { text: "A process to remove a public official from office", correct: true },
-                { text: "A legislative procedure to pass laws", correct: false },
+                {
+                    text: "A process to remove a public official from office",
+                    correct: true,
+                },
+                {
+                    text: "A legislative procedure to pass laws",
+                    correct: false,
+                },
                 { text: "A type of political protest", correct: false },
                 { text: "A method of voting", correct: false },
             ],
@@ -9245,14 +11735,21 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is the 'bill of rights'?",
             answers: [
-                { text: "The first ten amendments to the U.S. Constitution", correct: true },
+                {
+                    text: "The first ten amendments to the U.S. Constitution",
+                    correct: true,
+                },
                 { text: "A list of federal laws", correct: false },
-                { text: "The main body of the U.S. Constitution", correct: false },
+                {
+                    text: "The main body of the U.S. Constitution",
+                    correct: false,
+                },
                 { text: "A declaration of independence", correct: false },
             ],
         },
         {
-            question: "Who was the leader of the Civil Rights Movement in the United States?",
+            question:
+                "Who was the leader of the Civil Rights Movement in the United States?",
             answers: [
                 { text: "Martin Luther King Jr.", correct: true },
                 { text: "Malcolm X", correct: false },
@@ -9263,32 +11760,69 @@ export const socialStudiesData: Quiz = {
         {
             question: "What is 'bicameralism'?",
             answers: [
-                { text: "A system with two legislative chambers or houses", correct: true },
-                { text: "A system with one legislative chamber", correct: false },
-                { text: "A system with three legislative chambers", correct: false },
-                { text: "A system where chambers have equal power", correct: false },
+                {
+                    text: "A system with two legislative chambers or houses",
+                    correct: true,
+                },
+                {
+                    text: "A system with one legislative chamber",
+                    correct: false,
+                },
+                {
+                    text: "A system with three legislative chambers",
+                    correct: false,
+                },
+                {
+                    text: "A system where chambers have equal power",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'pluralism' in political science?",
             answers: [
-                { text: "The belief in a single dominant group", correct: false },
-                { text: "The recognition and affirmation of diversity within a political body", correct: true },
-                { text: "A system where power is concentrated in the hands of a few", correct: false },
-                { text: "The merging of multiple political parties", correct: false },
+                {
+                    text: "The belief in a single dominant group",
+                    correct: false,
+                },
+                {
+                    text: "The recognition and affirmation of diversity within a political body",
+                    correct: true,
+                },
+                {
+                    text: "A system where power is concentrated in the hands of a few",
+                    correct: false,
+                },
+                {
+                    text: "The merging of multiple political parties",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'authoritarianism'?",
             answers: [
-                { text: "A democratic system with multiple parties", correct: false },
-                { text: "A political system characterized by strong central power and limited political freedoms", correct: true },
-                { text: "A political ideology that emphasizes individual liberty", correct: false },
-                { text: "A system where all decisions are made by the populace", correct: false },
+                {
+                    text: "A democratic system with multiple parties",
+                    correct: false,
+                },
+                {
+                    text: "A political system characterized by strong central power and limited political freedoms",
+                    correct: true,
+                },
+                {
+                    text: "A political ideology that emphasizes individual liberty",
+                    correct: false,
+                },
+                {
+                    text: "A system where all decisions are made by the populace",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who is known for the theory of 'checks and balances' in government?",
+            question:
+                "Who is known for the theory of 'checks and balances' in government?",
             answers: [
                 { text: "Thomas Jefferson", correct: false },
                 { text: "James Madison", correct: true },
@@ -9348,7 +11882,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "Who holds the record for the most goals in a single NHL season?",
+            question:
+                "Who holds the record for the most goals in a single NHL season?",
             answers: [
                 { text: "Wayne Gretzky", correct: true },
                 { text: "Mario Lemieux", correct: false },
@@ -9384,7 +11919,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "How many players are on the field for each team in a standard soccer match?",
+            question:
+                "How many players are on the field for each team in a standard soccer match?",
             answers: [
                 { text: "9", correct: false },
                 { text: "10", correct: false },
@@ -9449,7 +11985,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the highest possible score in a single frame of ten-pin bowling?",
+            question:
+                "What is the highest possible score in a single frame of ten-pin bowling?",
             answers: [
                 { text: "300", correct: true },
                 { text: "270", correct: false },
@@ -9505,7 +12042,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the standard length of an Olympic swimming pool in meters?",
+            question:
+                "What is the standard length of an Olympic swimming pool in meters?",
             answers: [
                 { text: "25 meters", correct: false },
                 { text: "50 meters", correct: true },
@@ -9514,7 +12052,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "Who holds the record for the most home runs in a single MLB season?",
+            question:
+                "Who holds the record for the most home runs in a single MLB season?",
             answers: [
                 { text: "Barry Bonds", correct: true },
                 { text: "Babe Ruth", correct: false },
@@ -9568,7 +12107,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a perfect score in ten-pin bowling?",
+            question:
+                "What is the term for a perfect score in ten-pin bowling?",
             answers: [
                 { text: "Turkey", correct: false },
                 { text: "Strike", correct: false },
@@ -9588,7 +12128,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the diameter of a regulation soccer ball in centimeters?",
+            question:
+                "What is the diameter of a regulation soccer ball in centimeters?",
             answers: [
                 { text: "68-70 cm", correct: true },
                 { text: "60-62 cm", correct: false },
@@ -9606,7 +12147,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "Which country won the UEFA European Championship in 2021?",
+            question:
+                "Which country won the UEFA European Championship in 2021?",
             answers: [
                 { text: "Italy", correct: true },
                 { text: "Germany", correct: false },
@@ -9642,7 +12184,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the highest governing body of international soccer?",
+            question:
+                "What is the highest governing body of international soccer?",
             answers: [
                 { text: "UEFA", correct: false },
                 { text: "CONCACAF", correct: false },
@@ -9651,7 +12194,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "Which sport uses the terms 'love', 'deuce', and 'advantage'?",
+            question:
+                "Which sport uses the terms 'love', 'deuce', and 'advantage'?",
             answers: [
                 { text: "Badminton", correct: false },
                 { text: "Tennis", correct: true },
@@ -9671,7 +12215,8 @@ export const sportsData: Quiz = {
     ],
     5: [
         {
-            question: "What is the maximum number of players on a basketball court for one team?",
+            question:
+                "What is the maximum number of players on a basketball court for one team?",
             answers: [
                 { text: "4", correct: false },
                 { text: "5", correct: true },
@@ -9680,7 +12225,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "Which country has won the most Olympic gold medals in history?",
+            question:
+                "Which country has won the most Olympic gold medals in history?",
             answers: [
                 { text: "USA", correct: true },
                 { text: "Russia", correct: false },
@@ -9689,7 +12235,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for scoring three goals by one player in a single soccer game?",
+            question:
+                "What is the term for scoring three goals by one player in a single soccer game?",
             answers: [
                 { text: "Triple", correct: false },
                 { text: "Hat-trick", correct: true },
@@ -9734,7 +12281,8 @@ export const sportsData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a perfect score in ten-pin bowling?",
+            question:
+                "What is the term for a perfect score in ten-pin bowling?",
             answers: [
                 { text: "Turkey", correct: false },
                 { text: "Strike", correct: false },
@@ -9776,7 +12324,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Which war was fought between the North and South regions in the United States?",
+            question:
+                "Which war was fought between the North and South regions in the United States?",
             answers: [
                 { text: "World War I", correct: false },
                 { text: "Civil War", correct: true },
@@ -9821,7 +12370,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the first female Prime Minister of the United Kingdom?",
+            question:
+                "Who was the first female Prime Minister of the United Kingdom?",
             answers: [
                 { text: "Margaret Thatcher", correct: true },
                 { text: "Theresa May", correct: false },
@@ -9868,7 +12418,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the main author of the Declaration of Independence?",
+            question:
+                "Who was the main author of the Declaration of Independence?",
             answers: [
                 { text: "James Madison", correct: false },
                 { text: "George Washington", correct: false },
@@ -9877,7 +12428,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Which civilization is known for the invention of writing?",
+            question:
+                "Which civilization is known for the invention of writing?",
             answers: [
                 { text: "Sumerians", correct: true },
                 { text: "Egyptians", correct: false },
@@ -9904,7 +12456,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the first African American to win the Nobel Prize in Literature?",
+            question:
+                "Who was the first African American to win the Nobel Prize in Literature?",
             answers: [
                 { text: "Ralph Ellison", correct: false },
                 { text: "Toni Morrison", correct: true },
@@ -9913,7 +12466,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Which war was fought between the North and South regions in the United States?",
+            question:
+                "Which war was fought between the North and South regions in the United States?",
             answers: [
                 { text: "World War I", correct: false },
                 { text: "Civil War", correct: true },
@@ -9931,7 +12485,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the famous scientist that developed the theory of relativity?",
+            question:
+                "Who was the famous scientist that developed the theory of relativity?",
             answers: [
                 { text: "Isaac Newton", correct: false },
                 { text: "Albert Einstein", correct: true },
@@ -9940,7 +12495,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Which movement was aimed at ending slavery in the United States?",
+            question:
+                "Which movement was aimed at ending slavery in the United States?",
             answers: [
                 { text: "Abolition Movement", correct: true },
                 { text: "Civil Rights Movement", correct: false },
@@ -9951,7 +12507,8 @@ export const historyData: Quiz = {
     ],
     3: [
         {
-            question: "Which empire was known for its road system and postal service?",
+            question:
+                "Which empire was known for its road system and postal service?",
             answers: [
                 { text: "Roman Empire", correct: true },
                 { text: "Ottoman Empire", correct: false },
@@ -9969,7 +12526,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the famous queen of Egypt known for her relationships with Julius Caesar and Mark Antony?",
+            question:
+                "Who was the famous queen of Egypt known for her relationships with Julius Caesar and Mark Antony?",
             answers: [
                 { text: "Nefertiti", correct: false },
                 { text: "Cleopatra", correct: true },
@@ -9983,11 +12541,15 @@ export const historyData: Quiz = {
                 { text: "Storming of the Bastille", correct: true },
                 { text: "The Reign of Terror", correct: false },
                 { text: "Napoleon's Rise to Power", correct: false },
-                { text: "The Declaration of the Rights of Man", correct: false },
+                {
+                    text: "The Declaration of the Rights of Man",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Who was the leader of the Soviet Union during World War II?",
+            question:
+                "Who was the leader of the Soviet Union during World War II?",
             answers: [
                 { text: "Leon Trotsky", correct: false },
                 { text: "Joseph Stalin", correct: true },
@@ -10014,7 +12576,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "What was the name of the ship that brought the Pilgrims to America?",
+            question:
+                "What was the name of the ship that brought the Pilgrims to America?",
             answers: [
                 { text: "Mayflower", correct: true },
                 { text: "Santa Maria", correct: false },
@@ -10025,14 +12588,21 @@ export const historyData: Quiz = {
         {
             question: "What was the primary purpose of the Marshall Plan?",
             answers: [
-                { text: "To aid in the reconstruction of Europe after WWII", correct: true },
+                {
+                    text: "To aid in the reconstruction of Europe after WWII",
+                    correct: true,
+                },
                 { text: "To promote democracy in Asia", correct: false },
-                { text: "To provide military support to allies", correct: false },
+                {
+                    text: "To provide military support to allies",
+                    correct: false,
+                },
                 { text: "To establish the United Nations", correct: false },
             ],
         },
         {
-            question: "Which country was divided into East and West during the Cold War?",
+            question:
+                "Which country was divided into East and West during the Cold War?",
             answers: [
                 { text: "Germany", correct: true },
                 { text: "Korea", correct: false },
@@ -10052,7 +12622,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Which country was the first to grant women the right to vote?",
+            question:
+                "Which country was the first to grant women the right to vote?",
             answers: [
                 { text: "New Zealand", correct: true },
                 { text: "United States", correct: false },
@@ -10061,7 +12632,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "What was the primary purpose of the United Nations when it was founded?",
+            question:
+                "What was the primary purpose of the United Nations when it was founded?",
             answers: [
                 { text: "To prevent future wars", correct: true },
                 { text: "To promote economic growth", correct: false },
@@ -10082,15 +12654,24 @@ export const historyData: Quiz = {
             question: "What was the significance of the Magna Carta?",
             answers: [
                 { text: "It limited the powers of the king", correct: true },
-                { text: "It established the Church of England", correct: false },
+                {
+                    text: "It established the Church of England",
+                    correct: false,
+                },
                 { text: "It ended the English Civil War", correct: false },
-                { text: "It declared independence from France", correct: false },
+                {
+                    text: "It declared independence from France",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What was the main outcome of the Boston Tea Party?",
             answers: [
-                { text: "Increased tensions between Britain and the colonies", correct: true },
+                {
+                    text: "Increased tensions between Britain and the colonies",
+                    correct: true,
+                },
                 { text: "The establishment of independence", correct: false },
                 { text: "The repeal of the Stamp Act", correct: false },
                 { text: "The Boston Massacre", correct: false },
@@ -10108,14 +12689,18 @@ export const historyData: Quiz = {
         {
             question: "What was the purpose of the Berlin Conference in 1884?",
             answers: [
-                { text: "To divide Africa among European powers", correct: true },
+                {
+                    text: "To divide Africa among European powers",
+                    correct: true,
+                },
                 { text: "To promote trade in Africa", correct: false },
                 { text: "To establish diplomatic relations", correct: false },
                 { text: "To create the League of Nations", correct: false },
             ],
         },
         {
-            question: "Which battle is considered the turning point of the American Civil War?",
+            question:
+                "Which battle is considered the turning point of the American Civil War?",
             answers: [
                 { text: "Battle of Gettysburg", correct: true },
                 { text: "Battle of Antietam", correct: false },
@@ -10124,7 +12709,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "What was the main reason for the fall of the Roman Empire?",
+            question:
+                "What was the main reason for the fall of the Roman Empire?",
             answers: [
                 { text: "Barbarian invasions", correct: true },
                 { text: "Economic decline", correct: false },
@@ -10138,13 +12724,17 @@ export const historyData: Quiz = {
             question: "What was the primary cause of World War I?",
             answers: [
                 { text: "Economic Crisis", correct: false },
-                { text: "Assassination of Archduke Franz Ferdinand", correct: true },
+                {
+                    text: "Assassination of Archduke Franz Ferdinand",
+                    correct: true,
+                },
                 { text: "Colonial Rivalries", correct: false },
                 { text: "Treaty of Versailles", correct: false },
             ],
         },
         {
-            question: "Which movement sought to end racial segregation in the United States?",
+            question:
+                "Which movement sought to end racial segregation in the United States?",
             answers: [
                 { text: "Women's Suffrage Movement", correct: false },
                 { text: "Civil Rights Movement", correct: true },
@@ -10153,7 +12743,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "What was the main economic system during the Industrial Revolution?",
+            question:
+                "What was the main economic system during the Industrial Revolution?",
             answers: [
                 { text: "Feudalism", correct: false },
                 { text: "Capitalism", correct: true },
@@ -10162,7 +12753,8 @@ export const historyData: Quiz = {
             ],
         },
         {
-            question: "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+            question:
+                "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
             answers: [
                 { text: "Nikita Khrushchev", correct: true },
                 { text: "Leon Trotsky", correct: false },
@@ -10182,7 +12774,10 @@ export const historyData: Quiz = {
         {
             question: "What was the significance of the Nuremberg Trials?",
             answers: [
-                { text: "They held Nazi leaders accountable for war crimes", correct: true },
+                {
+                    text: "They held Nazi leaders accountable for war crimes",
+                    correct: true,
+                },
                 { text: "They established the United Nations", correct: false },
                 { text: "They initiated the Marshall Plan", correct: false },
                 { text: "They ended the Cold War", correct: false },
@@ -10209,7 +12804,10 @@ export const historyData: Quiz = {
         {
             question: "What was the purpose of the U.S. Constitution?",
             answers: [
-                { text: "To establish the framework of the government", correct: true },
+                {
+                    text: "To establish the framework of the government",
+                    correct: true,
+                },
                 { text: "To declare independence", correct: false },
                 { text: "To end slavery", correct: false },
                 { text: "To promote economic growth", correct: false },
@@ -10368,7 +12966,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "If a triangle has a base of 10 and a height of 5, what is its area?",
+            question:
+                "If a triangle has a base of 10 and a height of 5, what is its area?",
             answers: [
                 { text: "25", correct: true },
                 { text: "30", correct: false },
@@ -10395,7 +12994,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the circumference of a circle with a diameter of 10?",
+            question:
+                "What is the circumference of a circle with a diameter of 10?",
             answers: [
                 { text: "20π", correct: true },
                 { text: "10π", correct: false },
@@ -10487,7 +13087,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the median of the following set of numbers: 3, 5, 1, 4, 2?",
+            question:
+                "What is the median of the following set of numbers: 3, 5, 1, 4, 2?",
             answers: [
                 { text: "3", correct: true },
                 { text: "2", correct: false },
@@ -10496,7 +13097,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "If a triangle has a base of 10 and a height of 5, what is its area?",
+            question:
+                "If a triangle has a base of 10 and a height of 5, what is its area?",
             answers: [
                 { text: "25", correct: true },
                 { text: "30", correct: false },
@@ -10570,7 +13172,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the solution to the quadratic equation x^2 - 5x + 6 = 0?",
+            question:
+                "What is the solution to the quadratic equation x^2 - 5x + 6 = 0?",
             answers: [
                 { text: "x = 2 or x = 3", correct: true },
                 { text: "x = -2 or x = -3", correct: false },
@@ -10588,7 +13191,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the solution to the system of equations: 2x + y = 10 and x - y = 2?",
+            question:
+                "What is the solution to the system of equations: 2x + y = 10 and x - y = 2?",
             answers: [
                 { text: "x = 4, y = 2", correct: true },
                 { text: "x = 3, y = 4", correct: false },
@@ -10626,7 +13230,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "If the function f(x) = x^2 + 2x - 3, what are the roots?",
+            question:
+                "If the function f(x) = x^2 + 2x - 3, what are the roots?",
             answers: [
                 { text: "x = -3, x = 1", correct: true },
                 { text: "x = 0, x = 3", correct: false },
@@ -10635,7 +13240,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the value of the expression 2x + 3y when x = 1 and y = 2?",
+            question:
+                "What is the value of the expression 2x + 3y when x = 1 and y = 2?",
             answers: [
                 { text: "8", correct: true },
                 { text: "5", correct: false },
@@ -10646,10 +13252,19 @@ export const mathData: Quiz = {
         {
             question: "What is the fundamental theorem of algebra?",
             answers: [
-                { text: "Every polynomial equation of degree n has n roots.", correct: true },
-                { text: "The roots of a polynomial are complex.", correct: false },
+                {
+                    text: "Every polynomial equation of degree n has n roots.",
+                    correct: true,
+                },
+                {
+                    text: "The roots of a polynomial are complex.",
+                    correct: false,
+                },
                 { text: "All equations have real roots.", correct: false },
-                { text: "The sum of the roots is always zero.", correct: false },
+                {
+                    text: "The sum of the roots is always zero.",
+                    correct: false,
+                },
             ],
         },
         {
@@ -10662,7 +13277,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the area of a triangle with a base of 5 and a height of 10?",
+            question:
+                "What is the area of a triangle with a base of 5 and a height of 10?",
             answers: [
                 { text: "25", correct: true },
                 { text: "50", correct: false },
@@ -10671,7 +13287,8 @@ export const mathData: Quiz = {
             ],
         },
         {
-            question: "What is the probability of flipping a coin and it landing on heads?",
+            question:
+                "What is the probability of flipping a coin and it landing on heads?",
             answers: [
                 { text: "1/2", correct: true },
                 { text: "1/4", correct: false },
@@ -10695,7 +13312,8 @@ export const mathData: Quiz = {
 export const sociologyData: Quiz = {
     1: [
         {
-            question: "What is the study of society and social behavior called?",
+            question:
+                "What is the study of society and social behavior called?",
             answers: [
                 { text: "Psychology", correct: false },
                 { text: "Sociology", correct: true },
@@ -10704,7 +13322,8 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "What term describes a group of people with shared characteristics?",
+            question:
+                "What term describes a group of people with shared characteristics?",
             answers: [
                 { text: "Society", correct: false },
                 { text: "Community", correct: true },
@@ -10734,13 +13353,17 @@ export const sociologyData: Quiz = {
             question: "What is a culture?",
             answers: [
                 { text: "A biological classification", correct: false },
-                { text: "Shared beliefs, values, and practices", correct: true },
+                {
+                    text: "Shared beliefs, values, and practices",
+                    correct: true,
+                },
                 { text: "A social institution", correct: false },
                 { text: "A type of government", correct: false },
             ],
         },
         {
-            question: "What is the term for a position within a social structure?",
+            question:
+                "What is the term for a position within a social structure?",
             answers: [
                 { text: "Role", correct: true },
                 { text: "Status", correct: false },
@@ -10751,14 +13374,18 @@ export const sociologyData: Quiz = {
         {
             question: "What is social stratification?",
             answers: [
-                { text: "The organization of society into hierarchical layers", correct: true },
+                {
+                    text: "The organization of society into hierarchical layers",
+                    correct: true,
+                },
                 { text: "The process of social change", correct: false },
                 { text: "The study of social networks", correct: false },
                 { text: "The analysis of social behavior", correct: false },
             ],
         },
         {
-            question: "What is the process by which individuals learn and internalize the values and norms of their culture?",
+            question:
+                "What is the process by which individuals learn and internalize the values and norms of their culture?",
             answers: [
                 { text: "Socialization", correct: true },
                 { text: "Acculturation", correct: false },
@@ -10767,7 +13394,8 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "What term describes the movement of individuals or groups from one social class to another?",
+            question:
+                "What term describes the movement of individuals or groups from one social class to another?",
             answers: [
                 { text: "Social mobility", correct: true },
                 { text: "Social change", correct: false },
@@ -10778,7 +13406,10 @@ export const sociologyData: Quiz = {
         {
             question: "What is the concept of 'groupthink'?",
             answers: [
-                { text: "A decision-making process where group members conform to a consensus", correct: true },
+                {
+                    text: "A decision-making process where group members conform to a consensus",
+                    correct: true,
+                },
                 { text: "The study of group behavior", correct: false },
                 { text: "A method of conflict resolution", correct: false },
                 { text: "A form of social control", correct: false },
@@ -10788,7 +13419,10 @@ export const sociologyData: Quiz = {
             question: "What does the term 'social change' refer to?",
             answers: [
                 { text: "Changes in laws and policies", correct: false },
-                { text: "Alterations in social structures and relationships", correct: true },
+                {
+                    text: "Alterations in social structures and relationships",
+                    correct: true,
+                },
                 { text: "Changes in personal beliefs", correct: false },
                 { text: "Changes in economic systems", correct: false },
             ],
@@ -10796,7 +13430,8 @@ export const sociologyData: Quiz = {
     ],
     2: [
         {
-            question: "What is the sociological perspective that emphasizes the importance of social structures?",
+            question:
+                "What is the sociological perspective that emphasizes the importance of social structures?",
             answers: [
                 { text: "Symbolic interactionism", correct: false },
                 { text: "Functionalism", correct: true },
@@ -10805,7 +13440,8 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "Which of the following is a function of social institutions?",
+            question:
+                "Which of the following is a function of social institutions?",
             answers: [
                 { text: "To create social change", correct: false },
                 { text: "To provide stability and order", correct: true },
@@ -10814,7 +13450,8 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "What is a significant factor that contributes to social inequality?",
+            question:
+                "What is a significant factor that contributes to social inequality?",
             answers: [
                 { text: "Access to education", correct: true },
                 { text: "Cultural diversity", correct: false },
@@ -10825,14 +13462,27 @@ export const sociologyData: Quiz = {
         {
             question: "What is the difference between 'race' and 'ethnicity'?",
             answers: [
-                { text: "Race is based on biological traits; ethnicity is based on cultural traits", correct: true },
-                { text: "Race is a social construct; ethnicity is not", correct: false },
-                { text: "Race refers to nationality; ethnicity refers to skin color", correct: false },
-                { text: "Race is unchangeable; ethnicity can change", correct: false },
+                {
+                    text: "Race is based on biological traits; ethnicity is based on cultural traits",
+                    correct: true,
+                },
+                {
+                    text: "Race is a social construct; ethnicity is not",
+                    correct: false,
+                },
+                {
+                    text: "Race refers to nationality; ethnicity refers to skin color",
+                    correct: false,
+                },
+                {
+                    text: "Race is unchangeable; ethnicity can change",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the term for a temporary social grouping of people?",
+            question:
+                "What is the term for a temporary social grouping of people?",
             answers: [
                 { text: "Collective", correct: true },
                 { text: "Community", correct: false },
@@ -10843,16 +13493,28 @@ export const sociologyData: Quiz = {
         {
             question: "What does the term 'normative behavior' refer to?",
             answers: [
-                { text: "Behavior that is statistically average", correct: false },
-                { text: "Behavior that aligns with societal norms", correct: true },
+                {
+                    text: "Behavior that is statistically average",
+                    correct: false,
+                },
+                {
+                    text: "Behavior that aligns with societal norms",
+                    correct: true,
+                },
                 { text: "Behavior that is deviant", correct: false },
-                { text: "Behavior that is biologically determined", correct: false },
+                {
+                    text: "Behavior that is biologically determined",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What is 'role conflict'?",
             answers: [
-                { text: "When an individual has multiple roles that conflict", correct: true },
+                {
+                    text: "When an individual has multiple roles that conflict",
+                    correct: true,
+                },
                 { text: "When a role is poorly defined", correct: false },
                 { text: "When roles change over time", correct: false },
                 { text: "When roles are socially constructed", correct: false },
@@ -10868,7 +13530,8 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "What is the process of shedding old roles and adopting new ones called?",
+            question:
+                "What is the process of shedding old roles and adopting new ones called?",
             answers: [
                 { text: "Role exit", correct: true },
                 { text: "Role conflict", correct: false },
@@ -10879,8 +13542,14 @@ export const sociologyData: Quiz = {
         {
             question: "What is the significance of 'social capital'?",
             answers: [
-                { text: "The resources available to individuals through their social networks", correct: true },
-                { text: "The economic resources of a community", correct: false },
+                {
+                    text: "The resources available to individuals through their social networks",
+                    correct: true,
+                },
+                {
+                    text: "The economic resources of a community",
+                    correct: false,
+                },
                 { text: "The level of education in a society", correct: false },
                 { text: "The political power of individuals", correct: false },
             ],
@@ -10897,18 +13566,25 @@ export const sociologyData: Quiz = {
             ],
         },
         {
-            question: "What is the significance of the feminist perspective in sociology?",
+            question:
+                "What is the significance of the feminist perspective in sociology?",
             answers: [
                 { text: "It emphasizes gender inequality", correct: true },
                 { text: "It focuses solely on women's issues", correct: false },
                 { text: "It ignores intersectionality", correct: false },
-                { text: "It promotes traditional gender roles", correct: false },
+                {
+                    text: "It promotes traditional gender roles",
+                    correct: false,
+                },
             ],
         },
         {
             question: "What does the term 'socialization' refer to?",
             answers: [
-                { text: "The process of learning and internalizing norms", correct: true },
+                {
+                    text: "The process of learning and internalizing norms",
+                    correct: true,
+                },
                 { text: "The creation of social structures", correct: false },
                 { text: "The breakdown of social norms", correct: false },
                 { text: "The promotion of individualism", correct: false },
@@ -10920,11 +13596,15 @@ export const sociologyData: Quiz = {
                 { text: "They provide emotional support", correct: true },
                 { text: "They are temporary groupings", correct: false },
                 { text: "They reinforce societal norms", correct: false },
-                { text: "They are focused on larger societal issues", correct: false },
+                {
+                    text: "They are focused on larger societal issues",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "What is the term for a set of shared beliefs and values within a group?",
+            question:
+                "What is the term for a set of shared beliefs and values within a group?",
             answers: [
                 { text: "Culture", correct: true },
                 { text: "Society", correct: false },
@@ -10944,8 +13624,14 @@ export const sociologyData: Quiz = {
         {
             question: "What does the term 'deviance' refer to?",
             answers: [
-                { text: "Behavior that aligns with social norms", correct: false },
-                { text: "Behavior that violates societal norms", correct: true },
+                {
+                    text: "Behavior that aligns with social norms",
+                    correct: false,
+                },
+                {
+                    text: "Behavior that violates societal norms",
+                    correct: true,
+                },
                 { text: "Behavior that is accepted", correct: false },
                 { text: "Behavior that is expected", correct: false },
             ],
@@ -10954,7 +13640,10 @@ export const sociologyData: Quiz = {
             question: "What is the significance of social institutions?",
             answers: [
                 { text: "They create inequalities", correct: false },
-                { text: "They organize society and provide structure", correct: true },
+                {
+                    text: "They organize society and provide structure",
+                    correct: true,
+                },
                 { text: "They hinder social change", correct: false },
                 { text: "They focus on individual behavior", correct: false },
             ],
@@ -10972,7 +13661,10 @@ export const sociologyData: Quiz = {
             question: "What is the concept of 'role strain'?",
             answers: [
                 { text: "Conflicts between different roles", correct: false },
-                { text: "Inability to meet the demands of a single role", correct: true },
+                {
+                    text: "Inability to meet the demands of a single role",
+                    correct: true,
+                },
                 { text: "Absence of roles in society", correct: false },
                 { text: "Disruption of social order", correct: false },
             ],
@@ -10982,14 +13674,21 @@ export const sociologyData: Quiz = {
         {
             question: "What is the concept of 'cultural relativism'?",
             answers: [
-                { text: "The belief that one's culture is superior", correct: false },
-                { text: "The understanding that cultures must be understood in their own context", correct: true },
+                {
+                    text: "The belief that one's culture is superior",
+                    correct: false,
+                },
+                {
+                    text: "The understanding that cultures must be understood in their own context",
+                    correct: true,
+                },
                 { text: "The rejection of all cultures", correct: false },
                 { text: "The promotion of global cultures", correct: false },
             ],
         },
         {
-            question: "What is the term for an expected behavior in a given context?",
+            question:
+                "What is the term for an expected behavior in a given context?",
             answers: [
                 { text: "Role", correct: true },
                 { text: "Status", correct: false },
@@ -11001,7 +13700,10 @@ export const sociologyData: Quiz = {
             question: "What is the main focus of structural functionalism?",
             answers: [
                 { text: "Social conflict", correct: false },
-                { text: "The functions of each part of society", correct: true },
+                {
+                    text: "The functions of each part of society",
+                    correct: true,
+                },
                 { text: "Individual behavior", correct: false },
                 { text: "Social change", correct: false },
             ],
@@ -11010,16 +13712,23 @@ export const sociologyData: Quiz = {
             question: "What does the term 'social construct' mean?",
             answers: [
                 { text: "Something that exists physically", correct: false },
-                { text: "An idea or concept created by society", correct: true },
+                {
+                    text: "An idea or concept created by society",
+                    correct: true,
+                },
                 { text: "A natural phenomenon", correct: false },
                 { text: "A law or policy", correct: false },
             ],
         },
         {
-            question: "What does the term 'institutionalized discrimination' refer to?",
+            question:
+                "What does the term 'institutionalized discrimination' refer to?",
             answers: [
                 { text: "Discrimination that is illegal", correct: false },
-                { text: "Discrimination that is part of social structures", correct: true },
+                {
+                    text: "Discrimination that is part of social structures",
+                    correct: true,
+                },
                 { text: "Discrimination that is personal", correct: false },
                 { text: "Discrimination that is random", correct: false },
             ],
@@ -11028,7 +13737,10 @@ export const sociologyData: Quiz = {
             question: "What is the significance of social networks?",
             answers: [
                 { text: "They limit social interactions", correct: false },
-                { text: "They facilitate connections and resource sharing", correct: true },
+                {
+                    text: "They facilitate connections and resource sharing",
+                    correct: true,
+                },
                 { text: "They promote isolation", correct: false },
                 { text: "They hinder relationships", correct: false },
             ],
@@ -11046,7 +13758,10 @@ export const sociologyData: Quiz = {
             question: "What is the role of culture in shaping identity?",
             answers: [
                 { text: "It has no role", correct: false },
-                { text: "It shapes beliefs, values, and behaviors", correct: true },
+                {
+                    text: "It shapes beliefs, values, and behaviors",
+                    correct: true,
+                },
                 { text: "It only affects behavior", correct: false },
                 { text: "It is a minor influence", correct: false },
             ],
@@ -11055,7 +13770,10 @@ export const sociologyData: Quiz = {
             question: "What is the primary focus of postmodern sociology?",
             answers: [
                 { text: "Social structures", correct: false },
-                { text: "Diversity of perspectives and experiences", correct: true },
+                {
+                    text: "Diversity of perspectives and experiences",
+                    correct: true,
+                },
                 { text: "Historical analysis", correct: false },
                 { text: "Norms and values", correct: false },
             ],
@@ -11063,7 +13781,10 @@ export const sociologyData: Quiz = {
         {
             question: "What does the term 'social stratification' refer to?",
             answers: [
-                { text: "The hierarchical arrangement of individuals in society", correct: true },
+                {
+                    text: "The hierarchical arrangement of individuals in society",
+                    correct: true,
+                },
                 { text: "The study of social networks", correct: false },
                 { text: "The analysis of social behavior", correct: false },
                 { text: "The promotion of equality", correct: false },
@@ -11072,10 +13793,14 @@ export const sociologyData: Quiz = {
     ],
     5: [
         {
-            question: "What is the significance of 'critical theory' in sociology?",
+            question:
+                "What is the significance of 'critical theory' in sociology?",
             answers: [
                 { text: "It seeks to understand social norms", correct: false },
-                { text: "It aims to critique and change society", correct: true },
+                {
+                    text: "It aims to critique and change society",
+                    correct: true,
+                },
                 { text: "It promotes social stability", correct: false },
                 { text: "It ignores power dynamics", correct: false },
             ],
@@ -11084,7 +13809,10 @@ export const sociologyData: Quiz = {
             question: "What is 'intersectionality' in sociology?",
             answers: [
                 { text: "The study of single identities", correct: false },
-                { text: "How various forms of identity overlap and interact", correct: true },
+                {
+                    text: "How various forms of identity overlap and interact",
+                    correct: true,
+                },
                 { text: "A concept used in biology", correct: false },
                 { text: "A technique for social research", correct: false },
             ],
@@ -11093,7 +13821,10 @@ export const sociologyData: Quiz = {
             question: "What does the term 'cultural capital' refer to?",
             answers: [
                 { text: "Economic resources", correct: false },
-                { text: "Knowledge, skills, and education that promote social mobility", correct: true },
+                {
+                    text: "Knowledge, skills, and education that promote social mobility",
+                    correct: true,
+                },
                 { text: "Social status", correct: false },
                 { text: "Political power", correct: false },
             ],
@@ -11110,8 +13841,14 @@ export const sociologyData: Quiz = {
         {
             question: "What is the concept of 'socialization'?",
             answers: [
-                { text: "The process of becoming an individual", correct: false },
-                { text: "The lifelong process of learning social norms and values", correct: true },
+                {
+                    text: "The process of becoming an individual",
+                    correct: false,
+                },
+                {
+                    text: "The lifelong process of learning social norms and values",
+                    correct: true,
+                },
                 { text: "The promotion of equality", correct: false },
                 { text: "The analysis of social structures", correct: false },
             ],
@@ -11119,14 +13856,18 @@ export const sociologyData: Quiz = {
         {
             question: "What is the primary goal of sociological research?",
             answers: [
-                { text: "To describe and explain social phenomena", correct: true },
+                {
+                    text: "To describe and explain social phenomena",
+                    correct: true,
+                },
                 { text: "To promote social change", correct: false },
                 { text: "To validate existing theories", correct: false },
                 { text: "To study individual behavior", correct: false },
             ],
         },
         {
-            question: "What is the term for the study of how societies develop and change over time?",
+            question:
+                "What is the term for the study of how societies develop and change over time?",
             answers: [
                 { text: "Historical sociology", correct: true },
                 { text: "Comparative sociology", correct: false },
@@ -11138,7 +13879,10 @@ export const sociologyData: Quiz = {
             question: "What does the term 'social exclusion' refer to?",
             answers: [
                 { text: "Inclusion in society", correct: false },
-                { text: "The process of being marginalized and denied access to resources", correct: true },
+                {
+                    text: "The process of being marginalized and denied access to resources",
+                    correct: true,
+                },
                 { text: "A concept of integration", correct: false },
                 { text: "The breakdown of social bonds", correct: false },
             ],
@@ -11147,7 +13891,10 @@ export const sociologyData: Quiz = {
             question: "What is the role of rituals in society?",
             answers: [
                 { text: "To promote individuality", correct: false },
-                { text: "To reinforce social bonds and cultural values", correct: true },
+                {
+                    text: "To reinforce social bonds and cultural values",
+                    correct: true,
+                },
                 { text: "To create social hierarchy", correct: false },
                 { text: "To encourage competition", correct: false },
             ],
@@ -11156,14 +13903,16 @@ export const sociologyData: Quiz = {
             question: "What does the term 'urban sociology' focus on?",
             answers: [
                 { text: "Rural communities", correct: false },
-                { text: "The study of social life in urban areas", correct: true },
+                {
+                    text: "The study of social life in urban areas",
+                    correct: true,
+                },
                 { text: "Globalization", correct: false },
                 { text: "Environmental sociology", correct: false },
             ],
         },
     ],
 };
-
 
 // Warfare Quiz Data
 export const warfareData: Quiz = {
@@ -11196,7 +13945,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Who was the commander of the British forces during the Battle of Waterloo?",
+            question:
+                "Who was the commander of the British forces during the Battle of Waterloo?",
             answers: [
                 { text: "Duke of Wellington", correct: true },
                 { text: "Horatio Nelson", correct: false },
@@ -11214,7 +13964,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which battle marked the turning point in the Pacific Theater during WWII?",
+            question:
+                "Which battle marked the turning point in the Pacific Theater during WWII?",
             answers: [
                 { text: "Battle of Midway", correct: true },
                 { text: "Battle of Iwo Jima", correct: false },
@@ -11232,7 +13983,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which war was primarily fought over the issue of slavery in the United States?",
+            question:
+                "Which war was primarily fought over the issue of slavery in the United States?",
             answers: [
                 { text: "World War I", correct: false },
                 { text: "The Civil War", correct: true },
@@ -11271,13 +14023,17 @@ export const warfareData: Quiz = {
             question: "What does the term 'War of Attrition' refer to?",
             answers: [
                 { text: "A war based on guerrilla tactics", correct: false },
-                { text: "A war aimed at wearing down the enemy", correct: true },
+                {
+                    text: "A war aimed at wearing down the enemy",
+                    correct: true,
+                },
                 { text: "A type of psychological warfare", correct: false },
                 { text: "A naval blockade", correct: false },
             ],
         },
         {
-            question: "Who was the leading general of the American Expeditionary Forces in WWI?",
+            question:
+                "Who was the leading general of the American Expeditionary Forces in WWI?",
             answers: [
                 { text: "John J. Pershing", correct: true },
                 { text: "Dwight D. Eisenhower", correct: false },
@@ -11288,7 +14044,8 @@ export const warfareData: Quiz = {
     ],
     2: [
         {
-            question: "What tactic involves surprise attacks against a larger enemy?",
+            question:
+                "What tactic involves surprise attacks against a larger enemy?",
             answers: [
                 { text: "Guerrilla warfare", correct: true },
                 { text: "Trench warfare", correct: false },
@@ -11297,7 +14054,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Who was the leader of the Allied forces in Europe during WWII?",
+            question:
+                "Who was the leader of the Allied forces in Europe during WWII?",
             answers: [
                 { text: "Dwight D. Eisenhower", correct: true },
                 { text: "George S. Patton", correct: false },
@@ -11306,7 +14064,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the name of the international organization founded after WWII to promote peace?",
+            question:
+                "What is the name of the international organization founded after WWII to promote peace?",
             answers: [
                 { text: "League of Nations", correct: false },
                 { text: "United Nations", correct: true },
@@ -11324,7 +14083,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for military strategy that focuses on the importance of logistics?",
+            question:
+                "What is the term for military strategy that focuses on the importance of logistics?",
             answers: [
                 { text: "Total war", correct: false },
                 { text: "Logistics warfare", correct: true },
@@ -11337,7 +14097,10 @@ export const warfareData: Quiz = {
             answers: [
                 { text: "To recruit volunteers", correct: false },
                 { text: "To maintain a standing army", correct: false },
-                { text: "To conscript citizens for military service", correct: true },
+                {
+                    text: "To conscript citizens for military service",
+                    correct: true,
+                },
                 { text: "To train soldiers", correct: false },
             ],
         },
@@ -11362,7 +14125,10 @@ export const warfareData: Quiz = {
         {
             question: "What does the term 'scorched earth' refer to?",
             answers: [
-                { text: "A military tactic that destroys anything useful", correct: true },
+                {
+                    text: "A military tactic that destroys anything useful",
+                    correct: true,
+                },
                 { text: "A type of weapon", correct: false },
                 { text: "A geographical region", correct: false },
                 { text: "A peace treaty", correct: false },
@@ -11372,13 +14138,17 @@ export const warfareData: Quiz = {
             question: "What was the significance of the Battle of Stalingrad?",
             answers: [
                 { text: "It was a major German victory", correct: false },
-                { text: "It marked the turning point in the Eastern Front", correct: true },
+                {
+                    text: "It marked the turning point in the Eastern Front",
+                    correct: true,
+                },
                 { text: "It ended the war", correct: false },
                 { text: "It was a naval battle", correct: false },
             ],
         },
         {
-            question: "Which conflict was fought between the United States and Britain in 1812?",
+            question:
+                "Which conflict was fought between the United States and Britain in 1812?",
             answers: [
                 { text: "War of 1812", correct: true },
                 { text: "Revolutionary War", correct: false },
@@ -11396,7 +14166,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which country did the United States fight in the Vietnam War?",
+            question:
+                "Which country did the United States fight in the Vietnam War?",
             answers: [
                 { text: "North Vietnam", correct: true },
                 { text: "South Vietnam", correct: false },
@@ -11416,7 +14187,8 @@ export const warfareData: Quiz = {
     ],
     3: [
         {
-            question: "What is a significant outcome of the Treaty of Versailles?",
+            question:
+                "What is a significant outcome of the Treaty of Versailles?",
             answers: [
                 { text: "It ended World War I", correct: true },
                 { text: "It led to World War II", correct: false },
@@ -11425,7 +14197,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the term used to describe a military strategy that aims to exhaust the enemy's resources?",
+            question:
+                "What is the term used to describe a military strategy that aims to exhaust the enemy's resources?",
             answers: [
                 { text: "War of Attrition", correct: true },
                 { text: "Blitzkrieg", correct: false },
@@ -11434,7 +14207,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which military campaign is associated with Napoleon Bonaparte?",
+            question:
+                "Which military campaign is associated with Napoleon Bonaparte?",
             answers: [
                 { text: "The Peninsular War", correct: true },
                 { text: "The American Civil War", correct: false },
@@ -11443,7 +14217,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the main advantage of using air power in warfare?",
+            question:
+                "What is the main advantage of using air power in warfare?",
             answers: [
                 { text: "Mobility", correct: false },
                 { text: "Surprise", correct: true },
@@ -11452,7 +14227,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What was the name of the first nuclear-powered submarine?",
+            question:
+                "What was the name of the first nuclear-powered submarine?",
             answers: [
                 { text: "USS Nautilus", correct: true },
                 { text: "USS Seawolf", correct: false },
@@ -11461,7 +14237,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the primary role of a military intelligence officer?",
+            question:
+                "What is the primary role of a military intelligence officer?",
             answers: [
                 { text: "Combat training", correct: false },
                 { text: "Gathering and analyzing information", correct: true },
@@ -11473,13 +14250,17 @@ export const warfareData: Quiz = {
             question: "What was the goal of the Normandy invasion during WWII?",
             answers: [
                 { text: "To invade Italy", correct: false },
-                { text: "To liberate Western Europe from Nazi control", correct: true },
+                {
+                    text: "To liberate Western Europe from Nazi control",
+                    correct: true,
+                },
                 { text: "To defeat Japan", correct: false },
                 { text: "To establish a foothold in Africa", correct: false },
             ],
         },
         {
-            question: "Which battle is considered the turning point in the Pacific during WWII?",
+            question:
+                "Which battle is considered the turning point in the Pacific during WWII?",
             answers: [
                 { text: "Battle of Midway", correct: true },
                 { text: "Battle of Guadalcanal", correct: false },
@@ -11488,7 +14269,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the term for a surprise attack designed to disrupt the enemy's plans?",
+            question:
+                "What is the term for a surprise attack designed to disrupt the enemy's plans?",
             answers: [
                 { text: "Counteroffensive", correct: false },
                 { text: "Decapitation strike", correct: true },
@@ -11497,7 +14279,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which global conflict was sparked by the assassination of Archduke Franz Ferdinand?",
+            question:
+                "Which global conflict was sparked by the assassination of Archduke Franz Ferdinand?",
             answers: [
                 { text: "World War I", correct: true },
                 { text: "World War II", correct: false },
@@ -11508,7 +14291,8 @@ export const warfareData: Quiz = {
     ],
     4: [
         {
-            question: "Which military strategy focuses on cutting off supplies to the enemy?",
+            question:
+                "Which military strategy focuses on cutting off supplies to the enemy?",
             answers: [
                 { text: "Siege warfare", correct: true },
                 { text: "Blitzkrieg", correct: false },
@@ -11517,7 +14301,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What was the primary technology used in trench warfare during WWI?",
+            question:
+                "What was the primary technology used in trench warfare during WWI?",
             answers: [
                 { text: "Machine guns", correct: true },
                 { text: "Tanks", correct: false },
@@ -11535,16 +14320,21 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What is the main objective of counterinsurgency operations?",
+            question:
+                "What is the main objective of counterinsurgency operations?",
             answers: [
                 { text: "To defeat regular armies", correct: false },
-                { text: "To gain the support of the local population", correct: true },
+                {
+                    text: "To gain the support of the local population",
+                    correct: true,
+                },
                 { text: "To seize territory", correct: false },
                 { text: "To engage in conventional warfare", correct: false },
             ],
         },
         {
-            question: "Which empire is known for its use of cavalry in warfare?",
+            question:
+                "Which empire is known for its use of cavalry in warfare?",
             answers: [
                 { text: "Roman Empire", correct: false },
                 { text: "Mongol Empire", correct: true },
@@ -11556,13 +14346,17 @@ export const warfareData: Quiz = {
             question: "What is the primary purpose of military logistics?",
             answers: [
                 { text: "To train soldiers", correct: false },
-                { text: "To provide supplies and support to forces", correct: true },
+                {
+                    text: "To provide supplies and support to forces",
+                    correct: true,
+                },
                 { text: "To engage in combat", correct: false },
                 { text: "To negotiate treaties", correct: false },
             ],
         },
         {
-            question: "What type of warfare involves the use of improvised explosive devices?",
+            question:
+                "What type of warfare involves the use of improvised explosive devices?",
             answers: [
                 { text: "Guerrilla warfare", correct: true },
                 { text: "Conventional warfare", correct: false },
@@ -11576,11 +14370,15 @@ export const warfareData: Quiz = {
                 { text: "Warfare between equal powers", correct: false },
                 { text: "Warfare involving unequal forces", correct: true },
                 { text: "Warfare focused on air superiority", correct: false },
-                { text: "Warfare without conventional battles", correct: false },
+                {
+                    text: "Warfare without conventional battles",
+                    correct: false,
+                },
             ],
         },
         {
-            question: "Which battle is known for the use of tanks in large-scale combat?",
+            question:
+                "Which battle is known for the use of tanks in large-scale combat?",
             answers: [
                 { text: "Battle of the Somme", correct: false },
                 { text: "Battle of Cambrai", correct: true },
@@ -11598,7 +14396,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Who was the commander of the Allied forces during the D-Day invasion?",
+            question:
+                "Who was the commander of the Allied forces during the D-Day invasion?",
             answers: [
                 { text: "George Patton", correct: false },
                 { text: "Dwight D. Eisenhower", correct: true },
@@ -11609,7 +14408,8 @@ export const warfareData: Quiz = {
     ],
     5: [
         {
-            question: "What term describes the ethical considerations of warfare?",
+            question:
+                "What term describes the ethical considerations of warfare?",
             answers: [
                 { text: "Just war theory", correct: true },
                 { text: "War crimes", correct: false },
@@ -11618,7 +14418,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which military strategy is characterized by the rapid movement of troops?",
+            question:
+                "Which military strategy is characterized by the rapid movement of troops?",
             answers: [
                 { text: "Blitzkrieg", correct: true },
                 { text: "Total war", correct: false },
@@ -11645,7 +14446,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What was the main strategy of the Soviet Union during the Cold War?",
+            question:
+                "What was the main strategy of the Soviet Union during the Cold War?",
             answers: [
                 { text: "Containment", correct: false },
                 { text: "Rollback", correct: false },
@@ -11656,14 +14458,21 @@ export const warfareData: Quiz = {
         {
             question: "What was the purpose of the Berlin Wall?",
             answers: [
-                { text: "To prevent East Germans from fleeing to the West", correct: true },
-                { text: "To divide Germany into East and West", correct: false },
+                {
+                    text: "To prevent East Germans from fleeing to the West",
+                    correct: true,
+                },
+                {
+                    text: "To divide Germany into East and West",
+                    correct: false,
+                },
                 { text: "To symbolize peace", correct: false },
                 { text: "To separate military zones", correct: false },
             ],
         },
         {
-            question: "Which of the following is a primary characteristic of total war?",
+            question:
+                "Which of the following is a primary characteristic of total war?",
             answers: [
                 { text: "Limited engagement", correct: false },
                 { text: "Mobilization of entire society", correct: true },
@@ -11681,7 +14490,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "Which operation marked the beginning of the U.S. military involvement in Vietnam?",
+            question:
+                "Which operation marked the beginning of the U.S. military involvement in Vietnam?",
             answers: [
                 { text: "Operation Rolling Thunder", correct: false },
                 { text: "Operation Linebacker", correct: false },
@@ -11690,7 +14500,8 @@ export const warfareData: Quiz = {
             ],
         },
         {
-            question: "What military innovation is credited to the Roman Empire?",
+            question:
+                "What military innovation is credited to the Roman Empire?",
             answers: [
                 { text: "Catapults", correct: false },
                 { text: "Legionary tactics", correct: true },
@@ -11700,7 +14511,6 @@ export const warfareData: Quiz = {
         },
     ],
 };
-
 
 export const quizDataMap: { [key: string]: Quiz; } = {
     animalQuiz: animalData,
@@ -11759,8 +14569,8 @@ export const quizData: QuizItem[] = [
 ];
 
 // Extract keys from QuizData export interface to create a union type
-export type QuizDataKey = typeof quizData[number]["id"];
+export type QuizDataKey = ( typeof quizData )[number]["id"];
 
 export function isQuizDataKey( key: string ): key is QuizDataKey {
-    return quizData.some( quiz => quiz.id === key );
+    return quizData.some( ( quiz ) => quiz.id === key );
 }

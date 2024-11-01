@@ -1,20 +1,32 @@
+import { quizData, quizOptions, isQuizDataKey } from "./quizData.js";
 import {
-	quizData,
-	quizOptions,
-	isQuizDataKey
-} from "./quizData.js";
-import { QuizOption, User, ProgressItem, Score, Question, LeaderboardEntry } from "./interfaces";
+	QuizOption,
+	User,
+	ProgressItem,
+	Score,
+	Question,
+	LeaderboardEntry,
+} from "./interfaces";
 import { createRegisterSection } from "./registration.js";
-import { removeAllSections, removeElementById, removeLeaderboardSection, removeLeaderboardSelection, shuffle, formatDate, formatTime } from "./utilities.js";
+import {
+	removeAllSections,
+	removeElementById,
+	removeLeaderboardSection,
+	removeLeaderboardSelection,
+	shuffle,
+	formatDate,
+	formatTime,
+} from "./utilities.js";
 import { createLoginSection } from "./login.js";
-
 
 let currentQuestion: number = 0;
 let totalQuestions: number = 0; // Total number of questions
 let score: number = 0;
 
 // DOM Elements
-export const loginContainer = document.querySelector( ".loginContainer" ) as HTMLElement;
+export const loginContainer = document.querySelector(
+	".loginContainer"
+) as HTMLElement;
 export const displayContainer = document.querySelector(
 	".displayContainer"
 ) as HTMLElement;
@@ -120,7 +132,6 @@ function createQuizSelection() {
 			button.addEventListener( "click", () => {
 				sessionStorage.setItem( "quizId", button.id );
 				let quizData = button.id.split( "_" )[0].concat( "Data" );
-				console.log( quizData );
 				sessionStorage.setItem( "quizData", quizData );
 
 				const tempArray = sessionStorage
@@ -222,8 +233,6 @@ function promptForDifficulty( quizId: string ): void {
 
 			button.addEventListener( "click", () => {
 				sessionStorage.setItem( "difficultyLevel", level.toString() );
-				// Now load the quiz questions based on the selected difficulty
-				console.log( "Loading quiz questions", quizId, level );
 				setupQuizData( quizId, level );
 			} );
 
@@ -428,7 +437,7 @@ function createActionButtons(): void {
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
 	actionButtons.className =
-		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 col-span-2 space-y-2 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max ";
+		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 	actionButtons.innerHTML = `
 		<button id="logoutButton" class="text-white bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Logout</button>
 		<button id="backToSelectionButton" class="text-white bg-amber-700 hover:bg-amber-800 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg order-3">Select a Different Quiz</button>
@@ -496,7 +505,7 @@ function createSortButtons(): void {
 	const actionButtons = document.createElement( "section" );
 	actionButtons.id = "actionButtons";
 	actionButtons.className =
-		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
+		"buttonGroup md:grid grid-cols-1 gap-1 mx-auto my-auto w-3/4 lg:col-span-3 lg:grid-cols-1 grid-cols-2 col-span-9 text-center md:grid-flow-row md:auto-rows-max grid-flow-col auto-cols-max lg:order-first order-last py-8";
 
 	const buttonClass =
 		"text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800 space-y-2";
@@ -1126,10 +1135,8 @@ function updateProgressBar(): void {
 		"quizProgressBar"
 	) as HTMLProgressElement;
 	const progressValue = ( ( currentQuestion + 1 ) / totalQuestions ) * 100; // Calculate percentage
-	console.log( `Progress: ${ progressValue }` );
 	progressBar.style.width = String( `${ progressValue }%` ); // Update the value of the progress bar
 
-	// Save current progress
 	saveProgress();
 }
 
@@ -1211,8 +1218,6 @@ function checkAnswer( selectedAnswerIndex: number ): void {
 	const question = currentQuizData[currentQuestion];
 	const selectedAnswer = question.answers[selectedAnswerIndex];
 	const test = JSON.stringify( question.answers );
-	console.log( "selectedAnswerIndex:", selectedAnswerIndex );
-	console.log( `Selected answer: ${ test }` );
 
 	if ( selectedAnswer.correct ) {
 		score++;
@@ -1315,8 +1320,8 @@ function displayLeaderboardSelection(): void {
 	removeAllSections();
 	checkScoreHistory();
 
-	const selectionContainer = document.createElement( 'section' );
-	selectionContainer.id = 'leaderboardSelection';
+	const selectionContainer = document.createElement( "section" );
+	selectionContainer.id = "leaderboardSelection";
 	selectionContainer.classList.add(
 		"selectionContainer",
 		"flex",
@@ -1338,29 +1343,32 @@ function displayLeaderboardSelection(): void {
 		"col-span-12",
 		"lg:col-span-6",
 		"w-full",
-		"lg:w-11/12",
+		"lg:w-11/12"
 	);
 
 	// Fetch all quiz names from the stored data
 	const quizNames = getAllQuizNames();
 
 	// Create a heading
-	const heading = document.createElement( 'h2' );
-	heading.textContent = 'Select a Quiz to View Leaderboard';
-	heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
+	const heading = document.createElement( "h2" );
+	heading.textContent = "Select a Quiz to View Leaderboard";
+	heading.className =
+		"text-center text-4xl py-5 font-extrabold dark:text-white";
 	selectionContainer.appendChild( heading );
 
 	const leaderboardOptions = document.createElement( "div" );
-	leaderboardOptions.id = 'leaderboardOptions';
-	leaderboardOptions.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3";
+	leaderboardOptions.id = "leaderboardOptions";
+	leaderboardOptions.className =
+		"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3";
 	selectionContainer.appendChild( leaderboardOptions );
 
 	// Create buttons for each quiz
 	quizNames.forEach( ( quizName: string ) => {
-		const button = document.createElement( 'button' );
+		const button = document.createElement( "button" );
 		button.textContent = quizName;
-		button.className = 'text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2';
-		button.addEventListener( 'click', () => {
+		button.className =
+			"text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2";
+		button.addEventListener( "click", () => {
 			removeAllSections();
 			displayLeaderboard( quizName );
 		} );
@@ -1368,10 +1376,11 @@ function displayLeaderboardSelection(): void {
 	} );
 
 	// Add a back button
-	const backButton = document.createElement( 'button' );
-	backButton.textContent = 'Back';
-	backButton.className = 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2';
-	backButton.addEventListener( 'click', () => {
+	const backButton = document.createElement( "button" );
+	backButton.textContent = "Back";
+	backButton.className =
+		"text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2";
+	backButton.addEventListener( "click", () => {
 		removeAllSections();
 		createQuizSelection();
 	} );
@@ -1384,8 +1393,8 @@ function displayLeaderboard( quizName: string ): void {
 	removeAllSections();
 	checkScoreHistory();
 
-	const leaderboardContainer = document.createElement( 'section' );
-	leaderboardContainer.id = 'leaderboardContainer';
+	const leaderboardContainer = document.createElement( "section" );
+	leaderboardContainer.id = "leaderboardContainer";
 	leaderboardContainer.classList.add(
 		"flex",
 		"min-h-full",
@@ -1412,56 +1421,56 @@ function displayLeaderboard( quizName: string ): void {
 	);
 
 	// Create a heading
-	const heading = document.createElement( 'h2' );
+	const heading = document.createElement( "h2" );
 	heading.textContent = `Leaderboard for ${ quizName }`;
-	heading.className = 'text-center text-4xl py-5 font-extrabold dark:text-white';
+	heading.className =
+		"text-center text-4xl py-5 font-extrabold dark:text-white";
 	leaderboardContainer.appendChild( heading );
 
 	// Get leaderboard data organized by level
 	const leaderboardDataByLevel = getLeaderboardDataByLevel( quizName );
 
-	console.log( leaderboardDataByLevel );
-
-
 	// Loop over each level and create a table
-	const levels = Array.from( leaderboardDataByLevel.keys() ).sort( ( a, b ) => a - b );
-
+	const levels = Array.from( leaderboardDataByLevel.keys() ).sort(
+		( a, b ) => a - b
+	);
 
 	levels.forEach( ( level ) => {
-		const tableHeading = document.createElement( 'h3' );
+		const tableHeading = document.createElement( "h3" );
 		tableHeading.textContent = `Level ${ level }`;
 		tableHeading.className = "text-xl pt-3";
 		leaderboardContainer.appendChild( tableHeading );
 
-
 		// Create a table to display the leaderboard
-		const table = document.createElement( 'table' );
-		table.className = 'w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100';
+		const table = document.createElement( "table" );
+		table.className =
+			"w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100";
 
 		// Table header
-		const thead = document.createElement( 'thead' );
-		thead.className = "text-md text-white uppercase bg-gray-400 dark:bg-gray-700";
-		const headerRow = document.createElement( 'tr' );
+		const thead = document.createElement( "thead" );
+		thead.className =
+			"text-md text-white uppercase bg-gray-400 dark:bg-gray-700";
+		const headerRow = document.createElement( "tr" );
 
-		const rankHeader = document.createElement( 'th' );
-		rankHeader.textContent = 'Rank';
-		rankHeader.className = 'py-1 text-center';
+		const rankHeader = document.createElement( "th" );
+		rankHeader.textContent = "Rank";
+		rankHeader.className = "py-1 text-center";
 
-		const userHeader = document.createElement( 'th' );
-		userHeader.textContent = 'User';
-		userHeader.className = 'py-1 text-center';
+		const userHeader = document.createElement( "th" );
+		userHeader.textContent = "User";
+		userHeader.className = "py-1 text-center";
 
-		const scoreHeader = document.createElement( 'th' );
-		scoreHeader.textContent = 'Score';
-		scoreHeader.className = 'py-1 text-center';
+		const scoreHeader = document.createElement( "th" );
+		scoreHeader.textContent = "Score";
+		scoreHeader.className = "py-1 text-center";
 
-		const dateHeader = document.createElement( 'th' );
-		dateHeader.textContent = 'Date';
-		dateHeader.className = 'py-1 text-center';
+		const dateHeader = document.createElement( "th" );
+		dateHeader.textContent = "Date";
+		dateHeader.className = "py-1 text-center";
 
-		const dateTimeHeader = document.createElement( 'th' );
-		dateTimeHeader.textContent = 'Time';
-		dateTimeHeader.className = 'py-1 text-center';
+		const dateTimeHeader = document.createElement( "th" );
+		dateTimeHeader.textContent = "Time";
+		dateTimeHeader.className = "py-1 text-center";
 
 		headerRow.appendChild( rankHeader );
 		headerRow.appendChild( userHeader );
@@ -1472,51 +1481,62 @@ function displayLeaderboard( quizName: string ): void {
 		table.appendChild( thead );
 
 		// Table body
-		const tbody = document.createElement( 'tbody' );
+		const tbody = document.createElement( "tbody" );
 		const entries = leaderboardDataByLevel.get( level )!;
 
-		entries.forEach( ( entry: { username: string; score: any; date: string; }, index: number ) => {
-			const row = document.createElement( 'tr' );
-			row.className = "bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700";
+		entries.forEach(
+			(
+				entry: { username: string; score: any; date: string; },
+				index: number
+			) => {
+				const row = document.createElement( "tr" );
+				row.className =
+					"bg-white hover:bg-gray-200 dark:hover:bg-slate-700 border-b dark:bg-gray-800 dark:border-gray-700";
 
-			const rankCell = document.createElement( 'td' );
-			rankCell.textContent = ( index + 1 ).toString();
-			rankCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+				const rankCell = document.createElement( "td" );
+				rankCell.textContent = ( index + 1 ).toString();
+				rankCell.className =
+					"border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
 
-			const userCell = document.createElement( 'td' );
-			userCell.textContent = entry.username;
-			userCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+				const userCell = document.createElement( "td" );
+				userCell.textContent = entry.username;
+				userCell.className =
+					"border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
 
-			const scoreCell = document.createElement( 'td' );
-			scoreCell.textContent = `${ entry.score }%`;
-			scoreCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+				const scoreCell = document.createElement( "td" );
+				scoreCell.textContent = `${ entry.score }%`;
+				scoreCell.className =
+					"border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
 
-			const dateCell = document.createElement( 'td' );
-			dateCell.textContent = formatDate( entry.date );
-			dateCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+				const dateCell = document.createElement( "td" );
+				dateCell.textContent = formatDate( entry.date );
+				dateCell.className =
+					"border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
 
-			const timeCell = document.createElement( 'td' );
-			timeCell.textContent = formatTime( entry.date );
-			timeCell.className = 'border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center';
+				const timeCell = document.createElement( "td" );
+				timeCell.textContent = formatTime( entry.date );
+				timeCell.className =
+					"border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
 
-			row.appendChild( rankCell );
-			row.appendChild( userCell );
-			row.appendChild( scoreCell );
-			row.appendChild( dateCell );
-			row.append( timeCell );
-			tbody.appendChild( row );
-		} );
+				row.appendChild( rankCell );
+				row.appendChild( userCell );
+				row.appendChild( scoreCell );
+				row.appendChild( dateCell );
+				row.append( timeCell );
+				tbody.appendChild( row );
+			}
+		);
 
 		table.appendChild( tbody );
 		leaderboardContainer.appendChild( table );
 	} );
 
 	// Add a back button
-	const backButton = document.createElement( 'button' );
-	backButton.textContent = 'Back';
+	const backButton = document.createElement( "button" );
+	backButton.textContent = "Back";
 	backButton.className =
-		'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4';
-	backButton.addEventListener( 'click', () => {
+		"text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4";
+	backButton.addEventListener( "click", () => {
 		removeAllSections();
 		displayLeaderboardSelection();
 	} );
@@ -1531,8 +1551,8 @@ function getAllQuizNames(): string[] {
 	// Iterate over localStorage keys
 	for ( let i = 0; i < localStorage.length; i++ ) {
 		const key = localStorage.key( i );
-		if ( key && key.startsWith( 'quizScores_' ) ) {
-			const scores = JSON.parse( localStorage.getItem( key ) || '[]' );
+		if ( key && key.startsWith( "quizScores_" ) ) {
+			const scores = JSON.parse( localStorage.getItem( key ) || "[]" );
 			scores.forEach( ( score: Score ) => {
 				quizNamesSet.add( score.quiz );
 			} );
@@ -1555,11 +1575,13 @@ function getAllQuizNames(): string[] {
  * It filters scores for the selected quiz and calculates the percentage score for each user.
  * It then sorts each level's leaderboard data by score in descending order.
  */
-function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardEntry[]> {
+function getLeaderboardDataByLevel(
+	quizName: string
+): Map<number, LeaderboardEntry[]> {
 	const leaderboardDataByLevel = new Map<number, LeaderboardEntry[]>();
 
 	// Retrieve users array from localStorage
-	const users = JSON.parse( localStorage.getItem( 'users' ) || '[]' ) as User[];
+	const users = JSON.parse( localStorage.getItem( "users" ) || "[]" ) as User[];
 
 	// Create a map of user IDs to usernames for quick lookup
 	const userIdToUsernameMap = new Map<string, string>();
@@ -1570,22 +1592,23 @@ function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardE
 	// Iterate over localStorage keys
 	for ( let i = 0; i < localStorage.length; i++ ) {
 		const key = localStorage.key( i );
-		if ( key && key.startsWith( 'quizScores_' ) ) {
-			const userId = key.replace( 'quizScores_', '' );
-			const scores = JSON.parse( localStorage.getItem( key ) || '[]' ) as Score[];
-
-			console.log( "userId: ", userId );
-			console.log( "scores: ", scores );
-			console.log( "level:", scores[i].difficultyLevel );
+		if ( key && key.startsWith( "quizScores_" ) ) {
+			const userId = key.replace( "quizScores_", "" );
+			const scores = JSON.parse(
+				localStorage.getItem( key ) || "[]"
+			) as Score[];
 
 			// Filter scores for the selected quiz
-			const quizScores = scores.filter( ( score ) => score.quiz === quizName );
-
-			console.log( "quizScores: ", quizScores );
+			const quizScores = scores.filter(
+				( score ) => score.quiz === quizName
+			);
 
 			if ( quizScores.length > 0 ) {
 				// Organize scores by level for this user
-				const scoresByLevel = new Map<number, { score: number; date: string; level: number; }>();
+				const scoresByLevel = new Map<
+					number,
+					{ score: number; date: string; level: number; }
+				>();
 
 				quizScores.forEach( ( s ) => {
 					const percentage = ( s.score / s.total ) * 100;
@@ -1601,7 +1624,8 @@ function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardE
 				} );
 
 				// Get the username from the users array
-				const username = userIdToUsernameMap.get( userId ) || 'Unknown User';
+				const username =
+					userIdToUsernameMap.get( userId ) || "Unknown User";
 
 				// Update the leaderboard data by level
 				scoresByLevel.forEach( ( value, level ) => {
@@ -1609,17 +1633,13 @@ function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardE
 						username,
 						score: Math.round( value.score ),
 						date: value.date,
-						level: value.level
+						level: value.level,
 					};
 
 					if ( !leaderboardDataByLevel.has( level ) ) {
 						leaderboardDataByLevel.set( level, [] );
 					}
 					leaderboardDataByLevel.get( level )!.push( entry );
-
-					const _a = leaderboardDataByLevel.get( level );
-
-					console.log( _a );
 				} );
 			}
 		}

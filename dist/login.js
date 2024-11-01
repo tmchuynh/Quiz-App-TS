@@ -1,4 +1,4 @@
-import { hashPassword, removeAllSections, showError, initializePasswordPopover, isValidPassword } from "./utilities.js";
+import { hashPassword, removeAllSections, showError, initializePasswordPopover, isValidPassword, } from "./utilities.js";
 import { createRegisterSection } from "./registration.js";
 import { loginContainer, displayContainer, loadQuiz } from "./index.js";
 // Function to create and append the login form dynamically
@@ -58,7 +58,8 @@ export function createLoginSection() {
             }
         }
     });
-    (_b = document.getElementById('forgotPasswordLink')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', (event) => {
+    (_b = document
+        .getElementById("forgotPasswordLink")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (event) => {
         event.preventDefault();
         displayPasswordResetRequestForm();
     });
@@ -67,8 +68,8 @@ export function createLoginSection() {
 function displayPasswordResetRequestForm() {
     var _a, _b;
     removeAllSections();
-    const resetRequestSection = document.createElement('div');
-    resetRequestSection.id = 'resetRequestSection';
+    const resetRequestSection = document.createElement("div");
+    resetRequestSection.id = "resetRequestSection";
     resetRequestSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "reset-password-form", "space-y-2");
     resetRequestSection.innerHTML = `
 		<h2 class="text-2xl font-bold mb-4">Reset Password</h2>
@@ -82,8 +83,10 @@ function displayPasswordResetRequestForm() {
 	`;
     displayContainer.appendChild(resetRequestSection);
     // Attach event listener to the form submission
-    (_a = document.getElementById('resetRequestForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', handleResetRequest);
-    (_b = document.getElementById("returnToLogin")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (event) => {
+    (_a = document
+        .getElementById("resetRequestForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", handleResetRequest);
+    (_b = document
+        .getElementById("returnToLogin")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", (event) => {
         event.preventDefault();
         removeAllSections();
         createRegisterSection();
@@ -100,26 +103,26 @@ function displayPasswordResetRequestForm() {
 function handleResetRequest(event) {
     event.preventDefault();
     // Get the username or email from the input field
-    const usernameOrEmailInput = document.getElementById('usernameOrEmail');
+    const usernameOrEmailInput = document.getElementById("usernameOrEmail");
     const usernameOrEmail = usernameOrEmailInput.value.trim();
     // Get the error message element
-    const resetRequestError = document.getElementById('resetRequestError');
+    const resetRequestError = document.getElementById("resetRequestError");
     // Hide the error message by default
-    resetRequestError.style.display = 'none';
+    resetRequestError.style.display = "none";
     // Validate the username or email input
     if (!usernameOrEmail) {
-        resetRequestError.textContent = 'Please enter your username or email.';
-        resetRequestError.style.display = 'block';
+        resetRequestError.textContent = "Please enter your username or email.";
+        resetRequestError.style.display = "block";
         return;
     }
     // Retrieve users from localStorage
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
     // Find the user with the provided username or email
-    const user = users.find(u => u.username === usernameOrEmail || u.email === usernameOrEmail);
+    const user = users.find((u) => u.username === usernameOrEmail || u.email === usernameOrEmail);
     // Validate the user
     if (!user) {
-        resetRequestError.textContent = 'User not found.';
-        resetRequestError.style.display = 'block';
+        resetRequestError.textContent = "User not found.";
+        resetRequestError.style.display = "block";
         return;
     }
     // Generate a confirmation code
@@ -130,7 +133,7 @@ function handleResetRequest(event) {
         confirmationCode,
         expiresAt: Date.now() + 900000, // 15 minutes from current time
     };
-    setCookie('passwordResetData', JSON.stringify(resetData), 1);
+    setCookie("passwordResetData", JSON.stringify(resetData), 1);
     // Display the confirmation code in a Tailwind CSS modal
     displayConfirmationCodeModal(confirmationCode);
 }
@@ -141,12 +144,14 @@ function generateConfirmationCode() {
 function displayConfirmationCodeModal(confirmationCode) {
     var _a;
     // Create modal overlay
-    const modalOverlay = document.createElement('div');
-    modalOverlay.id = 'modalOverlay';
-    modalOverlay.className = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50';
+    const modalOverlay = document.createElement("div");
+    modalOverlay.id = "modalOverlay";
+    modalOverlay.className =
+        "fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50";
     // Create modal content
-    const modalContent = document.createElement('div');
-    modalContent.className = 'bg-white dark:bg-gray-800 rounded-lg p-6 mx-4 max-w-md w-full';
+    const modalContent = document.createElement("div");
+    modalContent.className =
+        "bg-white dark:bg-gray-800 rounded-lg p-6 mx-4 max-w-md w-full";
     modalContent.innerHTML = `
 	  <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Confirmation Code</h2>
 	  <p class="mb-4 text-gray-600 dark:text-gray-300">A confirmation code has been "sent" to your email. Please use the code below to reset your password. (Note: In a real application, this code would be sent via email.)</p>
@@ -160,7 +165,8 @@ function displayConfirmationCodeModal(confirmationCode) {
     // Append overlay to body
     document.body.appendChild(modalOverlay);
     // Add event listener to close the modal
-    (_a = document.getElementById('closeModalButton')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+    (_a = document
+        .getElementById("closeModalButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
         // Remove the modal from the DOM
         document.body.removeChild(modalOverlay);
         // Proceed to confirmation code entry form
@@ -170,8 +176,8 @@ function displayConfirmationCodeModal(confirmationCode) {
 function displayConfirmationCodeForm() {
     var _a;
     removeAllSections();
-    const confirmationCodeSection = document.createElement('div');
-    confirmationCodeSection.id = 'confirmationCodeSection';
+    const confirmationCodeSection = document.createElement("div");
+    confirmationCodeSection.id = "confirmationCodeSection";
     confirmationCodeSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "confirmation-code-section", "space-y-2");
     confirmationCodeSection.innerHTML = `
 	  <h2 class="text-2xl font-bold mb-4">Enter Confirmation Code</h2>
@@ -184,7 +190,8 @@ function displayConfirmationCodeForm() {
 	`;
     displayContainer.appendChild(confirmationCodeSection);
     // Attach event listener to the form submission
-    (_a = document.getElementById('confirmationCodeForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', handleConfirmationCodeSubmission);
+    (_a = document
+        .getElementById("confirmationCodeForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", handleConfirmationCodeSubmission);
 }
 /**
  * Handles the submission of the confirmation code for password reset.
@@ -195,33 +202,34 @@ function displayConfirmationCodeForm() {
  */
 function handleConfirmationCodeSubmission(event) {
     event.preventDefault();
-    const confirmationCodeInput = document.getElementById('confirmationCode');
+    const confirmationCodeInput = document.getElementById("confirmationCode");
     const confirmationCode = confirmationCodeInput.value.trim();
-    const confirmationCodeError = document.getElementById('confirmationCodeError');
-    confirmationCodeError.style.display = 'none';
+    const confirmationCodeError = document.getElementById("confirmationCodeError");
+    confirmationCodeError.style.display = "none";
     if (!confirmationCode) {
-        confirmationCodeError.textContent = 'Please enter the confirmation code.';
-        confirmationCodeError.style.display = 'block';
+        confirmationCodeError.textContent =
+            "Please enter the confirmation code.";
+        confirmationCodeError.style.display = "block";
         return;
     }
     // Retrieve reset data from cookies
-    const resetDataString = getCookie('passwordResetData');
+    const resetDataString = getCookie("passwordResetData");
     if (!resetDataString) {
-        confirmationCodeError.textContent = 'No password reset request found.';
-        confirmationCodeError.style.display = 'block';
+        confirmationCodeError.textContent = "No password reset request found.";
+        confirmationCodeError.style.display = "block";
         return;
     }
     const resetData = JSON.parse(resetDataString);
     // Check if the code matches and is not expired
     if (confirmationCode !== resetData.confirmationCode) {
-        confirmationCodeError.textContent = 'Invalid confirmation code.';
-        confirmationCodeError.style.display = 'block';
+        confirmationCodeError.textContent = "Invalid confirmation code.";
+        confirmationCodeError.style.display = "block";
         return;
     }
     if (Date.now() > resetData.expiresAt) {
-        confirmationCodeError.textContent = 'Confirmation code has expired.';
-        confirmationCodeError.style.display = 'block';
-        deleteCookie('passwordResetData');
+        confirmationCodeError.textContent = "Confirmation code has expired.";
+        confirmationCodeError.style.display = "block";
+        deleteCookie("passwordResetData");
         return;
     }
     // Proceed to new password form
@@ -230,8 +238,8 @@ function handleConfirmationCodeSubmission(event) {
 function displayNewPasswordForm() {
     var _a;
     removeAllSections();
-    const newPasswordSection = document.createElement('div');
-    newPasswordSection.id = 'newPasswordSection';
+    const newPasswordSection = document.createElement("div");
+    newPasswordSection.id = "newPasswordSection";
     newPasswordSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-9", "w-full", "lg:w-11/12", "new-password-section", "space-y-2");
     newPasswordSection.innerHTML = `
 	  <h2 class="text-2xl font-bold mb-4">Reset Password</h2>
@@ -294,11 +302,12 @@ function displayNewPasswordForm() {
 	  <p id="newPasswordError" class="text-red-500 mt-2" style="display: none;"></p>
 	`;
     displayContainer.appendChild(newPasswordSection);
-    const newPassword = document.getElementById('newPassword');
+    const newPassword = document.getElementById("newPassword");
     // Initialize Popover
     initializePasswordPopover(newPassword);
     // Attach event listener to the form submission
-    (_a = document.getElementById('newPasswordForm')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', handleNewPasswordSubmission);
+    (_a = document
+        .getElementById("newPasswordForm")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", handleNewPasswordSubmission);
     const checkbox = newPasswordSection.querySelector("#newPasswordView");
     const passwordElement = document.querySelector("#newPassword");
     const confirmPasswordElement = document.querySelector("#confirmNewPassword");
@@ -328,12 +337,12 @@ function displayNewPasswordForm() {
  */
 async function handleNewPasswordSubmission(event) {
     event.preventDefault();
-    const newPasswordInput = document.getElementById('newPassword');
-    const confirmNewPasswordInput = document.getElementById('confirmNewPassword');
-    const newPasswordError = document.getElementById('newPasswordError');
+    const newPasswordInput = document.getElementById("newPassword");
+    const confirmNewPasswordInput = document.getElementById("confirmNewPassword");
+    const newPasswordError = document.getElementById("newPasswordError");
     const newPassword = newPasswordInput.value.trim();
     const confirmNewPassword = confirmNewPasswordInput.value.trim();
-    newPasswordError.style.display = 'none';
+    newPasswordError.style.display = "none";
     if (!newPassword || !confirmNewPassword) {
         showError("Please enter and confirm your new password", newPasswordError);
         return;
@@ -345,39 +354,40 @@ async function handleNewPasswordSubmission(event) {
     }
     // Validate password strength
     if (!isValidPassword(newPassword)) {
-        newPasswordError.textContent = 'Password does not meet the requirements.';
-        newPasswordError.style.display = 'block';
+        newPasswordError.textContent =
+            "Password does not meet the requirements.";
+        newPasswordError.style.display = "block";
         return;
     }
     // Retrieve reset data from cookies
-    const resetDataString = getCookie('passwordResetData');
+    const resetDataString = getCookie("passwordResetData");
     if (!resetDataString) {
-        newPasswordError.textContent = 'No password reset request found.';
-        newPasswordError.style.display = 'block';
+        newPasswordError.textContent = "No password reset request found.";
+        newPasswordError.style.display = "block";
         return;
     }
     const resetData = JSON.parse(resetDataString);
     // Retrieve users from localStorage
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const userIndex = users.findIndex(u => u.id === resetData.userId);
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const userIndex = users.findIndex((u) => u.id === resetData.userId);
     if (userIndex === -1) {
-        newPasswordError.textContent = 'User not found.';
-        newPasswordError.style.display = 'block';
+        newPasswordError.textContent = "User not found.";
+        newPasswordError.style.display = "block";
         return;
     }
-    if (await hashPassword(newPassword) === users[userIndex].password) {
-        newPasswordError.textContent = 'Cannot use an old password.';
-        newPasswordError.style.display = 'block';
+    if ((await hashPassword(newPassword)) === users[userIndex].password) {
+        newPasswordError.textContent = "Cannot use an old password.";
+        newPasswordError.style.display = "block";
         return;
     }
     // Update the user's password
     users[userIndex].password = await hashPassword(newPassword);
     // Save the updated users array to localStorage
-    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users));
     // Remove the reset data from cookies
-    deleteCookie('passwordResetData');
+    deleteCookie("passwordResetData");
     // Password reset successful
-    alert('Your password has been reset. Please log in with your new password.');
+    alert("Your password has been reset. Please log in with your new password.");
     removeAllSections();
     createLoginSection();
 }
@@ -406,7 +416,7 @@ function setCookie(name, value, expiresInHours) {
 function getCookie(name) {
     const cname = `${name}=`;
     const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
+    const ca = decodedCookie.split(";");
     for (let c of ca) {
         c = c.trim();
         if (c.indexOf(cname) === 0) {

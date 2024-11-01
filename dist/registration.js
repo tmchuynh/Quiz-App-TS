@@ -1,4 +1,4 @@
-import { hashPassword, removeAllSections, showError, initializePasswordPopover, isValidPassword } from "./utilities.js";
+import { hashPassword, removeAllSections, showError, initializePasswordPopover, isValidPassword, } from "./utilities.js";
 // export function to create and append the registration form dynamically
 export function createRegisterSection() {
     var _a;
@@ -231,7 +231,7 @@ export async function validateRegistrationForm() {
     await registerUser(fields);
 }
 export function toTitleCase(str) {
-    return str.replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
+    return str.replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
 }
 // export function to generate a unique ID
 export function generateUniqueId() {
