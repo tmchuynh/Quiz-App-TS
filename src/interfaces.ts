@@ -34,7 +34,6 @@ export interface Answer {
     correct: boolean;
 }
 
-
 export interface Question {
     question: string;
     answers: Answer[];
