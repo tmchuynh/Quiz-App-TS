@@ -66,24 +66,90 @@ function createRegisterSection() {
     registerSection.id = "registerSection";
     registerSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Register</h2>
-		<label for="firstName" class="block text-md/6 font-medium text-gray-900 dark:text-white">First Name:</label>
-		<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 dark:text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
-		<label for="lastName" class="block text-md/6 font-medium text-gray-900 dark:text-white">Last Name:</label>
-		<input type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter last name" />
-		<label for="email" class="block text-md/6 font-medium text-gray-900 dark:text-white">Email:</label>
-		<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 dark:text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter email" />
-		<label for="registerUsername" class="block text-md/6 font-medium text-gray-900 dark:text-white">Username:</label>
-		<input type="text" id="registerUsername" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
-		<label for="registerPassword" class="block text-md/6 font-medium text-gray-900 dark:text-white">Password:</label>
-		<input type="password" id="registerPassword" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
-		<label for="confirmPassword" class="block text-md/6 font-medium text-gray-900 dark:text-white">Retype Password:</label>
-		<input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Retype password" autocomplete="current-password"/>
-		<div class="flex items-center mb-4">
+		<div class="py-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+			<div>
+				<label for="firstName" class="block text-md/6 font-medium text-gray-900 dark:text-white">First Name:</label>
+				<input type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 dark:text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter first name" />
+			</div>
+			
+			<div>
+				<label for="lastName" class="block text-md/6 font-medium text-gray-900 dark:text-white">Last Name:</label>
+				<input type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter last name" />
+			</div>
+		</div>
+
+		<div>
+			<label for="email" class="block text-md/6 font-medium text-gray-900 dark:text-white">Email:</label>
+			<input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 dark:text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter email" />
+		</div>
+		
+		<div>
+			<label for="registerUsername" class="block text-md/6 font-medium text-gray-900 dark:text-white">Username:</label>
+			<input type="text" id="registerUsername" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+		</div>
+
+		<div class="py-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+			<div>
+				<label for="registerPassword" class="block text-md/6 font-medium text-gray-900 dark:text-white" data-popover-target="popover-password" data-popover-placement="bottom">Password:</label>
+
+				<div class="relative">
+					<input type="password" id="registerPassword" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="new-password"/>
+					<!-- Popover Content -->
+					<div id="popover-password" role="tooltip" class="absolute z-10 invisible text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+						<div class="p-3 space-y-2">
+							<h3 class="font-semibold text-gray-900 dark:text-white">Password Requirements</h3>
+							<ul>
+								<li id="requirement-length" class="flex items-center mb-1">
+									<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+									</svg>
+									At least 8 characters (max 15)
+								</li>
+								<li id="requirement-uppercase" class="flex items-center mb-1">
+									<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+									</svg>
+									Includes one uppercase letter
+								</li>
+								<li id="requirement-lowercase" class="flex items-center mb-1">
+									<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+									</svg>
+									Includes one lowercase letter
+								</li>
+								<li id="requirement-number" class="flex items-center mb-1">
+									<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+									</svg>
+									Includes one number
+								</li>
+								<li id="requirement-special" class="flex items-center">
+									<svg class="requirement-icon w-3.5 h-3.5 me-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 16 12">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+									</svg>
+									Includes one special character
+								</li>
+							</ul>
+						</div>
+						<div data-popper-arrow></div>
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				<label for="confirmPassword" class="block text-md/6 font-medium text-gray-900 dark:text-white">Retype Password:</label>
+				<input type="password" id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900  text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Retype password" autocomplete="current-password"/>
+			</div>
+		</div>
+
+	
+		<div class="flex items-center mb-4 px-3">
 			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox" value="" id="registerPasswordView">
 			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-white " for="registerPasswordView">
 				Show Password
 			</label>
 		</div>
+
 		<button id="registerButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Register</button>
 		<p id="registerError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
@@ -111,6 +177,12 @@ function createRegisterSection() {
     ].forEach((field) => {
         field.addEventListener("input", clearErrorStyles);
     });
+    // Initialize Popover
+    initializePasswordPopover();
+    // Real-time password validation
+    registerPassword.addEventListener("input", () => {
+        updatePasswordRequirements(registerPassword.value);
+    });
     const checkbox = loginContainer.querySelector("#registerPasswordView");
     const passwordElement = document.querySelector("#registerPassword");
     const confirmPasswordElement = document.querySelector("#confirmPassword");
@@ -127,10 +199,31 @@ function createRegisterSection() {
         }
     });
 }
-// Validate email format
-function validateEmail(email) {
-    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    return re.test(email);
+function initializePasswordPopover() {
+    const passwordInput = document.getElementById("registerPassword");
+    const popover = document.getElementById("popover-password");
+    // Initialize Popper.js
+    const popperInstance = Popper.createPopper(passwordInput, popover, {
+        modifiers: [
+            {
+                name: 'offset',
+                options: {
+                    offset: [0, 8],
+                },
+            },
+        ],
+    });
+    // Show popover when password field is focused
+    passwordInput.addEventListener('focus', () => {
+        popover.classList.remove('invisible', 'opacity-0');
+        popover.classList.add('visible', 'opacity-100');
+        popperInstance.update();
+    });
+    // Hide popover when password field loses focus
+    passwordInput.addEventListener('blur', () => {
+        popover.classList.remove('visible', 'opacity-100');
+        popover.classList.add('invisible', 'opacity-0');
+    });
 }
 // Validate registration form
 async function validateRegistrationForm() {
@@ -163,7 +256,7 @@ async function validateRegistrationForm() {
     const password = registerPassword.value.trim();
     const confirmPwd = confirmPassword.value.trim();
     if (!isValidPassword(password)) {
-        showError("Password must be at least 8 characters long and contain at least one symbol.", registerPassword);
+        showError("Password does not meet all requirements.", registerPassword);
         return;
     }
     if (password !== confirmPwd) {
@@ -177,6 +270,11 @@ async function validateRegistrationForm() {
         showError("Username already exists.", registerUsername);
         return;
     }
+    // Checks if email is already registered
+    if (isEmailTaken(userEmail, users)) {
+        showError("Email address is already registered.", email);
+        return;
+    }
     // Register the new user
     await registerUser(fields);
 }
@@ -184,6 +282,7 @@ function resetErrorStyles(fields) {
     fields.forEach((field) => {
         field.element.classList.remove("mt-2");
         field.element.classList.remove("text-md");
+        field.element.classList.remove("border-red-500");
         field.element.classList.remove("text-red-600");
         field.element.classList.remove("dark:text-red-400");
     });
@@ -194,15 +293,69 @@ function showError(message, field) {
     registerError.style.display = "block";
     field.classList.add("mt-2");
     field.classList.add("text-md");
+    field.classList.add("border-red-500");
     field.classList.add("text-red-600");
     field.classList.add("dark:text-red-400");
 }
 function isValidPassword(password) {
-    const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
-    return passwordRegex.test(password);
+    const requirements = {
+        length: password.length >= 8 && password.length <= 15,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /[0-9]/.test(password),
+        special: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+    };
+    // Return true only if all requirements are met
+    return Object.values(requirements).every((value) => value === true);
 }
 function isUsernameTaken(username, users) {
     return users.some((user) => user.username === username);
+}
+function isEmailTaken(email, users) {
+    return users.some((user) => user.email === email);
+}
+// Validate email format
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    return re.test(email);
+}
+function updatePasswordRequirements(password) {
+    const requirements = {
+        length: password.length >= 8 && password.length <= 15,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /[0-9]/.test(password),
+        special: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+    };
+    updateRequirementItem("requirement-length", requirements.length);
+    updateRequirementItem("requirement-uppercase", requirements.uppercase);
+    updateRequirementItem("requirement-lowercase", requirements.lowercase);
+    updateRequirementItem("requirement-number", requirements.number);
+    updateRequirementItem("requirement-special", requirements.special);
+}
+function updateRequirementItem(itemId, isValid) {
+    const item = document.getElementById(itemId);
+    if (item) {
+        const icon = item.querySelector(".requirement-icon");
+        if (icon) {
+            if (isValid) {
+                // Change icon to checkmark
+                icon.innerHTML = `
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917L5.724 10.5 15 1.5" />
+                `;
+                icon.classList.remove("text-gray-300", "dark:text-gray-400");
+                icon.classList.add("text-green-400", "dark:text-green-500");
+            }
+            else {
+                // Change icon to cross
+                icon.innerHTML = `
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l6 6m0 0l6 6M7 7l6-6M7 7l-6 6" />
+                `;
+                icon.classList.remove("text-green-400", "dark:text-green-500");
+                icon.classList.add("text-gray-300", "dark:text-gray-400");
+            }
+        }
+    }
 }
 function getRegisterFormFields() {
     const firstName = document.getElementById("firstName");
@@ -229,6 +382,7 @@ async function registerUser(fields) {
         lastName: fields[1].element.value.trim(),
         username: fields[3].element.value.trim(),
         password: hashedPassword, // Store the hashed password
+        email: fields[2].element.value.trim(),
     };
     // Retrieve existing users from localStorage or initialize an empty array
     const users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -285,16 +439,23 @@ function createLoginSection() {
     loginSection.id = "loginSection";
     loginSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">Login</h2>
-		<label for="loginUsername" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Username:</label>
-		<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
-		<label for="loginPassword" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Password:</label>
-		<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
-		<div class="form-check">
+		<div>
+			<label for="loginUsername" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Username:</label>
+			<input type="text" id="loginUsername" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter username" autocomplete="username"/>
+		</div>
+		
+		<div>
+			<label for="loginPassword" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Password:</label>
+			<input type="password" id="loginPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" autocomplete="current-password"/>
+		</div>
+		
+		<div class="flex items-center mb-4 px-3">
 			<input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="checkbox" type="checkbox" value="" id="loginPasswordView">
 			<label class="form-check-label ms-2 text-md font-medium text-gray-900 dark:text-white" for="loginPasswordView">
 				Show Password
 			</label>
 		</div>
+		
 		<button id="loginButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Login</button>
 		<p id="loginError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;">Incorrect username or password.</p>
 		`;
@@ -349,6 +510,7 @@ async function validateLoginForm() {
             if (!field.value.trim()) {
                 field.classList.add("mt-2");
                 field.classList.add("text-md");
+                field.classList.add("border-red-500");
                 field.classList.add("text-red-600");
                 field.classList.add("dark:text-red-400");
             }
@@ -383,6 +545,7 @@ function handleLoginError(message) {
     [loginUsername, loginPassword].forEach((field) => {
         field.classList.add("mt-2");
         field.classList.add("text-md");
+        field.classList.add("border-red-500");
         field.classList.add("text-red-600");
         field.classList.add("dark:text-red-400");
     });
