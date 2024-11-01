@@ -317,6 +317,13 @@ function createRegisterSection(): void {
 	} );
 }
 
+/**
+ * Initializes a popover for displaying password requirements.
+ *
+ * @param {HTMLElement} passwordInput - The input element for the password field.
+ *
+ * @returns {void}
+ */
 function initializePasswordPopover( passwordInput: HTMLElement ): void {
 	const popover = document.getElementById( "popover-password" ) as HTMLElement;
 
@@ -346,7 +353,6 @@ function initializePasswordPopover( passwordInput: HTMLElement ): void {
 	} );
 }
 
-
 // Validate registration form
 async function validateRegistrationForm(): Promise<void> {
 	const {
@@ -359,8 +365,8 @@ async function validateRegistrationForm(): Promise<void> {
 	} = getRegisterFormFields();
 
 	const fields = [
-		{ element: firstName, name: "First Name" },
-		{ element: lastName, name: "Last Name" },
+		{ element: firstName, name: "First name" },
+		{ element: lastName, name: "Last name" },
 		{ element: email, name: "Email" },
 		{ element: registerUsername, name: "Username" },
 		{ element: registerPassword, name: "Password" },
@@ -379,7 +385,7 @@ async function validateRegistrationForm(): Promise<void> {
 	for ( const field of fields ) {
 		const value = field.element.value.trim();
 		if ( !value ) {
-			showError( `${ field.name } is.`, field.element );
+			showError( `${ field.name } is required.`, field.element );
 			return;
 		}
 	}
@@ -426,7 +432,6 @@ async function validateRegistrationForm(): Promise<void> {
 function resetErrorStyles( fields: { element: HTMLInputElement; }[] ): void {
 	fields.forEach( ( field ) => {
 		field.element.classList.remove( "text-md" );
-		field.element.classList.remove( "border-red-500" );
 		field.element.classList.remove( "text-red-600" );
 		field.element.classList.remove( "dark:text-red-400" );
 	} );
@@ -440,7 +445,6 @@ function showError( message: string, field: HTMLElement ): void {
 	registerError.textContent = message;
 	registerError.style.display = "block";
 	field.classList.add( "text-md" );
-	field.classList.add( "border-red-500" );
 	field.classList.add( "text-red-600" );
 	field.classList.add( "dark:text-red-400" );
 }
@@ -488,7 +492,12 @@ function updatePasswordRequirements( password: string ): void {
 	updateRequirementItem( "requirement-special", requirements.special );
 }
 
-
+/**
+ * Updates the requirement item's icon based on the validity of the password requirement.
+ *
+ * @param itemId - The ID of the requirement item.
+ * @param isValid - A boolean indicating whether the password requirement is valid.
+ */
 function updateRequirementItem( itemId: string, isValid: boolean ): void {
 	const item = document.getElementById( itemId );
 	if ( item ) {
@@ -551,8 +560,8 @@ async function registerUser(
 
 	const newUser: User = {
 		id: generateUniqueId(),
-		firstName: fields[0].element.value.trim(),
-		lastName: fields[1].element.value.trim(),
+		firstName: toTitleCase( fields[0].element.value.trim() ),
+		lastName: toTitleCase( fields[1].element.value.trim() ),
 		username: fields[3].element.value.trim(),
 		password: hashedPassword, // Store the hashed password
 		email: fields[2].element.value.trim(),
@@ -576,6 +585,34 @@ async function registerUser(
 	loginSection.style.display = "block"; // Go to login after registration
 }
 
+function toTitleCase( str: string ): string {
+	return str.replace(
+		/\w\S*/g,
+		text => text.charAt( 0 ).toUpperCase() + text.substring( 1 ).toLowerCase()
+	);
+}
+
+// Generates a random uppercase letter from the English alphabet.
+function getRandomLetter(): string {
+	const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const randomIndex = Math.floor( Math.random() * alphabet.length );
+	return alphabet.charAt( randomIndex );
+}
+
+/**
+ * Generates a universally unique identifier (UUID) version 4.
+ *
+ * The UUID is generated using a cryptographically secure pseudorandom number generator.
+ * The generated UUID is a 36-character string consisting of hexadecimal digits.
+ *
+ * @returns {string} - A UUID version 4.
+ */
+function uuidv4(): string {
+	return "1002000300".replace( /[0168]/g, c =>
+		( +c ^ crypto.getRandomValues( new Uint8Array( 1 ) )[0] & 15 >> +c / 4 ).toString( 20 )
+	);
+}
+
 // Helper function to hash the password (SHA-256 example)
 async function hashPassword( password: string ): Promise<string> {
 	const encoder = new TextEncoder();
@@ -590,7 +627,7 @@ async function hashPassword( password: string ): Promise<string> {
 
 // Function to generate a unique ID
 function generateUniqueId(): string {
-	return "user_" + ( Math.floor( Math.random() * 1650 ) + 256 ); // Simple unique ID
+	return getRandomLetter() + getRandomLetter() + "_" + uuidv4();
 }
 
 // Function to remove error classes and hide the error message
@@ -731,7 +768,6 @@ async function validateLoginForm(): Promise<void> {
 	const fields = [loginUsername, loginPassword];
 	fields.forEach( ( field ) => {
 		field.classList.remove( "text-md" );
-		field.classList.remove( "border-red-500" );
 		field.classList.remove( "text-red-600" );
 		field.classList.remove( "dark:text-red-400" );
 	} );
@@ -748,7 +784,6 @@ async function validateLoginForm(): Promise<void> {
 		fields.forEach( ( field ) => {
 			if ( !field.value.trim() ) {
 				field.classList.add( "text-md" );
-				field.classList.add( "border-red-500" );
 				field.classList.add( "text-red-600" );
 				field.classList.add( "dark:text-red-400" );
 			}
@@ -830,15 +865,27 @@ function displayPasswordResetRequestForm(): void {
 	} );
 }
 
+/**
+ * Handles the submission of the reset request form.
+ *
+ * @param {Event} event - The event object representing the form submission.
+ *
+ * @returns {void}
+ */
 function handleResetRequest( event: Event ): void {
 	event.preventDefault();
 
+	// Get the username or email from the input field
 	const usernameOrEmailInput = document.getElementById( 'usernameOrEmail' ) as HTMLInputElement;
 	const usernameOrEmail = usernameOrEmailInput.value.trim();
+
+	// Get the error message element
 	const resetRequestError = document.getElementById( 'resetRequestError' ) as HTMLElement;
 
+	// Hide the error message by default
 	resetRequestError.style.display = 'none';
 
+	// Validate the username or email input
 	if ( !usernameOrEmail ) {
 		resetRequestError.textContent = 'Please enter your username or email.';
 		resetRequestError.style.display = 'block';
@@ -847,8 +894,11 @@ function handleResetRequest( event: Event ): void {
 
 	// Retrieve users from localStorage
 	const users: User[] = JSON.parse( localStorage.getItem( 'users' ) || '[]' );
+
+	// Find the user with the provided username or email
 	const user = users.find( u => u.username === usernameOrEmail || u.email === usernameOrEmail );
 
+	// Validate the user
 	if ( !user ) {
 		resetRequestError.textContent = 'User not found.';
 		resetRequestError.style.display = 'block';
@@ -870,8 +920,9 @@ function handleResetRequest( event: Event ): void {
 	displayConfirmationCodeModal( confirmationCode );
 }
 
+// Generates a 6-digit code
 function generateConfirmationCode(): string {
-	return Math.floor( 100000 + Math.random() * 900000 ).toString(); // 6-digit code
+	return Math.floor( 100000 + Math.random() * 900000 ).toString();
 }
 
 function displayConfirmationCodeForm(): void {
@@ -953,7 +1004,13 @@ function displayConfirmationCodeModal( confirmationCode: string ): void {
 	} );
 }
 
-
+/**
+ * Handles the submission of the confirmation code for password reset.
+ *
+ * @param {Event} event - The event object representing the form submission.
+ *
+ * @returns {void}
+ */
 function handleConfirmationCodeSubmission( event: Event ): void {
 	event.preventDefault();
 
@@ -1119,7 +1176,16 @@ function displayNewPasswordForm(): void {
 	} );
 }
 
-
+/**
+ * Handles the submission of a new password. Validates the password, checks for password match,
+ * validates password strength, and updates the user's password if all checks pass.
+ *
+ * @param {Event} event - The event object representing the form submission.
+ *
+ * @returns {Promise<void>} - A promise that resolves when the password reset is successful.
+ *
+ * @throws Will throw an error if the password does not meet the requirements or if the user is not found.
+ */
 async function handleNewPasswordSubmission( event: Event ): Promise<void> {
 	event.preventDefault();
 
@@ -1191,6 +1257,15 @@ async function handleNewPasswordSubmission( event: Event ): Promise<void> {
 	createLoginSection();
 }
 
+/**
+ * Sets a cookie with the given name, value, and expiration time.
+ *
+ * @param {string} name - The name of the cookie.
+ * @param {string} value - The value of the cookie.
+ * @param {number} expiresInHours - The number of hours until the cookie expires.
+ *
+ * @returns {void} - The function does not return a value.
+ */
 function setCookie( name: string, value: string, expiresInHours: number ): void {
 	const date = new Date();
 	date.setTime( date.getTime() + expiresInHours * 60 * 60 * 1000 );
@@ -1198,6 +1273,13 @@ function setCookie( name: string, value: string, expiresInHours: number ): void 
 	document.cookie = `${ name }=${ encodeURIComponent( value ) }; ${ expires }; path=/`;
 }
 
+/**
+ * Retrieves a cookie with the given name.
+ *
+ * @param {string} name - The name of the cookie to retrieve.
+ *
+ * @returns {string | null} - The value of the cookie if it exists, or null if the cookie does not exist.
+ */
 function getCookie( name: string ): string | null {
 	const cname = `${ name }=`;
 	const decodedCookie = decodeURIComponent( document.cookie );
@@ -1211,6 +1293,13 @@ function getCookie( name: string ): string | null {
 	return null;
 }
 
+/**
+ * Deletes a cookie with the given name.
+ *
+ * @param {string} name - The name of the cookie to delete.
+ *
+ * @returns {void} - The function does not return a value.
+ */
 function deleteCookie( name: string ): void {
 	document.cookie = `${ name }=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
@@ -1236,7 +1325,6 @@ function handleLoginError( message: string ): void {
 	const { loginUsername, loginPassword } = getLoginFormFields();
 	[loginUsername, loginPassword].forEach( ( field ) => {
 		field.classList.add( "text-md" );
-		field.classList.add( "border-red-500" );
 		field.classList.add( "text-red-600" );
 		field.classList.add( "dark:text-red-400" );
 	} );
@@ -1263,7 +1351,6 @@ function clearLoginErrorStyles(): void {
 
 	// Remove error class from both fields
 	fields.forEach( ( field ) => {
-		field.classList.remove( "border-red-500" );
 		field.classList.remove( "text-md" );
 		field.classList.remove( "text-red-600" );
 		field.classList.remove( "dark:text-red-400" );
@@ -2604,7 +2691,6 @@ function showScore(): void {
 	saveProgress();
 }
 
-
 /**
  * Displays a selection of quizzes to view leaderboards.
  * Fetches all quiz names from the stored data and creates buttons for each quiz.
@@ -2824,7 +2910,6 @@ function displayLeaderboard( quizName: string ): void {
 	displayContainer.appendChild( leaderboardContainer );
 }
 
-
 function getAllQuizNames(): string[] {
 	const quizNamesSet = new Set<string>();
 
@@ -2932,8 +3017,6 @@ function getLeaderboardDataByLevel( quizName: string ): Map<number, LeaderboardE
 
 	return leaderboardDataByLevel;
 }
-
-
 
 /**
  * Checks if the user has completed the current quiz.
