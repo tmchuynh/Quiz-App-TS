@@ -70,29 +70,6 @@ function removeAllSections() {
     removeElementById("actionButtons"); // Remove the action buttons section
     removeElementById("dialog-default"); // Remove the dialog
 }
-function openDatabase() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open('QuizAppDB', 1);
-        request.onupgradeneeded = (event) => {
-            const db = request.result;
-            // Create object stores
-            const userStore = db.createObjectStore('users', { keyPath: 'id' });
-            userStore.createIndex('username', 'username', { unique: true });
-            userStore.createIndex('email', 'email', { unique: true });
-            const progressStore = db.createObjectStore('quizProgress', { keyPath: 'id', autoIncrement: true });
-            progressStore.createIndex('userId', 'userId', { unique: false });
-            progressStore.createIndex('quizName', 'quizName', { unique: false });
-            const scoreStore = db.createObjectStore('quizScores', { keyPath: 'id', autoIncrement: true });
-            scoreStore.createIndex('userId', 'userId', { unique: false });
-            scoreStore.createIndex('quizName', 'quizName', { unique: false });
-            scoreStore.createIndex('level', 'level', { unique: false });
-            scoreStore.createIndex('score', 'score', { unique: false });
-            scoreStore.createIndex('date', 'date', { unique: false });
-        };
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
-}
 // Function to create and append the registration form dynamically
 function createRegisterSection() {
     var _b;
@@ -317,6 +294,7 @@ async function validateRegistrationForm() {
 function resetErrorStyles(fields) {
     fields.forEach((field) => {
         field.element.classList.remove("text-md");
+        field.element.classList.remove("border-red-500");
         field.element.classList.remove("text-red-600");
         field.element.classList.remove("dark:text-red-400");
     });
@@ -326,6 +304,7 @@ function showError(message, field) {
     registerError.textContent = message;
     registerError.style.display = "block";
     field.classList.add("text-md");
+    field.classList.add("border-red-500");
     field.classList.add("text-red-600");
     field.classList.add("dark:text-red-400");
 }
@@ -345,28 +324,6 @@ function isUsernameTaken(username, users) {
 }
 function isEmailTaken(email, users) {
     return users.some((user) => user.email === email);
-}
-async function isUsernameOrEmailTaken(username, email) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('users', 'readonly');
-        const store = transaction.objectStore('users');
-        const indexUsername = store.index('username');
-        const indexEmail = store.index('email');
-        const usernameRequest = indexUsername.get(username);
-        const emailRequest = indexEmail.get(email);
-        let isTaken = false;
-        usernameRequest.onsuccess = () => {
-            if (usernameRequest.result)
-                isTaken = true;
-        };
-        emailRequest.onsuccess = () => {
-            if (emailRequest.result)
-                isTaken = true;
-        };
-        transaction.oncomplete = () => resolve(isTaken);
-        transaction.onerror = () => reject(transaction.error);
-    });
 }
 // Validate email format
 function validateEmail(email) {
@@ -427,26 +384,6 @@ function getRegisterFormFields() {
         confirmPassword,
     };
 }
-async function addUser(user) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('users', 'readwrite');
-        const store = transaction.objectStore('users');
-        const request = store.add(user);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-    });
-}
-async function getUserById(userId) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('users', 'readonly');
-        const store = transaction.objectStore('users');
-        const request = store.get(userId);
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error);
-    });
-}
 async function registerUser(fields) {
     // Hash the password before storing it
     const hashedPassword = await hashPassword(fields[4].element.value.trim());
@@ -464,7 +401,6 @@ async function registerUser(fields) {
     users.push(newUser);
     // Save the updated users array in localStorage
     localStorage.setItem("users", JSON.stringify(users));
-    await addUser(newUser);
     // Update the UI to transition from registration to login
     const registerSection = document.getElementById("registerSection");
     const loginSection = document.getElementById("loginSection");
@@ -576,6 +512,7 @@ async function validateLoginForm() {
     const fields = [loginUsername, loginPassword];
     fields.forEach((field) => {
         field.classList.remove("text-md");
+        field.classList.remove("border-red-500");
         field.classList.remove("text-red-600");
         field.classList.remove("dark:text-red-400");
     });
@@ -589,6 +526,7 @@ async function validateLoginForm() {
         fields.forEach((field) => {
             if (!field.value.trim()) {
                 field.classList.add("text-md");
+                field.classList.add("border-red-500");
                 field.classList.add("text-red-600");
                 field.classList.add("dark:text-red-400");
             }
@@ -901,6 +839,7 @@ function handleLoginError(message) {
     const { loginUsername, loginPassword } = getLoginFormFields();
     [loginUsername, loginPassword].forEach((field) => {
         field.classList.add("text-md");
+        field.classList.add("border-red-500");
         field.classList.add("text-red-600");
         field.classList.add("dark:text-red-400");
     });
@@ -923,6 +862,7 @@ function clearLoginErrorStyles() {
     const fields = [loginUsername, loginPassword];
     // Remove error class from both fields
     fields.forEach((field) => {
+        field.classList.remove("border-red-500");
         field.classList.remove("text-md");
         field.classList.remove("text-red-600");
         field.classList.remove("dark:text-red-400");
@@ -1814,39 +1754,6 @@ function saveProgress() {
     sortProgressArray(currentProgress);
     localStorage.setItem(userProgressKey, JSON.stringify(currentProgress));
 }
-async function saveQuizProgress(progress) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('quizProgress', 'readwrite');
-        const store = transaction.objectStore('quizProgress');
-        const request = store.put(progress);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-    });
-}
-async function getQuizProgress(userId, quizName, level) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('quizProgress', 'readonly');
-        const store = transaction.objectStore('quizProgress');
-        const index = store.index('userId');
-        const progressList = [];
-        index.openCursor(IDBKeyRange.only(userId)).onsuccess = (event) => {
-            const cursor = event.target.result;
-            if (cursor) {
-                const progress = cursor.value;
-                if (progress.quizName === quizName && progress.level === level) {
-                    progressList.push(progress);
-                }
-                cursor.continue();
-            }
-            else {
-                resolve(progressList.length > 0 ? progressList[0] : undefined);
-            }
-        };
-        transaction.onerror = () => reject(transaction.error);
-    });
-}
 /**
  * Checks the selected answer and updates the score and current question.
  *
@@ -1956,36 +1863,6 @@ function showScore() {
     currentQuestion = 0;
     score = 0;
     saveProgress();
-}
-async function saveQuizScore(score) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('quizScores', 'readwrite');
-        const store = transaction.objectStore('quizScores');
-        const request = store.add(score);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-    });
-}
-async function getUserQuizScores(userId) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('quizScores', 'readonly');
-        const store = transaction.objectStore('quizScores');
-        const index = store.index('userId');
-        const scores = [];
-        index.openCursor(IDBKeyRange.only(userId)).onsuccess = (event) => {
-            const cursor = event.target.result;
-            if (cursor) {
-                scores.push(cursor.value);
-                cursor.continue();
-            }
-            else {
-                resolve(scores);
-            }
-        };
-        transaction.onerror = () => reject(transaction.error);
-    });
 }
 /**
  * Displays a selection of quizzes to view leaderboards.
@@ -2211,28 +2088,6 @@ function getLeaderboardDataByLevel(quizName) {
         entries.sort((a, b) => b.score - a.score);
     });
     return leaderboardDataByLevel;
-}
-async function getQuizScoresByQuizAndLevel(quizName, level) {
-    const db = await openDatabase();
-    return new Promise((resolve, reject) => {
-        const transaction = db.transaction('quizScores', 'readonly');
-        const store = transaction.objectStore('quizScores');
-        const scores = [];
-        store.openCursor().onsuccess = (event) => {
-            const cursor = event.target.result;
-            if (cursor) {
-                const score = cursor.value;
-                if (score.quizName === quizName && score.level === level) {
-                    scores.push(score);
-                }
-                cursor.continue();
-            }
-            else {
-                resolve(scores);
-            }
-        };
-        transaction.onerror = () => reject(transaction.error);
-    });
 }
 /**
  * Checks if the user has completed the current quiz.
