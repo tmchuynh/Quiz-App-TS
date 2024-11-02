@@ -61,9 +61,13 @@ export function removeProfileSection() {
     removeElementById( "profileSection" );
 }
 
+export function removeContributionGrid() {
+    removeElementById( "containerSection" );
+    removeElementById( "contributionGrid" );
+}
+
 export function removeHeaderSection() {
     removeElementById( "headerSection" );
-    console.log( "Removed" );
 }
 
 // function to remove all sections dynamically
@@ -81,6 +85,7 @@ export function removeAllSections(): void {
     removeDifficultySelectionSection();
     removeQuizSelectionSection();
     removePastScoresSection();
+    removeContributionGrid();
     removeHeaderSection();
     removeElementById( "actionButtons" ); // Remove the action buttons section
     removeElementById( "dialog-default" ); // Remove the dialog

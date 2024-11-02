@@ -1,6 +1,6 @@
 import { quizData, quizOptions, isQuizDataKey } from "./quizData.js";
 import { createRegisterSection } from "./registration.js";
-import { removeAllSections, removeElementById, shuffle, formatDate, logoutEventListener, formatTime } from "./utilities.js";
+import { removeAllSections, removeElementById, shuffle, formatDate, logoutEventListener, formatTime, } from "./utilities.js";
 import { createLoginSection } from "./login.js";
 import { createProfileSection } from "./profile.js";
 import { getHighestScoreForLevel, createScoreSection, createScoresButtons } from "./scores.js";
@@ -260,8 +260,7 @@ export function returnToBeginning() {
     // Update the UI
     removeElementById("scoreSection");
     createActionButtons();
-    // Display the first question
-    setupQuizData(quizId, difficultyLevel);
+    createQuizSelection();
 }
 /**
  * Loads the quiz based on the current user's login status.

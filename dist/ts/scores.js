@@ -1,4 +1,4 @@
-import { removeLeaderboardSection, removeLeaderboardSelection, removeProfileSection, removeElementById, formatDate, formatTime, logoutEventListener, removeAllSections, removeDifficultySelectionSection } from "./utilities.js";
+import { removeLeaderboardSection, removeLeaderboardSelection, removeProfileSection, removeElementById, formatDate, formatTime, logoutEventListener, removeAllSections, removeDifficultySelectionSection, removeContributionGrid } from "./utilities.js";
 import { displayContainer, returnToBeginning, loadQuiz, displayLeaderboardSelection } from "./index.js";
 // Function to create the past scores section dynamically
 export function createPastScoresSection() {
@@ -6,9 +6,11 @@ export function createPastScoresSection() {
     removeLeaderboardSelection();
     removeProfileSection();
     removeDifficultySelectionSection();
-    // createHeaderSection();
+    const containerSection = document.createElement("div");
+    containerSection.id = "containerSection";
+    containerSection.classList.add("justify-center", "flex", "flex-col", "lg:px-8", "container", "justify-center", "align-center", "text-center", "mx-auto", "my-4", "col-span-6", "w-full", "lg:w-11/12");
     const pastScoresSection = document.createElement("div");
-    pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "view-score-history");
+    pastScoresSection.classList.add("flex", "min-h-1/2", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "w-full", "lg:w-11/12", "view-score-history");
     pastScoresSection.id = "pastScoresSection";
     pastScoresSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white">Past Scores</h2>
@@ -16,7 +18,9 @@ export function createPastScoresSection() {
         	<table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100" style="width: 100%; border-collapse: collapse;"></table>
         </div>
     `;
-    displayContainer.appendChild(pastScoresSection);
+    displayContainer.appendChild(containerSection);
+    containerSection.appendChild(pastScoresSection);
+    createContributionGrid('#3498db');
 }
 // Function to get the highest score for a specific level
 export function getHighestScoreForLevel(level, score) {
@@ -27,8 +31,8 @@ export function getHighestScoreForLevel(level, score) {
     console.log("Level scores:", levelScores);
     return levelScores.length > 0 ? Math.max(...levelScores) : null;
 }
-export // Function to create and append the score section dynamically
- function createScoreSection() {
+// Function to create and append the score section dynamically
+export function createScoreSection() {
     var _a;
     const scoreSection = document.createElement("div");
     scoreSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "view-last-score");
@@ -227,6 +231,7 @@ export function createSortButtons() {
             // If no quiz selected (empty value), show all scores
             filteredScores = [...pastScores];
         }
+        removeContributionGrid();
         renderScores(filteredScores);
     });
     // Event listener for Apply Date Filter button
@@ -249,6 +254,7 @@ export function createSortButtons() {
                     const scoreDate = new Date(score.date);
                     return scoreDate >= startDate && scoreDate <= endDate;
                 });
+                removeContributionGrid();
                 renderScores(filteredScores);
             }
             else {
@@ -263,6 +269,7 @@ export function createSortButtons() {
     (_b = document
         .querySelector("#sortByQuizButton")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
         const sortedByQuiz = [...filteredScores].sort((a, b) => a.quiz.localeCompare(b.quiz));
+        removeContributionGrid();
         renderScores(sortedByQuiz);
         filteredScores = sortedByQuiz;
     });
@@ -270,6 +277,7 @@ export function createSortButtons() {
     (_c = document
         .querySelector("#sortByDateButton")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         const sortedByDate = [...filteredScores].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        removeContributionGrid();
         renderScores(sortedByDate);
         filteredScores = sortedByDate;
     });
@@ -281,6 +289,7 @@ export function createSortButtons() {
             const percentageB = (b.score / b.total) * 100;
             return percentageB - percentageA; // Sort by percentage (highest first)
         });
+        removeContributionGrid();
         renderScores(sortedByPercentage);
         filteredScores = sortedByPercentage;
     });
@@ -292,6 +301,7 @@ export function createSortButtons() {
         // Reset date inputs
         document.getElementById("startDateInput").value = "";
         document.getElementById("endDateInput").value = "";
+        removeContributionGrid();
         renderScores(filteredScores);
     });
     (_f = document
@@ -353,4 +363,116 @@ function createDialog() {
         removeElementById("dialog"); // Close the dialog
     });
 }
+// Function to generate a random contribution level based on stored quiz scores
+const getContributionLevelForDate = (date) => {
+    const userScores = JSON.parse(localStorage.getItem("userScores") || "[]");
+    const matchingScores = userScores.filter((score) => score.date === date);
+    return matchingScores.length; // Return the count of scores for the date
+};
+// Function to create the contribution grid
+const createContributionGrid = (baseColor) => {
+    const gridContainer = document.createElement('div');
+    gridContainer.id = 'contributionGrid';
+    gridContainer.classList.add("grid", "grid-cols-5", "m-auto", "p-5", "col-span-6");
+    const shades = generateColorShades(baseColor, 25); // Generate shades for levels 0-25
+    const currentDate = new Date(); // Get the current date
+    // Clear previous cells if any
+    gridContainer.innerHTML = '';
+    // Create a map to group weeks by month
+    const weeksByMonth = {};
+    // Loop to create 365 cells (for the past 365 days)
+    for (let i = 0; i < 365; i++) {
+        const dateForCell = new Date(currentDate);
+        dateForCell.setDate(currentDate.getDate() - (364 - i)); // Calculate date
+        const dateString = formatDate(dateForCell); // Format: mm/dd/yyyy
+        // Create the cell
+        const cell = document.createElement('div');
+        cell.classList.add('w-5', 'h-5', "m-1", 'rounded', "border", "border-indigo-600", 'transition-transform', 'duration-200', 'ease-in-out', 'transform');
+        // Assign color based on the contribution level
+        const level = getContributionLevelForDate(dateString);
+        if (level > 0) {
+            cell.style.backgroundColor = shades[level]; // Use the appropriate shade
+        }
+        else {
+            cell.style.backgroundColor = '#e0e0e0'; // Default color for no contributions
+        }
+        // Add date as a class
+        cell.classList.add(`date-${dateString}`);
+        // Add hover effect
+        cell.addEventListener('mouseenter', () => {
+            cell.style.transform = 'scale(1.21)'; // Enlarge by 1%
+        });
+        cell.addEventListener('mouseleave', () => {
+            cell.style.transform = 'scale(1)'; // Reset to original size
+        });
+        // Get month and week info for grouping
+        const monthYear = `${dateForCell.getMonth() + 1}-${dateForCell.getFullYear()}`;
+        if (!weeksByMonth[monthYear]) {
+            // Create a new month container if it doesn't exist
+            const monthContainer = document.createElement('div');
+            monthContainer.classList.add('month-container', 'flex', 'flex-col', 'm-3');
+            const monthTitle = document.createElement('h3');
+            monthTitle.classList.add('text-lg', 'font-bold', 'mb-2', 'dark:text-white', "text-center");
+            monthTitle.textContent = `${dateForCell.toLocaleString('default', { month: 'long' })} ${dateForCell.getFullYear()}`;
+            monthContainer.appendChild(monthTitle);
+            weeksByMonth[monthYear] = monthContainer;
+            // Append month container to the grid
+            gridContainer.appendChild(monthContainer);
+        }
+        // Append the cell to the corresponding month container
+        const weekContainer = weeksByMonth[monthYear].querySelector('.week-container') || createWeekContainer(weeksByMonth[monthYear]);
+        weekContainer.appendChild(cell);
+    }
+    // Append all month containers to the grid
+    Object.values(weeksByMonth).forEach(monthContainer => {
+        gridContainer.appendChild(monthContainer);
+    });
+    const container = document.getElementById('containerSection');
+    container.appendChild(gridContainer); // Append the grid to the specified container
+};
+// Function to create a new week container and append it to a month container
+const createWeekContainer = (monthContainer) => {
+    const weekContainer = document.createElement('div');
+    weekContainer.classList.add('week-container', 'm-2', "grid", "grid-cols-4");
+    monthContainer.appendChild(weekContainer);
+    return weekContainer;
+};
+// Function to convert hex to RGB
+const hexToRgb = (hex) => {
+    const bigint = parseInt(hex.slice(1), 16);
+    return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255,
+    };
+};
+// Function to convert RGB to hex
+const rgbToHex = (r, g, b) => {
+    const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    console.log(hex);
+    return `#${hex}`;
+};
+// Function to generate shades of a color
+const generateColorShades = (baseColor, levels) => {
+    const rgb = hexToRgb(baseColor);
+    const shades = [];
+    const half = Math.ceil(levels / 2);
+    for (let i = 0; i < half; i++) {
+        const shade = {
+            r: Math.max(rgb.r - (i * 30)), // Darken red
+            g: Math.max(rgb.g - (i * 30)), // Darken green
+            b: Math.max(rgb.b - (i * 30)), // Darken blue
+        };
+        shades.push(rgbToHex(shade.r, shade.g, shade.b));
+    }
+    for (let i = 0; i <= half; i++) {
+        const shade = {
+            r: Math.min(rgb.r + (i * 30)), // Lighten red
+            g: Math.min(rgb.g + (i * 30)), // Lighten green
+            b: Math.min(rgb.b + (i * 30)), // Lighten blue
+        };
+        shades.push(rgbToHex(shade.r, shade.g, shade.b));
+    }
+    return shades;
+};
 //# sourceMappingURL=scores.js.map

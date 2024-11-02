@@ -11,14 +11,10 @@ import { createRegisterSection } from "./registration.js";
 import {
 	removeAllSections,
 	removeElementById,
-	removeLeaderboardSection,
-	removeLeaderboardSelection,
 	shuffle,
 	formatDate,
 	logoutEventListener,
 	formatTime,
-	removeProfileSection,
-	removeHeaderSection
 } from "./utilities.js";
 import { createLoginSection } from "./login.js";
 import { createProfileSection } from "./profile.js";
@@ -421,8 +417,7 @@ export function returnToBeginning(): void {
 	removeElementById( "scoreSection" );
 	createActionButtons();
 
-	// Display the first question
-	setupQuizData( quizId, difficultyLevel );
+	createQuizSelection();
 }
 
 /**
