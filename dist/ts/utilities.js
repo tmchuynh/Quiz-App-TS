@@ -48,7 +48,6 @@ export function removeProfileSection() {
 }
 export function removeHeaderSection() {
     removeElementById("headerSection");
-    console.log("removed header section");
 }
 // function to remove all sections dynamically
 export function removeAllSections() {

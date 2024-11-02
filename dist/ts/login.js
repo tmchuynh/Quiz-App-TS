@@ -311,7 +311,6 @@ function displayNewPasswordForm() {
     const checkbox = newPasswordSection.querySelector("#newPasswordView");
     const passwordElement = document.querySelector("#newPassword");
     const confirmPasswordElement = document.querySelector("#confirmNewPassword");
-    console.log("passwordElement:", passwordElement, "confirmPasswordElement:", confirmPasswordElement, "checkbox", checkbox);
     checkbox === null || checkbox === void 0 ? void 0 : checkbox.addEventListener("change", function () {
         if (passwordElement && confirmPasswordElement) {
             if (this.checked) {

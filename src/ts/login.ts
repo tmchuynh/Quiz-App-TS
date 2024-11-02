@@ -483,15 +483,6 @@ function displayNewPasswordForm(): void {
         "#confirmNewPassword"
     );
 
-    console.log(
-        "passwordElement:",
-        passwordElement,
-        "confirmPasswordElement:",
-        confirmPasswordElement,
-        "checkbox",
-        checkbox
-    );
-
     checkbox?.addEventListener( "change", function ( this: HTMLInputElement ) {
         if ( passwordElement && confirmPasswordElement ) {
             if ( this.checked ) {

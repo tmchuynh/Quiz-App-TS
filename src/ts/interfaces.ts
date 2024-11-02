@@ -15,7 +15,7 @@ export interface ProgressItem {
 }
 
 export interface Score {
-    date: string;
+    date: Date;
     quiz: string;
     difficultyLevel: number;
     score: number;
@@ -25,7 +25,7 @@ export interface Score {
 export interface LeaderboardEntry {
     username: string;
     score: number;
-    date: string;
+    date: Date;
     level: number;
 }
 

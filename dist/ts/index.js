@@ -40,7 +40,8 @@ export function createQuizSelection() {
     // Retrieve current user's progress
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userProgressKey = `quizProgress_${currentUserId}`;
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    let currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    let progressItem;
     const quizOptionsContainer = document.getElementById("quizOptions");
     if (quizOptionsContainer) {
         sortQuizArrayByName(quizOptions);
@@ -50,8 +51,10 @@ export function createQuizSelection() {
             button.textContent = quiz.label;
             button.className =
                 "button text-white bg-zinc-700 hover:bg-zinc-600 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-600 dark:hover:bg-zinc-700 dark:focus:ring-zinc-800";
-            // Check if the quiz is already in progress
-            const progressItem = currentProgress.find((item) => item.quizId === quiz.id && item.currentQuestion > 0);
+            if (currentProgress && currentProgress.length > 0) {
+                // Check if the quiz is already in progress
+                progressItem = currentProgress.find((item) => item.quizId === quiz.id && item.currentQuestion > 0);
+            }
             if (progressItem) {
                 // Quiz is in progress, change the button class
                 button.className =
@@ -102,9 +105,9 @@ function createDifficultySection(quizId) {
     // Retrieve current user's progress
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userScores = JSON.parse(localStorage.getItem(`quizScores_${currentUserId}`));
-    console.log(userScores);
     const userProgressKey = `quizProgress_${currentUserId}`;
-    const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    let currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
+    let progressItem;
     const difficultyOptionsContainer = document.getElementById("difficultyOptions");
     if (difficultyOptionsContainer) {
         for (let level = 1; level <= 5; level++) {
@@ -117,13 +120,13 @@ function createDifficultySection(quizId) {
 				<div class="text-sm mt-1">${highestScore !== null ? `High Score: ${highestScore}` : ''}</div>
 				`;
             }
-            else {
+            if (currentProgress && currentProgress.length > 0) {
+                // Check if the quiz is already in progress at any difficulty level
+                progressItem = currentProgress.find((item) => item.quizId === quizId &&
+                    item.currentQuestion > 0 &&
+                    item.difficultyLevel == level);
             }
-            // Check if the quiz is already in progress at any difficulty level
-            const progressItems = currentProgress.find((item) => item.quizId === quizId &&
-                item.currentQuestion > 0 &&
-                item.difficultyLevel == level);
-            if (progressItems) {
+            if (progressItem) {
                 button.className =
                     "button text-white bg-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800";
             }
@@ -229,7 +232,6 @@ function createScoreSection() {
 }
 // Function to create the past scores section dynamically
 function createPastScoresSection() {
-    var _a;
     removeLeaderboardSection();
     removeLeaderboardSelection();
     removeProfileSection();
@@ -241,19 +243,8 @@ function createPastScoresSection() {
 		<div class="overflow-x-auto">
         	<table id="pastScores" class="scores-table w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-100" style="width: 100%; border-collapse: collapse;"></table>
         </div>
-		<button id="backButton" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4">Back to Quiz</button>
     `;
     displayContainer.appendChild(pastScoresSection);
-    const currentUserId = sessionStorage.getItem("currentUserId");
-    (_a = document.querySelector("#backButton")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-        removeElementById("pastScoresSection");
-        if (checkProgressAtEnd(currentUserId)) {
-            showScore();
-        }
-        else {
-            loadQuiz();
-        }
-    });
 }
 // Function to create and append the action buttons dynamically
 function createActionButtons() {
@@ -698,7 +689,10 @@ function loadProgress() {
     const quizId = sessionStorage.getItem("quizId");
     const currentProgress = JSON.parse(localStorage.getItem(userProgressKey) || "[]");
     const difficultyLevel = parseInt(sessionStorage.getItem("difficultyLevel"));
-    const progressItem = currentProgress.find((item) => item.quizId === quizId && item.difficultyLevel === difficultyLevel);
+    let progressItem;
+    if (currentProgress) {
+        progressItem = currentProgress.find((item) => item.quizId === quizId && item.difficultyLevel === difficultyLevel);
+    }
     if (progressItem) {
         currentQuestion = progressItem.currentQuestion;
         score = progressItem.score;
@@ -1001,16 +995,6 @@ export function displayLeaderboardSelection() {
         });
         leaderboardOptions.appendChild(button);
     });
-    // Add a back button
-    const backButton = document.createElement("button");
-    backButton.textContent = "Back";
-    backButton.className =
-        "text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 m-2";
-    backButton.addEventListener("click", () => {
-        removeAllSections();
-        createQuizSelection();
-    });
-    selectionContainer.appendChild(backButton);
     displayContainer.appendChild(selectionContainer);
 }
 function displayLeaderboard(quizName) {
@@ -1085,11 +1069,11 @@ function displayLeaderboard(quizName) {
             scoreCell.className =
                 "border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
             const dateCell = document.createElement("td");
-            dateCell.textContent = formatDate(entry.date);
+            dateCell.textContent = JSON.stringify(formatDate(entry.date));
             dateCell.className =
                 "border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
             const timeCell = document.createElement("td");
-            timeCell.textContent = formatTime(entry.date);
+            timeCell.textContent = JSON.stringify(formatTime(entry.date));
             timeCell.className =
                 "border-b font-medium text-gray-900 whitespace-nowrap dark:text-white text-center";
             row.appendChild(rankCell);
@@ -1102,16 +1086,6 @@ function displayLeaderboard(quizName) {
         table.appendChild(tbody);
         leaderboardContainer.appendChild(table);
     });
-    // Add a back button
-    const backButton = document.createElement("button");
-    backButton.textContent = "Back";
-    backButton.className =
-        "text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mt-4";
-    backButton.addEventListener("click", () => {
-        removeAllSections();
-        displayLeaderboardSelection();
-    });
-    leaderboardContainer.appendChild(backButton);
     displayContainer.appendChild(leaderboardContainer);
 }
 function getAllQuizNames() {
