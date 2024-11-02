@@ -1,5 +1,6 @@
 import { createRegisterSection } from "./registration.js";
 import { createLoginSection } from "./login.js";
+import { createHeaderSection } from "./index.js";
 
 export function removeElementById( elementId: string ): void {
     const element = document.getElementById( elementId );
@@ -60,6 +61,11 @@ export function removeProfileSection() {
     removeElementById( "profileSection" );
 }
 
+export function removeHeaderSection() {
+    removeElementById( "headerSection" );
+    console.log( "removed header section" );
+}
+
 // function to remove all sections dynamically
 export function removeAllSections(): void {
     removeRegisterSection();
@@ -67,6 +73,7 @@ export function removeAllSections(): void {
     removeQuizSection();
     removeScoreSection();
     removeResetRequest();
+    removeHeaderSection();
     removeProfileSection();
     removeConfirmationCode();
     removeNewPasswordSection();
@@ -202,6 +209,7 @@ export function logoutEventListener() {
         localStorage.removeItem( "quizProgress" ); // Remove any quiz progress
         // Redirect to the login page
         removeAllSections();
+        createHeaderSection();
         createRegisterSection();
         createLoginSection();
         const welcomeMessage = document.getElementById( "welcomeMessage" );

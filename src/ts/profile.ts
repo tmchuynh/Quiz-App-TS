@@ -66,21 +66,23 @@ export function createProfileSection(): void {
     // Append the dynamically created profile section to the container
     document.querySelector( ".loginContainer" )?.appendChild( profileSection );
 
+    // Attach event listener to the save profile button
+    const saveProfileButton = document.getElementById( "saveProfileButton" ) as HTMLElement;
+    saveProfileButton.addEventListener( "click", validateProfileForm );
+
+    // Load user data when the section is created
+    loadUserProfile();
+
+    // Attach event listeners to edit buttons
+    attachEditEventListeners();
+}
+
+async function loadUserProfile(): Promise<void> {
     const username = sessionStorage.getItem( "username" );
     const email = sessionStorage.getItem( "email" );
     const firstName = sessionStorage.getItem( "firstName" );
     const lastName = sessionStorage.getItem( "lastName" );
     const currentUserId = sessionStorage.getItem( "currentUserId" );
-
-    console.log( "Username:", username, "Email:", email, "First Name:", firstName, "Last Name:", lastName, "Current User ID:", currentUserId );
-
-    console.log( "User Profile Data:", {
-        username,
-        email,
-        firstName,
-        lastName,
-        currentUserId
-    } );
 
     // Display user data
     if ( firstName ) {
@@ -107,23 +109,6 @@ export function createProfileSection(): void {
         document.getElementById( "userIdDisplay" )!.textContent = currentUserId;
     } else {
         console.error( "User ID not found in sessionStorage" );
-    }
-
-    // Attach event listener to the save profile button
-    const saveProfileButton = document.getElementById( "saveProfileButton" ) as HTMLElement;
-    saveProfileButton.addEventListener( "click", validateProfileForm );
-
-
-    // Load user data when the section is created
-
-    // Attach event listeners to edit buttons
-}
-
-async function loadUserProfile(): Promise<void> {
-    const userProfile = JSON.parse( localStorage.getItem( 'currentUser' ) || '{}' );
-    if ( userProfile ) {
-        ( document.getElementById( 'usernameDisplay' ) as HTMLSpanElement ).textContent = userProfile.username || '';
-        ( document.getElementById( 'emailDisplay' ) as HTMLSpanElement ).textContent = userProfile.email || '';
     }
 }
 

@@ -16,6 +16,7 @@ import {
 	shuffle,
 	formatDate,
 	logoutEventListener,
+	removeHeaderSection,
 	formatTime
 } from "./utilities.js";
 import { createLoginSection } from "./login.js";
@@ -45,6 +46,7 @@ function sortQuizArrayByName( arr: QuizOption[] ): void {
 }
 
 export function createQuizSelection() {
+	removeAllSections();
 	checkScoreHistory();
 	const quizSelectionSection = document.createElement( "div" );
 	quizSelectionSection.classList.add(
@@ -309,6 +311,7 @@ function setupQuizData( quizId: string, difficultyLevel: number ): void {
 
 // Function to create and append the quiz section dynamically
 function createQuizSection(): void {
+	createHeaderSection();
 	const quizSection = document.createElement( "div" );
 	quizSection.classList.add(
 		"min-h-full",
@@ -952,6 +955,7 @@ export function loadQuiz(): void {
 }
 
 function checkScoreHistory() {
+	createHeaderSection();
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
 	const userScoresKey = `quizScores_${ currentUserId }`;
 	const pastScores = JSON.parse(
@@ -1725,19 +1729,20 @@ export function createHeaderSection() {
 	// Create header section
 	const headerSection = document.createElement( "header" );
 	headerSection.className = "bg-gray-200 dark:bg-gray-900 shadow-lg order-1";
+	headerSection.id = "headerSection";
 
 	headerSection.innerHTML = `
-		<div class="container mx-auto flex justify-between items-center p-5">
-            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+		<div class="items-center p-5 flex justify-between">
+            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white cols-span-4">
                 <span
                     class="text-transparent bg-clip-text bg-gradient-to-br to-emerald-900 from-blue-100">Expanding</span>
                 Your Knowledge.
             </h1>
-            <nav class="space-x-4 navigation-bar">
+            <nav class="space-x-4 navigation-bar flex items-center">
                 <a href="#quizzes" class="text-gray-800 dark:text-white hover:underline">Quizzes</a>
-                <a href="#leaderboard" class="text-gray-800 dark:text-white hover:underline">Leaderboard</a>
+                <a id="leaderboardLink" href="#leaderboard" class="text-gray-800 dark:text-white hover:underline">Leaderboard</a>
                 <button id="logoutButton"
-                    class="logout-button bg-red-600 text-white px-3 py-1 rounded hover:bg-red-500 focus:outline-none">Logout</button>
+                    class="logout-button bg-red-600 text-white px-3 py-1 rounded hover:bg-red-500 focus:outline-none order-last">Logout</button>
             </nav>
         </div>
 	`;
@@ -1745,6 +1750,8 @@ export function createHeaderSection() {
 	const body = document.querySelector( "body" );
 	const titleSection = document.querySelector( ".title-section" );
 	body?.insertBefore( headerSection, titleSection! );
+	const logoutButton = document.querySelector( ".logoutButton" );
+	const leaderboardLink = document.querySelector( ".leaderboardLink" );
 
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
 
@@ -1754,14 +1761,12 @@ export function createHeaderSection() {
 		profileLink.href = "#profile";
 		profileLink.textContent = "Profile";
 		profileLink.className = "text-gray-800 dark:text-white hover:underline";
-		navigationBar?.appendChild( profileLink );
+		navigationBar?.insertBefore( profileLink, leaderboardLink );
 	}
-
 }
 
 // Initial load
 window.addEventListener( "load", () => {
 	loadQuiz();
-	createHeaderSection();
 	setupNavigationListeners();
 } );

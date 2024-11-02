@@ -6,7 +6,7 @@ import {
     isValidPassword,
 } from "./utilities.js";
 import { createRegisterSection } from "./registration.js";
-import { loginContainer, displayContainer, loadQuiz } from "./index.js";
+import { loginContainer, displayContainer, loadQuiz, createHeaderSection } from "./index.js";
 import { User } from "./interfaces";
 
 // Function to create and append the login form dynamically

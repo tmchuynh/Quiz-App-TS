@@ -20,6 +20,7 @@ function sortQuizArrayByName(arr) {
     arr.sort((a, b) => a.label.localeCompare(b.label));
 }
 export function createQuizSelection() {
+    removeAllSections();
     checkScoreHistory();
     const quizSelectionSection = document.createElement("div");
     quizSelectionSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "quiz-selection-section");
@@ -192,6 +193,7 @@ function setupQuizData(quizId, difficultyLevel) {
 }
 // Function to create and append the quiz section dynamically
 function createQuizSection() {
+    createHeaderSection();
     const quizSection = document.createElement("div");
     quizSection.classList.add("min-h-full", "h-full", "px-6", "py-4", "lg:px-8", "grid", "gap-4", "grid-cols-1", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "quiz-section");
     quizSection.id = "quizSection";
@@ -658,6 +660,7 @@ export function loadQuiz() {
     createQuizSelection();
 }
 function checkScoreHistory() {
+    createHeaderSection();
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userScoresKey = `quizScores_${currentUserId}`;
     const pastScores = JSON.parse(localStorage.getItem(userScoresKey) || "[]");
@@ -1245,24 +1248,27 @@ export function createHeaderSection() {
     // Create header section
     const headerSection = document.createElement("header");
     headerSection.className = "bg-gray-200 dark:bg-gray-900 shadow-lg order-1";
+    headerSection.id = "headerSection";
     headerSection.innerHTML = `
-		<div class="container mx-auto flex justify-between items-center p-5">
-            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+		<div class="items-center p-5 flex justify-between">
+            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white cols-span-4">
                 <span
                     class="text-transparent bg-clip-text bg-gradient-to-br to-emerald-900 from-blue-100">Expanding</span>
                 Your Knowledge.
             </h1>
-            <nav class="space-x-4 navigation-bar">
+            <nav class="space-x-4 navigation-bar flex items-center">
                 <a href="#quizzes" class="text-gray-800 dark:text-white hover:underline">Quizzes</a>
-                <a href="#leaderboard" class="text-gray-800 dark:text-white hover:underline">Leaderboard</a>
+                <a id="leaderboardLink" href="#leaderboard" class="text-gray-800 dark:text-white hover:underline">Leaderboard</a>
                 <button id="logoutButton"
-                    class="logout-button bg-red-600 text-white px-3 py-1 rounded hover:bg-red-500 focus:outline-none">Logout</button>
+                    class="logout-button bg-red-600 text-white px-3 py-1 rounded hover:bg-red-500 focus:outline-none order-last">Logout</button>
             </nav>
         </div>
 	`;
     const body = document.querySelector("body");
     const titleSection = document.querySelector(".title-section");
     body === null || body === void 0 ? void 0 : body.insertBefore(headerSection, titleSection);
+    const logoutButton = document.querySelector(".logoutButton");
+    const leaderboardLink = document.querySelector(".leaderboardLink");
     const currentUserId = sessionStorage.getItem("currentUserId");
     if (currentUserId) {
         const navigationBar = document.querySelector(".navigation-bar");
@@ -1270,13 +1276,12 @@ export function createHeaderSection() {
         profileLink.href = "#profile";
         profileLink.textContent = "Profile";
         profileLink.className = "text-gray-800 dark:text-white hover:underline";
-        navigationBar === null || navigationBar === void 0 ? void 0 : navigationBar.appendChild(profileLink);
+        navigationBar === null || navigationBar === void 0 ? void 0 : navigationBar.insertBefore(profileLink, leaderboardLink);
     }
 }
 // Initial load
 window.addEventListener("load", () => {
     loadQuiz();
-    createHeaderSection();
     setupNavigationListeners();
 });
 //# sourceMappingURL=index.js.map

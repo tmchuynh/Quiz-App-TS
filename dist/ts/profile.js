@@ -41,19 +41,20 @@ export function createProfileSection() {
     `;
     // Append the dynamically created profile section to the container
     (_a = document.querySelector(".loginContainer")) === null || _a === void 0 ? void 0 : _a.appendChild(profileSection);
+    // Attach event listener to the save profile button
+    const saveProfileButton = document.getElementById("saveProfileButton");
+    saveProfileButton.addEventListener("click", validateProfileForm);
+    // Load user data when the section is created
+    loadUserProfile();
+    // Attach event listeners to edit buttons
+    attachEditEventListeners();
+}
+async function loadUserProfile() {
     const username = sessionStorage.getItem("username");
     const email = sessionStorage.getItem("email");
     const firstName = sessionStorage.getItem("firstName");
     const lastName = sessionStorage.getItem("lastName");
     const currentUserId = sessionStorage.getItem("currentUserId");
-    console.log("Username:", username, "Email:", email, "First Name:", firstName, "Last Name:", lastName, "Current User ID:", currentUserId);
-    console.log("User Profile Data:", {
-        username,
-        email,
-        firstName,
-        lastName,
-        currentUserId
-    });
     // Display user data
     if (firstName) {
         document.getElementById("firstNameDisplay").textContent = firstName;
@@ -84,18 +85,6 @@ export function createProfileSection() {
     }
     else {
         console.error("User ID not found in sessionStorage");
-    }
-    // Attach event listener to the save profile button
-    const saveProfileButton = document.getElementById("saveProfileButton");
-    saveProfileButton.addEventListener("click", validateProfileForm);
-    // Load user data when the section is created
-    // Attach event listeners to edit buttons
-}
-async function loadUserProfile() {
-    const userProfile = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    if (userProfile) {
-        document.getElementById('usernameDisplay').textContent = userProfile.username || '';
-        document.getElementById('emailDisplay').textContent = userProfile.email || '';
     }
 }
 function attachEditEventListeners() {
