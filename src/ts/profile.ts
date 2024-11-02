@@ -31,32 +31,34 @@ export function createProfileSection(): void {
     );
     profileSection.id = "profileSection";
     profileSection.innerHTML = `
-        <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">User Profile</h2>
-        <div class="mb-4 profilePhoto-fields">
-            <img id="profilePhoto" class="object-cover w-24 h-24 rounded-full" src="" alt="Profile Photo" />
+        <div class="profilePhoto-fields grid grid-cols-10 items-center">
+            <img id="profilePhoto" class="object-cover col-span-4 w-14 h-14 rounded-full" src="dist/images/avatars/social.png" alt="Profile Photo" />
+            <div class="col-span-6 w-full">
+                <h2 class="text-left text-4xl py-5 font-extrabold dark:text-white my-3">User Profile</h2>
+            </div>
         </div>
         <div class="relative first-name-fields">
-            <label for="userId" class="block text-md/6 font-medium text-gray-900 dark:text-white">ID:</label>
-            <span id="userIdDisplay" class="text-gray-900 dark:text-white"></span>
+            <label for="userId" class="text-xl text-gray-900 dark:text-white">ID:</label>
+            <p id="userIdDisplay" class="text-gray-900 dark:text-white"></p>
         </div>
         <div class="py-2 grid grid-cols-1 md:grid-cols-2 gap-2">
             <div class="relative first-name-fields">
-                <label for="firstName" class="block text-md/6 font-medium text-gray-900 dark:text-white">First name:</label>
-            <span id="firstNameDisplay" class="text-gray-900 dark:text-white"></span>
+                <label for="firstName" class="text-xl text-gray-900 dark:text-white">First name:</label>
+                <p id="firstNameDisplay" class="text-gray-900 dark:text-white"></p>
             </div>
             <div class="relative last-name-fields">
-                <label for="lastName" class="block text-md/6 font-medium text-gray-900 dark:text-white">Last name:</label>
-                <span id="lastNameDisplay" class="text-gray-900 dark:text-white"></span>
+                <label for="lastName" class="text-xl text-gray-900 dark:text-white">Last name:</label>
+                <p id="lastNameDisplay" class="text-gray-900 dark:text-white"></p>
             </div>
         </div>
         <div class="py-2 grid grid-cols-1 md:grid-cols-2 gap-2">
             <div class="relative username-fields">
-                <label for="username" class="block text-md/6 font-medium text-gray-900 dark:text-white">Username:</label>
-                <span id="usernameDisplay" class="text-gray-900 dark:text-white"></span>
+                <label for="username" class="text-xl text-gray-900 dark:text-white">Username:</label>
+                <p id="usernameDisplay" class="text-gray-900 dark:text-white"></p>
             </div>
             <div class="relative email-fields">
-                <label for="email" class="block text-md/6 font-medium text-gray-900 dark:text-white">Email:</label>
-                <span id="emailDisplay" class="text-gray-900 dark:text-white"></span>
+                <label for="email" class="text-xl text-gray-900 dark:text-white">Email:</label>
+                <p id="emailDisplay" class="text-gray-900 dark:text-white"></p>
             </div>
         </div>
 

@@ -120,6 +120,9 @@ function createDifficultySection(quizId) {
 				<div class="text-sm mt-1">${highestScore !== null ? `High Score: ${highestScore}` : ''}</div>
 				`;
             }
+            else {
+                button.innerHTML = `Level ${level}`;
+            }
             if (currentProgress && currentProgress.length > 0) {
                 // Check if the quiz is already in progress at any difficulty level
                 progressItem = currentProgress.find((item) => item.quizId === quizId &&

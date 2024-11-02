@@ -214,6 +214,8 @@ function createDifficultySection( quizId: string ): void {
 				Level ${ level }
 				<div class="text-sm mt-1">${ highestScore !== null ? `High Score: ${ highestScore }` : '' }</div>
 				`;
+			} else {
+				button.innerHTML = `Level ${ level }`;
 			}
 
 			if ( currentProgress && currentProgress.length > 0 ) {
