@@ -1,9 +1,11 @@
 import { hashPassword, removeAllSections, showError } from "./utilities.js";
+import { checkScoreHistory } from "./index.js";
 export function createProfileSection() {
     var _a;
     removeAllSections(); // Remove other sections if needed
+    checkScoreHistory();
     const profileSection = document.createElement("div");
-    profileSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "profile-section", "space-y-2");
+    profileSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-6", "lg:col-span-6", "w-full", "lg:w-11/12", "profile-section", "space-y-2");
     profileSection.id = "profileSection";
     profileSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">User Profile</h2>
@@ -40,14 +42,14 @@ export function createProfileSection() {
         <p id="profileError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
     // Append the dynamically created profile section to the container
-    (_a = document.querySelector(".loginContainer")) === null || _a === void 0 ? void 0 : _a.appendChild(profileSection);
+    (_a = document.querySelector(".displayContainer")) === null || _a === void 0 ? void 0 : _a.appendChild(profileSection);
     // Attach event listener to the save profile button
     const saveProfileButton = document.getElementById("saveProfileButton");
     saveProfileButton.addEventListener("click", validateProfileForm);
     // Load user data when the section is created
     loadUserProfile();
     // Attach event listeners to edit buttons
-    attachEditEventListeners();
+    // attachEditEventListeners();
 }
 async function loadUserProfile() {
     const username = sessionStorage.getItem("username");

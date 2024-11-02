@@ -954,7 +954,7 @@ export function loadQuiz(): void {
 	createQuizSelection();
 }
 
-function checkScoreHistory() {
+export function checkScoreHistory() {
 	createHeaderSection();
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
 	const userScoresKey = `quizScores_${ currentUserId }`;
@@ -1750,7 +1750,6 @@ export function createHeaderSection() {
 	const body = document.querySelector( "body" );
 	const titleSection = document.querySelector( ".title-section" );
 	body?.insertBefore( headerSection, titleSection! );
-	const logoutButton = document.querySelector( ".logoutButton" );
 	const leaderboardLink = document.querySelector( ".leaderboardLink" );
 
 	const currentUserId = sessionStorage.getItem( "currentUserId" );
@@ -1763,6 +1762,8 @@ export function createHeaderSection() {
 		profileLink.className = "text-gray-800 dark:text-white hover:underline";
 		navigationBar?.insertBefore( profileLink, leaderboardLink );
 	}
+
+	setupNavigationListeners();
 }
 
 // Initial load

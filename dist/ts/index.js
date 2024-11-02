@@ -659,7 +659,7 @@ export function loadQuiz() {
     removeElementById("loginSection");
     createQuizSelection();
 }
-function checkScoreHistory() {
+export function checkScoreHistory() {
     createHeaderSection();
     const currentUserId = sessionStorage.getItem("currentUserId");
     const userScoresKey = `quizScores_${currentUserId}`;
@@ -1267,7 +1267,6 @@ export function createHeaderSection() {
     const body = document.querySelector("body");
     const titleSection = document.querySelector(".title-section");
     body === null || body === void 0 ? void 0 : body.insertBefore(headerSection, titleSection);
-    const logoutButton = document.querySelector(".logoutButton");
     const leaderboardLink = document.querySelector(".leaderboardLink");
     const currentUserId = sessionStorage.getItem("currentUserId");
     if (currentUserId) {
@@ -1278,6 +1277,7 @@ export function createHeaderSection() {
         profileLink.className = "text-gray-800 dark:text-white hover:underline";
         navigationBar === null || navigationBar === void 0 ? void 0 : navigationBar.insertBefore(profileLink, leaderboardLink);
     }
+    setupNavigationListeners();
 }
 // Initial load
 window.addEventListener("load", () => {

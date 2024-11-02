@@ -1,7 +1,9 @@
 import { hashPassword, removeAllSections, showError } from "./utilities.js";
+import { checkScoreHistory } from "./index.js";
 
 export function createProfileSection(): void {
     removeAllSections(); // Remove other sections if needed
+    checkScoreHistory();
     const profileSection = document.createElement( "div" );
     profileSection.classList.add(
         "flex",
@@ -20,7 +22,7 @@ export function createProfileSection(): void {
         "rounded-2xl",
         "mx-auto",
         "my-4",
-        "col-span-12",
+        "col-span-6",
         "lg:col-span-6",
         "w-full",
         "lg:w-11/12",
@@ -64,7 +66,7 @@ export function createProfileSection(): void {
     `;
 
     // Append the dynamically created profile section to the container
-    document.querySelector( ".loginContainer" )?.appendChild( profileSection );
+    document.querySelector( ".displayContainer" )?.appendChild( profileSection );
 
     // Attach event listener to the save profile button
     const saveProfileButton = document.getElementById( "saveProfileButton" ) as HTMLElement;
@@ -74,7 +76,7 @@ export function createProfileSection(): void {
     loadUserProfile();
 
     // Attach event listeners to edit buttons
-    attachEditEventListeners();
+    // attachEditEventListeners();
 }
 
 async function loadUserProfile(): Promise<void> {
