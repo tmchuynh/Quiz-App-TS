@@ -17,7 +17,8 @@ import {
 	formatDate,
 	logoutEventListener,
 	removeHeaderSection,
-	formatTime
+	formatTime,
+	removeProfileSection
 } from "./utilities.js";
 import { createLoginSection } from "./login.js";
 import { createProfileSection } from "./profile.js";
@@ -204,12 +205,17 @@ function createDifficultySection( quizId: string ): void {
 		for ( let level = 1; level <= 5; level++ ) {
 			const button = document.createElement( "button" );
 
-			// Get the highest score for the current level
-			const highestScore = getHighestScoreForLevel( level, userScores );
-			button.innerHTML = `
-                Level ${ level }
-                <div class="text-sm mt-1">${ highestScore !== null ? `High Score: ${ highestScore }` : '' }</div>
-            `;
+			if ( userScores ) {
+				const highestScore = getHighestScoreForLevel( level, userScores );
+				// Get the highest score for the current level
+				button.innerHTML = `
+				Level ${ level }
+				<div class="text-sm mt-1">${ highestScore !== null ? `High Score: ${ highestScore }` : '' }</div>
+				`;
+			} else {
+
+			}
+
 
 			// Check if the quiz is already in progress at any difficulty level
 			const progressItems = currentProgress.find(
@@ -392,6 +398,7 @@ function createScoreSection(): void {
 function createPastScoresSection(): void {
 	removeLeaderboardSection();
 	removeLeaderboardSelection();
+	removeProfileSection();
 	const pastScoresSection = document.createElement( "div" );
 	pastScoresSection.classList.add(
 		"flex",

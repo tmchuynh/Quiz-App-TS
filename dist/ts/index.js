@@ -1,6 +1,6 @@
 import { quizData, quizOptions, isQuizDataKey } from "./quizData.js";
 import { createRegisterSection } from "./registration.js";
-import { removeAllSections, removeElementById, removeLeaderboardSection, removeLeaderboardSelection, shuffle, formatDate, logoutEventListener, formatTime } from "./utilities.js";
+import { removeAllSections, removeElementById, removeLeaderboardSection, removeLeaderboardSelection, shuffle, formatDate, logoutEventListener, formatTime, removeProfileSection } from "./utilities.js";
 import { createLoginSection } from "./login.js";
 import { createProfileSection } from "./profile.js";
 let currentQuestion = 0;
@@ -109,12 +109,16 @@ function createDifficultySection(quizId) {
     if (difficultyOptionsContainer) {
         for (let level = 1; level <= 5; level++) {
             const button = document.createElement("button");
-            // Get the highest score for the current level
-            const highestScore = getHighestScoreForLevel(level, userScores);
-            button.innerHTML = `
-                Level ${level}
-                <div class="text-sm mt-1">${highestScore !== null ? `High Score: ${highestScore}` : ''}</div>
-            `;
+            if (userScores) {
+                const highestScore = getHighestScoreForLevel(level, userScores);
+                // Get the highest score for the current level
+                button.innerHTML = `
+				Level ${level}
+				<div class="text-sm mt-1">${highestScore !== null ? `High Score: ${highestScore}` : ''}</div>
+				`;
+            }
+            else {
+            }
             // Check if the quiz is already in progress at any difficulty level
             const progressItems = currentProgress.find((item) => item.quizId === quizId &&
                 item.currentQuestion > 0 &&
@@ -228,6 +232,7 @@ function createPastScoresSection() {
     var _a;
     removeLeaderboardSection();
     removeLeaderboardSelection();
+    removeProfileSection();
     const pastScoresSection = document.createElement("div");
     pastScoresSection.classList.add("flex", "min-h-full", "flex-col", "justify-center", "px-6", "py-4", "lg:px-8", "container", "border-4", "border-gray-200", "dark:border-gray-100", "dark:bg-gray-800", "dark:text-white", "rounded-2xl", "mx-auto", "my-4", "col-span-12", "lg:col-span-6", "w-full", "lg:w-11/12", "view-score-history");
     pastScoresSection.id = "pastScoresSection";
