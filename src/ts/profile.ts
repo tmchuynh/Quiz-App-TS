@@ -33,8 +33,7 @@ export function createProfileSection(): void {
     profileSection.innerHTML = `
         <h2 class="text-center text-4xl py-5 font-extrabold dark:text-white my-3">User Profile</h2>
         <div class="mb-4 profilePhoto-fields">
-            <label for="profilePhoto" class="block text-md/6 font-medium text-gray-900 dark:text-white">Profile Photo:</label>
-            <input type="file" id="profilePhoto" class="bg-gray-50 border border-gray-300 text-gray-900 dark:text-white text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" />
+            <img id="profilePhoto" class="object-cover w-24 h-24 rounded-full" src="" alt="Profile Photo" />
         </div>
         <div class="relative first-name-fields">
             <label for="userId" class="block text-md/6 font-medium text-gray-900 dark:text-white">ID:</label>
