@@ -1,5 +1,5 @@
 export const quizOptions = [
-    { id: "animalQuiz", label: "Animals Quiz", category: "entertainment" },
+    { id: "animalQuiz", label: "Animal Quiz", category: "entertainment" },
     { id: "astrologyQuiz", label: "Astrology Quiz", category: "humanities" },
     { id: "artQuiz", label: "Art Quiz", category: "humanities" },
     { id: "biologyQuiz", label: "Biology Quiz", category: "sciences" },

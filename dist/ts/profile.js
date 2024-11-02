@@ -39,7 +39,7 @@ export function createProfileSection() {
             </div>
         </div>
 
-        <button id="saveProfileButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">Save Profile</button>
+        <button id="saveProfileButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save Profile</button>
         <p id="profileError" class="mt-2 text-md text-red-600 dark:text-red-400" style="display:none;"></p>
     `;
     // Append the dynamically created profile section to the container
